@@ -112,15 +112,16 @@ public class mainGUI2 extends javax.swing.JFrame {
         empSaveButton = new javax.swing.JButton();
         empCancelButton = new javax.swing.JButton();
         empEditButton = new javax.swing.JButton();
+        empTablePanel = new javax.swing.JPanel();
         viewEmpButton = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        smsMenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        logOutMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1200, 800));
         setMinimumSize(new java.awt.Dimension(1200, 800));
-        setPreferredSize(new java.awt.Dimension(1200, 800));
         setResizable(false);
 
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
@@ -612,6 +613,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     empContainerPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
     empContainerPanel.setMaximumSize(new java.awt.Dimension(995, 577));
+    empContainerPanel.setMinimumSize(new java.awt.Dimension(995, 577));
     empContainerPanel.setPreferredSize(new java.awt.Dimension(995, 577));
     empContainerPanel.setLayout(new java.awt.CardLayout());
 
@@ -887,7 +889,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addComponent(empEditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(empCancelButton)))
-            .addContainerGap(57, Short.MAX_VALUE))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     viewEmpPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {empCancelButton, empSaveButton});
@@ -986,12 +988,18 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 .addComponent(empCancelButton)
                 .addComponent(empSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(empEditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(148, Short.MAX_VALUE))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     viewEmpPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {empCancelButton, empSaveButton});
 
     empContainerPanel.add(viewEmpPanel, "card2");
+
+    empTablePanel.setAutoscrolls(true);
+    empTablePanel.setMaximumSize(new java.awt.Dimension(991, 573));
+    empTablePanel.setMinimumSize(new java.awt.Dimension(991, 573));
+    empTablePanel.setLayout(new java.awt.CardLayout());
+    empContainerPanel.add(empTablePanel, "card2");
 
     viewEmpButton.setText("View");
     viewEmpButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1028,12 +1036,26 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     containerPanel.add(empPanel, "card2");
 
     jMenu1.setText("File");
-    jMenuBar1.add(jMenu1);
+    smsMenuBar.add(jMenu1);
 
     jMenu2.setText("Edit");
-    jMenuBar1.add(jMenu2);
+    smsMenuBar.add(jMenu2);
 
-    setJMenuBar(jMenuBar1);
+    logOutMenu.setText("Log Out");
+
+    jMenuItem1.setText("Log Out");
+    jMenuItem1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+    jMenuItem1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+    jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jMenuItem1ActionPerformed(evt);
+        }
+    });
+    logOutMenu.add(jMenuItem1);
+
+    smsMenuBar.add(logOutMenu);
+
+    setJMenuBar(smsMenuBar);
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -1059,7 +1081,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(36, 36, 36)
                             .addComponent(logoLabel)))
-                    .addGap(0, 122, Short.MAX_VALUE))
+                    .addGap(0, 0, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
                     .addGap(23, 23, 23)
                     .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
@@ -1084,6 +1106,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     );
 
     pack();
+    setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
@@ -1167,97 +1190,19 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         clearAddUserPanel();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void empSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empSaveButtonActionPerformed
-        //Method Call to Clear Fields in the Add User Panel
-        //Add DB Calls before this method
-        //clearViewEmpPanel();
-    }//GEN-LAST:event_empSaveButtonActionPerformed
-
-    private void empCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empCancelButtonActionPerformed
-        //Disable Save Button
-        empSaveButton.setEnabled(false);
-        //Clear the employee view panel
-       // clearViewEmpPanel();
-    }//GEN-LAST:event_empCancelButtonActionPerformed
-
     private void viewEmpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmpButtonActionPerformed
-        empContainerPanel.removeAll();
+        //viewEmpOptionForm opForm = new viewEmpOptionForm();
+        ViewEmpDialog opForm = new ViewEmpDialog(new JFrame(), true);
+        opForm.setVisible(true);
+        
+        /* empContainerPanel.removeAll();
         empContainerPanel.repaint();
         empContainerPanel.revalidate();
 
         empContainerPanel.add(viewEmpPanel);
         empContainerPanel.repaint();
-        empContainerPanel.revalidate();
+        empContainerPanel.revalidate();*/
     }//GEN-LAST:event_viewEmpButtonActionPerformed
-
-    private void empPositionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empPositionComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empPositionComboBoxActionPerformed
-
-    private void empDOBTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empDOBTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empDOBTextMouseClicked
-
-    private void empDOBTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_empDOBTextFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empDOBTextFocusGained
-
-    private void empPhoneTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empPhoneTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empPhoneTextMouseClicked
-
-    private void empPhoneTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_empPhoneTextFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empPhoneTextFocusGained
-
-    private void empEmailTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empEmailTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empEmailTextMouseClicked
-
-    private void empEmailTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_empEmailTextFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empEmailTextFocusGained
-
-    private void viewEmpIDTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewEmpIDTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewEmpIDTextMouseClicked
-
-    private void empCountryTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empCountryTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empCountryTextMouseClicked
-
-    private void empStateTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empStateTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empStateTextMouseClicked
-
-    private void empZipTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empZipTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empZipTextMouseClicked
-
-    private void empCityTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empCityTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empCityTextMouseClicked
-
-    private void empAddress2TextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empAddress2TextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empAddress2TextMouseClicked
-
-    private void empAddress1TextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empAddress1TextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empAddress1TextMouseClicked
-
-    private void empSSNTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empSSNTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empSSNTextMouseClicked
-
-    private void empSSNTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_empSSNTextFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empSSNTextFocusGained
-
-    private void empEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empEditButtonActionPerformed
-        //Method call to allow the employee's inforamtion to be edited.
-        editEmpInfo(true);
-    }//GEN-LAST:event_empEditButtonActionPerformed
 
     private void empButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empButtonActionPerformed
         containerPanel.removeAll();
@@ -1288,6 +1233,117 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_yearComboBoxActionPerformed
+
+    private void empStateTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empStateTextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empStateTextMouseClicked
+
+    private void empCountryTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empCountryTextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empCountryTextMouseClicked
+
+    private void empPositionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empPositionComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empPositionComboBoxActionPerformed
+
+    private void empSSNTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empSSNTextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empSSNTextMouseClicked
+
+    private void empSSNTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_empSSNTextFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empSSNTextFocusGained
+
+    private void empCityTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empCityTextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empCityTextMouseClicked
+
+    private void empZipTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empZipTextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empZipTextMouseClicked
+
+    private void empEmailTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empEmailTextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empEmailTextMouseClicked
+
+    private void empEmailTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_empEmailTextFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empEmailTextFocusGained
+
+    private void viewEmpIDTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewEmpIDTextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewEmpIDTextMouseClicked
+
+    private void empCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empCancelButtonActionPerformed
+        //Disable Save Button
+        empSaveButton.setEnabled(false);
+        //Clear the employee view panel
+        clearViewEmpPanel();
+    }//GEN-LAST:event_empCancelButtonActionPerformed
+
+    private void empEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empEditButtonActionPerformed
+        //Method call to allow the employee's inforamtion to be edited.
+        editEmpInfo(true);
+    }//GEN-LAST:event_empEditButtonActionPerformed
+
+    private void empSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empSaveButtonActionPerformed
+        //Method Call to Clear Fields in the Add User Panel
+        //Add DB Calls before this method
+        //clearViewEmpPanel();
+    }//GEN-LAST:event_empSaveButtonActionPerformed
+
+    private void empPhoneTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empPhoneTextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empPhoneTextMouseClicked
+
+    private void empPhoneTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_empPhoneTextFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empPhoneTextFocusGained
+
+    private void empDOBTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empDOBTextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empDOBTextMouseClicked
+
+    private void empDOBTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_empDOBTextFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empDOBTextFocusGained
+
+    private void empAddress2TextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empAddress2TextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empAddress2TextMouseClicked
+
+    private void empAddress1TextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empAddress1TextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empAddress1TextMouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        this.dispose();
+        
+        //Custom Look and Feel Style 
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(loginGUI2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(loginGUI2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(loginGUI2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(loginGUI2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+     
+        //Run Program
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new loginGUI2().setVisible(true);
+            }
+        }); 
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
      
     
     public static void main(String args[]) {
@@ -1327,7 +1383,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel address2Label;
     private javax.swing.JTextField address2Text;
     private javax.swing.JButton adminButton;
-    private javax.swing.JPanel adminContainerPanel;
+    public static javax.swing.JPanel adminContainerPanel;
     private javax.swing.JPanel adminPanel;
     private javax.swing.JButton apptButton;
     private javax.swing.JButton billButton;
@@ -1337,7 +1393,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JPanel containerPanel;
     private javax.swing.JComboBox dayComboBox;
     private javax.swing.JPanel defaultAdminPanel;
-    private javax.swing.JPanel defaultEmpPanel;
+    public static javax.swing.JPanel defaultEmpPanel;
     private javax.swing.JLabel dobLabel;
     private javax.swing.JLabel empAddress1Label;
     private javax.swing.JTextField empAddress1Text;
@@ -1347,7 +1403,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton empCancelButton;
     private javax.swing.JLabel empCityLabel;
     private javax.swing.JTextField empCityText;
-    private javax.swing.JPanel empContainerPanel;
+    public static javax.swing.JPanel empContainerPanel;
     private javax.swing.JLabel empCountryLabel;
     private javax.swing.JTextField empCountryText;
     private javax.swing.JLabel empDOBLabel;
@@ -1375,6 +1431,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton empSaveButton;
     private javax.swing.JLabel empStateLabel;
     private javax.swing.JTextField empStateText;
+    public static javax.swing.JPanel empTablePanel;
     private javax.swing.JLabel empZipLabel;
     private javax.swing.JTextField empZipText;
     private javax.swing.JRadioButton femaleRadioButton;
@@ -1384,11 +1441,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel genderLabel;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameText;
+    private javax.swing.JMenu logOutMenu;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JRadioButton maleRadioButton;
     private javax.swing.JLabel middleIntLabel;
@@ -1403,6 +1461,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel positionLabel1;
     private javax.swing.JButton reportsButton;
     private javax.swing.JButton saveButton;
+    private javax.swing.JMenuBar smsMenuBar;
     private javax.swing.JLabel ssnLabel;
     private javax.swing.JTextField ssnText;
     private javax.swing.JComboBox stateComboBox;
@@ -1410,7 +1469,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton viewEmpButton;
     private javax.swing.JLabel viewEmpIDLabel;
     private javax.swing.JTextField viewEmpIDText;
-    private javax.swing.JPanel viewEmpPanel;
+    public static javax.swing.JPanel viewEmpPanel;
     private javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel zipLabel;
     private javax.swing.JTextField zipText;
@@ -1752,5 +1811,5 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         editEmpInfo(false);
     }
     
-    
+   
 }

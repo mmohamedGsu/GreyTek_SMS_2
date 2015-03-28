@@ -114,6 +114,7 @@ public class loginGUI2 extends JFrame {
         
         logoLabel.getAccessibleContext().setAccessibleDescription("");
         pack();
+        setLocationRelativeTo(null);
     }
     
     //Precondition: The RootPane has been loaded adn the Login button has been 
@@ -151,7 +152,7 @@ public class loginGUI2 extends JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Authentication Sucessful");
                 mainGUI2 mainGUI = new mainGUI2();
                 mainGUI.setVisible(true);
-                setVisible(false);
+                dispose();
                 
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Authentication failed");
