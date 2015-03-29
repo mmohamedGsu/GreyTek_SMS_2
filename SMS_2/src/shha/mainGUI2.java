@@ -2,6 +2,7 @@
 package shha;
 
 
+import java.util.Calendar;
 import java.util.Enumeration;
 import javax.swing.*;
 import java.util.regex.*;
@@ -11,6 +12,8 @@ import java.util.regex.*;
  */
 public class mainGUI2 extends javax.swing.JFrame {
 
+    public static TimeClockPanel tcPanel = new TimeClockPanel();
+    
     //Build Main GUI
     public mainGUI2() {
         initComponents();
@@ -113,7 +116,9 @@ public class mainGUI2 extends javax.swing.JFrame {
         empCancelButton = new javax.swing.JButton();
         empEditButton = new javax.swing.JButton();
         empTablePanel = new javax.swing.JPanel();
+        timePanel = new javax.swing.JPanel();
         viewEmpButton = new javax.swing.JButton();
+        timeClockButton = new javax.swing.JButton();
         smsMenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -170,7 +175,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         patientsPanel.setPreferredSize(new java.awt.Dimension(1170, 613));
 
         jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jTextPane1.setText("Sorry nothing here yet! Make your way over to the Employee or Admin Tab! \n\n-- GreyTek Inc.");
+        jTextPane1.setText("Check the change log for changes. I suggest adding to it if you make any changes.\n-- GreyTek Inc.");
         jScrollPane2.setViewportView(jTextPane1);
 
         javax.swing.GroupLayout patientsPanelLayout = new javax.swing.GroupLayout(patientsPanel);
@@ -1001,11 +1006,26 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     empTablePanel.setLayout(new java.awt.CardLayout());
     empContainerPanel.add(empTablePanel, "card2");
 
+    timePanel.setAutoscrolls(true);
+    timePanel.setMaximumSize(new java.awt.Dimension(991, 573));
+    timePanel.setMinimumSize(new java.awt.Dimension(991, 573));
+    timePanel.setLayout(new java.awt.CardLayout());
+    empContainerPanel.add(timePanel, "card2");
+
     viewEmpButton.setText("View");
     viewEmpButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     viewEmpButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             viewEmpButtonActionPerformed(evt);
+        }
+    });
+
+    timeClockButton.setText("TimeClock");
+    timeClockButton.setMaximumSize(new java.awt.Dimension(61, 25));
+    timeClockButton.setPreferredSize(new java.awt.Dimension(61, 25));
+    timeClockButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            timeClockButtonActionPerformed(evt);
         }
     });
 
@@ -1015,7 +1035,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, empPanelLayout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(viewEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(viewEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                .addComponent(timeClockButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGap(25, 25, 25)
             .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
@@ -1025,13 +1047,17 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         .addGroup(empPanelLayout.createSequentialGroup()
             .addGroup(empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(empPanelLayout.createSequentialGroup()
-                    .addGap(53, 53, 53)
+                    .addGap(47, 47, 47)
+                    .addComponent(timeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(28, 28, 28)
                     .addComponent(viewEmpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(empPanelLayout.createSequentialGroup()
                     .addGap(25, 25, 25)
                     .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(133, 133, 133))
     );
+
+    empPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {timeClockButton, viewEmpButton});
 
     containerPanel.add(empPanel, "card2");
 
@@ -1344,6 +1370,27 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             }
         }); 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void timeClockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeClockButtonActionPerformed
+        
+        timePanel.removeAll();
+        timePanel.repaint();
+        timePanel.revalidate();
+        
+        timePanel.add(tcPanel);
+        timePanel.repaint();
+        timePanel.revalidate();
+        
+        empContainerPanel.removeAll();
+        empContainerPanel.repaint();
+        empContainerPanel.revalidate();
+
+        empContainerPanel.add(timePanel);
+        empContainerPanel.repaint();
+        empContainerPanel.revalidate();
+        
+        
+    }//GEN-LAST:event_timeClockButtonActionPerformed
      
     
     public static void main(String args[]) {
@@ -1466,6 +1513,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextField ssnText;
     private javax.swing.JComboBox stateComboBox;
     private javax.swing.JLabel stateLabel;
+    private javax.swing.JButton timeClockButton;
+    public static javax.swing.JPanel timePanel;
     private javax.swing.JButton viewEmpButton;
     private javax.swing.JLabel viewEmpIDLabel;
     private javax.swing.JTextField viewEmpIDText;
@@ -1811,5 +1860,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         editEmpInfo(false);
     }
     
+    public TimeClockPanel getTCPanel(){
+        return tcPanel;
+    }
    
 }
