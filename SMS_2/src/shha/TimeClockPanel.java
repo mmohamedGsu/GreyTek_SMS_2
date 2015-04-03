@@ -7,6 +7,7 @@ package shha;
 
 import java.awt.TextArea;
 import java.util.Calendar;
+import java.util.Date;
 import javax.swing.JTextArea;
 import static shha.mainGUI2.tcPanel;
 
@@ -21,7 +22,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
      * Creates new form TimeClockPanel
      */
     
-    Calendar timeIn, timeOut;   //instance variables for when they punch in and out
+    Date timeIn, timeOut;   //instance variables for when they punch in and out
     
     public TimeClockPanel() {
         initComponents();
@@ -105,7 +106,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
     private void punchInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_punchInButtonActionPerformed
         Calendar calendar = Calendar.getInstance();
         java.util.Date now = calendar.getTime();
-        timeIn = calendar;         //make timeIn that calendar time
+        timeIn = now;         //make timeIn that calendar time
         System.out.println("Punch In - " + now.toString());
    
         JTextArea textArea = tcPanel.getTextArea();
@@ -119,7 +120,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
         java.util.Date now = calendar.getTime();
         System.out.println("Punch Out - " + now.toString());
         
-        timeOut = calendar;             //make timeout the time they punched out
+        timeOut = now;             //make timeout the time they punched out
         
         JTextArea textArea = tcPanel.getTextArea();
         textArea.append("Punch Out - " + now.toString()+"\n\n");
@@ -129,8 +130,8 @@ public class TimeClockPanel extends javax.swing.JPanel {
 
     
     private void calculateTimeWorked(){             //let's get to it
-        long off = timeOut.getTimeInMillis();       //get that particular date in milliseconds
-        long on = timeIn.getTimeInMillis();         //same as line above
+        long off = timeOut.getTime();       //get that particular date in milliseconds
+        long on = timeIn.getTime();         //same as line above
         
         //subtract total time then were in the office in milliseconds
         long workedTimeInMillis = off - on;         
