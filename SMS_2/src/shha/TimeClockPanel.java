@@ -20,8 +20,13 @@ public class TimeClockPanel extends javax.swing.JPanel {
     /**
      * Creates new form TimeClockPanel
      */
+    
+    Calendar timeIn, timeOut;   //instance variables for when they punch in and out
+    
     public TimeClockPanel() {
         initComponents();
+        timeIn = null;         //null when initialized
+        timeOut = null;
     }
 
     /**
@@ -100,6 +105,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
     private void punchInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_punchInButtonActionPerformed
         Calendar calendar = Calendar.getInstance();
         java.util.Date now = calendar.getTime();
+        timeIn = calendar;         //make timeIn that calendar time
         System.out.println("Punch In - " + now.toString());
    
         JTextArea textArea = tcPanel.getTextArea();
@@ -112,14 +118,36 @@ public class TimeClockPanel extends javax.swing.JPanel {
         Calendar calendar = Calendar.getInstance();
         java.util.Date now = calendar.getTime();
         System.out.println("Punch Out - " + now.toString());
-   
+        
+        timeOut = calendar;             //make timeout the time they punched out
+        
         JTextArea textArea = tcPanel.getTextArea();
         textArea.append("Punch Out - " + now.toString()+"\n\n");
         tcPanel.repaint();
         tcPanel.revalidate();
     }//GEN-LAST:event_punchOutButtonActionPerformed
 
-
+    
+    private void calculateTimeWorked(){             //let's get to it
+        long off = timeOut.getTimeInMillis();       //get that particular date in milliseconds
+        long on = timeIn.getTimeInMillis();         //same as line above
+        
+        //subtract total time then were in the office in milliseconds
+        long workedTimeInMillis = off - on;         
+        
+        /* -1000 miliseconds make a minute, therefore 60,000 miliseconds make a minute
+           -to calculate every 15minutes they are on the clock, 60,000*15
+           - making it 900,000 miliseconds for every 15minutes
+           - every 4 15mins make an hour, so divide by 4 to get total hours worked
+           - make double to account for decimals.
+        */
+        
+        int per15mins = (int)(workedTimeInMillis/900000);
+        double hoursWorked = per15mins/4;
+        
+        System.out.println("Total hours worked= " + hoursWorked);
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton punchInButton;
