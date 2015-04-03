@@ -108,7 +108,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
         java.util.Date now = calendar.getTime();
         timeIn = now;         //make timeIn that calendar time
         System.out.println("Punch In - " + now.toString());
-   
+        
         JTextArea textArea = tcPanel.getTextArea();
         textArea.append("Punch In - " + now.toString()+"\n\n");
         tcPanel.repaint();
@@ -121,7 +121,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
         System.out.println("Punch Out - " + now.toString());
         
         timeOut = now;             //make timeout the time they punched out
-        
+        calculateTimeWorked(); //Display time worked on console
         JTextArea textArea = tcPanel.getTextArea();
         textArea.append("Punch Out - " + now.toString()+"\n\n");
         tcPanel.repaint();
@@ -131,10 +131,13 @@ public class TimeClockPanel extends javax.swing.JPanel {
     
     private void calculateTimeWorked(){             //let's get to it
         long off = timeOut.getTime();       //get that particular date in milliseconds
+        System.out.println(off); //test
         long on = timeIn.getTime();         //same as line above
-        
+        System.out.println(on); //test
+
         //subtract total time then were in the office in milliseconds
-        long workedTimeInMillis = off - on;         
+        long workedTimeInMillis = off - on;
+        System.out.println(workedTimeInMillis); //test
         
         /* -1000 miliseconds make a minute, therefore 60,000 miliseconds make a minute
            -to calculate every 15minutes they are on the clock, 60,000*15
