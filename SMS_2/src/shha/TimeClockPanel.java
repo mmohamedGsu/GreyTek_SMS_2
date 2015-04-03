@@ -146,7 +146,8 @@ public class TimeClockPanel extends javax.swing.JPanel {
            - make double to account for decimals.
         */
         
-        int per15mins = (int)(workedTimeInMillis/900000);
+        long per15mins = (workedTimeInMillis/900000);
+        System.out.println(per15mins);
         double hoursWorked = per15mins/4;
         
         System.out.println("Total hours worked= " + hoursWorked);
