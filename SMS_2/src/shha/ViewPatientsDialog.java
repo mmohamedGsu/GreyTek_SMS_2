@@ -7,21 +7,20 @@ package shha;
 
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
-import static shha.mainGUI2.empContainerPanel;
-import static shha.mainGUI2.adminContainerPanel;
-import static shha.mainGUI2.viewEmpPanel;
-import static shha.mainGUI2.defaultEmpPanel;
-import static shha.mainGUI2.empTablePanel;
+import static shha.mainGUI2.defaultPatientPanel;
+import static shha.mainGUI2.patientTablePanel;
+import static shha.mainGUI2.patientsContainerPanel;
+
 /**
  *
  * @author Sheldon
  */
-public class ViewEmpDialog extends javax.swing.JDialog {
+public class ViewPatientsDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form testDialog
+     * Creates new form ViewPatientsDialog
      */
-    public ViewEmpDialog(java.awt.Frame parent, boolean modal) {
+    public ViewPatientsDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -37,11 +36,10 @@ public class ViewEmpDialog extends javax.swing.JDialog {
 
         viewAllButton = new javax.swing.JButton();
         searchButton = new javax.swing.JButton();
-        employeeText = new javax.swing.JTextField();
-        searchLabel = new javax.swing.JLabel();
+        patientText = new javax.swing.JTextField();
+        patientLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("View Employees");
 
         viewAllButton.setText("View All");
         viewAllButton.addActionListener(new java.awt.event.ActionListener() {
@@ -57,8 +55,8 @@ public class ViewEmpDialog extends javax.swing.JDialog {
             }
         });
 
-        searchLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        searchLabel.setText("Search Employees By Name or Employee ID");
+        patientLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        patientLabel.setText("Search Patients By Name or SSN");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,8 +69,8 @@ public class ViewEmpDialog extends javax.swing.JDialog {
                         .addComponent(viewAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(searchButton))
-                    .addComponent(employeeText)
-                    .addComponent(searchLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(patientText)
+                    .addComponent(patientLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(78, 78, 78))
         );
 
@@ -82,14 +80,14 @@ public class ViewEmpDialog extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(searchLabel)
+                .addComponent(patientLabel)
                 .addGap(18, 18, 18)
-                .addComponent(employeeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(patientText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
                     .addComponent(viewAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {searchButton, viewAllButton});
@@ -101,59 +99,59 @@ public class ViewEmpDialog extends javax.swing.JDialog {
     private void viewAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllButtonActionPerformed
         this.dispose();
 
-        EmpTablePanel empTable = new EmpTablePanel();
-        JTable table = empTable.getTable();
+        PatientTablePanel patientTable = new PatientTablePanel();
+        JTable table = patientTable.getTable();
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
         table.repaint();
         table.revalidate();
-        empTable.repaint();
-        empTable.revalidate();
+        patientTable.repaint();
+        patientTable.revalidate();
 
-        empTablePanel.removeAll();
-        empTablePanel.repaint();
-        empTablePanel.revalidate();
+        patientTablePanel.removeAll();
+        patientTablePanel.repaint();
+        patientTablePanel.revalidate();
 
-        empTablePanel.add(empTable);
-        empTablePanel.repaint();
-        empTablePanel.revalidate();
+        patientTablePanel.add(patientTable);
+        patientTablePanel.repaint();
+        patientTablePanel.revalidate();
 
-        empContainerPanel.removeAll();
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
+        patientsContainerPanel.removeAll();
+        patientsContainerPanel.repaint();
+        patientsContainerPanel.revalidate();
 
-        empContainerPanel.add(empTablePanel);
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
+        patientsContainerPanel.add(patientTablePanel);
+        patientsContainerPanel.repaint();
+        patientsContainerPanel.revalidate();
     }//GEN-LAST:event_viewAllButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         this.dispose();
 
-        EmpTablePanel empTable = new EmpTablePanel();
-        JTable table = empTable.getTable();
+        PatientTablePanel patientTable = new PatientTablePanel();
+        JTable table = patientTable.getTable();
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
         table.repaint();
         table.revalidate();
-        empTable.repaint();
-        empTable.revalidate();
+        patientTable.repaint();
+        patientTable.revalidate();
 
-        empTablePanel.removeAll();
-        empTablePanel.repaint();
-        empTablePanel.revalidate();
+        patientTablePanel.removeAll();
+        patientTablePanel.repaint();
+        patientTablePanel.revalidate();
 
-        empTablePanel.add(empTable);
-        empTablePanel.repaint();
-        empTablePanel.revalidate();
+        patientTablePanel.add(patientTable);
+        patientTablePanel.repaint();
+        patientTablePanel.revalidate();
 
-        empContainerPanel.removeAll();
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
+        patientsContainerPanel.removeAll();
+        patientsContainerPanel.repaint();
+        patientsContainerPanel.revalidate();
 
-        empContainerPanel.add(empTablePanel);
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
+        patientsContainerPanel.add(patientTablePanel);
+        patientsContainerPanel.repaint();
+        patientsContainerPanel.revalidate();
     }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
@@ -173,21 +171,20 @@ public class ViewEmpDialog extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPatientsDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPatientsDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPatientsDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPatientsDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ViewEmpDialog dialog = new ViewEmpDialog(new javax.swing.JFrame(), true);
+                ViewPatientsDialog dialog = new ViewPatientsDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -200,9 +197,9 @@ public class ViewEmpDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField employeeText;
+    private javax.swing.JLabel patientLabel;
+    private javax.swing.JTextField patientText;
     private javax.swing.JButton searchButton;
-    private javax.swing.JLabel searchLabel;
     private javax.swing.JButton viewAllButton;
     // End of variables declaration//GEN-END:variables
 }
