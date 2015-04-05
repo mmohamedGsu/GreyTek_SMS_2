@@ -1785,7 +1785,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         //JOptionPane.showMessageDialog(rootPane, userName);
         
   
-        Database db = new Database("SMSDB");
+        Database db = new Database("SMSDB2");
   
         if(db.validateUserName(userName) == false) {
             Boolean match = false;
@@ -1855,7 +1855,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ", " + year +
                 ", '" + phoneText.getText() + "', '" + email + "')";
         System.out.println(values);
-        Database db = new Database("SMSDB");
+        Database db = new Database("SMSDB2");
         
         
         db.addDataToTable("employees", values);

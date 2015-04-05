@@ -19,7 +19,7 @@ public class Authentication {
     public Authentication(String _userName, String _passWord) {
         userName = _userName;
         passWord = _passWord;
-        connectionString = "jdbc:derby:SMSDB;";
+        connectionString = "jdbc:derby:SMSDB2;";
     }
     //Precondtion: The connection to the database is valid
     //             The u`dser has entered a user and password combination
@@ -29,7 +29,7 @@ public class Authentication {
         createSqlQuery();
         
         try {
-            Database authDb = new Database("SMSDB");
+            Database authDb = new Database("SMSDB2");
             results = authDb.executeQuery(SQL_STATEMENT);
             ResultSetMetaData resultSetMetaData = results.getMetaData();
             int coulmCount = resultSetMetaData.getColumnCount();

@@ -37,54 +37,44 @@ public class test {
        
     public static void main(String[] args) {
         
-        Database db = new Database("SMSDB");
+        //Database db = new Database("SMSDB2");
         
-        /* Create Database
-        System.out.println("Creating SMSDB dataBase");
-        Database db = new Database("SMSDB","create");
-        System.out.println("Exiting creating SMSDB dataBase");
-        */
-        
-        
-      
+         //Create Database
+                 
+        System.out.println("Creating SMSDB2 dataBase");
+        Database db = new Database("SMSDB2","create");
+        System.out.println("Exiting creating SMSDB2 dataBase");
         
           
         //drop the employees table
-        
-//        System.out.println("Dropping employees table");
-//        db.dropTable("employees");
-//        System.out.println("Employees table dropped");
+        /*
+       System.out.println("Dropping employees table");
+       db.dropTable("employees");
+       System.out.println("Employees table dropped");
+        */
         
         //create new empmployees table with a userName
        
         
-//        System.out.println("Creating employees table");
-//        db.createTable("employees", "(firstName varchar(20), middleInt varchar(10), " +
-//                        "lastName varchar(20), username varchar(20), password varchar(20), " +
-//                        "position varchar(20), accessLevel int, " +
-//                       "ssn varchar(20), sex varchar(10), address1 varchar(100), " +
-//                       "address2 varchar(100), city varchar(20), state varchar(20), " +
-//                        "zip varchar(5), month varchar(20), day int, " +
-//                        "birthYear int, phone varchar(15), " +
-//                        "email varchar(20))");
-//        System.out.println("Employees table created");
+       System.out.println("Creating employees table");
+        db.createTable("employees", "(firstName varchar(20), middleInt varchar(10), " +
+                        "lastName varchar(20), username varchar(20), password varchar(20), " +
+                        "position varchar(20), accessLevel int, " +
+                       "ssn varchar(20), sex varchar(10), address1 varchar(100), " +
+                       "address2 varchar(100), city varchar(20), state varchar(20), " +
+                        "zip varchar(5), month varchar(20), day int, " +
+                        "birthYear int, phone varchar(15), " +
+                        "email varchar(20))");
+        System.out.println("Employees table created");
         
         //add entries into the employees table
         
-//        String values =  "VALUES ('Test', 'T', 'Tester', 'Admin1', 'Password1', " +
-//                                 "'Administrator', 5, '555-55-5555', 'M', '555 The Code Way', " +
-//                                "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
-//                                "'404-555-5555', 'admin1@sms.com')";
-        
-        
-        
-        
-                        
-//                        
-//        System.out.println("Adding users to table");
-//        db.addDataToTable("employees", values);
-//        System.out.println("Added users to table");
-//      
+        String values =  "VALUES ('Test', 'T', 'Tester', 'Admin1', 'Password1', " +
+                                 "'Administrator', 5, '555-55-5555', 'M', '555 The Code Way', " +
+                                "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
+                                "'404-555-5555', 'admin1@sms.com')";
+       
+      
         
          db.createTable("patients", "(firstName varchar(20), middleInt varchar(10), " +
                         "lastName varchar(20), " +
@@ -95,17 +85,17 @@ public class test {
                         "email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");
         System.out.println("Patients table created");
         
-        String values =  "VALUES ('Test', 'T', 'Tester', '555-55-5555', " + 
+        String values2 =  "VALUES ('Test', 'T', 'Tester', '555-55-5555', " + 
                                " 'M', '555 The Code Way', " +
                                 "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
                                 "'404-555-5555', 'admin1@sms.com', 'DR. Chuma Obi', 'Severe allergy to computers')";
         
         
-          db.addDataToTable("patients", values);
+        db.addDataToTable("employees", values);
+        db.addDataToTable("patients", values2);
         
-          db.printAll("patients");
-          
-          
+        db.printAll("patients");
+        db.printAll("employees");
           
         
     }
