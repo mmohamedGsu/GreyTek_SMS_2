@@ -10,6 +10,9 @@ import javax.swing.table.AbstractTableModel;
 import static shha.mainGUI2.empContainerPanel;
 import static shha.mainGUI2.empTablePanel;
 import static shha.mainGUI2.viewEmpPanel;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+
 
 /**
  *
@@ -22,6 +25,7 @@ public class EmpTablePanel extends javax.swing.JPanel {
      */
     public EmpTablePanel() {
         initComponents();
+        
     }
 
     /**
@@ -93,7 +97,7 @@ public class EmpTablePanel extends javax.swing.JPanel {
                     .addComponent(removeColButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(testButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(empScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
+                .addComponent(empScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,10 +124,15 @@ public class EmpTablePanel extends javax.swing.JPanel {
         
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
+     
+        
         table.repaint();
         table.revalidate();
         empTable.repaint();
         empTable.revalidate();
+        
+        
+        
 
         empTablePanel.removeAll();
         empTablePanel.repaint();

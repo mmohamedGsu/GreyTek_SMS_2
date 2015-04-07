@@ -1,5 +1,6 @@
 package shha;
-
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 
 /**
  *
@@ -37,15 +38,15 @@ public class test {
        
     public static void main(String[] args) {
         
-        //Database db = new Database("SMSDB2");
+        Database db = new Database("SMSDB2");
         
          //Create Database
-                 
+       /*          
         System.out.println("Creating SMSDB2 dataBase");
         Database db = new Database("SMSDB2","create");
         System.out.println("Exiting creating SMSDB2 dataBase");
         
-          
+         */ 
         //drop the employees table
         /*
        System.out.println("Dropping employees table");
@@ -55,7 +56,7 @@ public class test {
         
         //create new empmployees table with a userName
        
-        
+        /*
        System.out.println("Creating employees table");
         db.createTable("employees", "(firstName varchar(20), middleInt varchar(10), " +
                         "lastName varchar(20), username varchar(20), password varchar(20), " +
@@ -95,8 +96,28 @@ public class test {
         db.addDataToTable("patients", values2);
         
         db.printAll("patients");
-        db.printAll("employees");
+        
+          */
+        //db.printAll("employees");
+        ResultSet rs = db.queryEmployees();
+         ResultSetMetaData rsmd = null;
+        int columnsNumber = 0;
+         try {
+             rsmd = rs.getMetaData();
+             rsmd.getColumnCount();
+             while (rs.next()) {
+        for (int i = 1; i <= columnsNumber; i++) {
+            if (i > 1) System.out.print(",  ");
+            String columnValue = rs.getString(i);
+            System.out.print(columnValue + " " + rsmd.getColumnName(i));
+        }
+        System.out.println("");
+    }
+        } catch (Exception e) {
+            
+        }
           
+    
         
     }
     

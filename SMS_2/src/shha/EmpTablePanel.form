@@ -22,7 +22,7 @@
                   <Component id="testButton" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="empScrollPane" pref="316" max="32767" attributes="0"/>
+              <Component id="empScrollPane" pref="735" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

@@ -212,6 +212,42 @@ public class Database {
         return results;
     }
     
+    //Precondition: The database is accessible
+    //Postcondition: The jTable in the view employees tabe will show the results
+    //                 of the search
+    public ResultSet searchForEmployee(String employee) {
+        ResultSet employeeResults = null;
+        String query = "select firstName, lastName, position, phone, email FROM employees " +
+        " WHERE firstName='" + employee + "' OR" +
+         " lastName='" + employee + "'";
+        
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            employeeResults = myStatement.executeQuery(query);
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        
+        return employeeResults;
+    }
+    
+    //Precondition: The database is accessible
+    //Postcondition: The jTable in the view employees tab will show all employees
+    public ResultSet queryEmployees() {
+        ResultSet employeeResults = null;
+        String query = "select firstName, lastName, position, phone, email FROM employees";
+        
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            employeeResults = myStatement.executeQuery(query);
+           // results = connection.createStatement().executeQuery(query);
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        
+        return employeeResults;
+    }
+    
     //Precondition: The database is accessible 
     //PostCondition
     

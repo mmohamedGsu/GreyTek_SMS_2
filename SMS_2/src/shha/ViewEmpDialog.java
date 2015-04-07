@@ -5,6 +5,8 @@
  */
 package shha;
 
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 import static shha.mainGUI2.empContainerPanel;
@@ -12,11 +14,22 @@ import static shha.mainGUI2.adminContainerPanel;
 import static shha.mainGUI2.viewEmpPanel;
 import static shha.mainGUI2.defaultEmpPanel;
 import static shha.mainGUI2.empTablePanel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 /**
  *
  * @author Sheldon
  */
 public class ViewEmpDialog extends javax.swing.JDialog {
+    //instance table model
+DefaultTableModel tableModel = new DefaultTableModel() {
+
+    @Override
+    public boolean isCellEditable(int row, int column) {
+       //all cells false
+       return false;
+    }
+};
 
     /**
      * Creates new form testDialog
@@ -105,6 +118,15 @@ public class ViewEmpDialog extends javax.swing.JDialog {
         JTable table = empTable.getTable();
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
+        
+        Database db = new Database("SMSDB2");
+        ResultSet rs = db.queryEmployees();
+        if (rs == null) {
+             JOptionPane.showMessageDialog(rootPane, "No employees found");
+        }
+        table.setModel(DbUtils.resultSetToTableModel(rs));
+        
+        
         table.repaint();
         table.revalidate();
         empTable.repaint();
@@ -134,6 +156,14 @@ public class ViewEmpDialog extends javax.swing.JDialog {
         JTable table = empTable.getTable();
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
+        
+        Database db = new Database("SMSDB2");
+        String employee = employeeText.getText();
+        ResultSet rs = db.searchForEmployee(employee);
+        
+        
+        table.setModel(DbUtils.resultSetToTableModel(rs));
+        
         table.repaint();
         table.revalidate();
         empTable.repaint();
