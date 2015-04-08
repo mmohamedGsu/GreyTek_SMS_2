@@ -63,6 +63,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
         });
 
         punchOutButton.setText("Punch Out");
+        punchOutButton.setEnabled(false);
         punchOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 punchOutButtonActionPerformed(evt);
@@ -80,7 +81,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
                     .addComponent(punchOutButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {punchInButton, punchOutButton});
@@ -104,6 +105,8 @@ public class TimeClockPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void punchInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_punchInButtonActionPerformed
+        punchInButton.setEnabled(false);
+        punchOutButton.setEnabled(true);
         Calendar calendar = Calendar.getInstance();
         java.util.Date now = calendar.getTime();
         timeIn = now;         //make timeIn that calendar time
@@ -116,6 +119,8 @@ public class TimeClockPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_punchInButtonActionPerformed
 
     private void punchOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_punchOutButtonActionPerformed
+        punchOutButton.setEnabled(false);
+        punchInButton.setEnabled(true);
         Calendar calendar = Calendar.getInstance();
         java.util.Date now = calendar.getTime();
         System.out.println("Punch Out - " + now.toString());
