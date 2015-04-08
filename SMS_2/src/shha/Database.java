@@ -92,6 +92,36 @@ public class Database {
         
     }
     
+    //Alter table methods
+    //Add column requires that you enter both the column name and datatype. EX: ALTER TABLE abc ADD dad varchar(50)
+    public void addColumn(String tableName, String columnName){
+        String add = "ALTER TABLE " + tableName + " ADD " + columnName;
+        try{
+            connection.createStatement().execute(add); 
+        } catch (SQLException e) {
+            System.out.println("we're screwed");
+            System.out.println(e.toString());
+            
+        }
+        
+    }
+    
+    //Delete column only requires the column name. EX: ALTER TABLE abc DROP dad
+    public void deleteColumn(String tableName, String columnName){
+        String delete = "ALTER TABLE " + tableName + " DROP " + columnName;
+        try{
+            connection.createStatement().execute(delete); 
+        } catch (SQLException e) {
+            System.out.println("we're screwed");
+            System.out.println(e.toString());
+            
+        }
+        
+    }
+    
+   
+    
+    
     public void dropDatabase(String dataBaseName) {
         String statement = "DROP DATABASE " + dataBaseName;
         
