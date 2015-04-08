@@ -6,7 +6,7 @@ import java.sql.ResultSetMetaData;
  *
  * @author MooseMoose
  */
-public class test {
+public class brianTest {
 //     private static void testString(String name, String ... setOfStrings) {
 //            System.out.println(name);
 //            
@@ -46,17 +46,17 @@ public class test {
         Database db = new Database("SMSDB2","create");
         System.out.println("Exiting creating SMSDB2 dataBase");
         
-         */ 
-        //drop the employees table
-        /*
-       System.out.println("Dropping employees table");
-       db.dropTable("employees");
-       System.out.println("Employees table dropped");
         */
+        //drop the employees table
+        
+       System.out.println("Dropping appt table");
+       db.dropTable("appointments");
+       System.out.println("appt table dropped");
+        
         
         //create new empmployees table with a userName
        
-        
+        /*
        System.out.println("Creating employees table");
         db.createTable("employees", "(firstName varchar(20), middleInt varchar(10), " +
                         "lastName varchar(20), username varchar(20), password varchar(20), " +
@@ -76,7 +76,7 @@ public class test {
                                 "'404-555-5555', 'admin1@sms.com')";
        
       
-        /*
+        
          db.createTable("patients", "(firstName varchar(20), middleInt varchar(10), " +
                         "lastName varchar(20), " +
                        "ssn varchar(20), sex varchar(10), address1 varchar(100), " +
@@ -90,34 +90,31 @@ public class test {
                                " 'M', '555 The Code Way', " +
                                 "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
                                 "'404-555-5555', 'admin1@sms.com', 'DR. Chuma Obi', 'Severe allergy to computers')";
+        
         */
         
-        
         //Creates table with appointment information
-        /*
         db.createTable("appointments", "(firstName varchar(20), " +
                         "lastName varchar(20), phone varchar(15), " +
                         "sex varchar(10), month varchar(20), day int, " +
-                        "birthYear int, email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");
+                        "email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");
         System.out.println("Appointments table created");
         
         String values3 =  "VALUES ('Test', 'Tester', '555-555-5555', " + 
-                               " 'M', 'December', 12, 1964, " +
-                                " 'admin1@sms.com', 'DR. Chuma Obi', 'Severe allergy to computers')";
-        */
+                               " 'M', 'December', 12, 'admin1@sms.com',  " +
+                                " 'DR. Chuma Obi', 'Severe allergy to computers')";
         
-        
-          db.addDataToTable("employees", values);
+          db.addDataToTable("appointments", values3);
+//        db.addDataToTable("employees", values);
 //        db.addDataToTable("patients", values2);
-//          db.addDataToTable("appointments", values3);
+          
 //        db.printAll("patients");
         
-          
+          db.addColumn("appointments", "time varchar(10)");
+//          db.addColumn("appointments", "year varchar(10)");    <------------ For some reason it only lets us add one column at a time. Will work through later...
         
         
-         db.printAll("employees");
-//       db.printAll("appointments");
-         
+         db.printAll("appointments");
          
          /*
         ResultSet rs = db.queryEmployees();
