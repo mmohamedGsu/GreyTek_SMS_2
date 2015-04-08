@@ -74,10 +74,8 @@
                               <Component id="cityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="cityText" alignment="1" max="32767" attributes="0"/>
                               <Component id="lastNameText" alignment="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="zipText" linkSize="1" alignment="0" pref="165" max="32767" attributes="0"/>
-                                  <Component id="zipLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="zipText" alignment="0" pref="165" max="32767" attributes="0"/>
+                              <Component id="zipLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="cancelButton" linkSize="2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="phoneLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -101,8 +99,8 @@
                           </Group>
                           <Component id="stateComboBox" min="-2" pref="139" max="-2" attributes="0"/>
                           <Component id="doctorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="doctorText" linkSize="1" min="-2" pref="158" max="-2" attributes="0"/>
                           <Component id="commentsJScrollPane" alignment="0" min="-2" pref="303" max="-2" attributes="0"/>
+                          <Component id="doctorComboBox" min="-2" pref="139" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -195,7 +193,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="zipText" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="doctorText" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="doctorComboBox" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -232,7 +230,7 @@
                       <Component id="commentsJScrollPane" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -276,6 +274,7 @@
     <Component class="javax.swing.JTextField" name="address1Text">
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="address1TextMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="address1TextActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="address1Label">
@@ -414,11 +413,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yearComboBoxActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="doctorText">
-      <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="doctorTextMouseClicked"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="doctorLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value=" Doctor"/>
@@ -463,5 +457,15 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JComboBox" name="doctorComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Alabama&quot;, &quot;Alaska&quot;, &quot;Arizona&quot;, &quot;Arkansas&quot;,&#xa;    &quot;California&quot;, &quot;Colorado&quot;, &quot;Connecticut&quot;,&#xa;    &quot;Delaware&quot;, &quot;Dist. of Columbia&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&#xa;    &quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;, &quot;Iowa&quot;,&#xa;    &quot;Kansas&quot;, &quot;Kentucky&quot;, &quot;Louisiana&quot;, &quot;Maine&quot;, &quot;Maryland&quot;,&#xa;    &quot;Massachusetts&quot;, &quot;Michigan&quot;, &quot;Minnesota&quot;, &quot;Mississippi&quot;,&#xa;    &quot;Missouri&quot;, &quot;Montana&quot;, &quot;Nebraska&quot;, &quot;Nevada&quot;, &quot;New Hampshire&quot;,&#xa;    &quot;New Jersey&quot;, &quot;New Mexico&quot;, &quot;New York&quot;, &quot;North Carolina&quot;,&#xa;    &quot;North Dakota&quot;, &quot;Ohio&quot;, &quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&#xa;    &quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&#xa;    &quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&#xa;    &quot;Wyoming&quot;})" type="code"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="doctorComboBoxActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

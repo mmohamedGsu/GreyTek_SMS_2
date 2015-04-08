@@ -98,7 +98,9 @@ public class test {
         db.printAll("patients");
         
           */
-        //db.printAll("employees");
+         db.printAll("employees");
+         
+         /*
         ResultSet rs = db.queryEmployees();
          ResultSetMetaData rsmd = null;
         int columnsNumber = 0;
@@ -117,7 +119,7 @@ public class test {
             
         }
           
-    
+    */
         
     }
     

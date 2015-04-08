@@ -18,6 +18,25 @@ public class mainGUI2 extends javax.swing.JFrame {
     //Build Main GUI
     public mainGUI2() {
         initComponents();
+         employeeIdent.setText("Welcome: " +
+                            Authentication.firstName +
+                            " " + Authentication.lastName +
+                            " " + Authentication.accessLevel);
+         int accessLevel = Authentication.accessLevel;
+         
+         switch(accessLevel) {
+             case 1:    adminButton.setEnabled(false);
+                        
+                        break;
+             case 2:
+                        break;
+             case 3:    
+                        break;
+             case 4:
+                        break;
+             case 5:
+                        break;
+         }
     }
 
    
@@ -123,6 +142,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         timePanel = new javax.swing.JPanel();
         viewEmpButton = new javax.swing.JButton();
         timeClockButton = new javax.swing.JButton();
+        employeeIdent = new java.awt.Label();
         smsMenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -474,7 +494,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                             .addComponent(middleIntText)
                             .addGroup(addUserPanelLayout.createSequentialGroup()
                                 .addComponent(middleIntLabel)
-                                .addGap(0, 144, Short.MAX_VALUE))))
+                                .addGap(0, 146, Short.MAX_VALUE))))
                     .addGroup(addUserPanelLayout.createSequentialGroup()
                         .addGroup(addUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(address2Label)
@@ -488,7 +508,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                         .addComponent(dayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 60, Short.MAX_VALUE)))
+                        .addGap(0, 59, Short.MAX_VALUE)))
                 .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(addUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,7 +559,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                             .addComponent(positionLabel1)
                                             .addGap(8, 8, 8))))))
                         .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(43, Short.MAX_VALUE))))
+                    .addContainerGap(42, Short.MAX_VALUE))))
     );
 
     addUserPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, saveButton});
@@ -1115,6 +1135,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     containerPanel.add(empPanel, "card2");
 
+    employeeIdent.setText("label1");
+
     jMenu1.setText("File");
     smsMenuBar.add(jMenu1);
 
@@ -1142,37 +1164,46 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     layout.setHorizontalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
+            .addGap(23, 23, 23)
+            .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGap(23, 23, 23))
+        .addGroup(layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(110, 110, 110)
-                            .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(reportsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(billButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(36, 36, 36)
-                            .addComponent(logoLabel)))
-                    .addGap(0, 0, Short.MAX_VALUE))
+                    .addGap(110, 110, 110)
+                    .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(reportsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(billButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(23, 23, 23)
-                    .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-            .addGap(23, 23, 23))
+                    .addGap(36, 36, 36)
+                    .addComponent(logoLabel)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 25, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(employeeIdent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap())))
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                    .addGap(18, 18, 18))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(24, 24, 24)
+                    .addComponent(employeeIdent, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1255,7 +1286,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private void phoneTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneTextFocusGained
         phoneText.selectAll();
     }//GEN-LAST:event_phoneTextFocusGained
-
+ 
     private void positionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_positionComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_positionComboBoxActionPerformed
@@ -1562,6 +1593,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JPanel empTablePanel;
     private javax.swing.JLabel empZipLabel;
     private javax.swing.JTextField empZipText;
+    private java.awt.Label employeeIdent;
     private javax.swing.JRadioButton femaleRadioButton;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JTextField firstNameText;
@@ -1747,6 +1779,11 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
           return false;
       }
       
+      if(positionComboBox.getSelectedItem().toString().equals("")) {
+          JOptionPane.showMessageDialog(rootPane, "Please select a position");
+          return false;
+      }
+      
       
         //check if phone is correct
         Pattern phonePattern = Pattern.compile("\\d{3}[-]\\d{3}[-]\\d{4}");
@@ -1773,6 +1810,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     //name
     //              Ex: John Doe --> jodoe
     //We will repeat until we get a unique user name for the new employee
+    
+    
+    
     String userName;
     void createUserName() {
         int i = 1;
@@ -1854,7 +1894,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 "', " + day + 
                 ", " + year +
                 ", '" + phoneText.getText() + "', '" + email + "')";
-        System.out.println(values);
         Database db = new Database("SMSDB2");
         
         

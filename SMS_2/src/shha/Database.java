@@ -248,6 +248,20 @@ public class Database {
         return employeeResults;
     }
     
+    public ResultSet queryDoctors() {
+        ResultSet doctorResults = null;
+        String query = "select firstName, lastName from employees WHERE position='Doctor'";
+        
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            doctorResults = myStatement.executeQuery(query);
+        } catch(SQLException e) {
+            
+        }
+        
+        return doctorResults;
+    }
+    
     //Precondition: The database is accessible 
     //PostCondition
     

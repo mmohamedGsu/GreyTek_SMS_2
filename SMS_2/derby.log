@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ----------------------------------------------------------------
 Tue Apr 07 21:00:06 EDT 2015:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-968a-931a-000007f88e08 
@@ -11,3 +12,18 @@ os.arch=amd64
 os.version=6.3
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
+=======
+----------------------------------------------------------------
+Wed Apr 08 10:28:32 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-996e-b837-000007ea8c18 
+on database directory /Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2/SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@70dea4e 
+Loaded from file:/Users/MooseMoose/Google%20Drive/netBeans%20workSpace/Software%20Engineering%20Project/GreyTek%20SMS/SMS_2/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_05-b13
+user.dir=/Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.10
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+>>>>>>> Stashed changes
