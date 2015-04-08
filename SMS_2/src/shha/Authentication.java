@@ -10,6 +10,9 @@ package shha;
 
 import java.sql.*;
 public class Authentication {
+    public static String firstName;
+    public static String lastName;
+    public static int accessLevel;
     
     private String SQL_STATEMENT, userName, passWord, connectionString;
     private final String userTable = "employees", usernameColumn = "username", 
@@ -38,6 +41,9 @@ public class Authentication {
                 
                 if(results.getString(2).equals(passWord)) {
                    //we find a userName,passWord combination
+                    firstName = results.getString(3);
+                    lastName =  results.getString(4);
+                    accessLevel = results.getInt(5);
                     return true;
                 }
             }
@@ -53,8 +59,10 @@ public class Authentication {
     //toDo check your web programming project to see how you guys checked
     //for a user name and password
     private void createSqlQuery() {
-        SQL_STATEMENT = "select " + usernameColumn + ", " + passwordColumn + 
-                        " from " + userTable + " where username='" + userName +"'";                    
+        SQL_STATEMENT = "select " + usernameColumn + ", " + passwordColumn +  
+                        " ,firstName, lastName, accessLevel from  " + 
+                        userTable + " where username='" + userName +"'";                    
     }
     
 }
+

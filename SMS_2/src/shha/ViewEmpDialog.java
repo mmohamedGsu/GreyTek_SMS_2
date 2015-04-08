@@ -70,6 +70,12 @@ DefaultTableModel tableModel = new DefaultTableModel() {
             }
         });
 
+        employeeText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                employeeTextActionPerformed(evt);
+            }
+        });
+
         searchLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         searchLabel.setText("Search Employees By Name or Employee ID");
 
@@ -185,6 +191,10 @@ DefaultTableModel tableModel = new DefaultTableModel() {
         empContainerPanel.repaint();
         empContainerPanel.revalidate();
     }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void employeeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_employeeTextActionPerformed
 
     /**
      * @param args the command line arguments

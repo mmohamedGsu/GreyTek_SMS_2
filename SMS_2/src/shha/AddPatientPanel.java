@@ -5,6 +5,13 @@
  */
 package shha;
 
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import static shha.mainGUI2.patientsContainerPanel;
 import static shha.mainGUI2.defaultPatientPanel;
 
@@ -19,6 +26,8 @@ public class AddPatientPanel extends javax.swing.JPanel {
      */
     public AddPatientPanel() {
         initComponents();
+        String[] doctorsArray = grabDoctors();
+        doctorComboBox.setModel(new javax.swing.DefaultComboBoxModel(doctorsArray));
     }
 
     /**
@@ -61,13 +70,13 @@ public class AddPatientPanel extends javax.swing.JPanel {
         monthComboBox = new javax.swing.JComboBox();
         dayComboBox = new javax.swing.JComboBox();
         yearComboBox = new javax.swing.JComboBox();
-        doctorText = new javax.swing.JTextField();
         doctorLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
         emailText = new javax.swing.JTextField();
         commenstLabel = new javax.swing.JLabel();
         commentsJScrollPane = new javax.swing.JScrollPane();
         commentsTextArea = new javax.swing.JTextArea();
+        doctorComboBox = new javax.swing.JComboBox();
 
         setMaximumSize(new java.awt.Dimension(991, 573));
 
@@ -94,6 +103,11 @@ public class AddPatientPanel extends javax.swing.JPanel {
         address1Text.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 address1TextMouseClicked(evt);
+            }
+        });
+        address1Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                address1TextActionPerformed(evt);
             }
         });
 
@@ -220,15 +234,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }
     });
 
-    doctorText.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            doctorTextMouseClicked(evt);
-        }
-    });
-
     doctorLabel.setText(" Doctor");
 
-    org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, doctorText, org.jdesktop.beansbinding.ObjectProperty.create(), doctorLabel, org.jdesktop.beansbinding.BeanProperty.create("labelFor"));
+    org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, new javax.swing.JTextField(), org.jdesktop.beansbinding.ObjectProperty.create(), doctorLabel, org.jdesktop.beansbinding.BeanProperty.create("labelFor"));
     bindingGroup.addBinding(binding);
 
     emailLabel.setText(" Email");
@@ -250,6 +258,24 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     commentsTextArea.setColumns(20);
     commentsTextArea.setRows(5);
     commentsJScrollPane.setViewportView(commentsTextArea);
+
+    doctorComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Alabama", "Alaska", "Arizona", "Arkansas",
+        "California", "Colorado", "Connecticut",
+        "Delaware", "Dist. of Columbia","Florida","Georgia",
+        "Hawaii","Idaho","Illinois","Indiana", "Iowa",
+        "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+        "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+        "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+        "New Jersey", "New Mexico", "New York", "North Carolina",
+        "North Dakota", "Ohio", "Oklahoma","Oregon","Pennsylvania",
+        "Rhode Island","South Carolina","South Dakota","Tennessee",
+        "Texas","Utah","Vermont","Virginia","Washington","West Virginia",
+        "Wyoming"}));
+doctorComboBox.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+    doctorComboBoxActionPerformed(evt);
+    }
+    });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -294,9 +320,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                             .addComponent(cityLabel, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cityText)
                             .addComponent(lastNameText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(zipText, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                .addComponent(zipLabel)))
+                            .addComponent(zipText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(zipLabel, javax.swing.GroupLayout.Alignment.LEADING))
                         .addComponent(cancelButton)
                         .addComponent(phoneLabel)
                         .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -315,8 +340,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 .addComponent(genderLabel)))
                         .addComponent(stateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(doctorLabel)
-                        .addComponent(doctorText, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(commentsJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(commentsJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(doctorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,8 +349,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                         .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(0, 0, Short.MAX_VALUE))))
     );
-
-    layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {doctorText, zipText});
 
     layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, saveButton});
 
@@ -389,7 +412,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(zipText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(doctorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(doctorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,7 +439,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addComponent(commenstLabel)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(commentsJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addContainerGap(27, Short.MAX_VALUE))
+            .addContainerGap(26, Short.MAX_VALUE))
     );
 
     layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancelButton, saveButton});
@@ -483,13 +506,17 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_yearComboBoxActionPerformed
 
-    private void doctorTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doctorTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doctorTextMouseClicked
-
     private void emailTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailTextMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextMouseClicked
+
+    private void address1TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_address1TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_address1TextActionPerformed
+
+    private void doctorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doctorComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -505,8 +532,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextArea commentsTextArea;
     private javax.swing.JComboBox dayComboBox;
     private javax.swing.JLabel dobLabel;
+    private javax.swing.JComboBox doctorComboBox;
     private javax.swing.JLabel doctorLabel;
-    private javax.swing.JTextField doctorText;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailText;
     private javax.swing.JRadioButton femaleRadioButton;
@@ -555,13 +582,51 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         zipText.setText("");
         phoneText.setText("###-###-####");
         emailText.setText("");
-        doctorText.setText("");
         commentsTextArea.setText("");
         monthComboBox.setSelectedIndex(0);
         dayComboBox.setSelectedIndex(0);
         yearComboBox.setSelectedIndex(0);
+       
+    }
+    
+    
+    //Precondition: THe database is in an accessible state
+    //Postcondition: The doctor's textbox is populated with the doctors in the
+    //               database
+    private String[] grabDoctors() {
+        String[] doctors = null;
+        Database db = new Database("SMSDB2");
+        ResultSet doctorsResult = db.queryDoctors();
+        String arr = null;
+                
+        try {
+            doctorsResult.last();
+            int rowCount = doctorsResult.getRow();
+            doctors = new String[rowCount];
+            doctorsResult.beforeFirst();
+            String firstName= null;
+            String lastName = null;
+            String fullName = null;
+            int counter = 0;
+            
+            while (doctorsResult.next()) {
+                firstName = doctorsResult.getString(1);
+                lastName = doctorsResult.getString(2);
+                fullName = lastName + "," + firstName;
+                doctors[counter] = fullName;
+                counter++;
+        }           
+            
+        }catch(SQLException e) {
+            System.out.println("Error parsing doctors");
+            System.out.println(e.toString());
+        }
         
+        return doctors;
         
     }
+    
+ }
+    
 
-}
+
