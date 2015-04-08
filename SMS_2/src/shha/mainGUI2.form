@@ -239,9 +239,12 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="viewPatientButton" min="-2" pref="110" max="-2" attributes="0"/>
-                          <Component id="addNewPatientButton" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="viewPatientButton" linkSize="8" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="addNewPatientButton" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="chartButton" linkSize="8" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="patientsContainerPanel" min="-2" max="-2" attributes="0"/>
@@ -257,7 +260,9 @@
                               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                               <Component id="addNewPatientButton" min="-2" pref="47" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                              <Component id="viewPatientButton" min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="viewPatientButton" linkSize="9" min="-2" pref="47" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <Component id="chartButton" linkSize="9" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -365,6 +370,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewPatientButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="chartButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Charts"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chartButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

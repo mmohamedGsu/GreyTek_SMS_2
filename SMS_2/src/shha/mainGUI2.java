@@ -60,6 +60,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         patientTablePanel = new javax.swing.JPanel();
         addNewPatientButton = new javax.swing.JButton();
         viewPatientButton = new javax.swing.JButton();
+        chartButton = new javax.swing.JButton();
         adminPanel = new javax.swing.JPanel();
         adminContainerPanel = new javax.swing.JPanel();
         defaultAdminPanel = new javax.swing.JPanel();
@@ -241,19 +242,31 @@ public class mainGUI2 extends javax.swing.JFrame {
             }
         });
 
+        chartButton.setText("Charts");
+        chartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chartButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout patientsPanelLayout = new javax.swing.GroupLayout(patientsPanel);
         patientsPanel.setLayout(patientsPanelLayout);
         patientsPanelLayout.setHorizontalGroup(
             patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patientsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(viewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addNewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(viewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addNewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(chartButton, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(18, 18, 18)
                 .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
+
+        patientsPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {chartButton, viewPatientButton});
+
         patientsPanelLayout.setVerticalGroup(
             patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientsPanelLayout.createSequentialGroup()
@@ -262,12 +275,16 @@ public class mainGUI2 extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addComponent(addNewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
-                        .addComponent(viewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(viewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(chartButton))
                     .addGroup(patientsPanelLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(133, 133, 133))
         );
+
+        patientsPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {chartButton, viewPatientButton});
 
         containerPanel.add(patientsPanel, "card2");
 
@@ -1501,6 +1518,11 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         ViewPatientsDialog opForm = new ViewPatientsDialog(new JFrame(), true);
         opForm.setVisible(true);
     }//GEN-LAST:event_viewPatientButtonActionPerformed
+
+    private void chartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chartButtonActionPerformed
+        ViewChartDialog opForm = new ViewChartDialog(new JFrame(), true);
+        opForm.setVisible(true);
+    }//GEN-LAST:event_chartButtonActionPerformed
      
     
     public static void main(String args[]) {
@@ -1546,6 +1568,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton apptButton;
     private javax.swing.JButton billButton;
     private javax.swing.JButton cancelButton;
+    private javax.swing.JButton chartButton;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JTextField cityText;
     private javax.swing.JPanel containerPanel;

@@ -47,7 +47,14 @@ public class DbUtils {
                 }
                 rows.addElement(newRow);
             }
-            return new DefaultTableModel(rows, columnNames);
+            return new DefaultTableModel(rows, columnNames){
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }};
         } catch (Exception e) {
             e.printStackTrace();
             return null;
