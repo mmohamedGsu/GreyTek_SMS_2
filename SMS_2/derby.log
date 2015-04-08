@@ -1,40 +1,13 @@
-<<<<<<< HEAD
 ----------------------------------------------------------------
-Wed Apr 08 16:39:18 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-9ac2-2ba2-000008032e18 
+Wed Apr 08 16:57:50 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-9ad3-227c-000007f5b1a0 
 on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@7852e922 
 Loaded from file:/C:/Users/Sheldon/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
-=======
-<<<<<<< HEAD
-----------------------------------------------------------------
-Wed Apr 08 16:01:02 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-9a9f-227b-000002fa6db0 
-on database directory C:\Users\Brian\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@7852e922 
-Loaded from file:/C:/Users/Brian/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
->>>>>>> origin/master
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_31-b13
-user.dir=C:\Users\Brian\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2
+java.runtime.version=1.8.0_11-b12
+user.dir=C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2
 os.name=Windows 8.1
 os.arch=amd64
 os.version=6.3
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-<<<<<<< HEAD
-=======
-=======
-----------------------------------------------------------------
-Wed Apr 08 12:43:21 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-99ea-23df-000003637698 
-on database directory /Users/cybschuma/NetBeansProjects/GreyTek_SMS_2/SMS_2/SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@338bd37a 
-Loaded from file:/Users/cybschuma/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_75-b13
-user.dir=/Users/cybschuma/NetBeansProjects/GreyTek_SMS_2/SMS_2
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.9.5
-derby.system.home=null
-Database Class Loader started - derby.database.classpath=''
->>>>>>> origin/master
->>>>>>> origin/master
