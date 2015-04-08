@@ -91,14 +91,30 @@ public class test {
                                 "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
                                 "'404-555-5555', 'admin1@sms.com', 'DR. Chuma Obi', 'Severe allergy to computers')";
         
+        */
         
-        db.addDataToTable("employees", values);
-        db.addDataToTable("patients", values2);
+        //Creates table with appointment information
+        db.createTable("appointments", "(firstName varchar(20), " +
+                        "lastName varchar(20), phone varchar(15), " +
+                        "sex varchar(10), month varchar(20), day int, " +
+                        "birthYear int, email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");
+        System.out.println("Appointments table created");
         
-        db.printAll("patients");
+        String values3 =  "VALUES ('Test', 'Tester', '555-555-5555', " + 
+                               " 'M', 'December', 12, 1964, " +
+                                " 'admin1@sms.com', 'DR. Chuma Obi', 'Severe allergy to computers')";
         
-          */
-         db.printAll("employees");
+        
+//        db.addDataToTable("employees", values);
+//        db.addDataToTable("patients", values2);
+          db.addDataToTable("appointments", values3);
+//        db.printAll("patients");
+        
+          
+        
+        
+        
+         db.printAll("appointments");
          
          /*
         ResultSet rs = db.queryEmployees();
