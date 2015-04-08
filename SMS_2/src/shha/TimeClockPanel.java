@@ -126,11 +126,11 @@ public class TimeClockPanel extends javax.swing.JPanel {
         System.out.println("Punch Out - " + now.toString());
         
         timeOut = now;             //make timeout the time they punched out
-        calculateTimeWorked(); //Display time worked on console
+        double total = calculateTimeWorked(); //Display time worked on console
         JTextArea textArea = tcPanel.getTextArea();
         textArea.append("Punch Out - " + now.toString()+"\n\n");
         
-        String val = "VALUES ('', '"+ timeIn.toString() + "','" + timeOut.toString() + "','" + calculateTimeWorked() + "')";
+        String val = "VALUES ('', '"+ timeIn.toString() + "','" + timeOut.toString() + "','" + total + "')";
         db.addDataToTable("timeKeeper", val);
         
         tcPanel.repaint();
