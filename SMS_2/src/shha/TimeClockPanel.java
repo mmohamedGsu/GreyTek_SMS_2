@@ -21,7 +21,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
     /**
      * Creates new form TimeClockPanel
      */
-    
+    Database db = new Database("SMSDB2");       //for the database
     Date timeIn, timeOut;   //instance variables for when they punch in and out
     
     public TimeClockPanel() {
@@ -129,12 +129,16 @@ public class TimeClockPanel extends javax.swing.JPanel {
         calculateTimeWorked(); //Display time worked on console
         JTextArea textArea = tcPanel.getTextArea();
         textArea.append("Punch Out - " + now.toString()+"\n\n");
+        
+        String val = "VALUES ('', '"+ timeIn.toString() + "','" + timeOut.toString() + "','" + calculateTimeWorked() + "')";
+        db.addDataToTable("timeKeeper", val);
+        
         tcPanel.repaint();
         tcPanel.revalidate();
     }//GEN-LAST:event_punchOutButtonActionPerformed
 
     
-    private void calculateTimeWorked(){             //let's get to it
+    private double calculateTimeWorked(){             //let's get to it
         long off = timeOut.getTime();       //get that particular date in milliseconds
         System.out.println(off); //test
         long on = timeIn.getTime();         //same as line above
@@ -157,6 +161,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
         
         System.out.println("Total hours worked= " + hoursWorked);
         
+        return hoursWorked;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
