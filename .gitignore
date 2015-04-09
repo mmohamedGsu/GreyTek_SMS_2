@@ -19,7 +19,14 @@ SMS_2/SMSDB2/log/log1.dat
 
 *.ctrl
 >>>>>>> Stashed changes
+<<<<<<< HEAD
 
 *.log
 
 *.log
+=======
+SMS_2/derby.log
+SMS_2/src/shha/AddPatientPanel.java
+>>>>>>> origin/master
+
+*.dat

@@ -47,17 +47,17 @@ public class ChumaTest {
 //        
           
         //drop the employees table
-        /*
-       System.out.println("Dropping employees table");
-       db.dropTable("employees");
-       System.out.println("Employees table dropped");
-        */
+        
+//       System.out.println("Dropping employ table");
+//       db.dropTable("employ");
+//       System.out.println("Employ table dropped");
+        
         
         //create new empmployees table with a userName
        
         
 //       System.out.println("Creating employees table");
-//        db.createTable("employees", "(id int NOT NULL AUTO_INCREMENT, firstName varchar(20), middleInt varchar(10), " +
+//        db.createTable("employ", "(firstName varchar(20), middleInt varchar(10), " +
 //                        "lastName varchar(20), username varchar(20), password varchar(20), " +
 //                        "position varchar(20), accessLevel int, " +
 //                       "ssn varchar(20), sex varchar(10), address1 varchar(100), " +
@@ -65,15 +65,15 @@ public class ChumaTest {
 //                        "zip varchar(5), month varchar(20), day int, " +
 //                        "birthYear int, phone varchar(15), " +
 //                        "email varchar(20))");
-//        System.out.println("Employees table created");
-//        
-//        //add entries into the employees table
-//        
+//        System.out.println("Employ table created");
+        
+        //add entries into the employees table
+        
 //        String values =  "VALUES ('Test', 'T', 'Tester', 'Admin1', 'Password1', " +
 //                                 "'Administrator', 5, '555-55-5555', 'M', '555 The Code Way', " +
 //                                "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
 //                                "'404-555-5555', 'admin1@sms.com')";
-//       
+////    
 //      
 //        
 //         db.createTable("patients", "(firstName varchar(20), middleInt varchar(10), " +
@@ -97,13 +97,14 @@ public class ChumaTest {
         
 //        System.out.println("Time Punch Table Created");
 
-    //    db.dropTable("patients");
-//        db.addDataToTable("employees", values);
+     //   db.dropTable("employ");
+//          db.addDataToTable("employ", values);
 //        db.addDataToTable("patients", values2);
+          db.
  
-        db.printAll("timeKeeper");
-        db.printAll("patients");
-        db.printAll("employees");
+//        db.printAll("timeKeeper");
+//        db.printAll("patients");
+         db.printAll("employ");
           
         
     }

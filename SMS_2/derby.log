@@ -1,3 +1,28 @@
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+----------------------------------------------------------------
+<<<<<<< HEAD
+Thu Apr 09 17:16:14 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a00a-54ee-00000357a7c0 
+on database directory C:\Users\Brian\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@7852e922 
+Loaded from file:/C:/Users/Brian/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
+=======
+Thu Apr 09 17:31:59 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a018-c377-0000080790c0 
+on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@7852e922 
+Loaded from file:/C:/Users/Sheldon/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
+>>>>>>> origin/master
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_31-b13
+user.dir=C:\Users\Brian\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+=======
+>>>>>>> origin/master
 ----------------------------------------------------------------
 Thu Apr 09 19:27:32 EDT 2015:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a082-8c76-000007ce1c28 
