@@ -144,6 +144,10 @@ public class mainGUI2 extends javax.swing.JFrame {
         timePanel = new javax.swing.JPanel();
         viewEmpButton = new javax.swing.JButton();
         timeClockButton = new javax.swing.JButton();
+        apptPanel = new javax.swing.JPanel();
+        apptContainerPanel = new javax.swing.JPanel();
+        defaultApptPanel = new javax.swing.JPanel();
+        createApptButton = new javax.swing.JButton();
         employeeIdent = new java.awt.Label();
         smsMenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -167,6 +171,11 @@ public class mainGUI2 extends javax.swing.JFrame {
 
         apptButton.setText("Appointments");
         apptButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        apptButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apptButtonActionPerformed(evt);
+            }
+        });
 
         reportsButton.setText("Reports");
         reportsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1134,7 +1143,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, empPanelLayout.createSequentialGroup()
             .addContainerGap()
             .addGroup(empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(viewEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                .addComponent(viewEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                 .addComponent(timeClockButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGap(25, 25, 25)
             .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1158,6 +1167,65 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     empPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {timeClockButton, viewEmpButton});
 
     containerPanel.add(empPanel, "card2");
+
+    apptPanel.setMaximumSize(new java.awt.Dimension(1170, 613));
+    apptPanel.setMinimumSize(new java.awt.Dimension(1170, 613));
+
+    apptContainerPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+    apptContainerPanel.setMaximumSize(new java.awt.Dimension(995, 577));
+    apptContainerPanel.setMinimumSize(new java.awt.Dimension(995, 577));
+    apptContainerPanel.setPreferredSize(new java.awt.Dimension(995, 577));
+    apptContainerPanel.setLayout(new java.awt.CardLayout());
+
+    defaultApptPanel.setMaximumSize(new java.awt.Dimension(995, 577));
+    defaultApptPanel.setMinimumSize(new java.awt.Dimension(995, 577));
+
+    javax.swing.GroupLayout defaultApptPanelLayout = new javax.swing.GroupLayout(defaultApptPanel);
+    defaultApptPanel.setLayout(defaultApptPanelLayout);
+    defaultApptPanelLayout.setHorizontalGroup(
+        defaultApptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 995, Short.MAX_VALUE)
+    );
+    defaultApptPanelLayout.setVerticalGroup(
+        defaultApptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 577, Short.MAX_VALUE)
+    );
+
+    apptContainerPanel.add(defaultApptPanel, "card3");
+
+    createApptButton.setText("Create");
+    createApptButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    createApptButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            createApptButtonActionPerformed(evt);
+        }
+    });
+
+    javax.swing.GroupLayout apptPanelLayout = new javax.swing.GroupLayout(apptPanel);
+    apptPanel.setLayout(apptPanelLayout);
+    apptPanelLayout.setHorizontalGroup(
+        apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apptPanelLayout.createSequentialGroup()
+            .addContainerGap()
+            .addComponent(createApptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(25, 25, 25)
+            .addComponent(apptContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(25, 25, 25))
+    );
+    apptPanelLayout.setVerticalGroup(
+        apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(apptPanelLayout.createSequentialGroup()
+            .addGroup(apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(apptPanelLayout.createSequentialGroup()
+                    .addGap(100, 100, 100)
+                    .addComponent(createApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(apptPanelLayout.createSequentialGroup()
+                    .addGap(25, 25, 25)
+                    .addComponent(apptContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGap(133, 133, 133))
+    );
+
+    containerPanel.add(apptPanel, "card2");
 
     employeeIdent.setText("label1");
 
@@ -1530,6 +1598,29 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         ViewChartDialog opForm = new ViewChartDialog(new JFrame(), true);
         opForm.setVisible(true);
     }//GEN-LAST:event_chartButtonActionPerformed
+
+    private void apptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apptButtonActionPerformed
+        containerPanel.removeAll();
+        containerPanel.repaint();
+        containerPanel.revalidate();
+       
+        containerPanel.add(apptPanel);
+        containerPanel.repaint();
+        containerPanel.revalidate();
+    }//GEN-LAST:event_apptButtonActionPerformed
+
+    private void createApptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createApptButtonActionPerformed
+        apptContainerPanel.removeAll();
+        apptContainerPanel.repaint();
+        apptContainerPanel.revalidate();
+        
+        CreateApptPanel createApptPanel = new CreateApptPanel();
+
+        
+        apptContainerPanel.add(createApptPanel);
+        apptContainerPanel.repaint();
+        apptContainerPanel.revalidate();
+    }//GEN-LAST:event_createApptButtonActionPerformed
      
     
     public static void main(String args[]) {
@@ -1573,6 +1664,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JPanel adminContainerPanel;
     private javax.swing.JPanel adminPanel;
     private javax.swing.JButton apptButton;
+    public static javax.swing.JPanel apptContainerPanel;
+    private javax.swing.JPanel apptPanel;
     private javax.swing.JButton billButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton chartButton;
@@ -1580,8 +1673,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel cityLabel;
     private javax.swing.JTextField cityText;
     private javax.swing.JPanel containerPanel;
+    private javax.swing.JButton createApptButton;
     private javax.swing.JComboBox dayComboBox;
     private javax.swing.JPanel defaultAdminPanel;
+    public static javax.swing.JPanel defaultApptPanel;
     public static javax.swing.JPanel defaultEmpPanel;
     public static javax.swing.JPanel defaultPatientPanel;
     private javax.swing.JLabel dobLabel;

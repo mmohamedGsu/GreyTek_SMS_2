@@ -9,8 +9,11 @@ package shha;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static shha.mainGUI2.patientsContainerPanel;
 import static shha.mainGUI2.defaultPatientPanel;
@@ -481,7 +484,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         //Add DB Functions here above the clearAddPatientPanel call
-        
+        System.out.println(getSelectedButtonText(genderButtonGroup));
         clearAddPatientPanel();
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -626,6 +629,17 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         
     }
     
+    public String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+
+        return null;
+    }
  }
     
 
