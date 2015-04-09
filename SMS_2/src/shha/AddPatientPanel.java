@@ -484,8 +484,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_phoneTextMouseClicked
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+<<<<<<< HEAD
         addPatientToDB();        //Add DB Functions here above the clearAddPatientPanel call
         
+=======
+        //Add DB Functions here above the clearAddPatientPanel call
+        System.out.println(getSelectedButtonText(genderButtonGroup));
+>>>>>>> origin/master
         clearAddPatientPanel();
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -631,6 +636,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         
     }
     
+<<<<<<< HEAD
     
         void addPatientToDB(){
         
@@ -669,6 +675,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }
         
             public String getSelectedButtonText(ButtonGroup buttonGroup) {
+=======
+    public String getSelectedButtonText(ButtonGroup buttonGroup) {
+>>>>>>> origin/master
         for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
 
@@ -679,7 +688,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
         return null;
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/master
  }
     
 
