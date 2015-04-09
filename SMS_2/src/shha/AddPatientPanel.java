@@ -6,11 +6,15 @@
 package shha;
 
 
+import static java.lang.Integer.parseInt;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static shha.mainGUI2.patientsContainerPanel;
 import static shha.mainGUI2.defaultPatientPanel;
@@ -480,7 +484,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_phoneTextMouseClicked
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        //Add DB Functions here above the clearAddPatientPanel call
+        addPatientToDB();        //Add DB Functions here above the clearAddPatientPanel call
         
         clearAddPatientPanel();
     }//GEN-LAST:event_saveButtonActionPerformed
@@ -518,6 +522,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_doctorComboBoxActionPerformed
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel address1Label;
@@ -624,6 +629,55 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         
         return doctors;
         
+    }
+    
+    
+        void addPatientToDB(){
+        
+   String gender = getSelectedButtonText(genderButtonGroup);
+//       String gender =  genderButtonGroup.getElements().toString();
+       System.out.println(gender);
+        int day =  parseInt(dayComboBox.getSelectedItem().toString());
+        int year = parseInt(yearComboBox.getSelectedItem().toString());
+//        String doctor = getSelectedButtonText(doctorButtonGroup);
+        String doctor = doctorComboBox.getSelectedItem().toString();
+        System.out.println(doctor);
+//        String email = userName + "@sms.com";
+        String values = "VALUES ( '"+ firstNameText.getText() +
+                "', '" + middleIntText.getText() + 
+                "', '" + lastNameText.getText() +
+//                "', '" + userName + "', 'Password1"  +  
+//                "', '" + positionComboBox.getSelectedItem().toString() +
+                ", '" + ssnText.getText()+
+                "', '" + gender +
+                "', '" + address1Text.getText() +
+                "', '" + address2Text.getText() +
+                "', '" + cityText.getText() +
+                "', '" + stateComboBox.getSelectedItem().toString() + 
+                "', '" + zipText.getText() + 
+                "', '" + monthComboBox.getSelectedItem().toString() +
+                "', " + day + 
+                ", " + year +
+                ", '" + phoneText.getText() + "', '" + emailText.getText() + 
+                "', '" + doctor + "', '" + commentsTextArea.getText() + "')";
+//        Database db = new Database("SMSDB2");
+//        
+//        
+//        db.addDataToTable("patients", values);
+        JOptionPane.showMessageDialog(this.getRootPane(), "Patient Added");
+        clearAddPatientPanel();
+    }
+        
+            public String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+
+        return null;
     }
     
  }

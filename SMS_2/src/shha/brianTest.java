@@ -96,12 +96,12 @@ public class brianTest {
         //Creates table with appointment information
         db.createTable("appointments", "(firstName varchar(20), " +
                         "lastName varchar(20), phone varchar(15), " +
-                        "sex varchar(10), month varchar(20), day int, " +
+                        "sex varchar(10), month varchar(20), day int, apptYear varchar(10), time varchar(10), " +
                         "email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");
         System.out.println("Appointments table created");
         
         String values3 =  "VALUES ('Test', 'Tester', '555-555-5555', " + 
-                               " 'M', 'December', 12, 'admin1@sms.com',  " +
+                               " 'M', 'December', 12, '1975', '4pm', 'admin1@sms.com',  " +
                                 " 'DR. Chuma Obi', 'Severe allergy to computers')";
         
           db.addDataToTable("appointments", values3);
@@ -110,7 +110,7 @@ public class brianTest {
           
 //        db.printAll("patients");
         
-          db.addColumn("appointments", "time varchar(10)");
+//          db.addColumn("appointments", "time varchar(10)");
 //          db.addColumn("appointments", "year varchar(10)");    <------------ For some reason it only lets us add one column at a time. Will work through later...
         
         
