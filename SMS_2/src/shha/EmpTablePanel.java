@@ -12,6 +12,7 @@ import static shha.mainGUI2.empTablePanel;
 import static shha.mainGUI2.viewEmpPanel;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 
 
 /**
@@ -158,17 +159,49 @@ public class EmpTablePanel extends javax.swing.JPanel {
         int row = target.getSelectedRow();
         int column = target.getSelectedColumn();
         System.out.println("Double Click on Row worked");
-        System.out.println(empTable.getValueAt(row, 0));
+        System.out.println(empTable.getValueAt(row, 4));
         
+        Database db = new Database("SMSDB2");
+        ResultSet rs = db.queryEmployeeInfo(empTable.getValueAt(row, 4).toString());
         
         empContainerPanel.removeAll();
         empContainerPanel.repaint();
         empContainerPanel.revalidate();
-
+        
+        try {
+            rs.next();
+            mainGUI2.empFirstNameText.setText(rs.getString(1));
+            mainGUI2.empMiddleIntText.setText(rs.getString(2));
+            mainGUI2.empLastNameText.setText(rs.getString((3)));
+            //skip column 4 which is username
+            //skip column 5 which is password
+            //column 6 is position
+            //column 7 is access level
+            mainGUI2.empSSNText.setText(rs.getString(8));
+            //column 9 is Sex
+            mainGUI2.empAddress1Text.setText(rs.getString(10));
+            mainGUI2.empAddress2Text.setText(rs.getString(11));
+            mainGUI2.empCityText.setText(rs.getString(12));
+            mainGUI2.empStateText.setText(rs.getString(13));
+            mainGUI2.empZipText.setText(rs.getString(14));
+            //15 is birth month
+            //16 is birth day
+            //17 is birth year
+            mainGUI2.empPhoneText.setText(rs.getString(18));
+            mainGUI2.empEmailText.setText(rs.getString(19));
+            
+            
+            
+        } catch(SQLException e) {
+            System.out.println("Error parsing users");
+            System.out.println(e.toString());
+        }
+        
         empContainerPanel.add(viewEmpPanel);
         empContainerPanel.repaint();
         empContainerPanel.revalidate();
-         }
+         
+      }
     }//GEN-LAST:event_empTableMouseClicked
 
     

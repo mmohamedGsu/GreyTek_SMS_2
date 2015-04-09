@@ -2,6 +2,8 @@
 package shha;
 
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Enumeration;
 import javax.swing.*;
@@ -14,7 +16,17 @@ public class mainGUI2 extends javax.swing.JFrame {
 
     public static TimeClockPanel tcPanel = new TimeClockPanel();
     
-    
+    public void populateEmployee(ResultSet rs) {
+        initComponents();
+        try {
+           empFirstNameText.setText(rs.getString("firstName"));
+           empLastNameText.setText(rs.getString("lastName"));
+           empAddress1Text.setText("test123");
+           
+        } catch(SQLException e) {
+            
+        }
+    }
     //Build Main GUI
     public mainGUI2() {
         initComponents();
@@ -1586,44 +1598,44 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JPanel defaultPatientPanel;
     private javax.swing.JLabel dobLabel;
     private javax.swing.JLabel empAddress1Label;
-    private javax.swing.JTextField empAddress1Text;
+    public static javax.swing.JTextField empAddress1Text;
     private javax.swing.JLabel empAddress2Label;
-    private javax.swing.JTextField empAddress2Text;
+    public static javax.swing.JTextField empAddress2Text;
     private javax.swing.JButton empButton;
     private javax.swing.JButton empCancelButton;
     private javax.swing.JLabel empCityLabel;
-    private javax.swing.JTextField empCityText;
+    public static javax.swing.JTextField empCityText;
     public static javax.swing.JPanel empContainerPanel;
     private javax.swing.JLabel empCountryLabel;
-    private javax.swing.JTextField empCountryText;
+    public static javax.swing.JTextField empCountryText;
     private javax.swing.JLabel empDOBLabel;
-    private javax.swing.JTextField empDOBText;
+    public static javax.swing.JTextField empDOBText;
     private javax.swing.JButton empEditButton;
     private javax.swing.JLabel empEmailLabel;
-    private javax.swing.JTextField empEmailText;
-    private javax.swing.JRadioButton empFemaleRadioButton;
+    public static javax.swing.JTextField empEmailText;
+    public static javax.swing.JRadioButton empFemaleRadioButton;
     private javax.swing.JLabel empFirstNameLabel;
-    private javax.swing.JTextField empFirstNameText;
+    public static javax.swing.JTextField empFirstNameText;
     private javax.swing.ButtonGroup empGenderButtonGroup;
     private javax.swing.JLabel empGenderLabel;
     private javax.swing.JLabel empLastNameLabel;
-    private javax.swing.JTextField empLastNameText;
-    private javax.swing.JRadioButton empMaleRadioButton;
+    public static javax.swing.JTextField empLastNameText;
+    public static javax.swing.JRadioButton empMaleRadioButton;
     private javax.swing.JLabel empMiddleIntLabel;
-    private javax.swing.JTextField empMiddleIntText;
+    public static javax.swing.JTextField empMiddleIntText;
     private javax.swing.JPanel empPanel;
     private javax.swing.JLabel empPhoneLabel;
-    private javax.swing.JTextField empPhoneText;
-    private javax.swing.JComboBox empPositionComboBox;
+    public static javax.swing.JTextField empPhoneText;
+    public static javax.swing.JComboBox empPositionComboBox;
     private javax.swing.JLabel empPositionLabel;
     private javax.swing.JLabel empSSNLabel;
-    private javax.swing.JTextField empSSNText;
+    public static javax.swing.JTextField empSSNText;
     private javax.swing.JButton empSaveButton;
     private javax.swing.JLabel empStateLabel;
-    private javax.swing.JTextField empStateText;
+    public static javax.swing.JTextField empStateText;
     public static javax.swing.JPanel empTablePanel;
     private javax.swing.JLabel empZipLabel;
-    private javax.swing.JTextField empZipText;
+    public static javax.swing.JTextField empZipText;
     private java.awt.Label employeeIdent;
     private javax.swing.JRadioButton femaleRadioButton;
     private javax.swing.JLabel firstNameLabel;
@@ -1661,7 +1673,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JPanel timePanel;
     private javax.swing.JButton viewEmpButton;
     private javax.swing.JLabel viewEmpIDLabel;
-    private javax.swing.JTextField viewEmpIDText;
+    public static javax.swing.JTextField viewEmpIDText;
     public static javax.swing.JPanel viewEmpPanel;
     private javax.swing.JButton viewPatientButton;
     private javax.swing.JComboBox yearComboBox;
