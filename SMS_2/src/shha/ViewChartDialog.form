@@ -27,9 +27,9 @@
               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
                   <Group type="102" alignment="2" attributes="0">
-                      <Component id="viewAllButton" min="-2" pref="102" max="-2" attributes="0"/>
+                      <Component id="viewAllButton" linkSize="1" min="-2" pref="102" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="searchButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="searchButton" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="patientText" alignment="2" max="32767" attributes="0"/>
                   <Component id="patientLabel" alignment="2" max="32767" attributes="0"/>
@@ -47,8 +47,8 @@
               <Component id="patientText" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="searchButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="viewAllButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="searchButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="viewAllButton" linkSize="2" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="68" max="32767" attributes="0"/>
           </Group>

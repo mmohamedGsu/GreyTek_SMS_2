@@ -8,7 +8,7 @@ package shha;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 import static shha.mainGUI2.defaultPatientPanel;
-import static shha.mainGUI2.patientTablePanel;
+import static shha.mainGUI2.chartTablePanel;
 import static shha.mainGUI2.patientsContainerPanel;
 
 /**
@@ -73,6 +73,9 @@ public class ViewChartDialog extends javax.swing.JDialog {
                     .addComponent(patientLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(78, 78, 78))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {searchButton, viewAllButton});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -87,6 +90,8 @@ public class ViewChartDialog extends javax.swing.JDialog {
                 .addContainerGap(68, Short.MAX_VALUE))
         );
 
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {searchButton, viewAllButton});
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -94,28 +99,28 @@ public class ViewChartDialog extends javax.swing.JDialog {
     private void viewAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllButtonActionPerformed
         this.dispose();
 
-        PatientTablePanel patientTable = new PatientTablePanel();
-        JTable table = patientTable.getTable();
+        ChartTablePanel chartTable = new ChartTablePanel();
+        JTable table = chartTable.getTable();
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
         table.repaint();
         table.revalidate();
-        patientTable.repaint();
-        patientTable.revalidate();
+        chartTable.repaint();
+        chartTable.revalidate();
 
-        patientTablePanel.removeAll();
-        patientTablePanel.repaint();
-        patientTablePanel.revalidate();
+        chartTablePanel.removeAll();
+        chartTablePanel.repaint();
+        chartTablePanel.revalidate();
 
-        patientTablePanel.add(patientTable);
-        patientTablePanel.repaint();
-        patientTablePanel.revalidate();
+        chartTablePanel.add(chartTable);
+        chartTablePanel.repaint();
+        chartTablePanel.revalidate();
 
         patientsContainerPanel.removeAll();
         patientsContainerPanel.repaint();
         patientsContainerPanel.revalidate();
 
-        patientsContainerPanel.add(patientTablePanel);
+        patientsContainerPanel.add(chartTablePanel);
         patientsContainerPanel.repaint();
         patientsContainerPanel.revalidate();
     }//GEN-LAST:event_viewAllButtonActionPerformed
@@ -123,28 +128,28 @@ public class ViewChartDialog extends javax.swing.JDialog {
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         this.dispose();
 
-        PatientTablePanel patientTable = new PatientTablePanel();
-        JTable table = patientTable.getTable();
+        ChartTablePanel chartTable = new ChartTablePanel();
+        JTable table = chartTable.getTable();
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
         table.repaint();
         table.revalidate();
-        patientTable.repaint();
-        patientTable.revalidate();
+        chartTable.repaint();
+        chartTable.revalidate();
 
-        patientTablePanel.removeAll();
-        patientTablePanel.repaint();
-        patientTablePanel.revalidate();
+        chartTablePanel.removeAll();
+        chartTablePanel.repaint();
+        chartTablePanel.revalidate();
 
-        patientTablePanel.add(patientTable);
-        patientTablePanel.repaint();
-        patientTablePanel.revalidate();
+        chartTablePanel.add(chartTable);
+        chartTablePanel.repaint();
+        chartTablePanel.revalidate();
 
         patientsContainerPanel.removeAll();
         patientsContainerPanel.repaint();
         patientsContainerPanel.revalidate();
 
-        patientsContainerPanel.add(patientTablePanel);
+        patientsContainerPanel.add(chartTablePanel);
         patientsContainerPanel.repaint();
         patientsContainerPanel.revalidate();
     }//GEN-LAST:event_searchButtonActionPerformed

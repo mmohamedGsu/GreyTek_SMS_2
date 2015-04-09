@@ -6,26 +6,19 @@
 package shha;
 
 import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
-import static shha.mainGUI2.empContainerPanel;
-import static shha.mainGUI2.empTablePanel;
-import static shha.mainGUI2.viewEmpPanel;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-
+import static shha.mainGUI2.patientsContainerPanel;
 
 /**
  *
  * @author Sheldon
  */
-public class EmpTablePanel extends javax.swing.JPanel {
+public class ChartTablePanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form testTable
+     * Creates new form ChartTablePanel
      */
-    public EmpTablePanel() {
+    public ChartTablePanel() {
         initComponents();
-        
     }
 
     /**
@@ -37,42 +30,42 @@ public class EmpTablePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        empScrollPane = new javax.swing.JScrollPane();
-        empTable = new javax.swing.JTable();
+        chartScollPane = new javax.swing.JScrollPane();
+        chartTable = new javax.swing.JTable();
         testButton = new javax.swing.JButton();
         removeColButton = new javax.swing.JButton();
 
-        empTable.setModel(new javax.swing.table.DefaultTableModel(
+        chartTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Key", "Employee ID", "First Name", "Last Name", "Position", "Phone", "Email"
+                "First Name", "Last Name", "Sex", "Phone", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        empTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        chartTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                empTableMouseClicked(evt);
+                chartTableMouseClicked(evt);
             }
         });
-        empScrollPane.setViewportView(empTable);
+        chartScollPane.setViewportView(chartTable);
 
         testButton.setText("Test");
         testButton.addActionListener(new java.awt.event.ActionListener() {
@@ -97,11 +90,11 @@ public class EmpTablePanel extends javax.swing.JPanel {
                     .addComponent(removeColButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(testButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(empScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 735, Short.MAX_VALUE))
+                .addComponent(chartScollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(empScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+            .addComponent(chartScollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(97, 97, 97)
                 .addComponent(removeColButton)
@@ -110,79 +103,69 @@ public class EmpTablePanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    
-    //Test DB and table sync
-    private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
-       
-    }//GEN-LAST:event_testButtonActionPerformed
-    
-    //Method to remove the 1st Column (Key) from the table
-    private void removeColButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeColButtonActionPerformed
-        EmpTablePanel empTable = new EmpTablePanel();
-        JTable table = empTable.getTable();
-        table.removeColumn(table.getColumnModel().getColumn(0));
-        
-        AbstractTableModel model = (AbstractTableModel)table.getModel();
-        model.fireTableDataChanged();
-     
-        
-        table.repaint();
-        table.revalidate();
-        empTable.repaint();
-        empTable.revalidate();
-        
-        
-        
 
-        empTablePanel.removeAll();
-        empTablePanel.repaint();
-        empTablePanel.revalidate();
-
-        empTablePanel.add(empTable);
-        empTablePanel.repaint();
-        empTablePanel.revalidate();
-
-        empContainerPanel.removeAll();
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
-
-        empContainerPanel.add(empTablePanel);
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
-    }//GEN-LAST:event_removeColButtonActionPerformed
-    
-    //Method to capture the row that was Double Clicked on the table
-    private void empTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empTableMouseClicked
+    private void chartTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chartTableMouseClicked
         if (evt.getClickCount() == 2) {
-        JTable target = (JTable)evt.getSource();
-        int row = target.getSelectedRow();
-        int column = target.getSelectedColumn();
-        System.out.println("Double Click on Row worked");
-        System.out.println(empTable.getValueAt(row, 0));
-        
-        
-        empContainerPanel.removeAll();
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
+            JTable target = (JTable)evt.getSource();
+            int row = target.getSelectedRow();
+            int column = target.getSelectedColumn();
+            System.out.println("Double Click on Row worked");
 
-        empContainerPanel.add(viewEmpPanel);
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
-         }
-    }//GEN-LAST:event_empTableMouseClicked
+            patientsContainerPanel.removeAll();
+            patientsContainerPanel.repaint();
+            patientsContainerPanel.revalidate();
 
-    
-    
+            ViewChartPanel viewChartPanel = new ViewChartPanel();
+
+            patientsContainerPanel.add(viewChartPanel);
+            patientsContainerPanel.repaint();
+            patientsContainerPanel.revalidate();
+        }
+    }//GEN-LAST:event_chartTableMouseClicked
+
+    private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
+
+    }//GEN-LAST:event_testButtonActionPerformed
+
+    private void removeColButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeColButtonActionPerformed
+        //        EmpTablePanel empTable = new EmpTablePanel();
+        //        JTable table = empTable.getTable();
+        //        table.removeColumn(table.getColumnModel().getColumn(0));
+        //
+        //        AbstractTableModel model = (AbstractTableModel)table.getModel();
+        //        model.fireTableDataChanged();
+        //        table.repaint();
+        //        table.revalidate();
+        //        empTable.repaint();
+        //        empTable.revalidate();
+        //
+        //        empTablePanel.removeAll();
+        //        empTablePanel.repaint();
+        //        empTablePanel.revalidate();
+        //
+        //        empTablePanel.add(empTable);
+        //        empTablePanel.repaint();
+        //        empTablePanel.revalidate();
+        //
+        //        empContainerPanel.removeAll();
+        //        empContainerPanel.repaint();
+        //        empContainerPanel.revalidate();
+        //
+        //        empContainerPanel.add(empTablePanel);
+        //        empContainerPanel.repaint();
+        //        empContainerPanel.revalidate();
+    }//GEN-LAST:event_removeColButtonActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane empScrollPane;
-    private javax.swing.JTable empTable;
+    private javax.swing.JScrollPane chartScollPane;
+    private javax.swing.JTable chartTable;
     private javax.swing.JButton removeColButton;
     private javax.swing.JButton testButton;
     // End of variables declaration//GEN-END:variables
 
-    
-    //Method to retrieve the Table
     public JTable getTable(){
-        return empTable;
+        return chartTable;
     }
+
 }

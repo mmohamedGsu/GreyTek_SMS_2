@@ -58,6 +58,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         patientsContainerPanel = new javax.swing.JPanel();
         defaultPatientPanel = new javax.swing.JPanel();
         patientTablePanel = new javax.swing.JPanel();
+        chartTablePanel = new javax.swing.JPanel();
         addNewPatientButton = new javax.swing.JButton();
         viewPatientButton = new javax.swing.JButton();
         chartButton = new javax.swing.JButton();
@@ -225,6 +226,12 @@ public class mainGUI2 extends javax.swing.JFrame {
         patientTablePanel.setMinimumSize(new java.awt.Dimension(991, 573));
         patientTablePanel.setLayout(new java.awt.CardLayout());
         patientsContainerPanel.add(patientTablePanel, "card2");
+
+        chartTablePanel.setAutoscrolls(true);
+        chartTablePanel.setMaximumSize(new java.awt.Dimension(991, 573));
+        chartTablePanel.setMinimumSize(new java.awt.Dimension(991, 573));
+        chartTablePanel.setLayout(new java.awt.CardLayout());
+        patientsContainerPanel.add(chartTablePanel, "card2");
 
         addNewPatientButton.setText("Add Patient");
         addNewPatientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1569,6 +1576,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton billButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton chartButton;
+    public static javax.swing.JPanel chartTablePanel;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JTextField cityText;
     private javax.swing.JPanel containerPanel;
