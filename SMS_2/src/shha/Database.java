@@ -161,11 +161,15 @@ public class Database {
         
         try {
             sql = "INSERT INTO " + tableName + "  " + stringS;
+            System.out.println(sql);
             connection.createStatement().execute(sql);
+            
             
         } catch (SQLException e) {
             System.out.println("Error in add data to table method");
             System.out.println(e.toString());
+            
+            
         }
         
     }
@@ -303,11 +307,55 @@ public class Database {
             Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             doctorResults = myStatement.executeQuery(query);
         } catch(SQLException e) {
-            
+            System.out.println(e.toString());
         }
         
         return doctorResults;
         
+    }
+    
+    public ResultSet queryPatients() {
+        ResultSet rs = null;
+        String query = "SELECT firstName, lastName, sex, phone, email FROM patients";
+        
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = myStatement.executeQuery(query);
+            
+        } catch(SQLException e) {
+            System.out.println(e.toString());
+        }
+        return rs;
+    }
+    
+    public ResultSet searchForPatient(String patient) {
+        ResultSet rs = null;
+        String query = "SELECT firstName, lastName, sex, phone, email, ssn FROM patients " +
+                       "WHERE firstName='" + patient +"' OR lastName='" + patient +
+                       "' OR ssn='" + patient + "'";
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = myStatement.executeQuery(query);
+        } catch(SQLException e) {
+            System.out.println(e.toString());
+        }
+        
+        return rs;
+    }
+    
+    public ResultSet queryPatientInfo(String patientSSN) {
+        ResultSet rs = null;
+        String query = "select * from patients WHERE ssn='" + patientSSN + "'";
+        
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = myStatement.executeQuery(query);
+            
+        }catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        
+        return rs;
     }
     
     public ResultSet queryDoctors() {

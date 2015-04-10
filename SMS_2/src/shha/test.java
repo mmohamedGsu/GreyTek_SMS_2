@@ -116,6 +116,9 @@ public class test {
         
         
  //        db.printAll("employees");
+
+         db.printAll("patients");
+
 //       db.printAll("appointments");
          
         db.dropTable("patients");    

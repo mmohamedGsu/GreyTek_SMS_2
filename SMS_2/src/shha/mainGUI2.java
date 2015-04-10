@@ -2,6 +2,7 @@
 package shha;
 
 
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -13,7 +14,7 @@ import java.util.regex.*;
  * @author Sheldon
  */
 public class mainGUI2 extends javax.swing.JFrame {
-
+  
     public static TimeClockPanel tcPanel = new TimeClockPanel();
     
     public void populateEmployee(ResultSet rs) {
@@ -163,6 +164,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         defaultApptPanel = new javax.swing.JPanel();
         createApptButton = new javax.swing.JButton();
         employeeIdent = new java.awt.Label();
+        buildLabel = new javax.swing.JLabel();
         smsMenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -1258,6 +1260,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     employeeIdent.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
     employeeIdent.setText("label1");
 
+    buildLabel.setText("GreyTek International -- SMS Build Ver. 1.0");
+
     jMenu1.setText("File");
     smsMenuBar.add(jMenu1);
 
@@ -1308,6 +1312,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(employeeIdent, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap())
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buildLabel)
+            .addGap(41, 41, 41))
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1328,7 +1336,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(30, 30, 30))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(buildLabel)
+            .addGap(7, 7, 7))
     );
 
     pack();
@@ -1694,6 +1704,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JPanel apptContainerPanel;
     private javax.swing.JPanel apptPanel;
     private javax.swing.JButton billButton;
+    private javax.swing.JLabel buildLabel;
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton chartButton;
     public static javax.swing.JPanel chartTablePanel;
