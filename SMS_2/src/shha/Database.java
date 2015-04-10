@@ -278,6 +278,21 @@ public class Database {
         return employeeResults;
     }
     
+    public ResultSet queryEmployeeInfo(String employeeEmail) {
+        ResultSet doctorResults = null;
+        String query = "select * from employees WHERE email='" + employeeEmail + "'";
+        
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            doctorResults = myStatement.executeQuery(query);
+        } catch(SQLException e) {
+            
+        }
+        
+        return doctorResults;
+        
+    }
+    
     public ResultSet queryDoctors() {
         ResultSet doctorResults = null;
         String query = "select firstName, lastName from employees WHERE position='Doctor'";

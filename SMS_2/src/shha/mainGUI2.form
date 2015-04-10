@@ -1363,6 +1363,9 @@
                       <Properties>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empFirstNameLabel">
                       <Properties>
@@ -1376,6 +1379,9 @@
                       <Properties>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empLastNameLabel">
                       <Properties>
@@ -1389,6 +1395,9 @@
                       <Properties>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empMiddleIntLabel">
                       <Properties>
@@ -1414,6 +1423,9 @@
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="empSSNTextFocusGained"/>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="empSSNTextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JTextField" name="empAddress1Text">
                       <Properties>
@@ -1422,6 +1434,9 @@
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="empAddress1TextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empAddress1Label">
                       <Properties>
@@ -1438,6 +1453,9 @@
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="empCityTextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empCityLabel">
                       <Properties>
@@ -1454,6 +1472,9 @@
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="empStateTextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empStateLabel">
                       <Properties>
@@ -1467,6 +1488,9 @@
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="empZipTextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empZipLabel">
                       <Properties>
@@ -1481,6 +1505,9 @@
                         <Property name="text" type="java.lang.String" value="Male"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="empFemaleRadioButton">
                       <Properties>
@@ -1490,6 +1517,9 @@
                         <Property name="text" type="java.lang.String" value="Female"/>
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empGenderLabel">
                       <Properties>
@@ -1509,6 +1539,9 @@
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="empDOBTextFocusGained"/>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="empDOBTextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empEmailLabel">
                       <Properties>
@@ -1523,6 +1556,9 @@
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="empEmailTextFocusGained"/>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="empEmailTextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empAddress2Label">
                       <Properties>
@@ -1539,6 +1575,9 @@
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="empAddress2TextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JTextField" name="empCountryText">
                       <Properties>
@@ -1547,6 +1586,9 @@
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="empCountryTextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empCountryLabel">
                       <Properties>
@@ -1566,6 +1608,9 @@
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="empPhoneTextFocusGained"/>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="empPhoneTextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="viewEmpIDLabel">
                       <Properties>
@@ -1579,6 +1624,9 @@
                       <Events>
                         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="viewEmpIDTextMouseClicked"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="empPositionComboBox">
                       <Properties>
@@ -1600,6 +1648,9 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="empPositionComboBoxActionPerformed"/>
                       </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="empPositionLabel">
                       <Properties>

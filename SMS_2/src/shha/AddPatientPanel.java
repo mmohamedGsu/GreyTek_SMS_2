@@ -637,6 +637,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     
 
     
+=======
+<<<<<<< HEAD
+    
         void addPatientToDB(){
         
    String gender = getSelectedButtonText(genderButtonGroup);
@@ -686,7 +689,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
         return null;
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+    
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
  }
 
     
