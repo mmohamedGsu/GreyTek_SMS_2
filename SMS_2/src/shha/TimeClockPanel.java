@@ -130,8 +130,8 @@ public class TimeClockPanel extends javax.swing.JPanel {
         JTextArea textArea = tcPanel.getTextArea();
         textArea.append("Punch Out - " + now.toString()+"\n\n");
         
-        String val = "VALUES ('', '"+ timeIn.toString() + "','" + timeOut.toString() + "','" + total + "')";
-        db.addDataToTable("timeKeeper", val);
+        //String val = "VALUES ('', '"+ timeIn.toString() + "','" + timeOut.toString() + "','" + total + "')";
+        //db.addDataToTable("timeKeeper", val);
         
         tcPanel.repaint();
         tcPanel.revalidate();
@@ -157,7 +157,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
         
         long per15mins = (workedTimeInMillis/900000);
         System.out.println(per15mins);
-        double hoursWorked = per15mins/4;
+        double hoursWorked = ((double)(per15mins)) / 4;
         
         System.out.println("Total hours worked= " + hoursWorked);
         
