@@ -32,8 +32,6 @@ public class PatientTablePanel extends javax.swing.JPanel {
 
         patientScollPane = new javax.swing.JScrollPane();
         patientTable = new javax.swing.JTable();
-        testButton = new javax.swing.JButton();
-        removeColButton = new javax.swing.JButton();
 
         patientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,40 +65,15 @@ public class PatientTablePanel extends javax.swing.JPanel {
         });
         patientScollPane.setViewportView(patientTable);
 
-        testButton.setText("Test");
-        testButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                testButtonActionPerformed(evt);
-            }
-        });
-
-        removeColButton.setText("RmCol1");
-        removeColButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeColButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(removeColButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(testButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(patientScollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE))
+            .addComponent(patientScollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(patientScollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(removeColButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(testButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -123,45 +96,10 @@ public class PatientTablePanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_patientTableMouseClicked
 
-    private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
-
-    }//GEN-LAST:event_testButtonActionPerformed
-
-    private void removeColButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeColButtonActionPerformed
-//        EmpTablePanel empTable = new EmpTablePanel();
-//        JTable table = empTable.getTable();
-//        table.removeColumn(table.getColumnModel().getColumn(0));
-//
-//        AbstractTableModel model = (AbstractTableModel)table.getModel();
-//        model.fireTableDataChanged();
-//        table.repaint();
-//        table.revalidate();
-//        empTable.repaint();
-//        empTable.revalidate();
-//
-//        empTablePanel.removeAll();
-//        empTablePanel.repaint();
-//        empTablePanel.revalidate();
-//
-//        empTablePanel.add(empTable);
-//        empTablePanel.repaint();
-//        empTablePanel.revalidate();
-//
-//        empContainerPanel.removeAll();
-//        empContainerPanel.repaint();
-//        empContainerPanel.revalidate();
-//
-//        empContainerPanel.add(empTablePanel);
-//        empContainerPanel.repaint();
-//        empContainerPanel.revalidate();
-    }//GEN-LAST:event_removeColButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane patientScollPane;
     private javax.swing.JTable patientTable;
-    private javax.swing.JButton removeColButton;
-    private javax.swing.JButton testButton;
     // End of variables declaration//GEN-END:variables
 
 public JTable getTable(){

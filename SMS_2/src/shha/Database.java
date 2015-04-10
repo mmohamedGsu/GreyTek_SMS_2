@@ -119,9 +119,7 @@ public class Database {
         
     }
     
-   
-    
-    
+
     public void dropDatabase(String dataBaseName) {
         String statement = "DROP DATABASE " + dataBaseName;
         

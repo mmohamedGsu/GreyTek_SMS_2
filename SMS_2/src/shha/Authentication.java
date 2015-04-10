@@ -13,6 +13,7 @@ public class Authentication {
     public static String firstName;
     public static String lastName;
     public static int accessLevel;
+    public static String username;
     
     private String SQL_STATEMENT, userName, passWord, connectionString;
     private final String userTable = "employees", usernameColumn = "username", 
@@ -41,9 +42,11 @@ public class Authentication {
                 
                 if(results.getString(2).equals(passWord)) {
                    //we find a userName,passWord combination
+                    username = results.getString(1);
                     firstName = results.getString(3);
                     lastName =  results.getString(4);
                     accessLevel = results.getInt(5);
+                    
                     return true;
                 }
             }
