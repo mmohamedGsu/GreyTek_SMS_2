@@ -49,34 +49,34 @@ public class brianTest {
         */
         //drop the employees table
         
-       System.out.println("Dropping appt table");
-       db.dropTable("appointments");
-       System.out.println("appt table dropped");
+//       System.out.println("Dropping appt table");
+//       db.dropTable("employee");
+//       System.out.println("appt table dropped");
         
         
         //create new empmployees table with a userName
        
-        /*
-       System.out.println("Creating employees table");
-        db.createTable("employees", "(firstName varchar(20), middleInt varchar(10), " +
-                        "lastName varchar(20), username varchar(20), password varchar(20), " +
-                        "position varchar(20), accessLevel int, " +
-                       "ssn varchar(20), sex varchar(10), address1 varchar(100), " +
-                       "address2 varchar(100), city varchar(20), state varchar(20), " +
-                        "zip varchar(5), month varchar(20), day int, " +
-                        "birthYear int, phone varchar(15), " +
-                        "email varchar(20))");
-        System.out.println("Employees table created");
+        
+//       System.out.println("Creating employees table");
+//        db.createTable("employees", "(firstName varchar(20), middleInt varchar(10), " +
+//                        "lastName varchar(20), username varchar(20), password varchar(20), " +
+//                        "position varchar(20), accessLevel int, " +
+//                       "ssn varchar(20), sex varchar(10), address1 varchar(100), " +
+//                       "address2 varchar(100), city varchar(20), state varchar(20), " +
+//                        "zip varchar(5), month varchar(20), day int, " +
+//                        "birthYear int, phone varchar(15), " +
+//                        "email varchar(20))");
+//        System.out.println("Employees table created");
         
         //add entries into the employees table
         
-        String values =  "VALUES ('Test', 'T', 'Tester', 'Admin1', 'Password1', " +
+        String values =  "VALUES ('poopsie', 'T', 'mcgee', 'poop1', 'Password1', " +
                                  "'Administrator', 5, '555-55-5555', 'M', '555 The Code Way', " +
                                 "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
-                                "'404-555-5555', 'admin1@sms.com')";
+                                "'404-555-5555', 'poop@gmail.com')";
        
       
-        
+        /*
          db.createTable("patients", "(firstName varchar(20), middleInt varchar(10), " +
                         "lastName varchar(20), " +
                        "ssn varchar(20), sex varchar(10), address1 varchar(100), " +
@@ -91,7 +91,7 @@ public class brianTest {
                                 "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
                                 "'404-555-5555', 'admin1@sms.com', 'DR. Chuma Obi', 'Severe allergy to computers')";
         
-        */
+        
         
         //Creates table with appointment information
         db.createTable("appointments", "(firstName varchar(20), " +
@@ -104,9 +104,12 @@ public class brianTest {
                                " 'M', 'December', 12, '1975', '4pm', 'admin1@sms.com',  " +
                                 " 'DR. Chuma Obi', 'Severe allergy to computers')";
         
-          db.addDataToTable("appointments", values3);
+        */
+        
+//          db.addDataToTable("appointments", values3);
 //        db.addDataToTable("employees", values);
 //        db.addDataToTable("patients", values2);
+          db.deleteEmployee("poop@gmail.com");
           
 //        db.printAll("patients");
         
@@ -114,7 +117,7 @@ public class brianTest {
 //          db.addColumn("appointments", "year varchar(10)");    <------------ For some reason it only lets us add one column at a time. Will work through later...
         
         
-         db.printAll("appointments");
+         db.printAll("employees");
          
          /*
         ResultSet rs = db.queryEmployees();

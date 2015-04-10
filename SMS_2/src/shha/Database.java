@@ -119,6 +119,24 @@ public class Database {
         
     }
     
+    
+    //Deletes employee from employee db using email as primary key
+     public void deleteEmployee(String email){
+         String delete = "DELETE FROM employees WHERE email='" + email + "'";
+         try{
+            connection.createStatement().execute(delete); 
+        } catch (SQLException e) {
+            System.out.println("we're screwed");
+            System.out.println(e.toString());
+            
+        }
+         
+         
+     }
+    
+    
+    
+    
 
     public void dropDatabase(String dataBaseName) {
         String statement = "DROP DATABASE " + dataBaseName;
@@ -225,6 +243,7 @@ public class Database {
             System.out.println(e.toString());
         }
     }
+      
     
     public ResultSet executeQuery(String query) {
         ResultSet results = null;
