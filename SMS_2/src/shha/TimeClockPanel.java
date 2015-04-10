@@ -6,9 +6,16 @@
 package shha;
 
 import java.awt.TextArea;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
 import static shha.mainGUI2.tcPanel;
 
 
@@ -39,21 +46,12 @@ public class TimeClockPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        timeTextArea = new javax.swing.JTextArea();
         punchInButton = new javax.swing.JButton();
         punchOutButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        timeLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(700, 500));
-
-        timeTextArea.setColumns(20);
-        timeTextArea.setLineWrap(true);
-        timeTextArea.setRows(5);
-        timeTextArea.setWrapStyleWord(true);
-        timeTextArea.setMaximumSize(new java.awt.Dimension(500, 500));
-        timeTextArea.setMinimumSize(new java.awt.Dimension(500, 500));
-        timeTextArea.setPreferredSize(new java.awt.Dimension(500, 500));
-        jScrollPane1.setViewportView(timeTextArea);
 
         punchInButton.setText("Punch In");
         punchInButton.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +68,29 @@ public class TimeClockPanel extends javax.swing.JPanel {
             }
         });
 
+        jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        timeLabel.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        timeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        timeLabel.setText("Get To Work!!");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(timeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -79,9 +100,9 @@ public class TimeClockPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(punchInButton)
                     .addComponent(punchOutButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 762, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {punchInButton, punchOutButton});
@@ -89,15 +110,14 @@ public class TimeClockPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addGap(133, 133, 133)
-                .addComponent(punchInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
-                .addComponent(punchOutButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(punchInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addComponent(punchOutButton)))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {punchInButton, punchOutButton});
@@ -107,13 +127,36 @@ public class TimeClockPanel extends javax.swing.JPanel {
     private void punchInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_punchInButtonActionPerformed
         punchInButton.setEnabled(false);
         punchOutButton.setEnabled(true);
-        Calendar calendar = Calendar.getInstance();
+        DateFormat dateFormat = new SimpleDateFormat("hh:mm a");
+        Calendar calendar = Calendar.getInstance(Locale.getDefault());
         java.util.Date now = calendar.getTime();
         timeIn = now;         //make timeIn that calendar time
-        System.out.println("Punch In - " + now.toString());
         
-        JTextArea textArea = tcPanel.getTextArea();
-        textArea.append("Punch In - " + now.toString()+"\n\n");
+        String time = dateFormat.format(now);
+        //Parse Time - Remove 0 ex. 03:00 PM > 3:00 PM
+        int i = time.length();
+        if (time.charAt(0) == '0')
+        { 
+            time = time.substring(1); 
+        }
+        System.out.println("Punch In - " + time);
+        
+        final String displayInTime = time;
+        
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                timeLabel.setText("Let's Save A Life!");
+                timeLabel.updateUI();  // repaint(), etc. according to changed states
+                try {
+                    TimeUnit.MILLISECONDS.sleep(3000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(TimeClockPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+  
+        timeLabel.setText("Punch In - " + displayInTime);
+      
         tcPanel.repaint();
         tcPanel.revalidate();
     }//GEN-LAST:event_punchInButtonActionPerformed
@@ -121,18 +164,41 @@ public class TimeClockPanel extends javax.swing.JPanel {
     private void punchOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_punchOutButtonActionPerformed
         punchOutButton.setEnabled(false);
         punchInButton.setEnabled(true);
-        Calendar calendar = Calendar.getInstance();
+        DateFormat dateFormat = new SimpleDateFormat("hh:mm a");
+        Calendar calendar = Calendar.getInstance(Locale.getDefault());
         java.util.Date now = calendar.getTime();
-        System.out.println("Punch Out - " + now.toString());
         
-        timeOut = now;             //make timeout the time they punched out
+        timeOut = now;  //make timeout the time they punched out
+        
+         String time = dateFormat.format(now);
+        //Parse Time - Remove 0 ex. 03:00 PM > 3:00 PM
+        int i = time.length();
+        if (time.charAt(0) == '0')
+        { 
+            time = time.substring(1); 
+        }
+        System.out.println("Punch Out - " + time);
+        
+        final String displayOutTime = time;
+        
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                timeLabel.setText("Great Work Today!");
+                timeLabel.updateUI();  // repaint(), etc. according to changed states
+                try {
+                    TimeUnit.MILLISECONDS.sleep(3000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(TimeClockPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+  
+        timeLabel.setText("Punch Out - " + displayOutTime);
+
+        
         double total = calculateTimeWorked(); //Display time worked on console
-        JTextArea textArea = tcPanel.getTextArea();
-        textArea.append("Punch Out - " + now.toString()+"\n\n");
-        
-        //String val = "VALUES ('', '"+ timeIn.toString() + "','" + timeOut.toString() + "','" + total + "')";
-        //db.addDataToTable("timeKeeper", val);
-        
+    
+  
         tcPanel.repaint();
         tcPanel.revalidate();
     }//GEN-LAST:event_punchOutButtonActionPerformed
@@ -164,14 +230,14 @@ public class TimeClockPanel extends javax.swing.JPanel {
         return hoursWorked;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton punchInButton;
     private javax.swing.JButton punchOutButton;
-    private javax.swing.JTextArea timeTextArea;
+    private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
 
-    public JTextArea getTextArea(){
-        return timeTextArea;
-    }
+//    public JTextArea getTextArea(){
+//        return timeTextArea;
+//    }
 
 }

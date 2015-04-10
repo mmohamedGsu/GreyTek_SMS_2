@@ -1,40 +1,13 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Fri Apr 10 13:04:48 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a44a-80a7-00000803be88 
-=======
-<<<<<<< HEAD
-Fri Apr 10 13:46:26 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a470-9d17-000002ea0e48 
-on database directory /Users/cybschuma/NetBeansProjects/GreyTek_SMS_2/SMS_2/SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@20e90906 
-Loaded from file:/Users/cybschuma/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_75-b13
-user.dir=/Users/cybschuma/NetBeansProjects/GreyTek_SMS_2/SMS_2
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.9.5
-=======
-<<<<<<< HEAD
-Fri Apr 10 12:23:05 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a424-50cd-000007f406d8 
->>>>>>> origin/master
+Fri Apr 10 16:20:41 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a4fd-d831-00000802f550 
 on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
 Loaded from file:/C:/Users/Sheldon/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
 java.vendor=Oracle Corporation
-<<<<<<< HEAD
 java.runtime.version=1.8.0_11-b12
 user.dir=C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2
 os.name=Windows 8.1
 os.arch=amd64
 os.version=6.3
-=======
-java.runtime.version=1.8.0_05-b13
-user.dir=/Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.10
->>>>>>> origin/master
->>>>>>> origin/master
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
