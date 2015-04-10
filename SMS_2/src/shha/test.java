@@ -115,10 +115,10 @@ public class test {
           
         
         
-         db.printAll("employees");
+ //        db.printAll("employees");
 //       db.printAll("appointments");
          
-         
+     db.dropTable("patients");    
          /*
         ResultSet rs = db.queryEmployees();
          ResultSetMetaData rsmd = null;

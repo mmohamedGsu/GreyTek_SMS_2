@@ -82,7 +82,7 @@ public class ChumaTest {
 //                       "address2 varchar(100), city varchar(20), state varchar(20), " +
 //                        "zip varchar(5), month varchar(20), day int, " +
 //                        "birthYear int, phone varchar(15), " +
-//                        "email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");
+//                        "email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");      
 //        System.out.println("Patients table created");
         
 //        String values2 =  "VALUES (0, 'Test', 'T', 'Tester', '555-55-5555', " + 
@@ -97,14 +97,14 @@ public class ChumaTest {
         
 //        System.out.println("Time Punch Table Created");
 
-     //   db.dropTable("employ");
+//        db.dropTable("patients");
 //          db.addDataToTable("employ", values);
 //        db.addDataToTable("patients", values2);
           
  
 //        db.printAll("timeKeeper");
-//        db.printAll("patients");
-         db.printAll("employ");
+//       db.printAll("patients");
+//         db.printAll("employ");
           
         
     }
