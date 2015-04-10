@@ -418,7 +418,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="addNewUserButton" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="addNewUserButton" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="removeUserButton" min="-2" pref="130" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="adminContainerPanel" min="-2" pref="978" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -431,7 +434,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                              <Component id="addNewUserButton" min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="addNewUserButton" linkSize="11" min="-2" pref="47" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <Component id="removeUserButton" linkSize="11" min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -526,7 +531,7 @@
                                               <Component id="middleIntText" max="32767" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Component id="middleIntLabel" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="137" max="32767" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -547,7 +552,7 @@
                                                   <Component id="yearComboBox" min="-2" pref="113" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="0" pref="50" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="saveButton" linkSize="1" min="-2" pref="139" max="-2" attributes="0"/>
@@ -618,7 +623,7 @@
                                           </Group>
                                           <Component id="phoneText" min="-2" pref="119" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                                      <EmptySpace pref="122" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -658,7 +663,7 @@
                                                       </Group>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace min="38" pref="34" max="32767" attributes="0"/>
+                                              <EmptySpace min="38" max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="1" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <Component id="address1Label" min="-2" max="-2" attributes="0"/>
@@ -732,7 +737,7 @@
                                   <Component id="cancelButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="saveButton" linkSize="2" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="140" max="32767" attributes="0"/>
+                              <EmptySpace pref="178" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -987,13 +992,24 @@
             </Container>
             <Component class="javax.swing.JButton" name="addNewUserButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add User"/>
+                <Property name="text" type="java.lang.String" value="Add Employee"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addNewUserButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="removeUserButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p&gt;Remove&lt;/p&gt;&#xa;&lt;p&gt;Employee&lt;/p&gt;&lt;/html&gt;"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeUserButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

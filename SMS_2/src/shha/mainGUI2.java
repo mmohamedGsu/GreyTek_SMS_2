@@ -113,6 +113,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         dayComboBox = new javax.swing.JComboBox();
         yearComboBox = new javax.swing.JComboBox();
         addNewUserButton = new javax.swing.JButton();
+        removeUserButton = new javax.swing.JButton();
         empPanel = new javax.swing.JPanel();
         empContainerPanel = new javax.swing.JPanel();
         defaultEmpPanel = new javax.swing.JPanel();
@@ -540,7 +541,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                             .addComponent(middleIntText)
                             .addGroup(addUserPanelLayout.createSequentialGroup()
                                 .addComponent(middleIntLabel)
-                                .addGap(0, 146, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(addUserPanelLayout.createSequentialGroup()
                         .addGroup(addUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(address2Label)
@@ -554,7 +555,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                         .addComponent(dayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 59, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(addUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -605,7 +606,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                             .addComponent(positionLabel1)
                                             .addGap(8, 8, 8))))))
                         .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(42, Short.MAX_VALUE))))
+                    .addContainerGap(122, Short.MAX_VALUE))))
     );
 
     addUserPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, saveButton});
@@ -637,7 +638,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                             .addComponent(firstNameLabel)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(firstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGap(32, 32, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(addUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(addUserPanelLayout.createSequentialGroup()
                                     .addComponent(address1Label)
@@ -692,18 +693,26 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGroup(addUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(cancelButton)
                 .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(142, Short.MAX_VALUE))
+            .addContainerGap(178, Short.MAX_VALUE))
     );
 
     addUserPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancelButton, saveButton});
 
     adminContainerPanel.add(addUserPanel, "card3");
 
-    addNewUserButton.setText("Add User");
+    addNewUserButton.setText("Add Employee");
     addNewUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     addNewUserButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             addNewUserButtonActionPerformed(evt);
+        }
+    });
+
+    removeUserButton.setText("<html><p>Remove</p>\n<p>Employee</p></html>");
+    removeUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    removeUserButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            removeUserButtonActionPerformed(evt);
         }
     });
 
@@ -713,7 +722,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(addNewUserButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(25, 25, 25)
             .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
@@ -724,12 +735,16 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(adminPanelLayout.createSequentialGroup()
                     .addGap(53, 53, 53)
-                    .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(59, 59, 59)
+                    .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(adminPanelLayout.createSequentialGroup()
                     .addGap(25, 25, 25)
                     .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(133, 133, 133))
     );
+
+    adminPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addNewUserButton, removeUserButton});
 
     containerPanel.add(adminPanel, "card2");
 
@@ -1629,6 +1644,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         apptContainerPanel.repaint();
         apptContainerPanel.revalidate();
     }//GEN-LAST:event_createApptButtonActionPerformed
+
+    private void removeUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeUserButtonActionPerformed
      
     
     public static void main(String args[]) {
@@ -1753,6 +1772,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JComboBox positionComboBox;
     private javax.swing.JLabel positionLabel;
     private javax.swing.JLabel positionLabel1;
+    private javax.swing.JButton removeUserButton;
     private javax.swing.JButton reportsButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JMenuBar smsMenuBar;
