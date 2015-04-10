@@ -48,9 +48,9 @@ public class ChumaTest {
           
         //drop the employees table
         
-       System.out.println("Dropping employ table");
-       db.dropTable("employ");
-       System.out.println("Employ table dropped");
+//       System.out.println("Dropping employ table");
+//       db.dropTable("employ");
+//       System.out.println("Employ table dropped");
         
         
         //create new empmployees table with a userName
