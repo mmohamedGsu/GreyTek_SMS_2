@@ -93,8 +93,6 @@ public class EmpTablePanel extends javax.swing.JPanel {
         JTable target = (JTable)evt.getSource();
         int row = target.getSelectedRow();
         int column = target.getSelectedColumn();
-        System.out.println("Double Click on Row worked");
-        System.out.println(empTable.getValueAt(row, 4));
         
         Database db = new Database("SMSDB2");
         ResultSet rs = db.queryEmployeeInfo(empTable.getValueAt(row, 4).toString());
@@ -124,9 +122,7 @@ public class EmpTablePanel extends javax.swing.JPanel {
             //17 is birth year
             mainGUI2.empPhoneText.setText(rs.getString(18));
             mainGUI2.empEmailText.setText(rs.getString(19));
-            
-            
-            
+                       
         } catch(SQLException e) {
             System.out.println("Error parsing users");
             System.out.println(e.toString());
