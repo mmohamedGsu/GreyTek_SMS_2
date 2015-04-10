@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 import static shha.mainGUI2.patientsContainerPanel;
 import static shha.mainGUI2.defaultPatientPanel;
 
+
 /**
  *
  * @author Sheldon
@@ -32,6 +33,7 @@ public class AddPatientPanel extends javax.swing.JPanel {
         initComponents();
         String[] doctorsArray = grabDoctors();
         doctorComboBox.setModel(new javax.swing.DefaultComboBoxModel(doctorsArray));
+         maleRadioButton.doClick(); //set default value to male radio button
     }
 
     /**
@@ -482,11 +484,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private void phoneTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_phoneTextMouseClicked
         phoneText.setText("");
     }//GEN-LAST:event_phoneTextMouseClicked
-
+    //Precondition: The patient is filled out and passes the validation
+    //Postcondition: A new patient is added to the patients table
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        addPatientToDB();        //Add DB Functions here above the clearAddPatientPanel call
-        
-        clearAddPatientPanel();
+       if(formValidation()) {
+           addUserToDB();
+       }
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -631,24 +634,166 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         
     }
     
-    
-        void addPatientToDB(){
+    //Precondition: The add patient form is loaded
+    //Postcondition: Returns true if all values in the form passes validation
+        private boolean formValidation() {
         
-   String gender = getSelectedButtonText(genderButtonGroup);
-//       String gender =  genderButtonGroup.getElements().toString();
-       System.out.println(gender);
-        int day =  parseInt(dayComboBox.getSelectedItem().toString());
+        //User names need to be 1-20 upper and lower case numbers
+        Pattern namePattern = Pattern.compile("[a-zA-Z]{1,20}");
+        Matcher nameMatcher = namePattern.matcher(firstNameText.getText());
+        
+        //check if first name does not matche pattern
+        if(!nameMatcher.matches()) {
+            JOptionPane.showMessageDialog(null, "First name can only contain " +
+                                           "letters and must be 1-20 characthers long"); 
+            return false;
+        } 
+            
+        //check if middle int matches pattern, if present
+        if(!middleIntText.getText().isEmpty()) {
+            Pattern middleIntPattern = Pattern.compile("[A-Z]\\.{1}");
+            Matcher middleIntMatch = middleIntPattern.matcher(middleIntText.getText());
+        
+            if(!nameMatcher.matches()) {
+                 JOptionPane.showMessageDialog(null, "Middle nint be must be a capital " +
+                                               "letter followed by a period. (Ex: M."); 
+                 return false;
+            } 
+        }
+           
+        //check if last name matches pattern
+        nameMatcher = namePattern.matcher(lastNameText.getText());
+        
+        if(!nameMatcher.matches()) {
+           JOptionPane.showMessageDialog(null, "Last name can only contain " +
+                                           "letters and must be 1-20 characthers long");
+           return false;
+        } 
+           
+      
+        //check if ssn matches
+        Pattern ssnPattern = Pattern.compile("\\d{3}[-]\\d{2}[-]\\d{4}");
+        Matcher ssnMatcher = ssnPattern.matcher(ssnText.getText());
+        
+        if(!ssnMatcher.matches()) {
+              JOptionPane.showMessageDialog(null, "SSN must be of the format " +
+                                            "###-##-## where # is a digit");
+              return false;
+        } 
+        
+        /*
+        //check if address1 matches
+        //*****Come back to ****
+        Pattern address1 = Pattern.compile("\\d{1,5}\\s\\w.\\s(\\b\\w*\\b\\s){1,2}\\w*\\.");
+        Matcher address1Matcher = address1.matcher(address1Text.getText());
+        
+        if(address1Matcher.matches()) {
+            JOptionPane.showMessageDialog(null, "Address 1 matches");
+        } else {
+            JOptionPane.showMessageDialog(null, "Address 1 does not match");
+        } */
+           
+        
+        //check if city is valid
+        //can only be 1-3 words each a max of 20 characthers
+        Pattern cityPattern = Pattern.compile("[a-zA-Z]{1,20}\\s?[a-zA-Z]{1,20}?\\s?[a-zA-Z]{1,20}?");
+        Matcher cityMatcher = cityPattern.matcher(cityText.getText());
+        
+        if(!cityMatcher.matches()) {
+            JOptionPane.showMessageDialog(null, "City can only be 1-3 words " +
+                                         "and a max of 20 characthers including spaces");
+            return false;
+        }
+        
+        //****for state we might want to change this to a combo box*******
+      
+        /*
+         //check if address2 matches
+        //*****Come back to ****
+        Pattern address2 = Pattern.compile("\\d{1,5}\\s\\w.\\s(\\b\\w*\\b\\s){1,2}\\w*\\.");
+        Matcher address2Matcher = address2.matcher(address1Text.getText());
+        
+        if(address2Matcher.matches()) {
+            JOptionPane.showMessageDialog(null, "Address 1 matches");
+        } else {
+            JOptionPane.showMessageDialog(null, "Address 1 does not match");
+        }*/
+        /*
+        if(address2Text.getText().equals("")) {
+            String address2 = "N/A";
+        } else {
+            String address = address2Text.getText();
+        } */
+       
+        //check to see if zipcode is correct
+        Pattern zipPattern = Pattern.compile("\\d{5}");
+        Matcher zipMatcher = zipPattern.matcher(zipText.getText());
+        
+        if(!zipMatcher.matches()) {
+             JOptionPane.showMessageDialog(null, "Zip must be a 5 digit number" +
+                                            " (Ex: 30303");
+             return false;
+        } 
+        
+      
+        //check if month is selected
+      if(monthComboBox.getSelectedItem().toString().equals("Month:")) {
+          JOptionPane.showMessageDialog(null, "Please select a month");
+          return false;
+      }
+      
+      if(dayComboBox.getSelectedItem().toString().equals("Day:")) {
+          JOptionPane.showMessageDialog(null , "Please select a day");
+          
+          return false;
+      }
+      
+      if(yearComboBox.getSelectedItem().toString().equals("Year:")) {
+          JOptionPane.showMessageDialog(null, "Please select a year");
+          return false;
+      }
+      
+      if(doctorComboBox.getSelectedItem().toString().equals("")) {
+          JOptionPane.showMessageDialog(null, "Please select a year");
+          return false;
+      }
+      
+      
+        //check if phone is correct
+        Pattern phonePattern = Pattern.compile("\\d{3}[-]\\d{3}[-]\\d{4}");
+        Matcher phoneMatcher = phonePattern.matcher(phoneText.getText());
+        
+        if(!phoneMatcher.matches()) {
+             JOptionPane.showMessageDialog(null, "Phone does not match");
+             return false;
+        }
+        //Todo come back and verify the email pattern
+        //Pattern emailPattern = Pattern.compile("[a-zA-Z]{1,30}@.");
+        //Matcher emailMatcher = cityPattern.matcher(emailText.getText());
+        
+        if(!cityMatcher.matches()) {
+            JOptionPane.showMessageDialog(null, "City can only be 1-3 words " +
+                                         "and a max of 20 characthers including spaces");
+            return false;
+        }
+       
+        //if we get down here we're fine
+        return true;
+       
+    }
+
+    
+     //Precondition: Form passes validation and the database is accessible
+     //Postcondition: A new patient is added to the database
+    void addUserToDB() {
+        String gender = getSelectedButtonText(genderButtonGroup);
+        
+        int day = parseInt(dayComboBox.getSelectedItem().toString());
         int year = parseInt(yearComboBox.getSelectedItem().toString());
-//        String doctor = getSelectedButtonText(doctorButtonGroup);
-        String doctor = doctorComboBox.getSelectedItem().toString();
-        System.out.println(doctor);
-//        String email = userName + "@sms.com";
         String values = "VALUES ( '"+ firstNameText.getText() +
                 "', '" + middleIntText.getText() + 
                 "', '" + lastNameText.getText() +
-//                "', '" + userName + "', 'Password1"  +  
-//                "', '" + positionComboBox.getSelectedItem().toString() +
-                ", '" + ssnText.getText()+
+                "', '" + ssnText.getText()+
                 "', '" + gender +
                 "', '" + address1Text.getText() +
                 "', '" + address2Text.getText() +
@@ -658,17 +803,25 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 "', '" + monthComboBox.getSelectedItem().toString() +
                 "', " + day + 
                 ", " + year +
+
                 ", '" + phoneText.getText() + "', '" + emailText.getText() + 
-                "', '" + doctor + "', '" + commentsTextArea.getText() + "')";
+                "', '" + doctorComboBox.getSelectedItem().toString() + "', '" + commentsTextArea.getText() + "')";
         
         Database db = new Database("SMSDB2");
 //                
         db.addDataToTable("patients", values);
         JOptionPane.showMessageDialog(this.getRootPane(), "Patient Added");
+
+        db.addDataToTable("patients", values);
+        JOptionPane.showMessageDialog(null, "Patient Added");
+
         clearAddPatientPanel();
     }
-        
-            public String getSelectedButtonText(ButtonGroup buttonGroup) {
+    
+    
+    
+     //Function returns the string value of a given button group   
+    public String getSelectedButtonText(ButtonGroup buttonGroup) {
         for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
 

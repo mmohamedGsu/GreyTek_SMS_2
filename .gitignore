@@ -46,4 +46,23 @@ SMS_2/src/shha/AddPatientPanel.java
 *.dat
 
 *.lck
+<<<<<<< HEAD
 *.lck
+=======
+
+*.log
+
+*.ctrl
+
+*.dat
+
+*.ctrl
+
+*.dat
+
+*.ctrl
+
+*.log
+
+*.ctrl
+>>>>>>> origin/master

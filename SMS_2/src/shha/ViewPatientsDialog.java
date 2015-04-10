@@ -5,6 +5,8 @@
  */
 package shha;
 
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 import static shha.mainGUI2.defaultPatientPanel;
@@ -41,6 +43,8 @@ public class ViewPatientsDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        viewAllButton.setBackground(new java.awt.Color(51, 51, 255));
+        viewAllButton.setForeground(new java.awt.Color(255, 255, 255));
         viewAllButton.setText("View All");
         viewAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +107,16 @@ public class ViewPatientsDialog extends javax.swing.JDialog {
         JTable table = patientTable.getTable();
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
+        
+        Database db = new Database("SMSDB2");
+        ResultSet rs = db.queryPatients();
+        if(rs == null) {
+            JOptionPane.showMessageDialog(null, "No patients found");
+        }
+        
+        table.setModel((AbstractTableModel)DbUtils.resultSetToTableModel(rs));
+        
+       
         table.repaint();
         table.revalidate();
         patientTable.repaint();
@@ -132,6 +146,16 @@ public class ViewPatientsDialog extends javax.swing.JDialog {
         JTable table = patientTable.getTable();
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
+        
+        Database db = new Database("SMSDB2");
+        String patient = patientText.getText();
+        ResultSet rs = db.searchForPatient(patient);
+        
+        table.setModel(DbUtils.resultSetToTableModel(rs));
+        System.out.println(table.getColumnCount());
+        //table.removeColumn(table.getColumnModel().getColumn(6));
+        
+   
         table.repaint();
         table.revalidate();
         patientTable.repaint();

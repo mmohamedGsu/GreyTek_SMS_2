@@ -5,6 +5,8 @@
  */
 package shha;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JTable;
 import static shha.mainGUI2.patientsContainerPanel;
 
@@ -82,7 +84,17 @@ public class PatientTablePanel extends javax.swing.JPanel {
             JTable target = (JTable)evt.getSource();
             int row = target.getSelectedRow();
             int column = target.getSelectedColumn();
-            System.out.println("Double Click on Row worked");
+            
+            Database db = new Database("SMSDB2");
+          /*  ResultSet rs = db.queryPatientInfo(patientTable.getValueAt(row, 5).toString());
+            
+            try {
+                rs.next();
+                ViewPatientPanel.firstNameText.setText(rs.getString(1));
+                
+            } catch(SQLException e) {
+                
+            } */
 
             patientsContainerPanel.removeAll();
             patientsContainerPanel.repaint();

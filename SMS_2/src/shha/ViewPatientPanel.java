@@ -110,6 +110,11 @@ public class ViewPatientPanel extends javax.swing.JPanel {
                 cityTextMouseClicked(evt);
             }
         });
+        cityText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityTextActionPerformed(evt);
+            }
+        });
 
         cityLabel.setText(" City");
 
@@ -512,46 +517,50 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         editPatientInfo(true);
     }//GEN-LAST:event_editButtonActionPerformed
 
+    private void cityTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityTextActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel address1Label;
-    private javax.swing.JTextField address1Text;
+    public static javax.swing.JTextField address1Text;
     private javax.swing.JLabel address2Label;
-    private javax.swing.JTextField address2Text;
+    public static javax.swing.JTextField address2Text;
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel cityLabel;
-    private javax.swing.JTextField cityText;
+    public static javax.swing.JTextField cityText;
     private javax.swing.JLabel commenstLabel;
     private javax.swing.JScrollPane commentsJScrollPane;
-    private javax.swing.JTextArea commentsTextArea;
-    private javax.swing.JComboBox dayComboBox;
+    public static javax.swing.JTextArea commentsTextArea;
+    public static javax.swing.JComboBox dayComboBox;
     private javax.swing.JLabel dobLabel;
     private javax.swing.JLabel doctorLabel;
-    private javax.swing.JTextField doctorText;
+    public static javax.swing.JTextField doctorText;
     private javax.swing.JButton editButton;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailText;
-    private javax.swing.JRadioButton femaleRadioButton;
+    public static javax.swing.JRadioButton femaleRadioButton;
     private javax.swing.JLabel firstNameLabel;
-    private javax.swing.JTextField firstNameText;
+    public static javax.swing.JTextField firstNameText;
     private javax.swing.ButtonGroup genderButtonGroup;
     private javax.swing.JLabel genderLabel;
     private javax.swing.JLabel lastNameLabel;
-    private javax.swing.JTextField lastNameText;
-    private javax.swing.JRadioButton maleRadioButton;
+    public static javax.swing.JTextField lastNameText;
+    public static javax.swing.JRadioButton maleRadioButton;
     private javax.swing.JLabel middleIntLabel;
-    private javax.swing.JTextField middleIntText;
-    private javax.swing.JComboBox monthComboBox;
+    public static javax.swing.JTextField middleIntText;
+    public static javax.swing.JComboBox monthComboBox;
     private javax.swing.JLabel phoneLabel;
-    private javax.swing.JTextField phoneText;
+    public static javax.swing.JTextField phoneText;
     private javax.swing.JButton saveButton;
     private javax.swing.JLabel ssnLabel;
-    private javax.swing.JTextField ssnText;
-    private javax.swing.JComboBox stateComboBox;
+    public static javax.swing.JTextField ssnText;
+    public static javax.swing.JComboBox stateComboBox;
     private javax.swing.JLabel stateLabel;
-    private javax.swing.JComboBox yearComboBox;
+    public static javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel zipLabel;
-    private javax.swing.JTextField zipText;
+    public static javax.swing.JTextField zipText;
     // End of variables declaration//GEN-END:variables
 
     
