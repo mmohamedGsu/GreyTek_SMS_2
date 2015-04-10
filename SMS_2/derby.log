@@ -1,21 +1,11 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Thu Apr 09 22:00:48 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a10e-db47-000002fa6dd0 
+Thu Apr 09 22:22:58 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a123-26b7-000002f40130 
 on database directory C:\Users\Brian\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@7852e922 
 Loaded from file:/C:/Users/Brian/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_31-b13
 user.dir=C:\Users\Brian\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2
-=======
-Thu Apr 09 21:57:15 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a10b-9e83-000007fce168 
-on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@7852e922 
-Loaded from file:/C:/Users/Sheldon/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_11-b12
-user.dir=C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2
->>>>>>> origin/master
 os.name=Windows 8.1
 os.arch=amd64
 os.version=6.3
