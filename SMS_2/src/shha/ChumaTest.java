@@ -48,14 +48,14 @@ public class ChumaTest {
           
         //drop the employees table
         
-//       System.out.println("Dropping employ table");
-//       db.dropTable("employ");
-//       System.out.println("Employ table dropped");
+       System.out.println("Dropping employ table");
+       db.dropTable("employ");
+       System.out.println("Employ table dropped");
         
         
         //create new empmployees table with a userName
        
-        
+//        
 //       System.out.println("Creating employees table");
 //        db.createTable("employ", "(firstName varchar(20), middleInt varchar(10), " +
 //                        "lastName varchar(20), username varchar(20), password varchar(20), " +
@@ -85,7 +85,7 @@ public class ChumaTest {
 //                        "email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");
 //        System.out.println("Patients table created");
         
-//        String values2 =  "VALUES ('Test', 'T', 'Tester', '555-55-5555', " + 
+//        String values2 =  "VALUES (0, 'Test', 'T', 'Tester', '555-55-5555', " + 
 //                               " 'M', '555 The Code Way', " +
 //                                "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
 //                                "'404-555-5555', 'admin1@sms.com', 'DR. Chuma Obi', 'Severe allergy to computers')";
@@ -100,7 +100,7 @@ public class ChumaTest {
      //   db.dropTable("employ");
 //          db.addDataToTable("employ", values);
 //        db.addDataToTable("patients", values2);
-          db.
+          
  
 //        db.printAll("timeKeeper");
 //        db.printAll("patients");
