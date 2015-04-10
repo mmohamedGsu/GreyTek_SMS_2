@@ -484,12 +484,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_phoneTextMouseClicked
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-
         addPatientToDB();        //Add DB Functions here above the clearAddPatientPanel call
         
-        //Add DB Functions here above the clearAddPatientPanel call
-        System.out.println(getSelectedButtonText(genderButtonGroup));
-
         clearAddPatientPanel();
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -635,9 +631,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         
     }
     
-
-    
-
     
         void addPatientToDB(){
         
@@ -667,18 +660,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ", " + year +
                 ", '" + phoneText.getText() + "', '" + emailText.getText() + 
                 "', '" + doctor + "', '" + commentsTextArea.getText() + "')";
-        
-        Database db = new Database("SMSDB2");
-               
-       db.addDataToTable("patients", values);
-       
+//        Database db = new Database("SMSDB2");
+//        
+//        
+//        db.addDataToTable("patients", values);
         JOptionPane.showMessageDialog(this.getRootPane(), "Patient Added");
         clearAddPatientPanel();
     }
         
-
-    public String getSelectedButtonText(ButtonGroup buttonGroup) {
-
+            public String getSelectedButtonText(ButtonGroup buttonGroup) {
         for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
 
@@ -689,9 +679,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
         return null;
     }
-
+    
  }
-
     
 
 

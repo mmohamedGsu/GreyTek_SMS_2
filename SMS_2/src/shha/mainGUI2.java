@@ -1586,15 +1586,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         patientsContainerPanel.repaint();
         patientsContainerPanel.revalidate();
         
-        //AddPatientPanel addPatientPanel = new AddPatientPanel();
+        AddPatientPanel addPatientPanel = new AddPatientPanel();
         
-  //      patientsPanel.add(addPatientPanel);
+       //patientsPanel.add(addPatientPanel);
         //patientsPanel.repaint();
         //patientsPanel.revalidate();
-        /*
+        
         patientsContainerPanel.add(addPatientPanel);
         patientsContainerPanel.repaint();
-        patientsContainerPanel.revalidate(); */
+        patientsContainerPanel.revalidate(); 
     }//GEN-LAST:event_addNewPatientButtonActionPerformed
 
     private void viewPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPatientButtonActionPerformed
