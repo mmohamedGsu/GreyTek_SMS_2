@@ -805,20 +805,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ", " + year +
 
                 ", '" + phoneText.getText() + "', '" + emailText.getText() + 
-                "', '" + doctor + "', '" + commentsTextArea.getText() + "')";
+                "', '" + doctorComboBox.getSelectedItem().toString() + "', '" + commentsTextArea.getText() + "')";
         
         Database db = new Database("SMSDB2");
 //                
         db.addDataToTable("patients", values);
         JOptionPane.showMessageDialog(this.getRootPane(), "Patient Added");
 
-                ", '" + phoneText.getText() + 
-                "', '" + emailText.getText() + 
-                "', '" + doctorComboBox.getSelectedItem().toString() +
-                "', '" + commentsTextArea.getText() +
-                "')";
-        
-        Database db = new Database("SMSDB2");
         db.addDataToTable("patients", values);
         JOptionPane.showMessageDialog(null, "Patient Added");
 
