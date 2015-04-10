@@ -660,10 +660,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ", " + year +
                 ", '" + phoneText.getText() + "', '" + emailText.getText() + 
                 "', '" + doctor + "', '" + commentsTextArea.getText() + "')";
-//        Database db = new Database("SMSDB2");
-//        
-//        
-//        db.addDataToTable("patients", values);
+        
+        Database db = new Database("SMSDB2");
+//                
+        db.addDataToTable("patients", values);
         JOptionPane.showMessageDialog(this.getRootPane(), "Patient Added");
         clearAddPatientPanel();
     }
