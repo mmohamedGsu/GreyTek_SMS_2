@@ -372,6 +372,22 @@ public class Database {
         return doctorResults;
     }
     
+    public boolean uniqueSSN(String ssn) {
+        ResultSet rs = null;
+        String query = "select * from patients where ssn='" + ssn +"'";
+        boolean isUnique = true;
+        
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = myStatement.executeQuery(query);
+            isUnique = rs.next();
+        } catch(SQLException e) {
+            System.out.println(e.toString());
+        }
+        
+        return isUnique;
+    }
+    
     //Precondition: The database is accessible 
     //PostCondition
     

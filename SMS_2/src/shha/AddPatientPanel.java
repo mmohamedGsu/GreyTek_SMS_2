@@ -488,7 +488,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     //Postcondition: A new patient is added to the patients table
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
        if(formValidation()) {
-           addUserToDB();
+           if(!uniqueSSN()) {
+               addUserToDB();
+           } else {
+                JOptionPane.showMessageDialog(null, "SSN currently exists." +
+                                               " Please verify SSN");
+           }
+   
        }
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -525,8 +531,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_doctorComboBoxActionPerformed
 
-    
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel address1Label;
     private javax.swing.JTextField address1Text;
@@ -636,7 +641,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     
     //Precondition: The add patient form is loaded
     //Postcondition: Returns true if all values in the form passes validation
-        private boolean formValidation() {
+    private boolean formValidation() {
         
         //User names need to be 1-20 upper and lower case numbers
         Pattern namePattern = Pattern.compile("[a-zA-Z]{1,20}");
@@ -782,7 +787,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
        
     }
 
-    
      //Precondition: Form passes validation and the database is accessible
      //Postcondition: A new patient is added to the database
     void addUserToDB() {
@@ -803,7 +807,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 "', '" + monthComboBox.getSelectedItem().toString() +
                 "', " + day + 
                 ", " + year +
-
                 ", '" + phoneText.getText() + "', '" + emailText.getText() + 
                 "', '" + doctorComboBox.getSelectedItem().toString() + "', '" + commentsTextArea.getText() + "')";
         
@@ -818,8 +821,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         clearAddPatientPanel();
     }
     
-    
-    
      //Function returns the string value of a given button group   
     public String getSelectedButtonText(ButtonGroup buttonGroup) {
         for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
@@ -833,7 +834,11 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         return null;
     }
     
+    public boolean uniqueSSN() {
+        Database db = new Database("SMSDB");
+        return db.uniqueSSN(ssnText.getText());
+    }
+    
  }
     
-
 
