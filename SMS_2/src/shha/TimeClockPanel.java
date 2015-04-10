@@ -50,6 +50,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
         punchOutButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         timeLabel = new javax.swing.JLabel();
+        imgLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(700, 500));
 
@@ -102,7 +103,9 @@ public class TimeClockPanel extends javax.swing.JPanel {
                     .addComponent(punchOutButton))
                 .addGap(31, 31, 31)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {punchInButton, punchOutButton});
@@ -110,13 +113,19 @@ public class TimeClockPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(punchInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76)
-                        .addComponent(punchOutButton)))
+                        .addContainerGap()
+                        .addComponent(imgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(punchInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(76, 76, 76)
+                                .addComponent(punchOutButton)))))
                 .addContainerGap(193, Short.MAX_VALUE))
         );
 
@@ -156,6 +165,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
         });
   
         timeLabel.setText("Punch In - " + displayInTime);
+        imgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/thumbs_upsm.jpg")));
       
         tcPanel.repaint();
         tcPanel.revalidate();
@@ -194,6 +204,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
         });
   
         timeLabel.setText("Punch Out - " + displayOutTime);
+        imgLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/docsm.jpg")));
 
         
         double total = calculateTimeWorked(); //Display time worked on console
@@ -230,6 +241,7 @@ public class TimeClockPanel extends javax.swing.JPanel {
         return hoursWorked;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel imgLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton punchInButton;
     private javax.swing.JButton punchOutButton;
