@@ -5,6 +5,11 @@
  */
 package shha;
 
+import static java.lang.Integer.parseInt;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import static shha.mainGUI2.defaultPatientPanel;
 import static shha.mainGUI2.patientsContainerPanel;
 
@@ -68,8 +73,15 @@ public class ViewPatientPanel extends javax.swing.JPanel {
         commentsJScrollPane = new javax.swing.JScrollPane();
         commentsTextArea = new javax.swing.JTextArea();
         editButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        viewChartButton = new javax.swing.JButton();
 
         firstNameText.setEnabled(false);
+        firstNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstNameTextActionPerformed(evt);
+            }
+        });
 
         firstNameLabel.setText(" First Name");
 
@@ -270,6 +282,20 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
 
+    deleteButton.setText("Delete");
+    deleteButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            deleteButtonActionPerformed(evt);
+        }
+    });
+
+    viewChartButton.setText("Chart");
+    viewChartButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            viewChartButtonActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
@@ -305,10 +331,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 .addComponent(address1Label)
                                 .addComponent(address2Label)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(48, 48, 48)
-                                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(saveButton)
                                     .addGap(18, 18, 18)
-                                    .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(editButton)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(deleteButton)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(viewChartButton)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cancelButton)))
                             .addGap(0, 0, Short.MAX_VALUE)))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,7 +350,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                             .addComponent(lastNameText, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(zipText, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                             .addComponent(zipLabel, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addComponent(cancelButton)
                         .addComponent(phoneLabel)
                         .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(23, 23, 23)
@@ -344,11 +374,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(emailLabel)
                         .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGap(0, 780, Short.MAX_VALUE))))
     );
-
-    layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, saveButton});
-
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
@@ -410,38 +437,40 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(zipText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(doctorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(dobLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(emailLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cancelButton)
-                            .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(phoneLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addComponent(commenstLabel)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(commentsJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(commentsJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(dobLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addComponent(emailLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(viewChartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(phoneLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 10, Short.MAX_VALUE)))
+            .addContainerGap())
     );
-
-    layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancelButton, saveButton});
-
     }// </editor-fold>//GEN-END:initComponents
 
     private void ssnTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ssnTextFocusGained
@@ -478,7 +507,31 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         //Add DB Functions here above the clearAddPatientPanel call
-
+        //sex is not working
+        Database db = new Database("SMSDB2");
+        int day = parseInt(dayComboBox.getSelectedItem().toString());
+        int year = parseInt(yearComboBox.getSelectedItem().toString());
+        String query = "UPDATE patients SET " +
+                        "firstName='" + firstNameText.getText() + "', " +
+                        "middleInt='" + middleIntText.getText() + "', " +
+                        "lastName='" + lastNameText.getText() + "', " +
+                        "ssn='" + ssnText.getText() + "', " +
+                        "sex='" + getSelectedButtonText(genderButtonGroup) + "', " +
+                        "address1='" + address1Text.getText() + "', " +
+                        "address2='" + address2Text.getText() + "', " +
+                        "city='" + cityText.getText() + "', " +
+                        "state='" + stateComboBox.getSelectedItem().toString() + "', " +
+                        "zip='" + zipText.getText() + "', " +
+                        "month='" + monthComboBox.getSelectedItem() + "', " +
+                        "day=" + day + ", " +
+                        "birthYear=" + year +", " +
+                        "phone='" + phoneText.getText() + "',  " +
+                        "email='" + emailText.getText() + "', " +
+                        "doctorAssign='" + doctorText.getText() + "', " +
+                        "comments='" + commentsTextArea.getText() +"' " +
+                        "WHERE ssn='" + ssnText.getText() + "'";
+        db.executePatientUpdate(query);
+        JOptionPane.showMessageDialog(null, "Patient Updated");
         editPatientInfo(false);
         clearViewPatientPanel();
     }//GEN-LAST:event_saveButtonActionPerformed
@@ -521,6 +574,18 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_cityTextActionPerformed
 
+    private void firstNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstNameTextActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void viewChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewChartButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewChartButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel address1Label;
@@ -534,12 +599,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JScrollPane commentsJScrollPane;
     public static javax.swing.JTextArea commentsTextArea;
     public static javax.swing.JComboBox dayComboBox;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JLabel dobLabel;
     private javax.swing.JLabel doctorLabel;
     public static javax.swing.JTextField doctorText;
     private javax.swing.JButton editButton;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JTextField emailText;
+    public static javax.swing.JTextField emailText;
     public static javax.swing.JRadioButton femaleRadioButton;
     private javax.swing.JLabel firstNameLabel;
     public static javax.swing.JTextField firstNameText;
@@ -558,6 +624,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JTextField ssnText;
     public static javax.swing.JComboBox stateComboBox;
     private javax.swing.JLabel stateLabel;
+    private javax.swing.JButton viewChartButton;
     public static javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel zipLabel;
     public static javax.swing.JTextField zipText;
@@ -617,5 +684,18 @@ private void clearViewPatientPanel(){
         yearComboBox.setSelectedIndex(0);
         
         
+    }
+
+ //Function returns the string value of a given button group   
+    public String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+
+        return null;
     }
 }
