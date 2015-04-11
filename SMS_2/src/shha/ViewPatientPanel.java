@@ -615,6 +615,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         Database db = new Database("SMSDB2");
         db.executePatientUpdate(query);
         db.executePatientUpdate(patient_chart_query);
+        
         JOptionPane.showMessageDialog(null, "Patient Deleted");
         editPatientInfo(false);
         clearViewPatientPanel();
