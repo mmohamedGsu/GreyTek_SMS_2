@@ -12,6 +12,15 @@ import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import static shha.ViewChartPanel.allergyTextArea;
+import static shha.ViewChartPanel.chartTextArea;
+import static shha.ViewChartPanel.doctorTextField;
+import static shha.ViewChartPanel.generalTextArea;
+import static shha.ViewChartPanel.insuranceTextArea;
+import static shha.ViewChartPanel.medTextArea;
+import static shha.ViewChartPanel.nameLabel;
+import static shha.ViewChartPanel.referredTextArea;
+import static shha.ViewChartPanel.visitTextArea;
 import static shha.mainGUI2.defaultPatientPanel;
 import static shha.mainGUI2.patientsContainerPanel;
 
@@ -627,10 +636,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             patientsContainerPanel.revalidate();
 
             ViewChartPanel viewChartPanel = new ViewChartPanel();
-
+            
             patientsContainerPanel.add(viewChartPanel);
             patientsContainerPanel.repaint();
             patientsContainerPanel.revalidate();
+            
+            String name = firstNameText.getText() + " " + lastNameText.getText();
+            fillOutPatientChart();
+            ViewChartPanel.nameLabel.setText(name);
+            
     }//GEN-LAST:event_viewChartButtonActionPerformed
 
     private void doctorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorComboBoxActionPerformed
@@ -792,5 +806,25 @@ private void clearViewPatientPanel(){
         
         return doctors;
         
+    }
+    
+    private void fillOutPatientChart() {
+        Database db = new Database("SMSDB2");
+        String query = "SELECT * from patient_chart" +
+                       " WHERE patient_ssn='"+ ssnText.getText() +  "'";
+        ResultSet rs = db.executeQuery(query);
+        try {
+            generalTextArea.setText(rs.getString(2));
+            allergyTextArea.setText(rs.getString(3));
+            medTextArea.setText(rs.getString(4));
+            referredTextArea.setText(rs.getString(5));
+            insuranceTextArea.setText(rs.getString(6));
+            visitTextArea.setText(rs.getString(7));
+            doctorTextField.setText(rs.getString(8));
+            chartTextArea.setText(rs.getString(9));
+            
+        } catch(SQLException e) {
+            System.out.println(e.toString());
+        }
     }
 }

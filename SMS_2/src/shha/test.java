@@ -119,17 +119,9 @@ public class test {
         
  //        db.printAll("employees");
 
-<<<<<<< Updated upstream
-    //     db.printAll("patients");
+        //     db.printAll("patients");
 
 //         db.printAll("patients");
-=======
-
-    //     db.printAll("patients");
-
-//         db.printAll("patients");
-
->>>>>>> Stashed changes
 
 //       db.printAll("appointments");
          
@@ -161,7 +153,14 @@ public class test {
          
          db.createTable("patient_chart", "(patient_ssn varchar(20), general varchar(200), " +
                         "allergies varchar(200), rountine_meds varchar(200), " +
-                       "insurance varchar(50), prior_visits varchar(100) )");
+                       " reffered_by varchar(30), insurance varchar(50), prior_visits varchar(100)," +
+                        " doctor varchar(50), chart varchar(100) )");
+         
+         
+        /* db.createTable("appointments", "(firstName varchar(20), " +
+                        "lastName varchar(20), phone varchar(15), " +
+                        "sex varchar(10), month varchar(20), day int, " +
+                        "birthYear int, email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");*/
         
     }
     
