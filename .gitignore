@@ -88,3 +88,11 @@ SMS_2/src/shha/AddPatientPanel.java
 *.dat
 
 *.ctrl
+
+*.log
+
+*.lck
+
+*.ctrl
+
+*.ctrl
