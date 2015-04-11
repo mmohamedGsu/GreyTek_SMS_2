@@ -188,6 +188,37 @@ public class Database {
         }
     }
 
+    public void printResultSet(ResultSet rs){
+        
+
+        try {
+            if (connection == null) {
+                System.out.println("Connection is null");
+            }
+            ResultSetMetaData resultSetMetaData = rs.getMetaData();
+
+            int coulmCount = resultSetMetaData.getColumnCount();
+
+            for (int i = 1; i <= coulmCount; i++) {
+                System.out.format("%15s", resultSetMetaData.getColumnName(i) + " |");
+            }
+
+            System.out.println("");
+
+            while (rs.next()) {
+                for (int i = 1; i <= coulmCount; i++) {
+                    System.out.format("%15s", rs.getString(i) + " |");
+
+                }
+                System.out.println();
+            }
+
+        } catch (SQLException e) {
+            System.out.println("we're screwed");
+            System.out.println(e.toString());
+        }
+
+    }
     public void printAll(String tableName) {
         String statement = "SELECT * From " + tableName;
         ResultSet results;
