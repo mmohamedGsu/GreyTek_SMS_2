@@ -87,7 +87,7 @@ public class PatientTablePanel extends javax.swing.JPanel {
             
             Database db = new Database("SMSDB2");
             ResultSet rs = db.queryPatientInfo(patientTable.getValueAt(row, 5).toString());
-            System.out.println(patientTable.getValueAt(row, 5).toString());
+            
             
             patientsContainerPanel.removeAll();
             patientsContainerPanel.repaint();
@@ -100,12 +100,16 @@ public class PatientTablePanel extends javax.swing.JPanel {
                     ViewPatientPanel.middleIntText.setText(rs.getString(2));
                     ViewPatientPanel.lastNameText.setText(rs.getString(3));
                     ViewPatientPanel.ssnText.setText(rs.getString(4));
-                    //colum 5 is for sex. you can possibly check the value
-                    //and then set the button accordingly
+                    
+                    if(rs.getString(5).equals("Male")) {
+                        System.out.println(rs.getString(5));
+                        ViewPatientPanel.maleRadioButton.setSelected(true);
+                    } else {
+                        ViewPatientPanel.femaleRadioButton.setSelected(true);
+                    }
                     ViewPatientPanel.address1Text.setText(rs.getString(6));
                     ViewPatientPanel.address2Text.setText(rs.getString(7));
                     ViewPatientPanel.cityText.setText(rs.getString(8));
-                    ViewPatientPanel.stateComboBox.setSelectedItem(9);
                     ViewPatientPanel.stateComboBox.setSelectedItem(rs.getString(9));
                     ViewPatientPanel.zipText.setText(rs.getString(10));
                     ViewPatientPanel.monthComboBox.setSelectedItem(rs.getString(11));
@@ -113,7 +117,7 @@ public class PatientTablePanel extends javax.swing.JPanel {
                     ViewPatientPanel.yearComboBox.setSelectedItem(rs.getString(13));
                     ViewPatientPanel.phoneText.setText(rs.getString(14));
                     ViewPatientPanel.emailText.setText(rs.getString(15));
-                    ViewPatientPanel.doctorText.setText(rs.getString(16));
+                    ViewPatientPanel.doctorComboBox.setSelectedItem(rs.getString(16));
                     ViewPatientPanel.commentsTextArea.setText(rs.getString(17));
                 
             } catch(SQLException e) {

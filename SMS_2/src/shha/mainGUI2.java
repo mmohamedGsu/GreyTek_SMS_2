@@ -402,6 +402,11 @@ public class mainGUI2 extends javax.swing.JFrame {
 
         genderButtonGroup.add(maleRadioButton);
         maleRadioButton.setText("Male");
+        maleRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maleRadioButtonActionPerformed(evt);
+            }
+        });
 
         genderButtonGroup.add(femaleRadioButton);
         femaleRadioButton.setText("Female");
@@ -1658,6 +1663,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private void removeUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_removeUserButtonActionPerformed
+
+    private void maleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maleRadioButtonActionPerformed
      
     
     public static void main(String args[]) {
