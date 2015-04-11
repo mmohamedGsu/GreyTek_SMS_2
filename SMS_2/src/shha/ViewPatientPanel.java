@@ -632,7 +632,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     
     //Method to edit Employee Info
-    private void editPatientInfo(Boolean str){
+ private void editPatientInfo(Boolean str){
         saveButton.setEnabled(str);
         firstNameText.setEnabled(str);
         middleIntText.setEnabled(str);
