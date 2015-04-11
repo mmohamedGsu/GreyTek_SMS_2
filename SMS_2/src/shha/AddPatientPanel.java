@@ -810,8 +810,17 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ", '" + phoneText.getText() + "', '" + emailText.getText() + 
                 "', '" + doctorComboBox.getSelectedItem().toString() + "', '" + commentsTextArea.getText() + "')";
         
+        String patient_chart_values = "VALUES ( '" + ssnText.getText() +
+                                      "', '" + "" +
+                                      "', '" + "" +
+                                      "', '" + "" +
+                                      "', '" + "" +
+                                      "', '" + "" + "')";
+                                      
+        
         Database db = new Database("SMSDB2");             
         db.addDataToTable("patients", values);
+        db.addDataToTable("patient_chart", patient_chart_values);
         JOptionPane.showMessageDialog(this.getRootPane(), "Patient Added");
         clearAddPatientPanel();
     }

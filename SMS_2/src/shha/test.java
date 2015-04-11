@@ -117,7 +117,7 @@ public class test {
         
  //        db.printAll("employees");
 
-         db.printAll("patients");
+//         db.printAll("patients");
 
 //       db.printAll("appointments");
          
@@ -142,6 +142,14 @@ public class test {
         }
           
     */
+         
+         
+         /*The following code creates the Patient chart Table */
+        db.dropTable("patient_chart");
+         
+         db.createTable("patient_chart", "(patient_ssn varchar(20), general varchar(200), " +
+                        "allergies varchar(200), rountine_meds varchar(200), " +
+                       "insurance varchar(50), prior_visits varchar(100) )");
         
     }
     

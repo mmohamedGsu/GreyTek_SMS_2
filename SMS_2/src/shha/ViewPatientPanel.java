@@ -609,8 +609,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         String query = "DELETE FROM patients " +
                        "WHERE ssn='" + ssnText.getText() + "'";
+        String patient_chart_query = "DELETE FROM patient_chart " +
+                                     "WHERE ssn='" + ssnText.getText() + "'";
+        
         Database db = new Database("SMSDB2");
         db.executePatientUpdate(query);
+        db.executePatientUpdate(patient_chart_query);
         JOptionPane.showMessageDialog(null, "Patient Deleted");
         editPatientInfo(false);
         clearViewPatientPanel();
