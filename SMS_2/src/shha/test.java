@@ -75,8 +75,8 @@ public class test {
 //                                "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
 //                                "'404-555-5555', 'admin1@sms.com')";
        
-      
-        /*
+   /*   
+        db.dropTable("patients");
          db.createTable("patients", "(firstName varchar(20), middleInt varchar(10), " +
                         "lastName varchar(20), " +
                        "ssn varchar(20), sex varchar(10), address1 varchar(100), " +
@@ -85,13 +85,13 @@ public class test {
                         "birthYear int, phone varchar(15), " +
                         "email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");
         System.out.println("Patients table created");
-        
+       
         String values2 =  "VALUES ('Test', 'T', 'Tester', '555-55-5555', " + 
                                " 'M', '555 The Code Way', " +
                                 "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
                                 "'404-555-5555', 'admin1@sms.com', 'DR. Chuma Obi', 'Severe allergy to computers')";
-        */
-        
+        db.addDataToTable("patients", values2);
+         */
         
         //Creates table with appointment information
         /*

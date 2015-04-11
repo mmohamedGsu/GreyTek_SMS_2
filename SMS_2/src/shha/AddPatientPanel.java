@@ -810,14 +810,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ", '" + phoneText.getText() + "', '" + emailText.getText() + 
                 "', '" + doctorComboBox.getSelectedItem().toString() + "', '" + commentsTextArea.getText() + "')";
         
-        Database db = new Database("SMSDB2");
-//                
+        Database db = new Database("SMSDB2");             
         db.addDataToTable("patients", values);
         JOptionPane.showMessageDialog(this.getRootPane(), "Patient Added");
-
-        db.addDataToTable("patients", values);
-        JOptionPane.showMessageDialog(null, "Patient Added");
-
         clearAddPatientPanel();
     }
     

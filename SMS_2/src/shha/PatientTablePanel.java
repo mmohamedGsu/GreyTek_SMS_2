@@ -86,22 +86,39 @@ public class PatientTablePanel extends javax.swing.JPanel {
             int column = target.getSelectedColumn();
             
             Database db = new Database("SMSDB2");
-          /*  ResultSet rs = db.queryPatientInfo(patientTable.getValueAt(row, 5).toString());
+            ResultSet rs = db.queryPatientInfo(patientTable.getValueAt(row, 5).toString());
+            System.out.println(patientTable.getValueAt(row, 5).toString());
             
-            try {
-                rs.next();
-                ViewPatientPanel.firstNameText.setText(rs.getString(1));
-                
-            } catch(SQLException e) {
-                
-            } */
-
             patientsContainerPanel.removeAll();
             patientsContainerPanel.repaint();
             patientsContainerPanel.revalidate();
 
             ViewPatientPanel viewPatientPanel = new ViewPatientPanel();
-            
+             try {
+                    rs.next();
+                    ViewPatientPanel.firstNameText.setText(rs.getString(1));
+                    ViewPatientPanel.middleIntText.setText(rs.getString(2));
+                    ViewPatientPanel.lastNameText.setText(rs.getString(3));
+                    ViewPatientPanel.ssnText.setText(rs.getString(4));
+                    //colum 5 is for sex. you can possibly check the value
+                    //and then set the button accordingly
+                    ViewPatientPanel.address1Text.setText(rs.getString(6));
+                    ViewPatientPanel.address2Text.setText(rs.getString(7));
+                    ViewPatientPanel.cityText.setText(rs.getString(8));
+                    ViewPatientPanel.stateComboBox.setSelectedItem(9);
+                    ViewPatientPanel.stateComboBox.setSelectedItem(rs.getString(9));
+                    ViewPatientPanel.zipText.setText(rs.getString(10));
+                    ViewPatientPanel.monthComboBox.setSelectedItem(rs.getString(11));
+                    ViewPatientPanel.dayComboBox.setSelectedItem(rs.getString(12));
+                    ViewPatientPanel.yearComboBox.setSelectedItem(rs.getString(13));
+                    ViewPatientPanel.phoneText.setText(rs.getString(14));
+                    ViewPatientPanel.emailText.setText(rs.getString(15));
+                    ViewPatientPanel.doctorText.setText(rs.getString(16));
+                    ViewPatientPanel.commentsTextArea.setText(rs.getString(17));
+                
+            } catch(SQLException e) {
+                System.out.println(e.toString());
+            }
             patientsContainerPanel.add(viewPatientPanel);
             patientsContainerPanel.repaint();
             patientsContainerPanel.revalidate();
