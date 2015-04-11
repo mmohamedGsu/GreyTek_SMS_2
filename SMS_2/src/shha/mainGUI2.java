@@ -1733,6 +1733,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_maleRadioButtonActionPerformed
 
+<<<<<<< Updated upstream
+=======
+     
+>>>>>>> Stashed changes
     
     public static void main(String args[]) {
        
