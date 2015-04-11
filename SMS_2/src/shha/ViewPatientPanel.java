@@ -622,7 +622,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void viewChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewChartButtonActionPerformed
-        // TODO add your handling code here:
+            patientsContainerPanel.removeAll();
+            patientsContainerPanel.repaint();
+            patientsContainerPanel.revalidate();
+
+            ViewChartPanel viewChartPanel = new ViewChartPanel();
+
+            patientsContainerPanel.add(viewChartPanel);
+            patientsContainerPanel.repaint();
+            patientsContainerPanel.revalidate();
     }//GEN-LAST:event_viewChartButtonActionPerformed
 
     private void doctorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorComboBoxActionPerformed

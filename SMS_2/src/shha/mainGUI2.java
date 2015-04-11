@@ -1692,7 +1692,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_removeUserButtonActionPerformed
 
-<<<<<<< HEAD
+
     private void timeClockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeClockButtonActionPerformed
          
         containerPanel.removeAll();
@@ -1728,12 +1728,11 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         timeContainerPanel.revalidate();
         
     }//GEN-LAST:event_timeClockButtonActionPerformed
-=======
+
     private void maleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_maleRadioButtonActionPerformed
->>>>>>> origin/master
-     
+
     
     public static void main(String args[]) {
        

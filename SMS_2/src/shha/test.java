@@ -119,11 +119,9 @@ public class test {
         
  //        db.printAll("employees");
 
-<<<<<<< HEAD
     //     db.printAll("patients");
-=======
+
 //         db.printAll("patients");
->>>>>>> a6f3d1ada2113fa1928cc2464becea93ee911a6a
 
 //       db.printAll("appointments");
          
