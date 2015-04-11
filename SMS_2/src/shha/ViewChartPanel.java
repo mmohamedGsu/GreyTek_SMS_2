@@ -69,6 +69,7 @@ public class ViewChartPanel extends javax.swing.JPanel {
         saveButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         messageLabel = new javax.swing.JLabel();
+        hiddenSSNLabel = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(991, 577));
         setMinimumSize(new java.awt.Dimension(991, 577));
@@ -285,6 +286,9 @@ public class ViewChartPanel extends javax.swing.JPanel {
         messageLabel.setForeground(java.awt.Color.red);
         messageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        hiddenSSNLabel.setText("Hidden");
+        hiddenSSNLabel.setVisible(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -308,7 +312,11 @@ public class ViewChartPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(61, 61, 61)
                                 .addComponent(patientImage, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(46, 59, Short.MAX_VALUE)))
+                        .addGap(46, 59, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(hiddenSSNLabel)
+                        .addGap(112, 112, 112)))
                 .addComponent(mainContainerTabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -327,7 +335,9 @@ public class ViewChartPanel extends javax.swing.JPanel {
                         .addComponent(patientImage, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(hiddenSSNLabel)
+                        .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -353,6 +363,7 @@ public class ViewChartPanel extends javax.swing.JPanel {
         visitTextArea.setEnabled(true);
         doctorTextField.setEnabled(true);
         chartTextArea.setEnabled(true);
+        
         
     }//GEN-LAST:event_editButtonActionPerformed
 
@@ -385,6 +396,7 @@ public class ViewChartPanel extends javax.swing.JPanel {
     private javax.swing.JPanel generalPanel;
     private javax.swing.JScrollPane generalScrollPane;
     public static javax.swing.JTextArea generalTextArea;
+    private javax.swing.JLabel hiddenSSNLabel;
     private javax.swing.JPanel insurancePanel;
     private javax.swing.JScrollPane insuranceScrollPane;
     public static javax.swing.JTextArea insuranceTextArea;
