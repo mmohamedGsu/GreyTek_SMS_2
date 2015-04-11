@@ -2,7 +2,6 @@
 package shha;
 
 import javax.swing.*;
-import static shha.mp3Player.mp3Player;
 
 /**
  *
@@ -37,10 +36,7 @@ public class SHHA extends JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new loginGUI2().setVisible(true);
-                
             }
-            
-            
         });
     
     }
