@@ -1,4 +1,5 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Sun Apr 12 15:11:05 EDT 2015:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-af0a-d710-000007fcf078 
 on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@5c647e05 
@@ -3039,3 +3040,17 @@ ERROR XSDB4: Page Page(4,Container(0, 1424)) is at version 0, the log file conta
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
 ============= end nested exception, level (2) ===========
 Cleanup action completed
+=======
+Sun Apr 12 15:09:56 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-af09-c833-000007f56cb8 
+on database directory /Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2/SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@55f96302 
+Loaded from file:/Users/MooseMoose/Google%20Drive/netBeans%20workSpace/Software%20Engineering%20Project/GreyTek%20SMS/SMS_2/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_05-b13
+user.dir=/Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.10
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+>>>>>>> origin/master

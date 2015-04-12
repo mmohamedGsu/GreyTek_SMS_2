@@ -20,6 +20,8 @@ public class mainGUI2 extends javax.swing.JFrame {
     
     public void populateEmployee(ResultSet rs) {
         initComponents();
+        
+        
         try {
            empFirstNameText.setText(rs.getString("firstName"));
            empLastNameText.setText(rs.getString("lastName"));
@@ -32,7 +34,8 @@ public class mainGUI2 extends javax.swing.JFrame {
     //Build Main GUI
     public mainGUI2() {
         initComponents();
-         employeeIdent.setText("Welcome: " +
+        positionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctor_Icon_128.png")));
+         employeeIdent1.setText("Welcome: " +
                             Authentication.firstName + " " +
                             Authentication.lastName
 
@@ -72,6 +75,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         patientsPanel = new javax.swing.JPanel();
         patientsContainerPanel = new javax.swing.JPanel();
         defaultPatientPanel = new javax.swing.JPanel();
+        imgLabel1 = new javax.swing.JLabel();
         patientTablePanel = new javax.swing.JPanel();
         chartTablePanel = new javax.swing.JPanel();
         addNewPatientButton = new javax.swing.JButton();
@@ -167,9 +171,10 @@ public class mainGUI2 extends javax.swing.JFrame {
         timeContainerPanel = new javax.swing.JPanel();
         defaultTimePanel = new javax.swing.JPanel();
         timePanel = new javax.swing.JPanel();
-        employeeIdent = new java.awt.Label();
         buildLabel = new javax.swing.JLabel();
         timeClockButton = new javax.swing.JButton();
+        employeeIdent1 = new java.awt.Label();
+        positionImage = new javax.swing.JLabel();
         smsMenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -242,11 +247,17 @@ public class mainGUI2 extends javax.swing.JFrame {
         defaultPatientPanel.setLayout(defaultPatientPanelLayout);
         defaultPatientPanelLayout.setHorizontalGroup(
             defaultPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+            .addGroup(defaultPatientPanelLayout.createSequentialGroup()
+                .addContainerGap(750, Short.MAX_VALUE)
+                .addComponent(imgLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
         defaultPatientPanelLayout.setVerticalGroup(
             defaultPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
+            .addGroup(defaultPatientPanelLayout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(imgLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(381, Short.MAX_VALUE))
         );
 
         patientsContainerPanel.add(defaultPatientPanel, "card3");
@@ -1175,7 +1186,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     empPanelLayout.setHorizontalGroup(
         empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, empPanelLayout.createSequentialGroup()
-            .addContainerGap(167, Short.MAX_VALUE)
+            .addContainerGap(206, Short.MAX_VALUE)
             .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
     );
@@ -1284,7 +1295,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     timeCPanelLayout.setHorizontalGroup(
         timeCPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timeCPanelLayout.createSequentialGroup()
-            .addContainerGap(121, Short.MAX_VALUE)
+            .addContainerGap(206, Short.MAX_VALUE)
             .addComponent(timeContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
     );
@@ -1298,9 +1309,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     containerPanel.add(timeCPanel, "card2");
 
-    employeeIdent.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-    employeeIdent.setText("label1");
-
     buildLabel.setText("GreyTek International -- SMS Build Ver. 1.0");
 
     timeClockButton.setText("TimeClock");
@@ -1311,6 +1319,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             timeClockButtonActionPerformed(evt);
         }
     });
+
+    employeeIdent1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+    employeeIdent1.setText("label1");
 
     jMenu1.setText("File");
     smsMenuBar.add(jMenu1);
@@ -1338,18 +1349,14 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(layout.createSequentialGroup()
-            .addGap(23, 23, 23)
-            .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGap(23, 23, 23))
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(buildLabel)
             .addGap(41, 41, 41))
         .addGroup(layout.createSequentialGroup()
             .addGap(36, 36, 36)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                     .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1357,17 +1364,27 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addComponent(reportsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(billButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(timeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(logoLabel)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(employeeIdent, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addContainerGap())
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(387, 387, 387)
+                            .addComponent(positionImage, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(319, 319, 319))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(employeeIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+        .addGroup(layout.createSequentialGroup()
+            .addGap(23, 23, 23)
+            .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1213, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
     layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {billButton, timeClockButton});
@@ -1379,9 +1396,11 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(employeeIdent, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGap(18, 18, 18)
+                    .addGap(12, 12, 12)
+                    .addComponent(positionImage, javax.swing.GroupLayout.DEFAULT_SIZE, 6, Short.MAX_VALUE)
+                    .addGap(67, 67, 67)
+                    .addComponent(employeeIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1390,11 +1409,11 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(timeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(18, 18, 18)
-            .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
             .addComponent(buildLabel)
-            .addGap(7, 7, 7))
+            .addContainerGap())
     );
 
     layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {billButton, timeClockButton});
@@ -1728,6 +1747,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_maleRadioButtonActionPerformed
 
 
+<<<<<<< HEAD
+=======
+    
+    
+
+>>>>>>> origin/master
     private void viewYourPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewYourPatientButtonActionPerformed
         
         PatientTablePanel patientTable = new PatientTablePanel();
@@ -1871,12 +1896,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JPanel empTablePanel;
     private javax.swing.JLabel empZipLabel;
     public static javax.swing.JTextField empZipText;
-    private java.awt.Label employeeIdent;
+    private java.awt.Label employeeIdent1;
     private javax.swing.JRadioButton femaleRadioButton;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JTextField firstNameText;
     private javax.swing.ButtonGroup genderButtonGroup;
     private javax.swing.JLabel genderLabel;
+    private javax.swing.JLabel imgLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
@@ -1895,6 +1921,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JTextField phoneText;
     private javax.swing.JComboBox positionComboBox;
+    private javax.swing.JLabel positionImage;
     private javax.swing.JLabel positionLabel;
     private javax.swing.JLabel positionLabel1;
     private javax.swing.JButton removeUserButton;
