@@ -38,15 +38,15 @@ public class test {
        
     public static void main(String[] args) {
         
-        Database db = new Database("SMSDB2");
+      //  Database db = new Database("SMSDB2");
         
          //Create Database
-       /*          
+                 
         System.out.println("Creating SMSDB2 dataBase");
         Database db = new Database("SMSDB2","create");
         System.out.println("Exiting creating SMSDB2 dataBase");
         
-         */ 
+          
         //drop the employees table
         /*
        System.out.println("Dropping employees table");
@@ -75,9 +75,9 @@ public class test {
 //                                "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
 //                                "'404-555-5555', 'admin1@sms.com')";
        
-        String query = "select * from SYS.SYSTABLES";
-        ResultSet rs = db.executeQuery(query);
-        db.printResultSet(rs);
+//        String query = "select * from SYS.SYSTABLES";
+//        ResultSet rs = db.executeQuery(query);
+//        db.printResultSet(rs);
       //  db.dropTable("patients");
       /*   db.createTable("patients", "(firstName varchar(20), middleInt varchar(10), " +
                         "lastName varchar(20), " +
@@ -119,10 +119,6 @@ public class test {
         
  //        db.printAll("employees");
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 
     //     db.printAll("patients");
 
@@ -137,7 +133,7 @@ public class test {
 
         //     db.printAll("patients");
 
-//         db.printAll("patients");
+         db.printAll("patients");
 
 
 //       db.printAll("appointments");
@@ -166,13 +162,13 @@ public class test {
          
          
          /*The following code creates the Patient chart Table */
-        db.dropTable("patient_chart");
-         
-         db.createTable("patient_chart", "(patient_ssn varchar(20), general varchar(200), " +
-                        "allergies varchar(200), rountine_meds varchar(200), " +
-                       " reffered_by varchar(30), insurance varchar(50), prior_visits varchar(100)," +
-                        " doctor varchar(50), chart varchar(100) )");
-         
+//        db.dropTable("patient_chart");
+//         
+//         db.createTable("patient_chart", "(patient_ssn varchar(20), general varchar(200), " +
+//                        "allergies varchar(200), rountine_meds varchar(200), " +
+//                       " reffered_by varchar(30), insurance varchar(50), prior_visits varchar(100)," +
+//                        " doctor varchar(50), chart varchar(100) )");
+//         
          
        
         
