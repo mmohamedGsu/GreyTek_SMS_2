@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Enumeration;
 import javax.swing.*;
 import java.util.regex.*;
+import javax.swing.table.AbstractTableModel;
 /**
  *
  * @author Sheldon
@@ -75,7 +76,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         chartTablePanel = new javax.swing.JPanel();
         addNewPatientButton = new javax.swing.JButton();
         viewPatientButton = new javax.swing.JButton();
-        chartButton = new javax.swing.JButton();
+        viewYourPatientButton = new javax.swing.JButton();
         adminPanel = new javax.swing.JPanel();
         adminContainerPanel = new javax.swing.JPanel();
         defaultAdminPanel = new javax.swing.JPanel();
@@ -113,8 +114,10 @@ public class mainGUI2 extends javax.swing.JFrame {
         monthComboBox = new javax.swing.JComboBox();
         dayComboBox = new javax.swing.JComboBox();
         yearComboBox = new javax.swing.JComboBox();
+        adminTablePanel = new javax.swing.JPanel();
         addNewUserButton = new javax.swing.JButton();
         removeUserButton = new javax.swing.JButton();
+        viewEmployeesButton = new javax.swing.JButton();
         empPanel = new javax.swing.JPanel();
         empContainerPanel = new javax.swing.JPanel();
         defaultEmpPanel = new javax.swing.JPanel();
@@ -156,15 +159,17 @@ public class mainGUI2 extends javax.swing.JFrame {
         empCancelButton = new javax.swing.JButton();
         empEditButton = new javax.swing.JButton();
         empTablePanel = new javax.swing.JPanel();
-        timePanel = new javax.swing.JPanel();
-        viewEmpButton = new javax.swing.JButton();
-        timeClockButton = new javax.swing.JButton();
         apptPanel = new javax.swing.JPanel();
         apptContainerPanel = new javax.swing.JPanel();
         defaultApptPanel = new javax.swing.JPanel();
         createApptButton = new javax.swing.JButton();
+        timeCPanel = new javax.swing.JPanel();
+        timeContainerPanel = new javax.swing.JPanel();
+        defaultTimePanel = new javax.swing.JPanel();
+        timePanel = new javax.swing.JPanel();
         employeeIdent = new java.awt.Label();
         buildLabel = new javax.swing.JLabel();
+        timeClockButton = new javax.swing.JButton();
         smsMenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -258,7 +263,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         chartTablePanel.setLayout(new java.awt.CardLayout());
         patientsContainerPanel.add(chartTablePanel, "card2");
 
-        addNewPatientButton.setText("Add Patient");
+        addNewPatientButton.setText("<html><div style=\"text-align: center\">Add<br>Patients</div></html>");
         addNewPatientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         addNewPatientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,7 +271,7 @@ public class mainGUI2 extends javax.swing.JFrame {
             }
         });
 
-        viewPatientButton.setText("View Patients");
+        viewPatientButton.setText("<html><div style=\"text-align: center\">View<br>Patients</div></html>");
         viewPatientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         viewPatientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,10 +279,11 @@ public class mainGUI2 extends javax.swing.JFrame {
             }
         });
 
-        chartButton.setText("Charts");
-        chartButton.addActionListener(new java.awt.event.ActionListener() {
+        viewYourPatientButton.setText("<html><div style=\"text-align: center\">Assigned<br>Patients</div></html>");
+        viewYourPatientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        viewYourPatientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chartButtonActionPerformed(evt);
+                viewYourPatientButtonActionPerformed(evt);
             }
         });
 
@@ -291,14 +297,11 @@ public class mainGUI2 extends javax.swing.JFrame {
                     .addGroup(patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(viewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(addNewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(chartButton, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(viewYourPatientButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
-
-        patientsPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {chartButton, viewPatientButton});
-
         patientsPanelLayout.setVerticalGroup(
             patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientsPanelLayout.createSequentialGroup()
@@ -306,17 +309,15 @@ public class mainGUI2 extends javax.swing.JFrame {
                     .addGroup(patientsPanelLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(addNewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
+                        .addGap(68, 68, 68)
                         .addComponent(viewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(chartButton))
+                        .addGap(68, 68, 68)
+                        .addComponent(viewYourPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(patientsPanelLayout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(133, 133, 133))
         );
-
-        patientsPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {chartButton, viewPatientButton});
 
         containerPanel.add(patientsPanel, "card2");
 
@@ -402,6 +403,11 @@ public class mainGUI2 extends javax.swing.JFrame {
 
         genderButtonGroup.add(maleRadioButton);
         maleRadioButton.setText("Male");
+        maleRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maleRadioButtonActionPerformed(evt);
+            }
+        });
 
         genderButtonGroup.add(femaleRadioButton);
         femaleRadioButton.setText("Female");
@@ -608,7 +614,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                             .addComponent(positionLabel1)
                                             .addGap(8, 8, 8))))))
                         .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(122, Short.MAX_VALUE))))
+                    .addContainerGap(103, Short.MAX_VALUE))))
     );
 
     addUserPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, saveButton});
@@ -695,14 +701,20 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGroup(addUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(cancelButton)
                 .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(178, Short.MAX_VALUE))
+            .addContainerGap(144, Short.MAX_VALUE))
     );
 
     addUserPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancelButton, saveButton});
 
     adminContainerPanel.add(addUserPanel, "card3");
 
-    addNewUserButton.setText("Add Employee");
+    adminTablePanel.setAutoscrolls(true);
+    adminTablePanel.setMaximumSize(new java.awt.Dimension(991, 573));
+    adminTablePanel.setMinimumSize(new java.awt.Dimension(991, 573));
+    adminTablePanel.setLayout(new java.awt.CardLayout());
+    adminContainerPanel.add(adminTablePanel, "card2");
+
+    addNewUserButton.setText("<html><div style=\"text-align: center\">Add<br>Employee</html>");
     addNewUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     addNewUserButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -710,11 +722,19 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
 
-    removeUserButton.setText("<html><p>Remove</p>\n<p>Employee</p></html>");
+    removeUserButton.setText("<html><div style=\"text-align: center\">Remove<br>Employee</html>");
     removeUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     removeUserButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             removeUserButtonActionPerformed(evt);
+        }
+    });
+
+    viewEmployeesButton.setText("<html><div style=\"text-align: center\">View<br>Employees</html>");
+    viewEmployeesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    viewEmployeesButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            viewEmployeesButtonActionPerformed(evt);
         }
     });
 
@@ -724,10 +744,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(25, 25, 25)
+            .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(adminPanelLayout.createSequentialGroup()
+                    .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(25, 25, 25))
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, adminPanelLayout.createSequentialGroup()
+                    .addComponent(viewEmployeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
             .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
     );
@@ -739,7 +764,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addGap(53, 53, 53)
                     .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(59, 59, 59)
-                    .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(59, 59, 59)
+                    .addComponent(viewEmployeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(adminPanelLayout.createSequentialGroup()
                     .addGap(25, 25, 25)
                     .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1143,58 +1170,22 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     empTablePanel.setLayout(new java.awt.CardLayout());
     empContainerPanel.add(empTablePanel, "card2");
 
-    timePanel.setAutoscrolls(true);
-    timePanel.setMaximumSize(new java.awt.Dimension(991, 573));
-    timePanel.setMinimumSize(new java.awt.Dimension(991, 573));
-    timePanel.setLayout(new java.awt.CardLayout());
-    empContainerPanel.add(timePanel, "card2");
-
-    viewEmpButton.setText("View");
-    viewEmpButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-    viewEmpButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            viewEmpButtonActionPerformed(evt);
-        }
-    });
-
-    timeClockButton.setText("TimeClock");
-    timeClockButton.setMaximumSize(new java.awt.Dimension(61, 25));
-    timeClockButton.setPreferredSize(new java.awt.Dimension(61, 25));
-    timeClockButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            timeClockButtonActionPerformed(evt);
-        }
-    });
-
     javax.swing.GroupLayout empPanelLayout = new javax.swing.GroupLayout(empPanel);
     empPanel.setLayout(empPanelLayout);
     empPanelLayout.setHorizontalGroup(
         empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, empPanelLayout.createSequentialGroup()
-            .addContainerGap()
-            .addGroup(empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(viewEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                .addComponent(timeClockButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGap(25, 25, 25)
+            .addContainerGap(167, Short.MAX_VALUE)
             .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
     );
     empPanelLayout.setVerticalGroup(
         empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(empPanelLayout.createSequentialGroup()
-            .addGroup(empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(empPanelLayout.createSequentialGroup()
-                    .addGap(47, 47, 47)
-                    .addComponent(timeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(28, 28, 28)
-                    .addComponent(viewEmpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(empPanelLayout.createSequentialGroup()
-                    .addGap(25, 25, 25)
-                    .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGap(25, 25, 25)
+            .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(133, 133, 133))
     );
-
-    empPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {timeClockButton, viewEmpButton});
 
     containerPanel.add(empPanel, "card2");
 
@@ -1257,10 +1248,69 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     containerPanel.add(apptPanel, "card2");
 
+    timeCPanel.setMaximumSize(new java.awt.Dimension(1170, 613));
+    timeCPanel.setMinimumSize(new java.awt.Dimension(1170, 613));
+
+    timeContainerPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+    timeContainerPanel.setMaximumSize(new java.awt.Dimension(995, 577));
+    timeContainerPanel.setMinimumSize(new java.awt.Dimension(995, 577));
+    timeContainerPanel.setPreferredSize(new java.awt.Dimension(995, 577));
+    timeContainerPanel.setLayout(new java.awt.CardLayout());
+
+    defaultTimePanel.setMaximumSize(new java.awt.Dimension(995, 577));
+    defaultTimePanel.setMinimumSize(new java.awt.Dimension(995, 577));
+
+    javax.swing.GroupLayout defaultTimePanelLayout = new javax.swing.GroupLayout(defaultTimePanel);
+    defaultTimePanel.setLayout(defaultTimePanelLayout);
+    defaultTimePanelLayout.setHorizontalGroup(
+        defaultTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 995, Short.MAX_VALUE)
+    );
+    defaultTimePanelLayout.setVerticalGroup(
+        defaultTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGap(0, 577, Short.MAX_VALUE)
+    );
+
+    timeContainerPanel.add(defaultTimePanel, "card3");
+
+    timePanel.setAutoscrolls(true);
+    timePanel.setMaximumSize(new java.awt.Dimension(991, 573));
+    timePanel.setMinimumSize(new java.awt.Dimension(991, 573));
+    timePanel.setLayout(new java.awt.CardLayout());
+    timeContainerPanel.add(timePanel, "card2");
+
+    javax.swing.GroupLayout timeCPanelLayout = new javax.swing.GroupLayout(timeCPanel);
+    timeCPanel.setLayout(timeCPanelLayout);
+    timeCPanelLayout.setHorizontalGroup(
+        timeCPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timeCPanelLayout.createSequentialGroup()
+            .addContainerGap(121, Short.MAX_VALUE)
+            .addComponent(timeContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(25, 25, 25))
+    );
+    timeCPanelLayout.setVerticalGroup(
+        timeCPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(timeCPanelLayout.createSequentialGroup()
+            .addGap(25, 25, 25)
+            .addComponent(timeContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(133, 133, 133))
+    );
+
+    containerPanel.add(timeCPanel, "card2");
+
     employeeIdent.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
     employeeIdent.setText("label1");
 
     buildLabel.setText("GreyTek International -- SMS Build Ver. 1.0");
+
+    timeClockButton.setText("TimeClock");
+    timeClockButton.setMaximumSize(new java.awt.Dimension(61, 25));
+    timeClockButton.setPreferredSize(new java.awt.Dimension(61, 25));
+    timeClockButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            timeClockButtonActionPerformed(evt);
+        }
+    });
 
     jMenu1.setText("File");
     smsMenuBar.add(jMenu1);
@@ -1292,31 +1342,36 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGap(23, 23, 23)
             .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGap(23, 23, 23))
-        .addGroup(layout.createSequentialGroup()
-            .addGap(110, 110, 110)
-            .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(reportsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(billButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 29, Short.MAX_VALUE))
-        .addGroup(layout.createSequentialGroup()
-            .addGap(36, 36, 36)
-            .addComponent(logoLabel)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(employeeIdent, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap())
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(buildLabel)
             .addGap(41, 41, 41))
+        .addGroup(layout.createSequentialGroup()
+            .addGap(36, 36, 36)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(reportsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(billButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(timeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(logoLabel)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(employeeIdent, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addContainerGap())
     );
+
+    layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {billButton, timeClockButton});
+
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
@@ -1333,13 +1388,16 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 .addComponent(reportsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(billButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(timeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(buildLabel)
             .addGap(7, 7, 7))
     );
+
+    layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {billButton, timeClockButton});
 
     pack();
     setLocationRelativeTo(null);
@@ -1430,21 +1488,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         clearAddUserPanel();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void viewEmpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmpButtonActionPerformed
-        //viewEmpOptionForm opForm = new viewEmpOptionForm();
-        ViewEmpDialog opForm = new ViewEmpDialog(new JFrame(), true);
-        opForm.setVisible(true);
-        
-        /* empContainerPanel.removeAll();
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
-
-        empContainerPanel.add(viewEmpPanel);
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();*/
-    }//GEN-LAST:event_viewEmpButtonActionPerformed
-
     private void empButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empButtonActionPerformed
+        
         containerPanel.removeAll();
         containerPanel.repaint();
         containerPanel.revalidate();
@@ -1452,6 +1497,11 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         containerPanel.add(empPanel);
         containerPanel.repaint();
         containerPanel.revalidate();
+        
+        ViewEmpDialog opForm = new ViewEmpDialog(new JFrame(), true);
+        opForm.setVisible(true);
+
+       
     }//GEN-LAST:event_empButtonActionPerformed
 
     private void stateComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateComboBoxActionPerformed
@@ -1585,27 +1635,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }); 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void timeClockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeClockButtonActionPerformed
-        
-        timePanel.removeAll();
-        timePanel.repaint();
-        timePanel.revalidate();
-        
-        timePanel.add(tcPanel);
-        timePanel.repaint();
-        timePanel.revalidate();
-        
-        empContainerPanel.removeAll();
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
-
-        empContainerPanel.add(timePanel);
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
-        
-        
-    }//GEN-LAST:event_timeClockButtonActionPerformed
-
     private void addNewPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewPatientButtonActionPerformed
         patientsContainerPanel.removeAll();
         patientsContainerPanel.repaint();
@@ -1626,11 +1655,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         ViewPatientsDialog opForm = new ViewPatientsDialog(new JFrame(), true);
         opForm.setVisible(true);
     }//GEN-LAST:event_viewPatientButtonActionPerformed
-
-    private void chartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chartButtonActionPerformed
-        ViewChartDialog opForm = new ViewChartDialog(new JFrame(), true);
-        opForm.setVisible(true);
-    }//GEN-LAST:event_chartButtonActionPerformed
 
     private void apptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apptButtonActionPerformed
         containerPanel.removeAll();
@@ -1656,10 +1680,104 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_createApptButtonActionPerformed
 
     private void removeUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserButtonActionPerformed
-        // TODO add your handling code here:
+        ViewAdminDialog opForm = new ViewAdminDialog(new JFrame(), true);
+        opForm.setVisible(true);
+        
+        
     }//GEN-LAST:event_removeUserButtonActionPerformed
-     
+
+
+    private void timeClockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeClockButtonActionPerformed
+         
+        containerPanel.removeAll();
+        containerPanel.repaint();
+        containerPanel.revalidate();
+       
+        containerPanel.add(timeCPanel);
+        containerPanel.repaint();
+        containerPanel.revalidate();
+        
+//        timeCPanel.removeAll();
+//        timeCPanel.repaint();
+//        timeCPanel.revalidate();
+//        
+//        timeCPanel.add(tcPanel);
+//        timeCPanel.repaint();
+//        timeCPanel.revalidate();
+        
+        timePanel.removeAll();
+        timePanel.repaint();
+        timePanel.revalidate();
+        
+        timePanel.add(tcPanel);
+        timePanel.repaint();
+        timePanel.revalidate();
+        
+        timeContainerPanel.removeAll();
+        timeContainerPanel.repaint();
+        timeContainerPanel.revalidate();
+
+        timeContainerPanel.add(timePanel);
+        timeContainerPanel.repaint();
+        timeContainerPanel.revalidate();
+        
+    }//GEN-LAST:event_timeClockButtonActionPerformed
+
+    private void maleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_maleRadioButtonActionPerformed
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
+    private void viewYourPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewYourPatientButtonActionPerformed
+        
+        PatientTablePanel patientTable = new PatientTablePanel();
+        JTable table = patientTable.getTable();
+        AbstractTableModel model = (AbstractTableModel)table.getModel();
+        model.fireTableDataChanged();
+        
+        Database db = new Database("SMSDB2");
+        ResultSet rs = db.queryPatients();
+        if(rs == null) {
+            JOptionPane.showMessageDialog(null, "No patients found");
+        }
+        
+        table.setModel((AbstractTableModel)DbUtils.resultSetToTableModel(rs));
+        
+       
+        table.repaint();
+        table.revalidate();
+        patientTable.repaint();
+        patientTable.revalidate();
+
+        patientTablePanel.removeAll();
+        patientTablePanel.repaint();
+        patientTablePanel.revalidate();
+
+        patientTablePanel.add(patientTable);
+        patientTablePanel.repaint();
+        patientTablePanel.revalidate();
+
+        patientsContainerPanel.removeAll();
+        patientsContainerPanel.repaint();
+        patientsContainerPanel.revalidate();
+
+        patientsContainerPanel.add(patientTablePanel);
+        patientsContainerPanel.repaint();
+        patientsContainerPanel.revalidate();
+    }//GEN-LAST:event_viewYourPatientButtonActionPerformed
+
+<<<<<<< HEAD
+    private void viewEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeesButtonActionPerformed
+        empButton.doClick();
+    }//GEN-LAST:event_viewEmployeesButtonActionPerformed
+
     
+=======
+
+>>>>>>> origin/master
     public static void main(String args[]) {
        
         try {
@@ -1700,13 +1818,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton adminButton;
     public static javax.swing.JPanel adminContainerPanel;
     private javax.swing.JPanel adminPanel;
+    public static javax.swing.JPanel adminTablePanel;
     private javax.swing.JButton apptButton;
     public static javax.swing.JPanel apptContainerPanel;
     private javax.swing.JPanel apptPanel;
     private javax.swing.JButton billButton;
     private javax.swing.JLabel buildLabel;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton chartButton;
     public static javax.swing.JPanel chartTablePanel;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JTextField cityText;
@@ -1717,6 +1835,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JPanel defaultApptPanel;
     public static javax.swing.JPanel defaultEmpPanel;
     public static javax.swing.JPanel defaultPatientPanel;
+    public static javax.swing.JPanel defaultTimePanel;
     private javax.swing.JLabel dobLabel;
     private javax.swing.JLabel empAddress1Label;
     public static javax.swing.JTextField empAddress1Text;
@@ -1791,13 +1910,16 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextField ssnText;
     private javax.swing.JComboBox stateComboBox;
     private javax.swing.JLabel stateLabel;
+    private javax.swing.JPanel timeCPanel;
     private javax.swing.JButton timeClockButton;
+    public static javax.swing.JPanel timeContainerPanel;
     public static javax.swing.JPanel timePanel;
-    private javax.swing.JButton viewEmpButton;
     private javax.swing.JLabel viewEmpIDLabel;
     public static javax.swing.JTextField viewEmpIDText;
     public static javax.swing.JPanel viewEmpPanel;
+    private javax.swing.JButton viewEmployeesButton;
     private javax.swing.JButton viewPatientButton;
+    private javax.swing.JButton viewYourPatientButton;
     private javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel zipLabel;
     private javax.swing.JTextField zipText;

@@ -75,9 +75,11 @@ public class test {
 //                                "'', 'Atlanta', 'Georgia', '30303', 'December', 12, 1964, " +
 //                                "'404-555-5555', 'admin1@sms.com')";
        
-   /*   
-        db.dropTable("patients");
-         db.createTable("patients", "(firstName varchar(20), middleInt varchar(10), " +
+        String query = "select * from SYS.SYSTABLES";
+        ResultSet rs = db.executeQuery(query);
+        db.printResultSet(rs);
+      //  db.dropTable("patients");
+      /*   db.createTable("patients", "(firstName varchar(20), middleInt varchar(10), " +
                         "lastName varchar(20), " +
                        "ssn varchar(20), sex varchar(10), address1 varchar(100), " +
                        "address2 varchar(100), city varchar(20), state varchar(20), " +
@@ -117,7 +119,23 @@ public class test {
         
  //        db.printAll("employees");
 
-         db.printAll("patients");
+<<<<<<< HEAD
+
+    //     db.printAll("patients");
+
+//         db.printAll("patients");
+
+
+    //     db.printAll("patients");
+
+//         db.printAll("patients");
+
+
+=======
+        //     db.printAll("patients");
+
+//         db.printAll("patients");
+>>>>>>> origin/master
 
 //       db.printAll("appointments");
          
@@ -142,6 +160,18 @@ public class test {
         }
           
     */
+         
+         
+         /*The following code creates the Patient chart Table */
+        db.dropTable("patient_chart");
+         
+         db.createTable("patient_chart", "(patient_ssn varchar(20), general varchar(200), " +
+                        "allergies varchar(200), rountine_meds varchar(200), " +
+                       " reffered_by varchar(30), insurance varchar(50), prior_visits varchar(100)," +
+                        " doctor varchar(50), chart varchar(100) )");
+         
+         
+       
         
     }
     

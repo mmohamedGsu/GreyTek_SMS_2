@@ -9,32 +9,19 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
-import static shha.mainGUI2.empContainerPanel;
 import static shha.mainGUI2.adminContainerPanel;
-import static shha.mainGUI2.viewEmpPanel;
-import static shha.mainGUI2.defaultEmpPanel;
-import static shha.mainGUI2.empTablePanel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import static shha.mainGUI2.adminTablePanel;
+
 /**
  *
  * @author Sheldon
  */
-public class ViewEmpDialog extends javax.swing.JDialog {
-    //instance table model
-DefaultTableModel tableModel = new DefaultTableModel() {
-
-    @Override
-    public boolean isCellEditable(int row, int column) {
-       //all cells false
-       return false;
-    }
-};
+public class ViewAdminDialog extends javax.swing.JDialog {
 
     /**
-     * Creates new form testDialog
+     * Creates new form ViewAdminDialog
      */
-    public ViewEmpDialog(java.awt.Frame parent, boolean modal) {
+    public ViewAdminDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -54,7 +41,6 @@ DefaultTableModel tableModel = new DefaultTableModel() {
         searchLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("View Employees");
 
         viewAllButton.setText("View All");
         viewAllButton.addActionListener(new java.awt.event.ActionListener() {
@@ -108,13 +94,12 @@ DefaultTableModel tableModel = new DefaultTableModel() {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
                     .addComponent(viewAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {searchButton, viewAllButton});
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAllButtonActionPerformed
@@ -124,34 +109,34 @@ DefaultTableModel tableModel = new DefaultTableModel() {
         JTable table = empTable.getTable();
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
-        
+
         Database db = new Database("SMSDB2");
         ResultSet rs = db.queryEmployees();
         if (rs == null) {
-             JOptionPane.showMessageDialog(rootPane, "No employees found");
+            JOptionPane.showMessageDialog(rootPane, "No employees found");
         }
         table.setModel((AbstractTableModel)DbUtils.resultSetToTableModel(rs));
-        
+
         table.repaint();
         table.revalidate();
         empTable.repaint();
         empTable.revalidate();
 
-        empTablePanel.removeAll();
-        empTablePanel.repaint();
-        empTablePanel.revalidate();
+        adminTablePanel.removeAll();
+        adminTablePanel.repaint();
+        adminTablePanel.revalidate();
 
-        empTablePanel.add(empTable);
-        empTablePanel.repaint();
-        empTablePanel.revalidate();
+        adminTablePanel.add(empTable);
+        adminTablePanel.repaint();
+        adminTablePanel.revalidate();
 
-        empContainerPanel.removeAll();
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
+        adminContainerPanel.removeAll();
+        adminContainerPanel.repaint();
+        adminContainerPanel.revalidate();
 
-        empContainerPanel.add(empTablePanel);
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
+        adminContainerPanel.add(adminTablePanel);
+        adminContainerPanel.repaint();
+        adminContainerPanel.revalidate();
     }//GEN-LAST:event_viewAllButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
@@ -161,34 +146,34 @@ DefaultTableModel tableModel = new DefaultTableModel() {
         JTable table = empTable.getTable();
         AbstractTableModel model = (AbstractTableModel)table.getModel();
         model.fireTableDataChanged();
-        
+
         Database db = new Database("SMSDB2");
         String employee = employeeText.getText();
         ResultSet rs = db.searchForEmployee(employee);
-        
-        
+
         table.setModel(DbUtils.resultSetToTableModel(rs));
-        
+
         table.repaint();
         table.revalidate();
         empTable.repaint();
         empTable.revalidate();
 
-        empTablePanel.removeAll();
-        empTablePanel.repaint();
-        empTablePanel.revalidate();
+        adminTablePanel.removeAll();
+        adminTablePanel.repaint();
+        adminTablePanel.revalidate();
 
-        empTablePanel.add(empTable);
-        empTablePanel.repaint();
-        empTablePanel.revalidate();
+        adminTablePanel.add(empTable);
+        adminTablePanel.repaint();
+        adminTablePanel.revalidate();
 
-        empContainerPanel.removeAll();
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
+        adminContainerPanel.removeAll();
+        adminContainerPanel.repaint();
+        adminContainerPanel.revalidate();
 
-        empContainerPanel.add(empTablePanel);
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
+        adminContainerPanel.add(adminTablePanel);
+        adminContainerPanel.repaint();
+        adminContainerPanel.revalidate();
+        
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void employeeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeTextActionPerformed
@@ -212,21 +197,20 @@ DefaultTableModel tableModel = new DefaultTableModel() {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAdminDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAdminDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAdminDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewEmpDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewAdminDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ViewEmpDialog dialog = new ViewEmpDialog(new javax.swing.JFrame(), true);
+                ViewAdminDialog dialog = new ViewAdminDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

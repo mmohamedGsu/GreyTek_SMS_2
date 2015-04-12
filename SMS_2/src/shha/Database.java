@@ -188,6 +188,37 @@ public class Database {
         }
     }
 
+    public void printResultSet(ResultSet rs){
+        
+
+        try {
+            if (connection == null) {
+                System.out.println("Connection is null");
+            }
+            ResultSetMetaData resultSetMetaData = rs.getMetaData();
+
+            int coulmCount = resultSetMetaData.getColumnCount();
+
+            for (int i = 1; i <= coulmCount; i++) {
+                System.out.format("%15s", resultSetMetaData.getColumnName(i) + " |");
+            }
+
+            System.out.println("");
+
+            while (rs.next()) {
+                for (int i = 1; i <= coulmCount; i++) {
+                    System.out.format("%15s", rs.getString(i) + " |");
+
+                }
+                System.out.println();
+            }
+
+        } catch (SQLException e) {
+            System.out.println("we're screwed");
+            System.out.println(e.toString());
+        }
+
+    }
     public void printAll(String tableName) {
         String statement = "SELECT * From " + tableName;
         ResultSet results;
@@ -358,6 +389,20 @@ public class Database {
 
         return doctorResults;
     }
+    
+    public ResultSet queryPatientsForAppointment() {
+        ResultSet doctorResults = null;
+        String query = "select firstName, lastName from patients";
+
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            doctorResults = myStatement.executeQuery(query);
+        } catch (SQLException e) {
+
+        }
+
+        return doctorResults;
+    }
 
     public boolean uniqueSSN(String ssn) {
         ResultSet rs = null;
@@ -385,6 +430,7 @@ public class Database {
         }
 
     }
+   
 
     //Precondition: The database is accessible 
     //PostCondition

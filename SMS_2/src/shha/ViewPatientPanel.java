@@ -6,10 +6,22 @@
 package shha;
 
 import static java.lang.Integer.parseInt;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import static shha.ViewChartPanel.allergyTextArea;
+import static shha.ViewChartPanel.chartTextArea;
+import static shha.ViewChartPanel.doctorTextField;
+import static shha.ViewChartPanel.generalTextArea;
+import static shha.ViewChartPanel.hiddenSSNLabel;
+import static shha.ViewChartPanel.insuranceTextArea;
+import static shha.ViewChartPanel.medTextArea;
+import static shha.ViewChartPanel.nameLabel;
+import static shha.ViewChartPanel.referredTextArea;
+import static shha.ViewChartPanel.visitTextArea;
 import static shha.mainGUI2.defaultPatientPanel;
 import static shha.mainGUI2.patientsContainerPanel;
 
@@ -24,6 +36,9 @@ public class ViewPatientPanel extends javax.swing.JPanel {
      */
     public ViewPatientPanel() {
         initComponents();
+        String[] doctorsArray = grabDoctors();
+        doctorComboBox.setModel(new javax.swing.DefaultComboBoxModel(doctorsArray));
+        
     }
 
     /**
@@ -65,7 +80,6 @@ public class ViewPatientPanel extends javax.swing.JPanel {
         monthComboBox = new javax.swing.JComboBox();
         dayComboBox = new javax.swing.JComboBox();
         yearComboBox = new javax.swing.JComboBox();
-        doctorText = new javax.swing.JTextField();
         doctorLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
         emailText = new javax.swing.JTextField();
@@ -75,6 +89,7 @@ public class ViewPatientPanel extends javax.swing.JPanel {
         editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         viewChartButton = new javax.swing.JButton();
+        doctorComboBox = new javax.swing.JComboBox();
 
         firstNameText.setEnabled(false);
         firstNameText.addActionListener(new java.awt.event.ActionListener() {
@@ -143,9 +158,19 @@ public class ViewPatientPanel extends javax.swing.JPanel {
 
         maleRadioButton.setText("Male");
         maleRadioButton.setEnabled(false);
+        maleRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maleRadioButtonActionPerformed(evt);
+            }
+        });
 
         femaleRadioButton.setText("Female");
         femaleRadioButton.setEnabled(false);
+        femaleRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                femaleRadioButtonActionPerformed(evt);
+            }
+        });
 
         genderLabel.setText(" Sex");
 
@@ -250,13 +275,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }
     });
 
-    doctorText.setEnabled(false);
-    doctorText.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            doctorTextMouseClicked(evt);
-        }
-    });
-
     doctorLabel.setText(" Doctor");
 
     emailLabel.setText(" Email");
@@ -294,6 +312,25 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             viewChartButtonActionPerformed(evt);
         }
+    });
+
+    doctorComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Alabama", "Alaska", "Arizona", "Arkansas",
+        "California", "Colorado", "Connecticut",
+        "Delaware", "Dist. of Columbia","Florida","Georgia",
+        "Hawaii","Idaho","Illinois","Indiana", "Iowa",
+        "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+        "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+        "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+        "New Jersey", "New Mexico", "New York", "North Carolina",
+        "North Dakota", "Ohio", "Oklahoma","Oregon","Pennsylvania",
+        "Rhode Island","South Carolina","South Dakota","Tennessee",
+        "Texas","Utah","Vermont","Virginia","Washington","West Virginia",
+        "Wyoming"}));
+doctorComboBox.setEnabled(false);
+doctorComboBox.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+    doctorComboBoxActionPerformed(evt);
+    }
     });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -367,8 +404,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 .addComponent(genderLabel)))
                         .addComponent(stateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(doctorLabel)
-                        .addComponent(doctorText, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(commentsJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(commentsJScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(doctorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,7 +475,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(zipText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(doctorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(doctorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -457,18 +496,18 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(viewChartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(viewChartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(phoneLabel)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 10, Short.MAX_VALUE)))
+                    .addGap(0, 9, Short.MAX_VALUE)))
             .addContainerGap())
     );
     }// </editor-fold>//GEN-END:initComponents
@@ -511,12 +550,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         Database db = new Database("SMSDB2");
         int day = parseInt(dayComboBox.getSelectedItem().toString());
         int year = parseInt(yearComboBox.getSelectedItem().toString());
+        String gender = getSelectedButtonText(genderButtonGroup);
         String query = "UPDATE patients SET " +
                         "firstName='" + firstNameText.getText() + "', " +
                         "middleInt='" + middleIntText.getText() + "', " +
                         "lastName='" + lastNameText.getText() + "', " +
                         "ssn='" + ssnText.getText() + "', " +
-                        "sex='" + getSelectedButtonText(genderButtonGroup) + "', " +
+                        "sex='" + gender + "', " +
                         "address1='" + address1Text.getText() + "', " +
                         "address2='" + address2Text.getText() + "', " +
                         "city='" + cityText.getText() + "', " +
@@ -527,13 +567,14 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                         "birthYear=" + year +", " +
                         "phone='" + phoneText.getText() + "',  " +
                         "email='" + emailText.getText() + "', " +
-                        "doctorAssign='" + doctorText.getText() + "', " +
+                        "doctorAssign='" + doctorComboBox.getSelectedItem() + "', " +
                         "comments='" + commentsTextArea.getText() +"' " +
                         "WHERE ssn='" + ssnText.getText() + "'";
         db.executePatientUpdate(query);
         JOptionPane.showMessageDialog(null, "Patient Updated");
         editPatientInfo(false);
         clearViewPatientPanel();
+        System.out.println(getSelectedButtonText(genderButtonGroup));
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -557,10 +598,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_yearComboBoxActionPerformed
 
-    private void doctorTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doctorTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doctorTextMouseClicked
-
     private void emailTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailTextMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextMouseClicked
@@ -577,14 +614,51 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private void firstNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstNameTextActionPerformed
-
+    //Precondition: The database is accessible
+    //Postcondition: The patient is deleted
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
+        String query = "DELETE FROM patients " +
+                       "WHERE ssn='" + ssnText.getText() + "'";
+        String patient_chart_query = "DELETE FROM patient_chart " +
+                                     "WHERE patient_ssn='" + ssnText.getText() + "'";
+        
+        Database db = new Database("SMSDB2");
+        db.executePatientUpdate(query);
+        db.executePatientUpdate(patient_chart_query);
+        
+        JOptionPane.showMessageDialog(null, "Patient Deleted");
+        editPatientInfo(false);
+        clearViewPatientPanel();
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void viewChartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewChartButtonActionPerformed
-        // TODO add your handling code here:
+            patientsContainerPanel.removeAll();
+            patientsContainerPanel.repaint();
+            patientsContainerPanel.revalidate();
+
+            ViewChartPanel viewChartPanel = new ViewChartPanel();
+            
+            patientsContainerPanel.add(viewChartPanel);
+            patientsContainerPanel.repaint();
+            patientsContainerPanel.revalidate();
+            
+            String name = firstNameText.getText() + " " + lastNameText.getText();
+            fillOutPatientChart();
+            ViewChartPanel.nameLabel.setText(name);
+            
     }//GEN-LAST:event_viewChartButtonActionPerformed
+
+    private void doctorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doctorComboBoxActionPerformed
+
+    private void maleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleRadioButtonActionPerformed
+        femaleRadioButton.setSelected(false);
+    }//GEN-LAST:event_maleRadioButtonActionPerformed
+
+    private void femaleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleRadioButtonActionPerformed
+        maleRadioButton.setSelected(false);
+    }//GEN-LAST:event_femaleRadioButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -601,8 +675,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JComboBox dayComboBox;
     private javax.swing.JButton deleteButton;
     private javax.swing.JLabel dobLabel;
+    public static javax.swing.JComboBox doctorComboBox;
     private javax.swing.JLabel doctorLabel;
-    public static javax.swing.JTextField doctorText;
     private javax.swing.JButton editButton;
     private javax.swing.JLabel emailLabel;
     public static javax.swing.JTextField emailText;
@@ -637,7 +711,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         firstNameText.setEnabled(str);
         middleIntText.setEnabled(str);
         lastNameText.setEnabled(str);
-        ssnText.setEnabled(str);
+       // ssnText.setEnabled(str);
         maleRadioButton.setEnabled(str);
         femaleRadioButton.setEnabled(str);
         address1Text.setEnabled(str);
@@ -650,7 +724,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         yearComboBox.setEnabled(str);
         phoneText.setEnabled(str);
         emailText.setEnabled(str);
-        doctorText.setEnabled(str);
+        doctorComboBox.setEnabled(str);
         commentsTextArea.setEnabled(str);
         
     }    
@@ -677,7 +751,7 @@ private void clearViewPatientPanel(){
         zipText.setText("");
         phoneText.setText("###-###-####");
         emailText.setText("");
-        doctorText.setText("");
+        doctorComboBox.setSelectedIndex(0);
         commentsTextArea.setText("");
         monthComboBox.setSelectedIndex(0);
         dayComboBox.setSelectedIndex(0);
@@ -697,5 +771,64 @@ private void clearViewPatientPanel(){
         }
 
         return null;
+    }
+    
+    //Precondition: THe database is in an accessible state
+    //Postcondition: The doctor's textbox is populated with the doctors in the
+    //               database
+    private String[] grabDoctors() {
+        String[] doctors = null;
+        Database db = new Database("SMSDB2");
+        ResultSet doctorsResult = db.queryDoctors();
+        String arr = null;
+                
+        try {
+            doctorsResult.last();
+            int rowCount = doctorsResult.getRow();
+            doctors = new String[rowCount];
+            doctorsResult.beforeFirst();
+            String firstName= null;
+            String lastName = null;
+            String fullName = null;
+            int counter = 0;
+            
+            while (doctorsResult.next()) {
+                firstName = doctorsResult.getString(1);
+                lastName = doctorsResult.getString(2);
+                fullName = lastName + "," + firstName;
+                doctors[counter] = fullName;
+                counter++;
+        }           
+            
+        }catch(SQLException e) {
+            System.out.println("Error parsing doctors");
+            System.out.println(e.toString());
+        }
+        
+        return doctors;
+        
+    }
+    
+    private void fillOutPatientChart() {
+        Database db = new Database("SMSDB2");
+        String query = "SELECT * from patient_chart" +
+                       " WHERE patient_ssn='"+ ssnText.getText() +  "'";
+        ResultSet rs = db.executeQuery(query);
+        try {
+            rs.next();
+            System.out.println(rs.getString(2));
+            generalTextArea.setText(rs.getString(2));
+            allergyTextArea.setText(rs.getString(3));
+            medTextArea.setText(rs.getString(4));
+            referredTextArea.setText(rs.getString(5));
+            insuranceTextArea.setText(rs.getString(6));
+            visitTextArea.setText(rs.getString(7));
+            doctorTextField.setText(rs.getString(8));
+            chartTextArea.setText(rs.getString(9));
+            hiddenSSNLabel.setText(ssnText.getText());
+            
+        } catch(SQLException e) {
+            System.out.println(e.toString());
+        }
     }
 }
