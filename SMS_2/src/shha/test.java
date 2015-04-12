@@ -119,7 +119,6 @@ public class test {
         
  //        db.printAll("employees");
 
-<<<<<<< HEAD
 
     //     db.printAll("patients");
 
@@ -131,11 +130,11 @@ public class test {
 //         db.printAll("patients");
 
 
-=======
+
         //     db.printAll("patients");
 
 //         db.printAll("patients");
->>>>>>> origin/master
+
 
 //       db.printAll("appointments");
          

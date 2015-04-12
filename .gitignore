@@ -128,3 +128,5 @@ SMS_2/derby.log
 *.ctrl
 
 *.dat
+SMS_2/src/shha/test.java
+SMS_2/src/shha/mainGUI2.java
