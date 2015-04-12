@@ -34,7 +34,7 @@ public class mainGUI2 extends javax.swing.JFrame {
     //Build Main GUI
     public mainGUI2() {
         initComponents();
-        positionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctor_Icon_128.png")));
+       // positionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctor_Icon_128.png")));
          employeeIdent1.setText("Welcome: " +
                             Authentication.firstName + " " +
                             Authentication.lastName
