@@ -13,6 +13,12 @@ import static shha.mainGUI2.viewEmpPanel;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import javax.swing.JFrame;
+import static shha.mainGUI2.adminContainerPanel;
+import static shha.mainGUI2.adminTablePanel;
+import static shha.mainGUI2.defaultAdminPanel;
+import static shha.mainGUI2.removeUserButton;
+import static shha.mainGUI2.viewEmployeesButton;
 
 
 /**
@@ -96,6 +102,9 @@ public class EmpTablePanel extends javax.swing.JPanel {
         
         Database db = new Database("SMSDB2");
         ResultSet rs = db.queryEmployeeInfo(empTable.getValueAt(row, 4).toString());
+       
+        //Determine if Employee Table is in view
+        if (empContainerPanel.isShowing()){
         
         empContainerPanel.removeAll();
         empContainerPanel.repaint();
@@ -131,8 +140,17 @@ public class EmpTablePanel extends javax.swing.JPanel {
         empContainerPanel.add(viewEmpPanel);
         empContainerPanel.repaint();
         empContainerPanel.revalidate();
-         
+        }
+        
+        
+        if (adminContainerPanel.isShowing()){
+            RemoveEmpDialog opForm = new RemoveEmpDialog(new JFrame(), true);
+            opForm.setVisible(true);
+        }
+        
+             
       }
+        
     }//GEN-LAST:event_empTableMouseClicked
 
     

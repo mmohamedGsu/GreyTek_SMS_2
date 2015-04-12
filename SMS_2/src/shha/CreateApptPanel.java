@@ -7,6 +7,7 @@ package shha;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.Date;
 import static shha.mainGUI2.apptContainerPanel;
 import static shha.mainGUI2.defaultApptPanel;
 
@@ -228,6 +229,17 @@ public class CreateApptPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        String date = dateSelectedLabel.getText();
+        
+        long millTime = dateToMill(date);
+        
+        String returnDate = millToDate(millTime);
+        
+        System.out.println("The date is: " + date);
+        System.out.println("The milliseconds for the date is: " + millTime);
+        System.out.println("The return date is: " + returnDate);
+        
+        
         
     }//GEN-LAST:event_confirmButtonActionPerformed
 
@@ -334,4 +346,144 @@ public class CreateApptPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane timeScrollPane;
     private javax.swing.JTable timeTable;
     // End of variables declaration//GEN-END:variables
+
+    
+    private long dateToMill(String date){
+        String delim = "[ ]";
+        String[] tokens = date.split(delim);
+               
+        String month;
+        int day = Integer.parseInt(tokens[2]);
+        int year = Integer.parseInt(tokens[5]);
+        
+        switch (tokens[1]) {
+            case "Jan":  month = "0";
+                     break;
+            case "Feb":  month = "1";
+                     break;
+            case "Mar":  month = "2";
+                     break;
+            case "Apr":  month = "3";
+                     break;
+            case "May":  month = "4";
+                     break;
+            case "Jun":  month = "5";
+                     break;
+            case "Jul":  month = "6";
+                     break;
+            case "Aug":  month = "7";
+                     break;
+            case "Sep":  month = "8";
+                     break;
+            case "Oct":  month = "9";
+                     break;
+            case "Nov":  month = "10";
+                     break;
+            case "Dec":  month = "11";
+                     break;
+            default: month = "Invalid month";
+                     break;
+        }
+        
+        int monthObj = Integer.parseInt(month);
+        
+       
+
+        String selectedTime = timeTable.getValueAt(timeTable.getSelectedRow(), timeTable.getSelectedColumn()).toString();
+      
+        
+        String hour = selectedTime;
+        switch (hour){
+            case "7:00 AM":  hour = "07"; 
+                    break;
+            case "8:00 AM":  hour = "08";
+                    break;
+            case "9:00 AM":  hour = "09";
+                    break;
+            case "10:00 AM":  hour = "10";
+                    break;
+            case "11:00 AM":  hour = "11";
+                    break;
+            case "12:00 PM":  hour = "12";
+                    break;
+            case "1:00 PM":   hour = "13";
+                    break;
+            case "2:00 PM":   hour = "14";
+                    break;
+            case "3:00 PM":   hour = "15";
+                    break;
+            case "4:00 PM":   hour = "16";
+                    break;
+            case "5:00 PM":   hour = "17";
+                    break;
+            default: hour = "Invalid time";
+        }
+        
+        int hourObj = Integer.parseInt(hour);
+        
+        Calendar cal = Calendar.getInstance();
+        cal.set(year, monthObj, day, hourObj, 00, 00); //Year, month, day of month, hours, minutes and seconds
+        Date dateObj = cal.getTime();
+        
+        long millTime = dateObj.getTime();
+        
+        return millTime;
+    }
+    
+    private String millToDate(long date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(date);
+        String dateStr = calendar.getTime().toString();
+        
+        
+        String delim = "[ ]";
+        String[] tokens = dateStr.split(delim);
+          
+        String month2 = tokens[1];
+        
+        String day2 = tokens[2];
+        String year2 = tokens[5];
+       
+        int mYear = calendar.get(Calendar.YEAR);
+        int mMonth = calendar.get(Calendar.MONTH);
+        int mDay = calendar.get(Calendar.DAY_OF_MONTH);
+        int mHour = calendar.get(Calendar.HOUR_OF_DAY);
+        
+        
+        
+        String amPM;
+        switch (mHour){
+            case 7:  amPM = "A"; 
+                    break;
+            case 8:  amPM = "A";
+                    break;
+            case 9:  amPM = "A";
+                    break;
+            case 10:  amPM = "A";
+                    break;
+            case 11:  amPM = "A";
+                    break;
+            case 12:  amPM = "P";
+                    break;
+            case 13:  amPM = "P";
+                      mHour = 1;
+                    break;
+            case 14:  amPM = "P";
+                      mHour = 2;  
+                    break;
+            case 15:  amPM = "P";
+                      mHour = 3;  
+                    break;
+            case 16:  amPM = "P";
+                      mHour = 4;
+                    break;
+            case 17:  amPM = "P";
+                      mHour = 5;
+                    break;
+            default: amPM = "Invalid time";
+        }
+        
+        String displayDate = month2 + " " + day2 + " " + year2 + " " + mHour +":00 " + amPM + "M";
+        return displayDate;
+    }
 }

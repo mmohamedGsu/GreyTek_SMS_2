@@ -34,7 +34,7 @@ public class mainGUI2 extends javax.swing.JFrame {
     //Build Main GUI
     public mainGUI2() {
         initComponents();
-        positionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctor_Icon_128.png")));
+         //positionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctor_Icon_128.png")));
          employeeIdent1.setText("Welcome: " +
                             Authentication.firstName + " " +
                             Authentication.lastName
@@ -1699,6 +1699,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_createApptButtonActionPerformed
 
     private void removeUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserButtonActionPerformed
+        adminContainerPanel.removeAll();
+        adminContainerPanel.repaint();
+        adminContainerPanel.revalidate();
+        adminContainerPanel.add(adminTablePanel);
+        adminContainerPanel.repaint();
+        adminContainerPanel.revalidate();
+        
         ViewAdminDialog opForm = new ViewAdminDialog(new JFrame(), true);
         opForm.setVisible(true);
         
@@ -1747,12 +1754,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_maleRadioButtonActionPerformed
 
 
-<<<<<<< HEAD
-=======
-    
-    
 
->>>>>>> origin/master
     private void viewYourPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewYourPatientButtonActionPerformed
         
         PatientTablePanel patientTable = new PatientTablePanel();
@@ -1793,7 +1795,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
 
     private void viewEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeesButtonActionPerformed
-        empButton.doClick();
+         empButton.doClick();
     }//GEN-LAST:event_viewEmployeesButtonActionPerformed
 
 
@@ -1851,7 +1853,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JPanel containerPanel;
     private javax.swing.JButton createApptButton;
     private javax.swing.JComboBox dayComboBox;
-    private javax.swing.JPanel defaultAdminPanel;
+    public static javax.swing.JPanel defaultAdminPanel;
     public static javax.swing.JPanel defaultApptPanel;
     public static javax.swing.JPanel defaultEmpPanel;
     public static javax.swing.JPanel defaultPatientPanel;
@@ -1924,7 +1926,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel positionImage;
     private javax.swing.JLabel positionLabel;
     private javax.swing.JLabel positionLabel1;
-    private javax.swing.JButton removeUserButton;
+    public static javax.swing.JButton removeUserButton;
     private javax.swing.JButton reportsButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JMenuBar smsMenuBar;
@@ -1939,7 +1941,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel viewEmpIDLabel;
     public static javax.swing.JTextField viewEmpIDText;
     public static javax.swing.JPanel viewEmpPanel;
-    private javax.swing.JButton viewEmployeesButton;
+    public static javax.swing.JButton viewEmployeesButton;
     private javax.swing.JButton viewPatientButton;
     private javax.swing.JButton viewYourPatientButton;
     private javax.swing.JComboBox yearComboBox;
