@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package shha;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Calendar;
 import static shha.mainGUI2.apptContainerPanel;
 import static shha.mainGUI2.defaultApptPanel;
@@ -19,6 +21,11 @@ public class CreateApptPanel extends javax.swing.JPanel {
      */
     public CreateApptPanel() {
         initComponents();
+        String[] doctorsArray = grabDoctors();
+        String[] patientsArray = grabPatients();
+        
+       doctortComboBox.setModel(new javax.swing.DefaultComboBoxModel(doctorsArray));
+       patientComboBox.setModel(new javax.swing.DefaultComboBoxModel(patientsArray));
     }
 
     /**
@@ -54,6 +61,11 @@ public class CreateApptPanel extends javax.swing.JPanel {
         doctorLabel.setText("Doctor:");
 
         doctortComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        doctortComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctortComboBoxActionPerformed(evt);
+            }
+        });
 
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -149,12 +161,10 @@ public class CreateApptPanel extends javax.swing.JPanel {
                             .addComponent(doctortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(containerPanelLayout.createSequentialGroup()
                                 .addGap(25, 25, 25)
-                                .addComponent(doctorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(doctorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(containerPanelLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
-                        .addComponent(apptCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(apptCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(126, 126, 126)
                 .addGroup(containerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(timeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,7 +182,7 @@ public class CreateApptPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(containerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containerPanelLayout.createSequentialGroup()
-                        .addGap(0, 7, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(dateSelectedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(timeScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,6 +244,81 @@ public class CreateApptPanel extends javax.swing.JPanel {
         apptContainerPanel.revalidate();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
+    private void doctortComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctortComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doctortComboBoxActionPerformed
+    
+    //Precondition: THe database is in an accessible state
+    //Postcondition: The doctor's textbox is populated with the doctors in the
+    //               database
+    private String[] grabDoctors() {
+        String[] doctors = null;
+        Database db = new Database("SMSDB2");
+        ResultSet doctorsResult = db.queryDoctors();
+        String arr = null;
+                
+        try {
+            doctorsResult.last();
+            int rowCount = doctorsResult.getRow();
+            doctors = new String[rowCount];
+            doctorsResult.beforeFirst();
+            String firstName= null;
+            String lastName = null;
+            String fullName = null;
+            int counter = 0;
+            
+            while (doctorsResult.next()) {
+                firstName = doctorsResult.getString(1);
+                lastName = doctorsResult.getString(2);
+                fullName = lastName + "," + firstName;
+                doctors[counter] = fullName;
+                counter++;
+        }           
+            
+        }catch(SQLException e) {
+            System.out.println("Error parsing doctors");
+            System.out.println(e.toString());
+        }
+        
+        return doctors;
+        
+    }
+    
+        //Precondition: THe database is in an accessible state
+    //Postcondition: The doctor's textbox is populated with the doctors in the
+    //               database
+    private String[] grabPatients() {
+        String[] doctors = null;
+        Database db = new Database("SMSDB2");
+        ResultSet doctorsResult = db.queryPatientsForAppointment();
+        String arr = null;
+                
+        try {
+            doctorsResult.last();
+            int rowCount = doctorsResult.getRow();
+            doctors = new String[rowCount];
+            doctorsResult.beforeFirst();
+            String firstName= null;
+            String lastName = null;
+            String fullName = null;
+            int counter = 0;
+            
+            while (doctorsResult.next()) {
+                firstName = doctorsResult.getString(1);
+                lastName = doctorsResult.getString(2);
+                fullName = lastName + "," + firstName;
+                doctors[counter] = fullName;
+                counter++;
+        }           
+            
+        }catch(SQLException e) {
+            System.out.println("Error parsing doctors");
+            System.out.println(e.toString());
+        }
+        
+        return doctors;
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JCalendar apptCalendar;

@@ -389,6 +389,20 @@ public class Database {
 
         return doctorResults;
     }
+    
+    public ResultSet queryPatientsForAppointment() {
+        ResultSet doctorResults = null;
+        String query = "select firstName, lastName from patients";
+
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            doctorResults = myStatement.executeQuery(query);
+        } catch (SQLException e) {
+
+        }
+
+        return doctorResults;
+    }
 
     public boolean uniqueSSN(String ssn) {
         ResultSet rs = null;

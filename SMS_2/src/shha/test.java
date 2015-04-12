@@ -119,6 +119,7 @@ public class test {
         
  //        db.printAll("employees");
 
+<<<<<<< HEAD
 
     //     db.printAll("patients");
 
@@ -130,6 +131,11 @@ public class test {
 //         db.printAll("patients");
 
 
+=======
+        //     db.printAll("patients");
+
+//         db.printAll("patients");
+>>>>>>> origin/master
 
 //       db.printAll("appointments");
          
@@ -161,7 +167,11 @@ public class test {
          
          db.createTable("patient_chart", "(patient_ssn varchar(20), general varchar(200), " +
                         "allergies varchar(200), rountine_meds varchar(200), " +
-                       "insurance varchar(50), prior_visits varchar(100) )");
+                       " reffered_by varchar(30), insurance varchar(50), prior_visits varchar(100)," +
+                        " doctor varchar(50), chart varchar(100) )");
+         
+         
+       
         
     }
     

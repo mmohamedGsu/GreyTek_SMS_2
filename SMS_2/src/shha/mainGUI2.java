@@ -1727,6 +1727,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_maleRadioButtonActionPerformed
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     private void viewYourPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewYourPatientButtonActionPerformed
         
         PatientTablePanel patientTable = new PatientTablePanel();
@@ -1765,11 +1769,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         patientsContainerPanel.revalidate();
     }//GEN-LAST:event_viewYourPatientButtonActionPerformed
 
+<<<<<<< HEAD
     private void viewEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeesButtonActionPerformed
         empButton.doClick();
     }//GEN-LAST:event_viewEmployeesButtonActionPerformed
 
     
+=======
+
+>>>>>>> origin/master
     public static void main(String args[]) {
        
         try {
