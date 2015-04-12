@@ -1747,12 +1747,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_maleRadioButtonActionPerformed
 
 
-<<<<<<< HEAD
-=======
-    
-    
 
->>>>>>> origin/master
     private void viewYourPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewYourPatientButtonActionPerformed
         
         PatientTablePanel patientTable = new PatientTablePanel();

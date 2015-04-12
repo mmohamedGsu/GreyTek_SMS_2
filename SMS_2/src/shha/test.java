@@ -38,14 +38,14 @@ public class test {
        
     public static void main(String[] args) {
         
-      //  Database db = new Database("SMSDB2");
+        Database db = new Database("SMSDB2");
         
          //Create Database
-                 
+        /*         
         System.out.println("Creating SMSDB2 dataBase");
         Database db = new Database("SMSDB2","create");
         System.out.println("Exiting creating SMSDB2 dataBase");
-        
+        */
           
         //drop the employees table
         /*
@@ -119,23 +119,9 @@ public class test {
         
  //        db.printAll("employees");
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 
     //     db.printAll("patients");
 
-//         db.printAll("patients");
-
-
-    //     db.printAll("patients");
-
-//         db.printAll("patients");
-
-
-
-        //     db.printAll("patients");
 
          db.printAll("patients");
 
@@ -172,8 +158,13 @@ public class test {
 //                        "allergies varchar(200), rountine_meds varchar(200), " +
 //                       " reffered_by varchar(30), insurance varchar(50), prior_visits varchar(100)," +
 //                        " doctor varchar(50), chart varchar(100) )");
-//         
+//     
          
+         db.createTable("appointments", "(patient_fname varchar(20), patient_lname varchar(20), " +
+                        "patient_ssn varchar(12), doctor_fname varchar(20), " +
+                        "doctor_lname varchar(20), doctor_email varchar(20), " +
+                        "time varchar(60) )");
+         db.printAll("appointments");
        
         
     }

@@ -22,8 +22,9 @@ public class CreateApptPanel extends javax.swing.JPanel {
     public CreateApptPanel() {
         initComponents();
         String[] doctorsArray = grabDoctors();
-        String[] patientsArray = grabPatients();
-        
+        String[] patientsArray = grabPatients(); 
+       doctorEmailComboBox.setVisible(false);
+       patientSSNComboBox.setVisible(false);
        doctortComboBox.setModel(new javax.swing.DefaultComboBoxModel(doctorsArray));
        patientComboBox.setModel(new javax.swing.DefaultComboBoxModel(patientsArray));
     }
@@ -49,6 +50,8 @@ public class CreateApptPanel extends javax.swing.JPanel {
         timeScrollPane = new javax.swing.JScrollPane();
         timeTable = new javax.swing.JTable();
         dateSelectedLabel = new javax.swing.JLabel();
+        doctorEmailComboBox = new javax.swing.JComboBox();
+        patientSSNComboBox = new javax.swing.JComboBox();
 
         containerPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -133,6 +136,20 @@ public class CreateApptPanel extends javax.swing.JPanel {
         dateSelectedLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         dateSelectedLabel.setText("Date Label");
 
+        doctorEmailComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        doctorEmailComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorEmailComboBoxActionPerformed(evt);
+            }
+        });
+
+        patientSSNComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        patientSSNComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                patientSSNComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout containerPanelLayout = new javax.swing.GroupLayout(containerPanel);
         containerPanel.setLayout(containerPanelLayout);
         containerPanelLayout.setHorizontalGroup(
@@ -161,7 +178,11 @@ public class CreateApptPanel extends javax.swing.JPanel {
                             .addComponent(doctortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(containerPanelLayout.createSequentialGroup()
                                 .addGap(25, 25, 25)
-                                .addComponent(doctorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(doctorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(53, 53, 53)
+                        .addComponent(patientSSNComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(doctorEmailComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(containerPanelLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(apptCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -195,7 +216,10 @@ public class CreateApptPanel extends javax.swing.JPanel {
                                     .addComponent(doctorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(patientLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(doctortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(doctortComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(containerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(doctorEmailComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(patientSSNComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(apptCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)))
@@ -214,7 +238,7 @@ public class CreateApptPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(88, 88, 88)
                 .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(506, 506, 506))
         );
@@ -228,7 +252,8 @@ public class CreateApptPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        
+        doctorEmailComboBox.setSelectedIndex(doctortComboBox.getSelectedIndex());
+        patientSSNComboBox.setSelectedIndex(patientComboBox.getSelectedIndex());
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void apptCalendarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_apptCalendarPropertyChange
@@ -247,12 +272,21 @@ public class CreateApptPanel extends javax.swing.JPanel {
     private void doctortComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctortComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_doctortComboBoxActionPerformed
+
+    private void doctorEmailComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorEmailComboBoxActionPerformed
+                // TODO add your handling code here:
+    }//GEN-LAST:event_doctorEmailComboBoxActionPerformed
+
+    private void patientSSNComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientSSNComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_patientSSNComboBoxActionPerformed
     
     //Precondition: THe database is in an accessible state
     //Postcondition: The doctor's textbox is populated with the doctors in the
     //               database
     private String[] grabDoctors() {
         String[] doctors = null;
+        String[] doctorEmail = null;
         Database db = new Database("SMSDB2");
         ResultSet doctorsResult = db.queryDoctors();
         String arr = null;
@@ -261,17 +295,21 @@ public class CreateApptPanel extends javax.swing.JPanel {
             doctorsResult.last();
             int rowCount = doctorsResult.getRow();
             doctors = new String[rowCount];
+            doctorEmail = new String[rowCount];
             doctorsResult.beforeFirst();
             String firstName= null;
             String lastName = null;
             String fullName = null;
+            String email = null;
             int counter = 0;
             
             while (doctorsResult.next()) {
                 firstName = doctorsResult.getString(1);
                 lastName = doctorsResult.getString(2);
+                email = doctorsResult.getString(3);
                 fullName = lastName + "," + firstName;
                 doctors[counter] = fullName;
+                doctorEmail[counter] = email;
                 counter++;
         }           
             
@@ -280,15 +318,17 @@ public class CreateApptPanel extends javax.swing.JPanel {
             System.out.println(e.toString());
         }
         
+        doctorEmailComboBox.setModel(new javax.swing.DefaultComboBoxModel(doctorEmail));
         return doctors;
         
     }
     
-        //Precondition: THe database is in an accessible state
+    //Precondition: THe database is in an accessible state
     //Postcondition: The doctor's textbox is populated with the doctors in the
     //               database
     private String[] grabPatients() {
         String[] doctors = null;
+        String[] patientSSN = null;
         Database db = new Database("SMSDB2");
         ResultSet doctorsResult = db.queryPatientsForAppointment();
         String arr = null;
@@ -297,17 +337,21 @@ public class CreateApptPanel extends javax.swing.JPanel {
             doctorsResult.last();
             int rowCount = doctorsResult.getRow();
             doctors = new String[rowCount];
+            patientSSN = new String[rowCount];
             doctorsResult.beforeFirst();
             String firstName= null;
             String lastName = null;
             String fullName = null;
+            String ssn = null;
             int counter = 0;
             
             while (doctorsResult.next()) {
                 firstName = doctorsResult.getString(1);
                 lastName = doctorsResult.getString(2);
+                ssn = doctorsResult.getString(3);
                 fullName = lastName + "," + firstName;
                 doctors[counter] = fullName;
+                patientSSN[counter] = ssn;
                 counter++;
         }           
             
@@ -315,6 +359,8 @@ public class CreateApptPanel extends javax.swing.JPanel {
             System.out.println("Error parsing doctors");
             System.out.println(e.toString());
         }
+        
+        patientSSNComboBox.setModel(new javax.swing.DefaultComboBoxModel(patientSSN));
         
         return doctors;
         
@@ -327,10 +373,12 @@ public class CreateApptPanel extends javax.swing.JPanel {
     private javax.swing.JLabel confirmMessage;
     private javax.swing.JPanel containerPanel;
     private javax.swing.JLabel dateSelectedLabel;
+    private javax.swing.JComboBox doctorEmailComboBox;
     private javax.swing.JLabel doctorLabel;
     private javax.swing.JComboBox doctortComboBox;
     private javax.swing.JComboBox patientComboBox;
     private javax.swing.JLabel patientLabel1;
+    private javax.swing.JComboBox patientSSNComboBox;
     private javax.swing.JScrollPane timeScrollPane;
     private javax.swing.JTable timeTable;
     // End of variables declaration//GEN-END:variables

@@ -14,3 +14,13 @@
 *.ctrl
 
 *.ctrl
+
+SMS_2/derby.log
+
+SMS_2/derby.log
+
+SMS_2/SMSDB2/db.lck
+
+*.ctrl
+
+*.dat
