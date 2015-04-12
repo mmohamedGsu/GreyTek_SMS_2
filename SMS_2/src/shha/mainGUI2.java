@@ -1701,8 +1701,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_maleRadioButtonActionPerformed
 
-<<<<<<< Updated upstream
-<<<<<<< HEAD
+
     private void viewYourPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewYourPatientButtonActionPerformed
         
         PatientTablePanel patientTable = new PatientTablePanel();
@@ -1741,16 +1740,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         patientsContainerPanel.revalidate();
     }//GEN-LAST:event_viewYourPatientButtonActionPerformed
 
-=======
-<<<<<<< Updated upstream
-=======
-     
->>>>>>> Stashed changes
->>>>>>> origin/master
-=======
 
->>>>>>> Stashed changes
-    
     public static void main(String args[]) {
        
         try {

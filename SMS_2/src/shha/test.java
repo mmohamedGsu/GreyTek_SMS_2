@@ -157,10 +157,7 @@ public class test {
                         " doctor varchar(50), chart varchar(100) )");
          
          
-        /* db.createTable("appointments", "(firstName varchar(20), " +
-                        "lastName varchar(20), phone varchar(15), " +
-                        "sex varchar(10), month varchar(20), day int, " +
-                        "birthYear int, email varchar(20), doctorAssign varchar(20), comments varchar(200)  )");*/
+       
         
     }
     

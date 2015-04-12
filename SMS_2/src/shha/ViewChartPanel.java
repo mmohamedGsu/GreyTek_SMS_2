@@ -380,6 +380,19 @@ public class ViewChartPanel extends javax.swing.JPanel {
         visitTextArea.setEnabled(false);
         doctorTextField.setEnabled(false);
         chartTextArea.setEnabled(false);
+        
+        Database db = new Database("SMSDB2");
+        String query= "UPDATE patient_chart SET " +
+                        "general='" + generalTextArea.getText() +"', "  +
+                        "allergies='" + allergyTextArea.getText() + "', " +
+                        "rountine_meds='" + medTextArea.getText() + "', " +
+                        "reffered_by='" + referredTextArea.getText() + "', " +
+                        "insurance='" + insuranceTextArea.getText() + "', " +
+                        "prior_visits='" + visitTextArea.getText() + "', " +
+                        "doctor='" + doctorTextField.getText() + "', " +
+                        "chart='" + chartTextArea.getText()  +"' " +
+                        "WHERE patient_ssn='" + hiddenSSNLabel.getText() +"'";
+        db.executePatientUpdate(query);         
     }//GEN-LAST:event_saveButtonActionPerformed
 
 
@@ -396,7 +409,7 @@ public class ViewChartPanel extends javax.swing.JPanel {
     private javax.swing.JPanel generalPanel;
     private javax.swing.JScrollPane generalScrollPane;
     public static javax.swing.JTextArea generalTextArea;
-    private javax.swing.JLabel hiddenSSNLabel;
+    public static javax.swing.JLabel hiddenSSNLabel;
     private javax.swing.JPanel insurancePanel;
     private javax.swing.JScrollPane insuranceScrollPane;
     public static javax.swing.JTextArea insuranceTextArea;

@@ -16,6 +16,7 @@ import static shha.ViewChartPanel.allergyTextArea;
 import static shha.ViewChartPanel.chartTextArea;
 import static shha.ViewChartPanel.doctorTextField;
 import static shha.ViewChartPanel.generalTextArea;
+import static shha.ViewChartPanel.hiddenSSNLabel;
 import static shha.ViewChartPanel.insuranceTextArea;
 import static shha.ViewChartPanel.medTextArea;
 import static shha.ViewChartPanel.nameLabel;
@@ -619,7 +620,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         String query = "DELETE FROM patients " +
                        "WHERE ssn='" + ssnText.getText() + "'";
         String patient_chart_query = "DELETE FROM patient_chart " +
-                                     "WHERE ssn='" + ssnText.getText() + "'";
+                                     "WHERE patient_ssn='" + ssnText.getText() + "'";
         
         Database db = new Database("SMSDB2");
         db.executePatientUpdate(query);
@@ -814,6 +815,8 @@ private void clearViewPatientPanel(){
                        " WHERE patient_ssn='"+ ssnText.getText() +  "'";
         ResultSet rs = db.executeQuery(query);
         try {
+            rs.next();
+            System.out.println(rs.getString(2));
             generalTextArea.setText(rs.getString(2));
             allergyTextArea.setText(rs.getString(3));
             medTextArea.setText(rs.getString(4));
@@ -822,6 +825,7 @@ private void clearViewPatientPanel(){
             visitTextArea.setText(rs.getString(7));
             doctorTextField.setText(rs.getString(8));
             chartTextArea.setText(rs.getString(9));
+            hiddenSSNLabel.setText(ssnText.getText());
             
         } catch(SQLException e) {
             System.out.println(e.toString());
