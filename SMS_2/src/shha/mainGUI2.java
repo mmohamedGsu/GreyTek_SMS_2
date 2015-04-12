@@ -114,8 +114,10 @@ public class mainGUI2 extends javax.swing.JFrame {
         monthComboBox = new javax.swing.JComboBox();
         dayComboBox = new javax.swing.JComboBox();
         yearComboBox = new javax.swing.JComboBox();
+        adminTablePanel = new javax.swing.JPanel();
         addNewUserButton = new javax.swing.JButton();
         removeUserButton = new javax.swing.JButton();
+        viewEmployeesButton = new javax.swing.JButton();
         empPanel = new javax.swing.JPanel();
         empContainerPanel = new javax.swing.JPanel();
         defaultEmpPanel = new javax.swing.JPanel();
@@ -261,7 +263,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         chartTablePanel.setLayout(new java.awt.CardLayout());
         patientsContainerPanel.add(chartTablePanel, "card2");
 
-        addNewPatientButton.setText("Add Patient");
+        addNewPatientButton.setText("<html><div style=\"text-align: center\">Add<br>Patients</div></html>");
         addNewPatientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         addNewPatientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,7 +271,7 @@ public class mainGUI2 extends javax.swing.JFrame {
             }
         });
 
-        viewPatientButton.setText("View Patients");
+        viewPatientButton.setText("<html><div style=\"text-align: center\">View<br>Patients</div></html>");
         viewPatientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         viewPatientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -612,7 +614,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                             .addComponent(positionLabel1)
                                             .addGap(8, 8, 8))))))
                         .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(122, Short.MAX_VALUE))))
+                    .addContainerGap(103, Short.MAX_VALUE))))
     );
 
     addUserPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, saveButton});
@@ -699,14 +701,20 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGroup(addUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(cancelButton)
                 .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(178, Short.MAX_VALUE))
+            .addContainerGap(144, Short.MAX_VALUE))
     );
 
     addUserPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancelButton, saveButton});
 
     adminContainerPanel.add(addUserPanel, "card3");
 
-    addNewUserButton.setText("Add Employee");
+    adminTablePanel.setAutoscrolls(true);
+    adminTablePanel.setMaximumSize(new java.awt.Dimension(991, 573));
+    adminTablePanel.setMinimumSize(new java.awt.Dimension(991, 573));
+    adminTablePanel.setLayout(new java.awt.CardLayout());
+    adminContainerPanel.add(adminTablePanel, "card2");
+
+    addNewUserButton.setText("<html><div style=\"text-align: center\">Add<br>Employee</html>");
     addNewUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     addNewUserButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -714,11 +722,19 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
 
-    removeUserButton.setText("<html><p>Remove</p>\n<p>Employee</p></html>");
+    removeUserButton.setText("<html><div style=\"text-align: center\">Remove<br>Employee</html>");
     removeUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     removeUserButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             removeUserButtonActionPerformed(evt);
+        }
+    });
+
+    viewEmployeesButton.setText("<html><div style=\"text-align: center\">View<br>Employees</html>");
+    viewEmployeesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    viewEmployeesButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            viewEmployeesButtonActionPerformed(evt);
         }
     });
 
@@ -728,10 +744,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
             .addContainerGap()
-            .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(25, 25, 25)
+            .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(adminPanelLayout.createSequentialGroup()
+                    .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(25, 25, 25))
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, adminPanelLayout.createSequentialGroup()
+                    .addComponent(viewEmployeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
             .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
     );
@@ -743,7 +764,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addGap(53, 53, 53)
                     .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(59, 59, 59)
-                    .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(59, 59, 59)
+                    .addComponent(viewEmployeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(adminPanelLayout.createSequentialGroup()
                     .addGap(25, 25, 25)
                     .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1657,7 +1680,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_createApptButtonActionPerformed
 
     private void removeUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserButtonActionPerformed
-        // TODO add your handling code here:
+        ViewAdminDialog opForm = new ViewAdminDialog(new JFrame(), true);
+        opForm.setVisible(true);
+        
+        
     }//GEN-LAST:event_removeUserButtonActionPerformed
 
 
@@ -1701,7 +1727,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_maleRadioButtonActionPerformed
 
-<<<<<<< HEAD
     private void viewYourPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewYourPatientButtonActionPerformed
         
         PatientTablePanel patientTable = new PatientTablePanel();
@@ -1740,12 +1765,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         patientsContainerPanel.revalidate();
     }//GEN-LAST:event_viewYourPatientButtonActionPerformed
 
-=======
-<<<<<<< Updated upstream
-=======
-     
->>>>>>> Stashed changes
->>>>>>> origin/master
+    private void viewEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeesButtonActionPerformed
+        empButton.doClick();
+    }//GEN-LAST:event_viewEmployeesButtonActionPerformed
+
     
     public static void main(String args[]) {
        
@@ -1787,6 +1810,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton adminButton;
     public static javax.swing.JPanel adminContainerPanel;
     private javax.swing.JPanel adminPanel;
+    public static javax.swing.JPanel adminTablePanel;
     private javax.swing.JButton apptButton;
     public static javax.swing.JPanel apptContainerPanel;
     private javax.swing.JPanel apptPanel;
@@ -1885,6 +1909,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel viewEmpIDLabel;
     public static javax.swing.JTextField viewEmpIDText;
     public static javax.swing.JPanel viewEmpPanel;
+    private javax.swing.JButton viewEmployeesButton;
     private javax.swing.JButton viewPatientButton;
     private javax.swing.JButton viewYourPatientButton;
     private javax.swing.JComboBox yearComboBox;

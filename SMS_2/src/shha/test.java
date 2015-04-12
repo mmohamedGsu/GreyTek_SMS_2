@@ -119,17 +119,17 @@ public class test {
         
  //        db.printAll("employees");
 
-<<<<<<< Updated upstream
-    //     db.printAll("patients");
-
-//         db.printAll("patients");
-=======
 
     //     db.printAll("patients");
 
 //         db.printAll("patients");
 
->>>>>>> Stashed changes
+
+    //     db.printAll("patients");
+
+//         db.printAll("patients");
+
+
 
 //       db.printAll("appointments");
          

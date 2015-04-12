@@ -1,46 +1,8 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Sat Apr 11 16:47:45 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-aa3c-fa24-000007fd0350 
+Sat Apr 11 17:41:40 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-aa6e-576a-00000807bc50 
 on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
 Loaded from file:/C:/Users/Sheldon/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-Sat Apr 11 16:02:13 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-aa13-4a83-000007fb14a0 
-on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
-Loaded from file:/C:/Users/Sheldon/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-<<<<<<< HEAD
-Sat Apr 11 15:40:53 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a9ff-c4a0-000008050c98 
-on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
-Loaded from file:/C:/Users/Sheldon/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
-=======
-Sat Apr 11 14:46:29 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a9cd-f5ef-000007ee2d08 
-=======
-Sat Apr 11 15:22:11 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-a9ee-a3a3-000007e01398 
->>>>>>> a6f3d1ada2113fa1928cc2464becea93ee911a6a
-=======
-Sat Apr 11 15:51:23 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-aa09-60c8-000007eb0830 
->>>>>>> Stashed changes
-on database directory /Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2/SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@5c647e05 
-Loaded from file:/Users/MooseMoose/Google%20Drive/netBeans%20workSpace/Software%20Engineering%20Project/GreyTek%20SMS/SMS_2/lib/derby.jar
->>>>>>> origin/master
->>>>>>> origin/master
-=======
-Sat Apr 11 15:58:24 EDT 2015:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-aa0f-ca59-000007f292a0 
-on database directory /Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2/SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@5c647e05 
-Loaded from file:/Users/MooseMoose/Google%20Drive/netBeans%20workSpace/Software%20Engineering%20Project/GreyTek%20SMS/SMS_2/lib/derby.jar
->>>>>>> Stashed changes
->>>>>>> origin/master
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_11-b12
 user.dir=C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2

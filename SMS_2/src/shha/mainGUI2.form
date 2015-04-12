@@ -377,7 +377,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="addNewPatientButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Patient"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;text-align: center&quot;&gt;Add&lt;br&gt;Patients&lt;/div&gt;&lt;/html&gt;"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
@@ -388,7 +388,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="viewPatientButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="View Patients"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;text-align: center&quot;&gt;View&lt;br&gt;Patients&lt;/div&gt;&lt;/html&gt;"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
@@ -433,11 +433,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="addNewUserButton" min="-2" pref="130" max="-2" attributes="0"/>
-                          <Component id="removeUserButton" min="-2" pref="130" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="addNewUserButton" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="removeUserButton" min="-2" pref="130" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="viewEmployeesButton" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="adminContainerPanel" min="-2" pref="978" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
@@ -452,6 +460,8 @@
                               <Component id="addNewUserButton" linkSize="11" min="-2" pref="47" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Component id="removeUserButton" linkSize="11" min="-2" pref="47" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                              <Component id="viewEmployeesButton" min="-2" pref="47" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -638,7 +648,7 @@
                                           </Group>
                                           <Component id="phoneText" min="-2" pref="119" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="122" max="32767" attributes="0"/>
+                                      <EmptySpace pref="103" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -752,7 +762,7 @@
                                   <Component id="cancelButton" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="saveButton" linkSize="2" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="178" max="32767" attributes="0"/>
+                              <EmptySpace pref="144" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1006,11 +1016,33 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Container class="javax.swing.JPanel" name="adminTablePanel">
+                  <Properties>
+                    <Property name="autoscrolls" type="boolean" value="true"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[991, 573]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[991, 573]"/>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="mainGUI2_empTablePanel"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                      <CardConstraints cardName="card2"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
+                </Container>
               </SubComponents>
             </Container>
             <Component class="javax.swing.JButton" name="addNewUserButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Employee"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;text-align: center&quot;&gt;Add&lt;br&gt;Employee&lt;/html&gt;"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
@@ -1021,13 +1053,24 @@
             </Component>
             <Component class="javax.swing.JButton" name="removeUserButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;p&gt;Remove&lt;/p&gt;&#xa;&lt;p&gt;Employee&lt;/p&gt;&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;text-align: center&quot;&gt;Remove&lt;br&gt;Employee&lt;/html&gt;"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeUserButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="viewEmployeesButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;text-align: center&quot;&gt;View&lt;br&gt;Employees&lt;/html&gt;"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewEmployeesButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
