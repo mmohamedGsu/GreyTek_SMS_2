@@ -119,6 +119,15 @@ public class test {
         
  //        db.printAll("employees");
 
+<<<<<<< HEAD
+=======
+
+
+    //     db.printAll("patients");
+
+//         db.printAll("patients");
+
+>>>>>>> origin/master
 
     //     db.printAll("patients");
 
