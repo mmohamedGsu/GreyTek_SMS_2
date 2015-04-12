@@ -1,4 +1,5 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Sun Apr 12 14:10:57 EDT 2015:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-aed3-c83f-000007fda438 
 on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
@@ -6,6 +7,15 @@ Loaded from file:/C:/Users/Sheldon/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_11-b12
 user.dir=C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2
+=======
+Sun Apr 12 13:30:29 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-aeae-bb9d-000002f75258 
+on database directory C:\Users\Brian\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Loaded from file:/C:/Users/Brian/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_31-b13
+user.dir=C:\Users\Brian\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2
+>>>>>>> origin/master
 os.name=Windows 8.1
 os.arch=amd64
 os.version=6.3
@@ -15,6 +25,92 @@ derby.system.home=null
 
 ERROR XSLA7: Cannot redo operation null in the log.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.log.FileLogger.redo(Unknown Source)
+	at org.apache.derby.impl.store.raw.log.LogToFile.recover(Unknown Source)
+	at org.apache.derby.impl.store.raw.RawStore.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.store.access.RAMAccessManager.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.FileMonitor.startModule(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.bootServiceModule(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.bootStore(Unknown Source)
+	at org.apache.derby.impl.db.BasicDatabase.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.boot(Unknown Source)
+	at org.apache.derby.impl.services.monitor.TopService.bootModule(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.bootService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startProviderService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.findProviderAndStartService(Unknown Source)
+	at org.apache.derby.impl.services.monitor.BaseMonitor.startPersistentService(Unknown Source)
+	at org.apache.derby.iapi.services.monitor.Monitor.startPersistentService(Unknown Source)
+<<<<<<< HEAD
+=======
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.AutoloadedDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:270)
+	at shha.Database.<init>(Database.java:37)
+	at shha.Authentication.verifyAuth(Authentication.java:36)
+	at shha.loginGUI2.loginButtonActionPerformed(loginGUI2.java:151)
+	at shha.loginGUI2.access$000(loginGUI2.java:16)
+	at shha.loginGUI2$1.actionPerformed(loginGUI2.java:58)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6525)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3322)
+	at java.awt.Component.processEvent(Component.java:6290)
+	at java.awt.Container.processEvent(Container.java:2234)
+	at java.awt.Component.dispatchEventImpl(Component.java:4881)
+	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
+	at java.awt.Container.dispatchEventImpl(Container.java:2278)
+	at java.awt.Window.dispatchEventImpl(Window.java:2739)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:751)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:724)
+	at java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:721)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+Caused by: ERROR 40XD2: Container Container(0, 1424) cannot be opened; it either has been dropped or does not exist.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.PageBasicOperation.findpage(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.PageBasicOperation.needsRedo(Unknown Source)
+	... 72 more
+============= begin nested exception, level (1) ===========
+ERROR 40XD2: Container Container(0, 1424) cannot be opened; it either has been dropped or does not exist.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.PageBasicOperation.findpage(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.PageBasicOperation.needsRedo(Unknown Source)
 	at org.apache.derby.impl.store.raw.log.FileLogger.redo(Unknown Source)
 	at org.apache.derby.impl.store.raw.log.LogToFile.recover(Unknown Source)
 	at org.apache.derby.impl.store.raw.RawStore.boot(Unknown Source)
@@ -55,15 +151,86 @@ ERROR XSLA7: Cannot redo operation null in the log.
 	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
 	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
 	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6525)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3322)
+	at java.awt.Component.processEvent(Component.java:6290)
+	at java.awt.Container.processEvent(Container.java:2234)
+	at java.awt.Component.dispatchEventImpl(Component.java:4881)
+	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
+	at java.awt.Container.dispatchEventImpl(Container.java:2278)
+	at java.awt.Window.dispatchEventImpl(Window.java:2739)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:751)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:724)
+	at java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:721)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+============= end nested exception, level (1) ===========
+
+
+------------  End Shutdown Error Stack -------------
+
+----------------------------------------------------------------
+Sun Apr 12 13:30:29 EDT 2015:
+Shutting down instance a816c00e-014c-aeae-bb9d-000002f75258 on database directory C:\Users\Brian\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Sun Apr 12 13:30:29 EDT 2015 Thread[AWT-EventQueue-0,6,main] Cleanup action starting
+java.sql.SQLException: Failed to start database 'SMSDB2' with class loader sun.misc.Launcher$AppClassLoader@4e25154f, see the next exception for details.
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
+	at org.apache.derby.impl.jdbc.Util.seeNextException(Unknown Source)
+>>>>>>> origin/master
+	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
+	at org.apache.derby.jdbc.AutoloadedDriver.connect(Unknown Source)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:270)
+	at shha.Database.<init>(Database.java:37)
+	at shha.Authentication.verifyAuth(Authentication.java:36)
+	at shha.loginGUI2.loginButtonActionPerformed(loginGUI2.java:151)
+	at shha.loginGUI2.access$000(loginGUI2.java:16)
+	at shha.loginGUI2$1.actionPerformed(loginGUI2.java:58)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+<<<<<<< HEAD
 	at javax.swing.plaf.basic.BasicButtonListener$Actions.actionPerformed(BasicButtonListener.java:303)
 	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
 	at javax.swing.JComponent.processKeyBinding(JComponent.java:2879)
 	at javax.swing.JComponent.processKeyBindings(JComponent.java:2926)
 	at javax.swing.JComponent.processKeyEvent(JComponent.java:2842)
 	at java.awt.Component.processEvent(Component.java:6304)
+=======
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6525)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3322)
+	at java.awt.Component.processEvent(Component.java:6290)
+>>>>>>> origin/master
 	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4883)
+	at java.awt.Component.dispatchEventImpl(Component.java:4881)
 	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+<<<<<<< HEAD
 	at java.awt.Component.dispatchEvent(Component.java:4705)
 	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
 	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
@@ -72,26 +239,34 @@ ERROR XSLA7: Cannot redo operation null in the log.
 	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
 	at java.awt.Component.dispatchEventImpl(Component.java:4754)
 	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+=======
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
+	at java.awt.Container.dispatchEventImpl(Container.java:2278)
+>>>>>>> origin/master
 	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4705)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:751)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
 	at java.security.AccessController.doPrivileged(Native Method)
 	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
 	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
+	at java.awt.EventQueue$4.run(EventQueue.java:724)
+	at java.awt.EventQueue$4.run(EventQueue.java:722)
 	at java.security.AccessController.doPrivileged(Native Method)
 	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:721)
 	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
 	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
 	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+<<<<<<< HEAD
 Caused by: ERROR XSDB4: Page Page(4,Container(0, 1424)) is at version 0, the log file contains change version 16, either there are log records of this page missing, or this page did not get written out to disk properly.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
@@ -253,6 +428,16 @@ Caused by: ERROR XJ040: Failed to start database 'SMSDB2' with class loader sun.
 Caused by: ERROR XSDB4: Page Page(4,Container(0, 1424)) is at version 0, the log file contains change version 16, either there are log records of this page missing, or this page did not get written out to disk properly.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+=======
+Caused by: ERROR XJ040: Failed to start database 'SMSDB2' with class loader sun.misc.Launcher$AppClassLoader@4e25154f, see the next exception for details.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
+	... 52 more
+Caused by: ERROR 40XD2: Container Container(0, 1424) cannot be opened; it either has been dropped or does not exist.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.PageBasicOperation.findpage(Unknown Source)
+>>>>>>> origin/master
 	at org.apache.derby.impl.store.raw.data.PageBasicOperation.needsRedo(Unknown Source)
 	at org.apache.derby.impl.store.raw.log.FileLogger.redo(Unknown Source)
 	at org.apache.derby.impl.store.raw.log.LogToFile.recover(Unknown Source)
@@ -279,7 +464,11 @@ Caused by: ERROR XSDB4: Page Page(4,Container(0, 1424)) is at version 0, the log
 	at org.apache.derby.iapi.services.monitor.Monitor.startPersistentService(Unknown Source)
 	... 54 more
 ============= begin nested exception, level (1) ===========
+<<<<<<< HEAD
 java.sql.SQLException: Page Page(4,Container(0, 1424)) is at version 0, the log file contains change version 16, either there are log records of this page missing, or this page did not get written out to disk properly.
+=======
+java.sql.SQLTransactionRollbackException: Container Container(0, 1424) cannot be opened; it either has been dropped or does not exist.
+>>>>>>> origin/master
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.bootDatabase(Unknown Source)
@@ -299,15 +488,23 @@ java.sql.SQLException: Page Page(4,Container(0, 1424)) is at version 0, the log 
 	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
 	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
 	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+<<<<<<< HEAD
 	at javax.swing.plaf.basic.BasicButtonListener$Actions.actionPerformed(BasicButtonListener.java:303)
 	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
 	at javax.swing.JComponent.processKeyBinding(JComponent.java:2879)
 	at javax.swing.JComponent.processKeyBindings(JComponent.java:2926)
 	at javax.swing.JComponent.processKeyEvent(JComponent.java:2842)
 	at java.awt.Component.processEvent(Component.java:6304)
+=======
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6525)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3322)
+	at java.awt.Component.processEvent(Component.java:6290)
+>>>>>>> origin/master
 	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4883)
+	at java.awt.Component.dispatchEventImpl(Component.java:4881)
 	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+<<<<<<< HEAD
 	at java.awt.Component.dispatchEvent(Component.java:4705)
 	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
 	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
@@ -316,29 +513,43 @@ java.sql.SQLException: Page Page(4,Container(0, 1424)) is at version 0, the log 
 	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
 	at java.awt.Component.dispatchEventImpl(Component.java:4754)
 	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+=======
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
+	at java.awt.Container.dispatchEventImpl(Container.java:2278)
+>>>>>>> origin/master
 	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4705)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:751)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
 	at java.security.AccessController.doPrivileged(Native Method)
 	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
 	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
+	at java.awt.EventQueue$4.run(EventQueue.java:724)
+	at java.awt.EventQueue$4.run(EventQueue.java:722)
 	at java.security.AccessController.doPrivileged(Native Method)
 	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:721)
 	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
 	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
 	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+<<<<<<< HEAD
 Caused by: ERROR XSDB4: Page Page(4,Container(0, 1424)) is at version 0, the log file contains change version 16, either there are log records of this page missing, or this page did not get written out to disk properly.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+=======
+Caused by: ERROR 40XD2: Container Container(0, 1424) cannot be opened; it either has been dropped or does not exist.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.PageBasicOperation.findpage(Unknown Source)
+>>>>>>> origin/master
 	at org.apache.derby.impl.store.raw.data.PageBasicOperation.needsRedo(Unknown Source)
 	at org.apache.derby.impl.store.raw.log.FileLogger.redo(Unknown Source)
 	at org.apache.derby.impl.store.raw.log.LogToFile.recover(Unknown Source)
@@ -366,9 +577,16 @@ Caused by: ERROR XSDB4: Page Page(4,Container(0, 1424)) is at version 0, the log
 	... 54 more
 ============= end nested exception, level (1) ===========
 ============= begin nested exception, level (2) ===========
+<<<<<<< HEAD
 ERROR XSDB4: Page Page(4,Container(0, 1424)) is at version 0, the log file contains change version 16, either there are log records of this page missing, or this page did not get written out to disk properly.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+=======
+ERROR 40XD2: Container Container(0, 1424) cannot be opened; it either has been dropped or does not exist.
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
+	at org.apache.derby.impl.store.raw.data.PageBasicOperation.findpage(Unknown Source)
+>>>>>>> origin/master
 	at org.apache.derby.impl.store.raw.data.PageBasicOperation.needsRedo(Unknown Source)
 	at org.apache.derby.impl.store.raw.log.FileLogger.redo(Unknown Source)
 	at org.apache.derby.impl.store.raw.log.LogToFile.recover(Unknown Source)
@@ -410,15 +628,23 @@ ERROR XSDB4: Page Page(4,Container(0, 1424)) is at version 0, the log file conta
 	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
 	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
 	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+<<<<<<< HEAD
 	at javax.swing.plaf.basic.BasicButtonListener$Actions.actionPerformed(BasicButtonListener.java:303)
 	at javax.swing.SwingUtilities.notifyAction(SwingUtilities.java:1663)
 	at javax.swing.JComponent.processKeyBinding(JComponent.java:2879)
 	at javax.swing.JComponent.processKeyBindings(JComponent.java:2926)
 	at javax.swing.JComponent.processKeyEvent(JComponent.java:2842)
 	at java.awt.Component.processEvent(Component.java:6304)
+=======
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6525)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3322)
+	at java.awt.Component.processEvent(Component.java:6290)
+>>>>>>> origin/master
 	at java.awt.Container.processEvent(Container.java:2234)
-	at java.awt.Component.dispatchEventImpl(Component.java:4883)
+	at java.awt.Component.dispatchEventImpl(Component.java:4881)
 	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+<<<<<<< HEAD
 	at java.awt.Component.dispatchEvent(Component.java:4705)
 	at java.awt.KeyboardFocusManager.redispatchEvent(KeyboardFocusManager.java:1954)
 	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(DefaultKeyboardFocusManager.java:806)
@@ -427,20 +653,27 @@ ERROR XSDB4: Page Page(4,Container(0, 1424)) is at version 0, the log file conta
 	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(DefaultKeyboardFocusManager.java:771)
 	at java.awt.Component.dispatchEventImpl(Component.java:4754)
 	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+=======
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
+	at java.awt.Container.dispatchEventImpl(Container.java:2278)
+>>>>>>> origin/master
 	at java.awt.Window.dispatchEventImpl(Window.java:2739)
-	at java.awt.Component.dispatchEvent(Component.java:4705)
-	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:746)
-	at java.awt.EventQueue.access$400(EventQueue.java:97)
-	at java.awt.EventQueue$3.run(EventQueue.java:697)
-	at java.awt.EventQueue$3.run(EventQueue.java:691)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:751)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
 	at java.security.AccessController.doPrivileged(Native Method)
 	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
 	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
-	at java.awt.EventQueue$4.run(EventQueue.java:719)
-	at java.awt.EventQueue$4.run(EventQueue.java:717)
+	at java.awt.EventQueue$4.run(EventQueue.java:724)
+	at java.awt.EventQueue$4.run(EventQueue.java:722)
 	at java.security.AccessController.doPrivileged(Native Method)
 	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
-	at java.awt.EventQueue.dispatchEvent(EventQueue.java:716)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:721)
 	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
 	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
 	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)

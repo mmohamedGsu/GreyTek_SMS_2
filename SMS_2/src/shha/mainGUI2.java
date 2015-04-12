@@ -1727,7 +1727,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_maleRadioButtonActionPerformed
 
+<<<<<<< HEAD
 
+=======
+    
+    
+>>>>>>> origin/master
     private void viewYourPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewYourPatientButtonActionPerformed
         
         PatientTablePanel patientTable = new PatientTablePanel();
@@ -1771,7 +1776,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         empButton.doClick();
     }//GEN-LAST:event_viewEmployeesButtonActionPerformed
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/master
 
     public static void main(String args[]) {
        
