@@ -34,3 +34,13 @@ SMS_2/SMSDB2/db.lck
 *.dat
 
 *.ctrl
+
+*.log
+
+*.log
+
+*.lck
+
+*.ctrl
+
+*.dat

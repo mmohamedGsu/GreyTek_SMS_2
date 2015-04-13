@@ -275,6 +275,8 @@ public class Database {
             results = connection.createStatement().executeQuery(query);
 
         } catch (SQLException e) {
+            System.out.println("Error excuting query");
+            System.out.println(query);
             System.out.println(e.toString());
         }
 
@@ -419,6 +421,20 @@ public class Database {
 
         return isUnique;
     }
+    
+    public boolean appointmentExists(String time) {
+        String query = "SELECT * from appointments WHERE time='" +
+                        time + "'";
+        ResultSet rs = executeQuery(query);
+        boolean exists = true;
+        try {
+            exists = rs.next();
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        
+        return exists;
+    }
 
     public void executePatientUpdate(String query) {
         try {
@@ -426,6 +442,8 @@ public class Database {
             connection.createStatement().executeUpdate(query);
             
         } catch(SQLException e) {
+            System.out.println("Error excuting query");
+            System.out.println(query);
             System.out.println(e.toString());
         }
 

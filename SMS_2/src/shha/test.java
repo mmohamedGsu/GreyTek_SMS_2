@@ -119,15 +119,15 @@ public class test {
         
  //        db.printAll("employees");
 
-<<<<<<< HEAD
-=======
+
+
 
 
     //     db.printAll("patients");
 
 //         db.printAll("patients");
 
->>>>>>> origin/master
+
 
     //     db.printAll("patients");
 
@@ -168,7 +168,7 @@ public class test {
 //                       " reffered_by varchar(30), insurance varchar(50), prior_visits varchar(100)," +
 //                        " doctor varchar(50), chart varchar(100) )");
 //     
-         
+         db.dropTable("appointments");
          db.createTable("appointments", "(patient_fname varchar(20), patient_lname varchar(20), " +
                         "patient_ssn varchar(12), doctor_fname varchar(20), " +
                         "doctor_lname varchar(20), doctor_email varchar(20), " +
