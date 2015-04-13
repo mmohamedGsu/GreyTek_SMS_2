@@ -5,7 +5,7 @@ import javax.swing.*;
 
 /**
  *
- * @author Sheldon Gray kjkjkjk
+ * @author Sheldon Gray 
  */
 
 
@@ -35,7 +35,7 @@ public class SHHA extends JFrame {
         //Run Program
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new loginGUI2().setVisible(true);
+                new LoginGUI().setVisible(true);
             }
         });
     

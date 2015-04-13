@@ -4,7 +4,6 @@
 
 
 
-
 *.ctrl
 
 *.dat
@@ -86,5 +85,19 @@ SMS_2/SMSDB2/.DS_Store
 *.dat
 
 *.lck
+
+*.ctrl
+
+*.log
+
+*.lck
+
+*.ctrl
+
+*.dat
+
+*.ctrl
+
+*.dat
 
 *.ctrl
