@@ -243,8 +243,8 @@ public class TimeClockPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel imgLabel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton punchInButton;
-    private javax.swing.JButton punchOutButton;
+    public static javax.swing.JButton punchInButton;
+    public static javax.swing.JButton punchOutButton;
     private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
 

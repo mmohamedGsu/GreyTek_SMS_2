@@ -22,6 +22,7 @@ import static shha.ViewChartPanel.medTextArea;
 import static shha.ViewChartPanel.nameLabel;
 import static shha.ViewChartPanel.referredTextArea;
 import static shha.ViewChartPanel.visitTextArea;
+import static shha.mainGUI2.chartTablePanel;
 import static shha.mainGUI2.defaultPatientPanel;
 import static shha.mainGUI2.patientsContainerPanel;
 
@@ -638,7 +639,11 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
             ViewChartPanel viewChartPanel = new ViewChartPanel();
             
-            patientsContainerPanel.add(viewChartPanel);
+            chartTablePanel.add(viewChartPanel);
+            chartTablePanel.repaint();
+            chartTablePanel.revalidate();
+            
+            patientsContainerPanel.add(chartTablePanel);
             patientsContainerPanel.repaint();
             patientsContainerPanel.revalidate();
             
