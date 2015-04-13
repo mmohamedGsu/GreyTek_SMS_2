@@ -1,9 +1,12 @@
 ----------------------------------------------------------------
 <<<<<<< HEAD
+<<<<<<< HEAD
 Mon Apr 13 16:50:18 EDT 2015:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-b48c-0868-000007fb9168 
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <<<<<<< HEAD
 Mon Apr 13 13:28:36 EDT 2015:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-b3d3-5f58-000007fbead0 
@@ -19,6 +22,9 @@ Loaded from file:/Users/MooseMoose/Google%20Drive/netBeans%20workSpace/Software%
 Mon Apr 13 00:45:42 EDT 2015:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-b118-eb24-0000080e58f8 
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@5c647e05 
 Loaded from file:/C:/Users/Sheldon/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
@@ -32,9 +38,12 @@ os.version=6.3
 derby.system.home=null
 <<<<<<< HEAD
 Database Class Loader started - derby.database.classpath=''
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 Database Class Loader started - derby.database.classpath=''
+=======
+>>>>>>> origin/master
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -1015,4 +1024,7 @@ ERROR 40XD2: Container Container(0, 1456) cannot be opened; it either has been d
 >>>>>>> origin/master
 Cleanup action completed
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master

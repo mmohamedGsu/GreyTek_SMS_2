@@ -1474,6 +1474,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     });
     patientsMenu.add(assignedMenuItem);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 
     smsMenuBar.add(patientsMenu);
 
@@ -1514,6 +1517,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
     apptMenu.add(viewApptMenuItem);
+<<<<<<< HEAD
 
     smsMenuBar.add(apptMenu);
 
@@ -1624,6 +1628,42 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     adminMenu.add(addUserMenuItem);
 
 >>>>>>> origin/master
+=======
+
+    smsMenuBar.add(apptMenu);
+
+    TimeClockMenu.setText("TimeClock");
+    TimeClockMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            TimeClockMenuMouseClicked(evt);
+        }
+    });
+    smsMenuBar.add(TimeClockMenu);
+
+    employeesMenu.setText("Employees");
+    employeesMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            employeesMenuMouseClicked(evt);
+        }
+    });
+    smsMenuBar.add(employeesMenu);
+
+    adminMenu.setText("Administration");
+    adminMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            adminMenuMouseClicked(evt);
+        }
+    });
+
+    addUserMenuItem.setText("Add User");
+    addUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addUserMenuItemActionPerformed(evt);
+        }
+    });
+    adminMenu.add(addUserMenuItem);
+
+>>>>>>> origin/master
     removeUserMenuItem.setText("Remove User");
     removeUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1696,6 +1736,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                 .addGroup(layout.createSequentialGroup()
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                    .addGap(0, 0, 0)
+>>>>>>> origin/master
 =======
                     .addGap(0, 0, 0)
 >>>>>>> origin/master
@@ -2314,10 +2358,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.ButtonGroup genderButtonGroup;
     private javax.swing.JLabel genderLabel;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
     private javax.swing.JMenuItem jMenuItem1;
