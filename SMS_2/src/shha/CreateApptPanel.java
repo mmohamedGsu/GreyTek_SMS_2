@@ -253,10 +253,10 @@ public class CreateApptPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-<<<<<<< HEAD
+
         doctorEmailComboBox.setSelectedIndex(doctortComboBox.getSelectedIndex());
         patientSSNComboBox.setSelectedIndex(patientComboBox.getSelectedIndex());
-=======
+
         String date = dateSelectedLabel.getText();
         
         long millTime = dateToMill(date);
@@ -268,7 +268,7 @@ public class CreateApptPanel extends javax.swing.JPanel {
         
         
         
->>>>>>> origin/master
+
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void apptCalendarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_apptCalendarPropertyChange
