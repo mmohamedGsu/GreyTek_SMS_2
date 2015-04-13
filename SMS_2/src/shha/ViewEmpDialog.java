@@ -55,6 +55,7 @@ DefaultTableModel tableModel = new DefaultTableModel() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("View Employees");
+        setPreferredSize(new java.awt.Dimension(379, 250));
 
         viewAllButton.setText("View All");
         viewAllButton.addActionListener(new java.awt.event.ActionListener() {
