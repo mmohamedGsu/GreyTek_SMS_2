@@ -17,6 +17,7 @@ import static shha.mainGUI2.defaultApptPanel;
  */
 public class CreateApptPanel extends javax.swing.JPanel {
     private static long  millTime;
+    private static String returnDate;
     /**
      * Creates new form CreateApptPanel
      */
@@ -28,6 +29,7 @@ public class CreateApptPanel extends javax.swing.JPanel {
        patientSSNComboBox.setVisible(false);
        doctortComboBox.setModel(new javax.swing.DefaultComboBoxModel(doctorsArray));
        patientComboBox.setModel(new javax.swing.DefaultComboBoxModel(patientsArray));
+       confirmMessage.setText("Please create an appointment");
     }
 
     /**
@@ -261,7 +263,7 @@ public class CreateApptPanel extends javax.swing.JPanel {
         
         millTime = dateToMill(date);
         
-        String returnDate = millToDate(millTime);
+       returnDate = millToDate(millTime);
         
         System.out.println("The milliseconds for the date is: " + millTime);
         System.out.println("The return date is: " + returnDate);
@@ -382,7 +384,7 @@ public class CreateApptPanel extends javax.swing.JPanel {
     
     private boolean appointmentExists() {
         Database db = new Database("SMSDB2");
-        String time = String.valueOf(millTime);
+        String time = String.valueOf(returnDate);
         return db.appointmentExists(time);
     }
     
@@ -399,7 +401,7 @@ public class CreateApptPanel extends javax.swing.JPanel {
         String doctorLastName = doctorFullName.substring(0, doctorComma);
         String doctorEmail = doctorEmailComboBox.getSelectedItem().toString();
         
-        String time = String.valueOf(millTime);
+        String time = returnDate;
         
         
         String query = "INSERT INTO appointments " +
@@ -411,11 +413,11 @@ public class CreateApptPanel extends javax.swing.JPanel {
             Database db = new Database("SMSDB2");
             db.executePatientUpdate(query);
             //create appointment
-            System.out.println("We executed query");
+            confirmMessage.setText("Appoint has been scheduled");
             db.printAll("appointments");
         } else {
             //display message that the time slot is take
-            System.out.println("The time slot is taken");
+            confirmMessage.setText("The time slot is taken");
         }
     }
 

@@ -108,7 +108,7 @@ public class ViewApptDialog extends javax.swing.JDialog {
         model.fireTableDataChanged();
 
         Database db = new Database("SMSDB2");
-        ResultSet rs = db.queryPatients();
+        ResultSet rs = db.queryAppointments();
         if(rs == null) {
             JOptionPane.showMessageDialog(null, "No appointments found");
         }
