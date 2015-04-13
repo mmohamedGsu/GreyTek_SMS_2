@@ -1,9 +1,12 @@
 ----------------------------------------------------------------
 <<<<<<< HEAD
+<<<<<<< HEAD
 Mon Apr 13 13:28:36 EDT 2015:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-b3d3-5f58-000007fbead0 
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 Mon Apr 13 07:43:01 EDT 2015:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-b296-fb0d-000007e35a98 
 on database directory /Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2/SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@55f96302 
@@ -24,9 +27,12 @@ os.version=6.3
 derby.system.home=null
 <<<<<<< HEAD
 Database Class Loader started - derby.database.classpath=''
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 Database Class Loader started - derby.database.classpath=''
+=======
+>>>>>>> origin/master
 Mon Apr 13 07:44:38 EDT 2015 Thread[AWT-EventQueue-0,6,main] Cleanup action starting
 java.sql.SQLException: Database 'SMSDB' not found.
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
