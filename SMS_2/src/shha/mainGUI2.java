@@ -10,6 +10,9 @@ import java.util.Enumeration;
 import javax.swing.*;
 import java.util.regex.*;
 import javax.swing.table.AbstractTableModel;
+import static shha.TimeClockPanel.punchInButton;
+import static shha.TimeClockPanel.punchOutButton;
+
 /**
  *
  * @author Sheldon
@@ -84,6 +87,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         addNewPatientButton = new javax.swing.JButton();
         viewPatientButton = new javax.swing.JButton();
         viewYourPatientButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         adminPanel = new javax.swing.JPanel();
         adminContainerPanel = new javax.swing.JPanel();
         defaultAdminPanel = new javax.swing.JPanel();
@@ -125,6 +129,8 @@ public class mainGUI2 extends javax.swing.JFrame {
         addNewUserButton = new javax.swing.JButton();
         removeUserButton = new javax.swing.JButton();
         viewEmployeesButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         empPanel = new javax.swing.JPanel();
         empContainerPanel = new javax.swing.JPanel();
         defaultEmpPanel = new javax.swing.JPanel();
@@ -166,24 +172,38 @@ public class mainGUI2 extends javax.swing.JFrame {
         empCancelButton = new javax.swing.JButton();
         empEditButton = new javax.swing.JButton();
         empTablePanel = new javax.swing.JPanel();
+        empImageLabel = new javax.swing.JLabel();
         apptPanel = new javax.swing.JPanel();
         apptContainerPanel = new javax.swing.JPanel();
         defaultApptPanel = new javax.swing.JPanel();
         apptTablePanel = new javax.swing.JPanel();
         createApptButton = new javax.swing.JButton();
         viewApptButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         timeCPanel = new javax.swing.JPanel();
         timeContainerPanel = new javax.swing.JPanel();
         defaultTimePanel = new javax.swing.JPanel();
         timePanel = new javax.swing.JPanel();
+        timeImageLabel = new javax.swing.JLabel();
         buildLabel = new javax.swing.JLabel();
         timeClockButton = new javax.swing.JButton();
         employeeIdent1 = new java.awt.Label();
         positionImage = new javax.swing.JLabel();
         timeLabel = new javax.swing.JLabel();
         smsMenuBar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        patientsMenu = new javax.swing.JMenu();
+        addPatientMenuItem = new javax.swing.JMenuItem();
+        viewPatientMenuItem = new javax.swing.JMenuItem();
+        assignedMenuItem = new javax.swing.JMenuItem();
+        apptMenu = new javax.swing.JMenu();
+        createApptMenuItem = new javax.swing.JMenuItem();
+        viewApptMenuItem = new javax.swing.JMenuItem();
+        TimeClockMenu = new javax.swing.JMenu();
+        employeesMenu = new javax.swing.JMenu();
+        adminMenu = new javax.swing.JMenu();
+        addUserMenuItem = new javax.swing.JMenuItem();
+        removeUserMenuItem = new javax.swing.JMenuItem();
+        viewUsersMenuItem = new javax.swing.JMenuItem();
         logOutMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -237,7 +257,7 @@ public class mainGUI2 extends javax.swing.JFrame {
             }
         });
 
-        containerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Container"));
+        containerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Patients"));
         containerPanel.setMaximumSize(new java.awt.Dimension(1170, 613));
         containerPanel.setMinimumSize(new java.awt.Dimension(1170, 613));
         containerPanel.setLayout(new java.awt.CardLayout());
@@ -307,6 +327,9 @@ public class mainGUI2 extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fempatsm.png"))); // NOI18N
+
         javax.swing.GroupLayout patientsPanelLayout = new javax.swing.GroupLayout(patientsPanel);
         patientsPanel.setLayout(patientsPanelLayout);
         patientsPanelLayout.setHorizontalGroup(
@@ -316,7 +339,8 @@ public class mainGUI2 extends javax.swing.JFrame {
                 .addGroup(patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(viewPatientButton, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(viewYourPatientButton, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addNewPatientButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addNewPatientButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -324,17 +348,18 @@ public class mainGUI2 extends javax.swing.JFrame {
         patientsPanelLayout.setVerticalGroup(
             patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientsPanelLayout.createSequentialGroup()
-                .addGroup(patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(25, 25, 25)
+                .addGroup(patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(patientsPanelLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
                         .addComponent(addNewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
+                        .addGap(43, 43, 43)
                         .addComponent(viewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
-                        .addComponent(viewYourPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(patientsPanelLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(43, 43, 43)
+                        .addComponent(viewYourPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(133, 133, 133))
         );
 
@@ -763,35 +788,54 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
 
+    jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+    jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fempatsm.png"))); // NOI18N
+
+    jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+    jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminsm.png"))); // NOI18N
+
     javax.swing.GroupLayout adminPanelLayout = new javax.swing.GroupLayout(adminPanel);
     adminPanel.setLayout(adminPanelLayout);
     adminPanelLayout.setHorizontalGroup(
         adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
-            .addGap(30, 30, 30)
-            .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(viewEmployeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(30, 30, 30)
+            .addGap(31, 31, 31)
+            .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(addNewUserButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(removeUserButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(viewEmployeesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(29, 29, 29)
             .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(34, Short.MAX_VALUE))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE)))
     );
     adminPanelLayout.setVerticalGroup(
         adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(adminPanelLayout.createSequentialGroup()
             .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(adminPanelLayout.createSequentialGroup()
-                    .addGap(53, 53, 53)
-                    .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(59, 59, 59)
-                    .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(59, 59, 59)
-                    .addComponent(viewEmployeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(adminPanelLayout.createSequentialGroup()
                     .addGap(25, 25, 25)
-                    .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(adminPanelLayout.createSequentialGroup()
+                    .addGap(49, 49, 49)
+                    .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(43, 43, 43)
+                    .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(43, 43, 43)
+                    .addComponent(viewEmployeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(26, 26, 26)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(133, 133, 133))
+        .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE)))
     );
 
     adminPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addNewUserButton, removeUserButton});
@@ -1194,20 +1238,29 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     empTablePanel.setLayout(new java.awt.CardLayout());
     empContainerPanel.add(empTablePanel, "card2");
 
+    empImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/employee2sm.png"))); // NOI18N
+
     javax.swing.GroupLayout empPanelLayout = new javax.swing.GroupLayout(empPanel);
     empPanel.setLayout(empPanelLayout);
     empPanelLayout.setHorizontalGroup(
         empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, empPanelLayout.createSequentialGroup()
-            .addContainerGap(210, Short.MAX_VALUE)
+            .addGap(28, 28, 28)
+            .addComponent(empImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(23, 23, 23)
             .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
     );
     empPanelLayout.setVerticalGroup(
         empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(empPanelLayout.createSequentialGroup()
-            .addGap(25, 25, 25)
-            .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(empPanelLayout.createSequentialGroup()
+                    .addGap(25, 25, 25)
+                    .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(empPanelLayout.createSequentialGroup()
+                    .addGap(133, 133, 133)
+                    .addComponent(empImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(133, 133, 133))
     );
 
@@ -1264,16 +1317,28 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
 
+    jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+    jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/calendarsm.png"))); // NOI18N
+
     javax.swing.GroupLayout apptPanelLayout = new javax.swing.GroupLayout(apptPanel);
     apptPanel.setLayout(apptPanelLayout);
     apptPanelLayout.setHorizontalGroup(
         apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apptPanelLayout.createSequentialGroup()
-            .addGap(30, 30, 30)
-            .addGroup(apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(createApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(viewApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(30, 30, 30)
+            .addGroup(apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(apptPanelLayout.createSequentialGroup()
+                    .addGroup(apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(apptPanelLayout.createSequentialGroup()
+                            .addGap(30, 30, 30)
+                            .addComponent(createApptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(apptPanelLayout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(viewApptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGap(30, 30, 30))
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, apptPanelLayout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
             .addComponent(apptContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(26, 26, 26))
     );
@@ -1287,8 +1352,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 .addGroup(apptPanelLayout.createSequentialGroup()
                     .addGap(100, 100, 100)
                     .addComponent(createApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(62, 62, 62)
-                    .addComponent(viewApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(44, 44, 44)
+                    .addComponent(viewApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(44, 44, 44)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(apptPanelLayout.createSequentialGroup()
                     .addGap(25, 25, 25)
                     .addComponent(apptContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1332,20 +1399,29 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     timePanel.setLayout(new java.awt.CardLayout());
     timeContainerPanel.add(timePanel, "card2");
 
+    timeImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/timesm.png"))); // NOI18N
+
     javax.swing.GroupLayout timeCPanelLayout = new javax.swing.GroupLayout(timeCPanel);
     timeCPanel.setLayout(timeCPanelLayout);
     timeCPanelLayout.setHorizontalGroup(
         timeCPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timeCPanelLayout.createSequentialGroup()
-            .addContainerGap(210, Short.MAX_VALUE)
+            .addGap(22, 22, 22)
+            .addComponent(timeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(22, 22, 22)
             .addComponent(timeContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
     );
     timeCPanelLayout.setVerticalGroup(
         timeCPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(timeCPanelLayout.createSequentialGroup()
-            .addGap(25, 25, 25)
-            .addComponent(timeContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(timeCPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(timeCPanelLayout.createSequentialGroup()
+                    .addGap(25, 25, 25)
+                    .addComponent(timeContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(timeCPanelLayout.createSequentialGroup()
+                    .addGap(156, 156, 156)
+                    .addComponent(timeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(133, 133, 133))
     );
 
@@ -1367,11 +1443,127 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     timeLabel.setText("time");
 
-    jMenu1.setText("File");
-    smsMenuBar.add(jMenu1);
+    patientsMenu.setText("Patients");
+    patientsMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            patientsMenuMouseClicked(evt);
+        }
+    });
 
-    jMenu2.setText("Edit");
-    smsMenuBar.add(jMenu2);
+    addPatientMenuItem.setText("Add");
+    addPatientMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addPatientMenuItemActionPerformed(evt);
+        }
+    });
+    patientsMenu.add(addPatientMenuItem);
+
+    viewPatientMenuItem.setText("View");
+    viewPatientMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            viewPatientMenuItemActionPerformed(evt);
+        }
+    });
+    patientsMenu.add(viewPatientMenuItem);
+
+    assignedMenuItem.setText("Assigned");
+    assignedMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            assignedMenuItemActionPerformed(evt);
+        }
+    });
+    patientsMenu.add(assignedMenuItem);
+
+    smsMenuBar.add(patientsMenu);
+
+    apptMenu.setText("Appointments");
+    apptMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            apptMenuMouseClicked(evt);
+        }
+    });
+    apptMenu.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            apptMenuActionPerformed(evt);
+        }
+    });
+
+    createApptMenuItem.setText("Create");
+    createApptMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            createApptMenuItemMouseClicked(evt);
+        }
+    });
+    createApptMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            createApptMenuItemActionPerformed(evt);
+        }
+    });
+    apptMenu.add(createApptMenuItem);
+
+    viewApptMenuItem.setText("View");
+    viewApptMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            viewApptMenuItemMouseClicked(evt);
+        }
+    });
+    viewApptMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            viewApptMenuItemActionPerformed(evt);
+        }
+    });
+    apptMenu.add(viewApptMenuItem);
+
+    smsMenuBar.add(apptMenu);
+
+    TimeClockMenu.setText("TimeClock");
+    TimeClockMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            TimeClockMenuMouseClicked(evt);
+        }
+    });
+    smsMenuBar.add(TimeClockMenu);
+
+    employeesMenu.setText("Employees");
+    employeesMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            employeesMenuMouseClicked(evt);
+        }
+    });
+    smsMenuBar.add(employeesMenu);
+
+    adminMenu.setText("Administration");
+    adminMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            adminMenuMouseClicked(evt);
+        }
+    });
+
+    addUserMenuItem.setText("Add User");
+    addUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addUserMenuItemActionPerformed(evt);
+        }
+    });
+    adminMenu.add(addUserMenuItem);
+
+    removeUserMenuItem.setText("Remove User");
+    removeUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            removeUserMenuItemActionPerformed(evt);
+        }
+    });
+    adminMenu.add(removeUserMenuItem);
+
+    viewUsersMenuItem.setText("View Users");
+    viewUsersMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            viewUsersMenuItemActionPerformed(evt);
+        }
+    });
+    adminMenu.add(viewUsersMenuItem);
+
+    smsMenuBar.add(adminMenu);
 
     logOutMenu.setText("Log Out");
 
@@ -1394,8 +1586,19 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     layout.setHorizontalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addContainerGap(36, Short.MAX_VALUE)
+            .addGap(55, 55, 55)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(logoLabel)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(387, 387, 387)
+                            .addComponent(positionImage, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(300, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(employeeIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(50, 50, 50))))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
@@ -1410,27 +1613,16 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(105, 105, 105))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addComponent(buildLabel)
-                    .addGap(41, 41, 41))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addComponent(logoLabel)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(387, 387, 387)
-                            .addComponent(positionImage, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(319, 319, 319))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(employeeIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(23, 23, 23))))))
+                    .addGap(105, 105, 105))))
         .addGroup(layout.createSequentialGroup()
             .addGap(57, 57, 57)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(timeLabel)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(timeLabel)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buildLabel))
                 .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1213, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap(58, Short.MAX_VALUE))
     );
 
     layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {billButton, timeClockButton});
@@ -1438,15 +1630,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
+            .addGap(0, 0, 0)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(12, 12, 12)
-                    .addComponent(positionImage, javax.swing.GroupLayout.DEFAULT_SIZE, 6, Short.MAX_VALUE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(positionImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(0, 0, 0)
                     .addComponent(employeeIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(57, 57, 57)))
+                    .addGap(100, 100, 100)))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1487,10 +1679,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         containerPanel.removeAll();
         containerPanel.repaint();
         containerPanel.revalidate();
-
-        patientsPanel.add(defaultPatientPanel);
-        patientsPanel.repaint();
-        patientsPanel.revalidate();
+        
+        
         
         containerPanel.add(patientsPanel);
         containerPanel.repaint();
@@ -1677,6 +1867,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_empAddress1TextMouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        containerPanel.removeAll();
         this.dispose();
         
         //Custom Look and Feel Style 
@@ -1700,7 +1891,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         //Run Program
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new loginGUI2().setVisible(true);
+                new LoginGUI().setVisible(true);
             }
         }); 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -1767,6 +1958,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     private void timeClockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeClockButtonActionPerformed
         containerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "TimeClock"));
+        
         containerPanel.removeAll();
         containerPanel.repaint();
         containerPanel.revalidate();
@@ -1860,6 +2052,70 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_reportsButtonActionPerformed
 
+    private void apptMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apptMenuActionPerformed
+     
+    }//GEN-LAST:event_apptMenuActionPerformed
+
+    private void apptMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apptMenuMouseClicked
+        apptButton.doClick();
+    }//GEN-LAST:event_apptMenuMouseClicked
+
+    private void createApptMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createApptMenuItemMouseClicked
+        
+    }//GEN-LAST:event_createApptMenuItemMouseClicked
+
+    private void viewApptMenuItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewApptMenuItemMouseClicked
+        
+    }//GEN-LAST:event_viewApptMenuItemMouseClicked
+
+    private void createApptMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createApptMenuItemActionPerformed
+        createApptButton.doClick();
+    }//GEN-LAST:event_createApptMenuItemActionPerformed
+
+    private void viewApptMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewApptMenuItemActionPerformed
+        viewApptButton.doClick();
+    }//GEN-LAST:event_viewApptMenuItemActionPerformed
+
+    private void viewPatientMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPatientMenuItemActionPerformed
+        viewPatientButton.doClick();
+    }//GEN-LAST:event_viewPatientMenuItemActionPerformed
+
+    private void patientsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientsMenuMouseClicked
+        patientsButton.doClick();
+    }//GEN-LAST:event_patientsMenuMouseClicked
+
+    private void addPatientMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPatientMenuItemActionPerformed
+        addNewPatientButton.doClick();
+    }//GEN-LAST:event_addPatientMenuItemActionPerformed
+
+    private void assignedMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignedMenuItemActionPerformed
+        viewYourPatientButton.doClick();
+    }//GEN-LAST:event_assignedMenuItemActionPerformed
+
+    private void TimeClockMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TimeClockMenuMouseClicked
+        timeClockButton.doClick();
+    }//GEN-LAST:event_TimeClockMenuMouseClicked
+
+    private void employeesMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeesMenuMouseClicked
+        empButton.doClick();
+    }//GEN-LAST:event_employeesMenuMouseClicked
+
+    private void adminMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminMenuMouseClicked
+        adminButton.doClick();
+    }//GEN-LAST:event_adminMenuMouseClicked
+
+    private void addUserMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserMenuItemActionPerformed
+        addNewUserButton.doClick();
+    }//GEN-LAST:event_addUserMenuItemActionPerformed
+
+    private void removeUserMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeUserMenuItemActionPerformed
+        removeUserButton.doClick();
+    }//GEN-LAST:event_removeUserMenuItemActionPerformed
+
+    private void viewUsersMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewUsersMenuItemActionPerformed
+        viewEmployeesButton.doClick();
+    }//GEN-LAST:event_viewUsersMenuItemActionPerformed
+
 
 
     public static void main(String args[]) {
@@ -1891,9 +2147,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu TimeClockMenu;
     private javax.swing.JComboBox accessLevelComboBox;
     private javax.swing.JButton addNewPatientButton;
     private javax.swing.JButton addNewUserButton;
+    private javax.swing.JMenuItem addPatientMenuItem;
+    private javax.swing.JMenuItem addUserMenuItem;
     private javax.swing.JPanel addUserPanel;
     private javax.swing.JLabel address1Label;
     private javax.swing.JTextField address1Text;
@@ -1901,12 +2160,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextField address2Text;
     private javax.swing.JButton adminButton;
     public static javax.swing.JPanel adminContainerPanel;
+    private javax.swing.JMenu adminMenu;
     private javax.swing.JPanel adminPanel;
     public static javax.swing.JPanel adminTablePanel;
     private javax.swing.JButton apptButton;
     public static javax.swing.JPanel apptContainerPanel;
+    private javax.swing.JMenu apptMenu;
     private javax.swing.JPanel apptPanel;
     public static javax.swing.JPanel apptTablePanel;
+    private javax.swing.JMenuItem assignedMenuItem;
     private javax.swing.JButton billButton;
     private javax.swing.JLabel buildLabel;
     private javax.swing.JButton cancelButton;
@@ -1915,6 +2177,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextField cityText;
     public static javax.swing.JPanel containerPanel;
     private javax.swing.JButton createApptButton;
+    private javax.swing.JMenuItem createApptMenuItem;
     private javax.swing.JComboBox dayComboBox;
     public static javax.swing.JPanel defaultAdminPanel;
     public static javax.swing.JPanel defaultApptPanel;
@@ -1943,6 +2206,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JTextField empFirstNameText;
     private javax.swing.ButtonGroup empGenderButtonGroup;
     private javax.swing.JLabel empGenderLabel;
+    private javax.swing.JLabel empImageLabel;
     private javax.swing.JLabel empLastNameLabel;
     public static javax.swing.JTextField empLastNameText;
     public static javax.swing.JRadioButton empMaleRadioButton;
@@ -1962,13 +2226,16 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel empZipLabel;
     public static javax.swing.JTextField empZipText;
     private java.awt.Label employeeIdent1;
+    private javax.swing.JMenu employeesMenu;
     private javax.swing.JRadioButton femaleRadioButton;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JTextField firstNameText;
     private javax.swing.ButtonGroup genderButtonGroup;
     private javax.swing.JLabel genderLabel;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameText;
@@ -1981,6 +2248,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JPanel patientTablePanel;
     private javax.swing.JButton patientsButton;
     public static javax.swing.JPanel patientsContainerPanel;
+    private javax.swing.JMenu patientsMenu;
     private javax.swing.JPanel patientsPanel;
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JTextField phoneText;
@@ -1989,6 +2257,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel positionLabel;
     private javax.swing.JLabel positionLabel1;
     public static javax.swing.JButton removeUserButton;
+    private javax.swing.JMenuItem removeUserMenuItem;
     private javax.swing.JButton reportsButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JMenuBar smsMenuBar;
@@ -1999,14 +2268,18 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JPanel timeCPanel;
     private javax.swing.JButton timeClockButton;
     public static javax.swing.JPanel timeContainerPanel;
+    private javax.swing.JLabel timeImageLabel;
     public static javax.swing.JLabel timeLabel;
     public static javax.swing.JPanel timePanel;
     private javax.swing.JButton viewApptButton;
+    private javax.swing.JMenuItem viewApptMenuItem;
     private javax.swing.JLabel viewEmpIDLabel;
     public static javax.swing.JTextField viewEmpIDText;
     public static javax.swing.JPanel viewEmpPanel;
     public static javax.swing.JButton viewEmployeesButton;
     private javax.swing.JButton viewPatientButton;
+    private javax.swing.JMenuItem viewPatientMenuItem;
+    private javax.swing.JMenuItem viewUsersMenuItem;
     private javax.swing.JButton viewYourPatientButton;
     private javax.swing.JComboBox yearComboBox;
     private javax.swing.JLabel zipLabel;
