@@ -1473,6 +1473,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
     patientsMenu.add(assignedMenuItem);
+<<<<<<< HEAD
 
     smsMenuBar.add(patientsMenu);
 
@@ -1547,6 +1548,82 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     });
     adminMenu.add(addUserMenuItem);
 
+=======
+
+    smsMenuBar.add(patientsMenu);
+
+    apptMenu.setText("Appointments");
+    apptMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            apptMenuMouseClicked(evt);
+        }
+    });
+    apptMenu.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            apptMenuActionPerformed(evt);
+        }
+    });
+
+    createApptMenuItem.setText("Create");
+    createApptMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            createApptMenuItemMouseClicked(evt);
+        }
+    });
+    createApptMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            createApptMenuItemActionPerformed(evt);
+        }
+    });
+    apptMenu.add(createApptMenuItem);
+
+    viewApptMenuItem.setText("View");
+    viewApptMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            viewApptMenuItemMouseClicked(evt);
+        }
+    });
+    viewApptMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            viewApptMenuItemActionPerformed(evt);
+        }
+    });
+    apptMenu.add(viewApptMenuItem);
+
+    smsMenuBar.add(apptMenu);
+
+    TimeClockMenu.setText("TimeClock");
+    TimeClockMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            TimeClockMenuMouseClicked(evt);
+        }
+    });
+    smsMenuBar.add(TimeClockMenu);
+
+    employeesMenu.setText("Employees");
+    employeesMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            employeesMenuMouseClicked(evt);
+        }
+    });
+    smsMenuBar.add(employeesMenu);
+
+    adminMenu.setText("Administration");
+    adminMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+        public void mouseClicked(java.awt.event.MouseEvent evt) {
+            adminMenuMouseClicked(evt);
+        }
+    });
+
+    addUserMenuItem.setText("Add User");
+    addUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addUserMenuItemActionPerformed(evt);
+        }
+    });
+    adminMenu.add(addUserMenuItem);
+
+>>>>>>> origin/master
     removeUserMenuItem.setText("Remove User");
     removeUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1618,6 +1695,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGap(57, 57, 57)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                 .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+=======
+                    .addGap(0, 0, 0)
+>>>>>>> origin/master
                     .addComponent(timeLabel)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buildLabel))
@@ -2232,10 +2313,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextField firstNameText;
     private javax.swing.ButtonGroup genderButtonGroup;
     private javax.swing.JLabel genderLabel;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+=======
+>>>>>>> origin/master
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameText;
