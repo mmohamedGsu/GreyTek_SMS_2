@@ -259,11 +259,11 @@ public class mainGUI2 extends javax.swing.JFrame {
         defaultPatientPanel.setLayout(defaultPatientPanelLayout);
         defaultPatientPanelLayout.setHorizontalGroup(
             defaultPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 999, Short.MAX_VALUE)
         );
         defaultPatientPanelLayout.setVerticalGroup(
             defaultPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 571, Short.MAX_VALUE)
         );
 
         patientsContainerPanel.add(defaultPatientPanel, "card3");
