@@ -38,25 +38,9 @@ public class test {
 //          }
 //      }
        
-<<<<<<< HEAD
     
     private static void dropEmployeesTable() {
        
-=======
-    public static void main(String[] args) {
-        
-        Database db = new Database("SMSDB2");
-        
-         //Create Database
-                
-      /*  System.out.println("Creating SMSDB2 dataBase");
-        Database db = new Database("SMSDB2","create");
-        System.out.println("Exiting creating SMSDB2 dataBase");
-        */
-          
-        //drop the employees table
-        /*
->>>>>>> origin/master
        System.out.println("Dropping employees table");
        db.dropTable("employees");
        System.out.println("Employees table dropped");
@@ -140,29 +124,7 @@ public class test {
         } catch (Exception e) {
             
         }
-<<<<<<< HEAD
         */
-=======
-          
-    */
-         
-         
-         /*The following code creates the Patient chart Table */
-//        db.dropTable("patient_chart");
-//         
-//         db.createTable("patient_chart", "(patient_ssn varchar(20), general varchar(200), " +
-//                        "allergies varchar(200), rountine_meds varchar(200), " +
-//                       " reffered_by varchar(30), insurance varchar(50), prior_visits varchar(100)," +
-//                        " doctor varchar(50), chart varchar(100) )");
-//     
-//         db.dropTable("appointments");
-//         db.createTable("appointments", "(patient_fname varchar(20), patient_lname varchar(20), " +
-//                        "patient_ssn varchar(12), doctor_fname varchar(20), " +
-//                        "doctor_lname varchar(20), doctor_email varchar(20), " +
-//                        "time varchar(60) )");
-      //   db.printAll("appointments");
-       
->>>>>>> origin/master
         
         //        String query = "select * from SYS.SYSTABLES";
 //        ResultSet rs = db.executeQuery(query);
@@ -189,7 +151,7 @@ public class test {
     }
     
     public static void main(String[] args) {
-        //just run the file and the database will be good to go
+        //just run the file onceb and the database will be good to go
         //note that in order to create a patient you will first have
         //to create an employee that's a doctor. The login is still the 
         //same Admin1 Password1
