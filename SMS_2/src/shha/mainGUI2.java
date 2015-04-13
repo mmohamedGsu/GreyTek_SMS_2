@@ -166,7 +166,9 @@ public class mainGUI2 extends javax.swing.JFrame {
         apptPanel = new javax.swing.JPanel();
         apptContainerPanel = new javax.swing.JPanel();
         defaultApptPanel = new javax.swing.JPanel();
+        apptTablePanel = new javax.swing.JPanel();
         createApptButton = new javax.swing.JButton();
+        viewApptButton = new javax.swing.JButton();
         timeCPanel = new javax.swing.JPanel();
         timeContainerPanel = new javax.swing.JPanel();
         defaultTimePanel = new javax.swing.JPanel();
@@ -1225,11 +1227,24 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     apptContainerPanel.add(defaultApptPanel, "card3");
 
+    apptTablePanel.setMaximumSize(new java.awt.Dimension(995, 577));
+    apptTablePanel.setMinimumSize(new java.awt.Dimension(995, 577));
+    apptTablePanel.setLayout(new java.awt.CardLayout());
+    apptContainerPanel.add(apptTablePanel, "card3");
+
     createApptButton.setText("Create");
     createApptButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     createApptButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             createApptButtonActionPerformed(evt);
+        }
+    });
+
+    viewApptButton.setText("View Appts");
+    viewApptButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    viewApptButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            viewApptButtonActionPerformed(evt);
         }
     });
 
@@ -1239,23 +1254,32 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apptPanelLayout.createSequentialGroup()
             .addContainerGap()
-            .addComponent(createApptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGap(25, 25, 25)
+            .addGroup(apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(createApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
             .addComponent(apptContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
     );
+
+    apptPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {createApptButton, viewApptButton});
+
     apptPanelLayout.setVerticalGroup(
         apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(apptPanelLayout.createSequentialGroup()
             .addGroup(apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(apptPanelLayout.createSequentialGroup()
                     .addGap(100, 100, 100)
-                    .addComponent(createApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(createApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(62, 62, 62)
+                    .addComponent(viewApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(apptPanelLayout.createSequentialGroup()
                     .addGap(25, 25, 25)
                     .addComponent(apptContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(133, 133, 133))
     );
+
+    apptPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {createApptButton, viewApptButton});
 
     containerPanel.add(apptPanel, "card2");
 
@@ -1795,8 +1819,14 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
 
     private void viewEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewEmployeesButtonActionPerformed
-         empButton.doClick();
+        empButton.doClick();
     }//GEN-LAST:event_viewEmployeesButtonActionPerformed
+
+    private void viewApptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewApptButtonActionPerformed
+        ViewApptDialog opForm = new ViewApptDialog(new JFrame(), true);
+        opForm.setVisible(true);
+        
+    }//GEN-LAST:event_viewApptButtonActionPerformed
 
 
 
@@ -1844,6 +1874,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton apptButton;
     public static javax.swing.JPanel apptContainerPanel;
     private javax.swing.JPanel apptPanel;
+    public static javax.swing.JPanel apptTablePanel;
     private javax.swing.JButton billButton;
     private javax.swing.JLabel buildLabel;
     private javax.swing.JButton cancelButton;
@@ -1938,6 +1969,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JButton timeClockButton;
     public static javax.swing.JPanel timeContainerPanel;
     public static javax.swing.JPanel timePanel;
+    private javax.swing.JButton viewApptButton;
     private javax.swing.JLabel viewEmpIDLabel;
     public static javax.swing.JTextField viewEmpIDText;
     public static javax.swing.JPanel viewEmpPanel;

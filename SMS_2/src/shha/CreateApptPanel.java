@@ -235,7 +235,6 @@ public class CreateApptPanel extends javax.swing.JPanel {
         
         String returnDate = millToDate(millTime);
         
-        System.out.println("The date is: " + date);
         System.out.println("The milliseconds for the date is: " + millTime);
         System.out.println("The return date is: " + returnDate);
         
@@ -420,6 +419,8 @@ public class CreateApptPanel extends javax.swing.JPanel {
         }
         
         int hourObj = Integer.parseInt(hour);
+        
+     //   System.out.println("Date is " + tokens[1] + " " + day + " " + year + " " + hour);
         
         Calendar cal = Calendar.getInstance();
         cal.set(year, monthObj, day, hourObj, 00, 00); //Year, month, day of month, hours, minutes and seconds
