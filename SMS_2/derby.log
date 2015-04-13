@@ -1,8 +1,27 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Sun Apr 12 21:58:17 EDT 2015:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-b07f-a15b-000007e50c80 
 on database directory /Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2/SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@55f96302 
 Loaded from file:/Users/MooseMoose/Google%20Drive/netBeans%20workSpace/Software%20Engineering%20Project/GreyTek%20SMS/SMS_2/lib/derby.jar
+=======
+<<<<<<< HEAD
+Sun Apr 12 21:34:15 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-b069-a2a1-000007fddae0 
+=======
+<<<<<<< HEAD
+Sun Apr 12 21:38:40 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-b06d-a98b-000007e2ade0 
+on database directory /Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2/SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@55f96302 
+Loaded from file:/Users/MooseMoose/Google%20Drive/netBeans%20workSpace/Software%20Engineering%20Project/GreyTek%20SMS/SMS_2/lib/derby.jar
+=======
+Sun Apr 12 20:47:25 EDT 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-014c-b03e-c1c0-000007fbada8 
+>>>>>>> origin/master
+on database directory C:\Users\Sheldon\Documents\NetBeansProjects\GreyTek_SMS_2\SMS_2\SMSDB2 with class loader sun.misc.Launcher$AppClassLoader@5c647e05 
+Loaded from file:/C:/Users/Sheldon/Documents/NetBeansProjects/GreyTek_SMS_2/SMS_2/lib/derby.jar
+>>>>>>> origin/master
+>>>>>>> origin/master
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_05-b13
 user.dir=/Users/MooseMoose/Google Drive/netBeans workSpace/Software Engineering Project/GreyTek SMS/SMS_2

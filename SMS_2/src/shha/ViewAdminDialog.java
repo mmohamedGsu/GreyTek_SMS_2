@@ -41,6 +41,7 @@ public class ViewAdminDialog extends javax.swing.JDialog {
         searchLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(379, 250));
 
         viewAllButton.setText("View All");
         viewAllButton.addActionListener(new java.awt.event.ActionListener() {

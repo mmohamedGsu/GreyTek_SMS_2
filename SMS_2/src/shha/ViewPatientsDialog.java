@@ -42,9 +42,8 @@ public class ViewPatientsDialog extends javax.swing.JDialog {
         patientLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(379, 250));
 
-        viewAllButton.setBackground(new java.awt.Color(51, 51, 255));
-        viewAllButton.setForeground(new java.awt.Color(255, 255, 255));
         viewAllButton.setText("View All");
         viewAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
