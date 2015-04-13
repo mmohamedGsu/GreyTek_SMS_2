@@ -120,7 +120,10 @@ public class test {
  //        db.printAll("employees");
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 
 
     //     db.printAll("patients");

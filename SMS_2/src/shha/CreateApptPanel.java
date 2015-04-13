@@ -270,6 +270,11 @@ public class CreateApptPanel extends javax.swing.JPanel {
         
         createAppointment();
         
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> origin/master
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void apptCalendarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_apptCalendarPropertyChange
