@@ -41,8 +41,8 @@ public class test {
         Database db = new Database("SMSDB2");
         
          //Create Database
-        /*         
-        System.out.println("Creating SMSDB2 dataBase");
+                
+      /*  System.out.println("Creating SMSDB2 dataBase");
         Database db = new Database("SMSDB2","create");
         System.out.println("Exiting creating SMSDB2 dataBase");
         */
@@ -165,12 +165,12 @@ public class test {
 //                       " reffered_by varchar(30), insurance varchar(50), prior_visits varchar(100)," +
 //                        " doctor varchar(50), chart varchar(100) )");
 //     
-         db.dropTable("appointments");
-         db.createTable("appointments", "(patient_fname varchar(20), patient_lname varchar(20), " +
-                        "patient_ssn varchar(12), doctor_fname varchar(20), " +
-                        "doctor_lname varchar(20), doctor_email varchar(20), " +
-                        "time varchar(60) )");
-         db.printAll("appointments");
+//         db.dropTable("appointments");
+//         db.createTable("appointments", "(patient_fname varchar(20), patient_lname varchar(20), " +
+//                        "patient_ssn varchar(12), doctor_fname varchar(20), " +
+//                        "doctor_lname varchar(20), doctor_email varchar(20), " +
+//                        "time varchar(60) )");
+      //   db.printAll("appointments");
        
         
     }

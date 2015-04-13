@@ -38,7 +38,7 @@ public class mainGUI2 extends javax.swing.JFrame {
        // positionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctor_Icon_128.png")));
 
          //positionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctor_Icon_128.png")));
-
+         
          employeeIdent1.setText("Welcome: " +
                             Authentication.firstName + " " +
                             Authentication.lastName
@@ -79,7 +79,6 @@ public class mainGUI2 extends javax.swing.JFrame {
         patientsPanel = new javax.swing.JPanel();
         patientsContainerPanel = new javax.swing.JPanel();
         defaultPatientPanel = new javax.swing.JPanel();
-        imgLabel1 = new javax.swing.JLabel();
         patientTablePanel = new javax.swing.JPanel();
         chartTablePanel = new javax.swing.JPanel();
         addNewPatientButton = new javax.swing.JButton();
@@ -181,6 +180,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         timeClockButton = new javax.swing.JButton();
         employeeIdent1 = new java.awt.Label();
         positionImage = new javax.swing.JLabel();
+        timeLabel = new javax.swing.JLabel();
         smsMenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -211,6 +211,11 @@ public class mainGUI2 extends javax.swing.JFrame {
 
         reportsButton.setText("Reports");
         reportsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reportsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportsButtonActionPerformed(evt);
+            }
+        });
 
         billButton.setText("Billing");
         billButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -232,7 +237,7 @@ public class mainGUI2 extends javax.swing.JFrame {
             }
         });
 
-        containerPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        containerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Container"));
         containerPanel.setMaximumSize(new java.awt.Dimension(1170, 613));
         containerPanel.setMinimumSize(new java.awt.Dimension(1170, 613));
         containerPanel.setLayout(new java.awt.CardLayout());
@@ -246,6 +251,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         patientsContainerPanel.setPreferredSize(new java.awt.Dimension(995, 577));
         patientsContainerPanel.setLayout(new java.awt.CardLayout());
 
+        defaultPatientPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         defaultPatientPanel.setMaximumSize(new java.awt.Dimension(995, 577));
         defaultPatientPanel.setMinimumSize(new java.awt.Dimension(995, 577));
 
@@ -253,27 +259,23 @@ public class mainGUI2 extends javax.swing.JFrame {
         defaultPatientPanel.setLayout(defaultPatientPanelLayout);
         defaultPatientPanelLayout.setHorizontalGroup(
             defaultPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(defaultPatientPanelLayout.createSequentialGroup()
-                .addContainerGap(750, Short.MAX_VALUE)
-                .addComponent(imgLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         defaultPatientPanelLayout.setVerticalGroup(
             defaultPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(defaultPatientPanelLayout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(imgLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(381, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         patientsContainerPanel.add(defaultPatientPanel, "card3");
 
+        patientTablePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         patientTablePanel.setAutoscrolls(true);
         patientTablePanel.setMaximumSize(new java.awt.Dimension(991, 573));
         patientTablePanel.setMinimumSize(new java.awt.Dimension(991, 573));
         patientTablePanel.setLayout(new java.awt.CardLayout());
         patientsContainerPanel.add(patientTablePanel, "card2");
 
+        chartTablePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         chartTablePanel.setAutoscrolls(true);
         chartTablePanel.setMaximumSize(new java.awt.Dimension(991, 573));
         chartTablePanel.setMinimumSize(new java.awt.Dimension(991, 573));
@@ -282,6 +284,7 @@ public class mainGUI2 extends javax.swing.JFrame {
 
         addNewPatientButton.setText("<html><div style=\"text-align: center\">Add<br>Patients</div></html>");
         addNewPatientButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addNewPatientButton.setPreferredSize(new java.awt.Dimension(110, 47));
         addNewPatientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addNewPatientButtonActionPerformed(evt);
@@ -309,15 +312,14 @@ public class mainGUI2 extends javax.swing.JFrame {
         patientsPanelLayout.setHorizontalGroup(
             patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patientsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(viewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(addNewPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(viewYourPatientButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(30, 30, 30)
+                .addGroup(patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(viewPatientButton, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(viewYourPatientButton, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addNewPatientButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         patientsPanelLayout.setVerticalGroup(
             patientsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,6 +349,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         adminContainerPanel.setPreferredSize(new java.awt.Dimension(995, 577));
         adminContainerPanel.setLayout(new java.awt.CardLayout());
 
+        defaultAdminPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         defaultAdminPanel.setMaximumSize(new java.awt.Dimension(995, 577));
         defaultAdminPanel.setMinimumSize(new java.awt.Dimension(995, 577));
 
@@ -354,15 +357,16 @@ public class mainGUI2 extends javax.swing.JFrame {
         defaultAdminPanel.setLayout(defaultAdminPanelLayout);
         defaultAdminPanelLayout.setHorizontalGroup(
             defaultAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+            .addGap(0, 999, Short.MAX_VALUE)
         );
         defaultAdminPanelLayout.setVerticalGroup(
             defaultAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
+            .addGap(0, 571, Short.MAX_VALUE)
         );
 
         adminContainerPanel.add(defaultAdminPanel, "card3");
 
+        addUserPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addUserPanel.setMaximumSize(new java.awt.Dimension(991, 573));
         addUserPanel.setMinimumSize(new java.awt.Dimension(991, 573));
 
@@ -631,7 +635,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                                             .addComponent(positionLabel1)
                                             .addGap(8, 8, 8))))))
                         .addComponent(phoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(103, Short.MAX_VALUE))))
+                    .addContainerGap(110, Short.MAX_VALUE))))
     );
 
     addUserPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cancelButton, saveButton});
@@ -718,13 +722,14 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGroup(addUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(cancelButton)
                 .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(144, Short.MAX_VALUE))
+            .addContainerGap(138, Short.MAX_VALUE))
     );
 
     addUserPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cancelButton, saveButton});
 
     adminContainerPanel.add(addUserPanel, "card3");
 
+    adminTablePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     adminTablePanel.setAutoscrolls(true);
     adminTablePanel.setMaximumSize(new java.awt.Dimension(991, 573));
     adminTablePanel.setMinimumSize(new java.awt.Dimension(991, 573));
@@ -733,6 +738,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     addNewUserButton.setText("<html><div style=\"text-align: center\">Add<br>Employee</html>");
     addNewUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    addNewUserButton.setPreferredSize(new java.awt.Dimension(110, 47));
     addNewUserButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             addNewUserButtonActionPerformed(evt);
@@ -741,6 +747,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     removeUserButton.setText("<html><div style=\"text-align: center\">Remove<br>Employee</html>");
     removeUserButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    removeUserButton.setPreferredSize(new java.awt.Dimension(110, 47));
     removeUserButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             removeUserButtonActionPerformed(evt);
@@ -749,6 +756,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     viewEmployeesButton.setText("<html><div style=\"text-align: center\">View<br>Employees</html>");
     viewEmployeesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    viewEmployeesButton.setPreferredSize(new java.awt.Dimension(110, 47));
     viewEmployeesButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             viewEmployeesButtonActionPerformed(evt);
@@ -760,18 +768,14 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     adminPanelLayout.setHorizontalGroup(
         adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
-            .addContainerGap()
-            .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(adminPanelLayout.createSequentialGroup()
-                    .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(25, 25, 25))
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, adminPanelLayout.createSequentialGroup()
-                    .addComponent(viewEmployeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-            .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(25, 25, 25))
+            .addGap(30, 30, 30)
+            .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(addNewUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(removeUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewEmployeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(30, 30, 30)
+            .addComponent(adminContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(34, Short.MAX_VALUE))
     );
     adminPanelLayout.setVerticalGroup(
         adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -803,6 +807,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     empContainerPanel.setPreferredSize(new java.awt.Dimension(995, 577));
     empContainerPanel.setLayout(new java.awt.CardLayout());
 
+    defaultEmpPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     defaultEmpPanel.setMaximumSize(new java.awt.Dimension(995, 577));
     defaultEmpPanel.setMinimumSize(new java.awt.Dimension(995, 577));
 
@@ -810,15 +815,16 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     defaultEmpPanel.setLayout(defaultEmpPanelLayout);
     defaultEmpPanelLayout.setHorizontalGroup(
         defaultEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 995, Short.MAX_VALUE)
+        .addGap(0, 989, Short.MAX_VALUE)
     );
     defaultEmpPanelLayout.setVerticalGroup(
         defaultEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 577, Short.MAX_VALUE)
+        .addGap(0, 571, Short.MAX_VALUE)
     );
 
     empContainerPanel.add(defaultEmpPanel, "card3");
 
+    viewEmpPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     viewEmpPanel.setMaximumSize(new java.awt.Dimension(991, 573));
     viewEmpPanel.setMinimumSize(new java.awt.Dimension(991, 573));
 
@@ -1181,6 +1187,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     empContainerPanel.add(viewEmpPanel, "card2");
 
+    empTablePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     empTablePanel.setAutoscrolls(true);
     empTablePanel.setMaximumSize(new java.awt.Dimension(991, 573));
     empTablePanel.setMinimumSize(new java.awt.Dimension(991, 573));
@@ -1192,7 +1199,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     empPanelLayout.setHorizontalGroup(
         empPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, empPanelLayout.createSequentialGroup()
-            .addContainerGap(206, Short.MAX_VALUE)
+            .addContainerGap(210, Short.MAX_VALUE)
             .addComponent(empContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
     );
@@ -1208,6 +1215,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     apptPanel.setMaximumSize(new java.awt.Dimension(1170, 613));
     apptPanel.setMinimumSize(new java.awt.Dimension(1170, 613));
+    apptPanel.setPreferredSize(new java.awt.Dimension(1170, 613));
 
     apptContainerPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
     apptContainerPanel.setMaximumSize(new java.awt.Dimension(995, 577));
@@ -1215,6 +1223,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     apptContainerPanel.setPreferredSize(new java.awt.Dimension(995, 577));
     apptContainerPanel.setLayout(new java.awt.CardLayout());
 
+    defaultApptPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     defaultApptPanel.setMaximumSize(new java.awt.Dimension(995, 577));
     defaultApptPanel.setMinimumSize(new java.awt.Dimension(995, 577));
 
@@ -1222,15 +1231,16 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     defaultApptPanel.setLayout(defaultApptPanelLayout);
     defaultApptPanelLayout.setHorizontalGroup(
         defaultApptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 995, Short.MAX_VALUE)
+        .addGap(0, 999, Short.MAX_VALUE)
     );
     defaultApptPanelLayout.setVerticalGroup(
         defaultApptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 577, Short.MAX_VALUE)
+        .addGap(0, 571, Short.MAX_VALUE)
     );
 
     apptContainerPanel.add(defaultApptPanel, "card3");
 
+    apptTablePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     apptTablePanel.setMaximumSize(new java.awt.Dimension(995, 577));
     apptTablePanel.setMinimumSize(new java.awt.Dimension(995, 577));
     apptTablePanel.setLayout(new java.awt.CardLayout());
@@ -1238,6 +1248,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     createApptButton.setText("Create");
     createApptButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    createApptButton.setPreferredSize(new java.awt.Dimension(110, 47));
     createApptButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             createApptButtonActionPerformed(evt);
@@ -1246,6 +1257,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     viewApptButton.setText("View Appts");
     viewApptButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+    viewApptButton.setPreferredSize(new java.awt.Dimension(110, 47));
     viewApptButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             viewApptButtonActionPerformed(evt);
@@ -1257,13 +1269,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     apptPanelLayout.setHorizontalGroup(
         apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apptPanelLayout.createSequentialGroup()
-            .addContainerGap()
+            .addGap(30, 30, 30)
             .addGroup(apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(createApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(viewApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-            .addComponent(apptContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(25, 25, 25))
+                .addComponent(createApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewApptButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(30, 30, 30)
+            .addComponent(apptContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(26, 26, 26))
     );
 
     apptPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {createApptButton, viewApptButton});
@@ -1296,6 +1308,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     timeContainerPanel.setPreferredSize(new java.awt.Dimension(995, 577));
     timeContainerPanel.setLayout(new java.awt.CardLayout());
 
+    defaultTimePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     defaultTimePanel.setMaximumSize(new java.awt.Dimension(995, 577));
     defaultTimePanel.setMinimumSize(new java.awt.Dimension(995, 577));
 
@@ -1303,15 +1316,16 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     defaultTimePanel.setLayout(defaultTimePanelLayout);
     defaultTimePanelLayout.setHorizontalGroup(
         defaultTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 995, Short.MAX_VALUE)
+        .addGap(0, 989, Short.MAX_VALUE)
     );
     defaultTimePanelLayout.setVerticalGroup(
         defaultTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 577, Short.MAX_VALUE)
+        .addGap(0, 571, Short.MAX_VALUE)
     );
 
     timeContainerPanel.add(defaultTimePanel, "card3");
 
+    timePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     timePanel.setAutoscrolls(true);
     timePanel.setMaximumSize(new java.awt.Dimension(991, 573));
     timePanel.setMinimumSize(new java.awt.Dimension(991, 573));
@@ -1323,7 +1337,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     timeCPanelLayout.setHorizontalGroup(
         timeCPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timeCPanelLayout.createSequentialGroup()
-            .addContainerGap(206, Short.MAX_VALUE)
+            .addContainerGap(210, Short.MAX_VALUE)
             .addComponent(timeContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(25, 25, 25))
     );
@@ -1350,6 +1364,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     employeeIdent1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
     employeeIdent1.setText("label1");
+
+    timeLabel.setText("time");
 
     jMenu1.setText("File");
     smsMenuBar.add(jMenu1);
@@ -1378,13 +1394,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     layout.setHorizontalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(buildLabel)
-            .addGap(41, 41, 41))
-        .addGroup(layout.createSequentialGroup()
-            .addGap(36, 36, 36)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+            .addContainerGap(36, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1398,8 +1410,11 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap())
-                .addGroup(layout.createSequentialGroup()
+                    .addGap(105, 105, 105))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(buildLabel)
+                    .addGap(41, 41, 41))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addComponent(logoLabel)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -1411,8 +1426,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                             .addComponent(employeeIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(23, 23, 23))))))
         .addGroup(layout.createSequentialGroup()
-            .addGap(23, 23, 23)
-            .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1213, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(57, 57, 57)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(timeLabel)
+                .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1213, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -1430,7 +1447,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(employeeIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(57, 57, 57)))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1439,10 +1456,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(timeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(18, 18, 18)
-            .addComponent(buildLabel)
+            .addGap(16, 16, 16)
+            .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(1, 1, 1)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(buildLabel)
+                .addComponent(timeLabel))
             .addContainerGap())
     );
 
@@ -1453,6 +1472,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void adminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminButtonActionPerformed
+        containerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Administration"));
         containerPanel.removeAll();
         containerPanel.repaint();
         containerPanel.revalidate();
@@ -1463,6 +1483,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_adminButtonActionPerformed
 
     private void patientsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientsButtonActionPerformed
+        containerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Patients"));
         containerPanel.removeAll();
         containerPanel.repaint();
         containerPanel.revalidate();
@@ -1538,7 +1559,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void empButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empButtonActionPerformed
-        
+        containerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Employees"));
         containerPanel.removeAll();
         containerPanel.repaint();
         containerPanel.revalidate();
@@ -1706,6 +1727,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }//GEN-LAST:event_viewPatientButtonActionPerformed
 
     private void apptButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apptButtonActionPerformed
+        containerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Appointments"));
         containerPanel.removeAll();
         containerPanel.repaint();
         containerPanel.revalidate();
@@ -1744,7 +1766,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
 
     private void timeClockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeClockButtonActionPerformed
-         
+        containerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), "TimeClock"));
         containerPanel.removeAll();
         containerPanel.repaint();
         containerPanel.revalidate();
@@ -1834,6 +1856,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         
     }//GEN-LAST:event_viewApptButtonActionPerformed
 
+    private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reportsButtonActionPerformed
+
 
 
     public static void main(String args[]) {
@@ -1887,7 +1913,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JPanel chartTablePanel;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JTextField cityText;
-    private javax.swing.JPanel containerPanel;
+    public static javax.swing.JPanel containerPanel;
     private javax.swing.JButton createApptButton;
     private javax.swing.JComboBox dayComboBox;
     public static javax.swing.JPanel defaultAdminPanel;
@@ -1941,7 +1967,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextField firstNameText;
     private javax.swing.ButtonGroup genderButtonGroup;
     private javax.swing.JLabel genderLabel;
-    private javax.swing.JLabel imgLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
@@ -1974,6 +1999,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JPanel timeCPanel;
     private javax.swing.JButton timeClockButton;
     public static javax.swing.JPanel timeContainerPanel;
+    public static javax.swing.JLabel timeLabel;
     public static javax.swing.JPanel timePanel;
     private javax.swing.JButton viewApptButton;
     private javax.swing.JLabel viewEmpIDLabel;
@@ -2334,4 +2360,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         return tcPanel;
     }
    
+    Clock newBeep = new Clock();
+    
+    
 }

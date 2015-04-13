@@ -263,7 +263,7 @@ public class CreateApptPanel extends javax.swing.JPanel {
         
         millTime = dateToMill(date);
         
-       returnDate = millToDate(millTime);
+        returnDate = millToDate(millTime);
         
         System.out.println("The milliseconds for the date is: " + millTime);
         System.out.println("The return date is: " + returnDate);
