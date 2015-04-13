@@ -463,4 +463,37 @@ public class Database {
          }*/
 
     }
+    
+    public boolean appointmentExists(String time) {
+        ResultSet rs = null;
+        String query = "SELECT * from appointments WHERE time='" +
+                        time + "'";
+        boolean exists = true;
+     
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = myStatement.executeQuery(query);
+            exists = rs.next();
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        
+        return exists;
+    }
+    
+    public ResultSet queryAppointments() {
+        ResultSet rs = null;
+        String query = "SELECT * from appointments";
+
+        try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = myStatement.executeQuery(query);
+
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return rs;
+    }
+    
+
 }

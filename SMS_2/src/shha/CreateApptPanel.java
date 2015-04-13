@@ -16,7 +16,8 @@ import static shha.mainGUI2.defaultApptPanel;
  * @author Sheldon
  */
 public class CreateApptPanel extends javax.swing.JPanel {
-
+    private static long  millTime;
+    private static String returnDate;
     /**
      * Creates new form CreateApptPanel
      */
@@ -28,6 +29,7 @@ public class CreateApptPanel extends javax.swing.JPanel {
        patientSSNComboBox.setVisible(false);
        doctortComboBox.setModel(new javax.swing.DefaultComboBoxModel(doctorsArray));
        patientComboBox.setModel(new javax.swing.DefaultComboBoxModel(patientsArray));
+       confirmMessage.setText("Please create an appointment");
     }
 
     /**
@@ -259,16 +261,20 @@ public class CreateApptPanel extends javax.swing.JPanel {
 
         String date = dateSelectedLabel.getText();
         
-        long millTime = dateToMill(date);
+        millTime = dateToMill(date);
         
-        String returnDate = millToDate(millTime);
+       returnDate = millToDate(millTime);
         
         System.out.println("The milliseconds for the date is: " + millTime);
         System.out.println("The return date is: " + returnDate);
         
+        createAppointment();
         
+<<<<<<< HEAD
+=======
         
 
+>>>>>>> origin/master
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void apptCalendarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_apptCalendarPropertyChange
@@ -379,6 +385,45 @@ public class CreateApptPanel extends javax.swing.JPanel {
         
         return doctors;
         
+    }
+    
+    private boolean appointmentExists() {
+        Database db = new Database("SMSDB2");
+        String time = String.valueOf(returnDate);
+        return db.appointmentExists(time);
+    }
+    
+    private void createAppointment() {
+        String patientFullName = patientComboBox.getSelectedItem().toString();
+        int patientComma = patientFullName.indexOf(",");
+        String patientFirstName = patientFullName.substring(patientComma + 1);
+        String patientLastName = patientFullName.substring(0, patientComma);
+        String patientSSN = patientSSNComboBox.getSelectedItem().toString();
+        
+        String doctorFullName = doctortComboBox.getSelectedItem().toString();
+        int doctorComma = doctorFullName.indexOf(",");
+        String doctorFirstName = doctorFullName.substring(doctorComma + 1);
+        String doctorLastName = doctorFullName.substring(0, doctorComma);
+        String doctorEmail = doctorEmailComboBox.getSelectedItem().toString();
+        
+        String time = returnDate;
+        
+        
+        String query = "INSERT INTO appointments " +
+                        "VALUES ('" + patientFirstName + "','" + patientLastName + "','" +
+                        patientSSN + "','" + doctorFirstName + "','" + doctorLastName + "','" +
+                        doctorEmail + "','" + time + "')";
+        
+        if(!appointmentExists()) {
+            Database db = new Database("SMSDB2");
+            db.executePatientUpdate(query);
+            //create appointment
+            confirmMessage.setText("Appoint has been scheduled");
+            db.printAll("appointments");
+        } else {
+            //display message that the time slot is take
+            confirmMessage.setText("The time slot is taken");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
