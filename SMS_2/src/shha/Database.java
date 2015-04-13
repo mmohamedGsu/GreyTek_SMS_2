@@ -378,7 +378,7 @@ public class Database {
 
     public ResultSet queryDoctors() {
         ResultSet doctorResults = null;
-        String query = "select firstName, lastName from employees WHERE position='Doctor'";
+        String query = "select firstName, lastName, email from employees WHERE position='Doctor'";
 
         try {
             Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -392,7 +392,7 @@ public class Database {
     
     public ResultSet queryPatientsForAppointment() {
         ResultSet doctorResults = null;
-        String query = "select firstName, lastName from patients";
+        String query = "select firstName, lastName, ssn from patients";
 
         try {
             Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
