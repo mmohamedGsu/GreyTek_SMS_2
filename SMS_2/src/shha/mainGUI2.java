@@ -81,16 +81,42 @@ public class mainGUI2 extends javax.swing.JFrame {
         containerPanel = new javax.swing.JPanel();
         patientsPanel = new javax.swing.JPanel();
         patientsContainerPanel = new javax.swing.JPanel();
-        defaultPatientPanel = new javax.swing.JPanel();
+        defaultPatientPanel = new javax.swing.JTabbedPane();
+        bulletinTabPanel = new javax.swing.JPanel();
+        subLabel = new javax.swing.JLabel();
+        bloodImageLabel = new javax.swing.JLabel();
+        title3Label = new javax.swing.JLabel();
+        coffeeImageLabel = new javax.swing.JLabel();
+        muffinImageLabel = new javax.swing.JLabel();
+        title2Label = new javax.swing.JLabel();
+        title1Label = new javax.swing.JLabel();
+        employeeImageLabel = new javax.swing.JLabel();
+        sub2Label = new javax.swing.JLabel();
+        articleTabPanel = new javax.swing.JPanel();
+        articleScrollPane = new javax.swing.JScrollPane();
+        articleEditorPane = new javax.swing.JEditorPane();
         patientTablePanel = new javax.swing.JPanel();
         chartTablePanel = new javax.swing.JPanel();
         addNewPatientButton = new javax.swing.JButton();
         viewPatientButton = new javax.swing.JButton();
         viewYourPatientButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        patImageLabel = new javax.swing.JLabel();
         adminPanel = new javax.swing.JPanel();
         adminContainerPanel = new javax.swing.JPanel();
-        defaultAdminPanel = new javax.swing.JPanel();
+        defaultAdminPanel = new javax.swing.JTabbedPane();
+        bulletinTabPanel2 = new javax.swing.JPanel();
+        subLabel2 = new javax.swing.JLabel();
+        bloodImageLabel2 = new javax.swing.JLabel();
+        title3Label2 = new javax.swing.JLabel();
+        coffeeImageLabel2 = new javax.swing.JLabel();
+        muffinImageLabel2 = new javax.swing.JLabel();
+        title2Label2 = new javax.swing.JLabel();
+        title1Label2 = new javax.swing.JLabel();
+        employeeImageLabel2 = new javax.swing.JLabel();
+        sub2Label2 = new javax.swing.JLabel();
+        articleTabPanel2 = new javax.swing.JPanel();
+        articleScrollPane2 = new javax.swing.JScrollPane();
+        articleEditorPane2 = new javax.swing.JEditorPane();
         addUserPanel = new javax.swing.JPanel();
         firstNameText = new javax.swing.JTextField();
         firstNameLabel = new javax.swing.JLabel();
@@ -175,7 +201,20 @@ public class mainGUI2 extends javax.swing.JFrame {
         empImageLabel = new javax.swing.JLabel();
         apptPanel = new javax.swing.JPanel();
         apptContainerPanel = new javax.swing.JPanel();
-        defaultApptPanel = new javax.swing.JPanel();
+        defaultApptPanel = new javax.swing.JTabbedPane();
+        bulletinTabPanel1 = new javax.swing.JPanel();
+        subLabel1 = new javax.swing.JLabel();
+        bloodImageLabel1 = new javax.swing.JLabel();
+        title3Label1 = new javax.swing.JLabel();
+        coffeeImageLabel1 = new javax.swing.JLabel();
+        muffinImageLabel1 = new javax.swing.JLabel();
+        title2Label1 = new javax.swing.JLabel();
+        title1Label1 = new javax.swing.JLabel();
+        employeeImageLabel1 = new javax.swing.JLabel();
+        sub2Label1 = new javax.swing.JLabel();
+        articleTabPanel1 = new javax.swing.JPanel();
+        articleScrollPane1 = new javax.swing.JScrollPane();
+        articleEditorPane1 = new javax.swing.JEditorPane();
         apptTablePanel = new javax.swing.JPanel();
         createApptButton = new javax.swing.JButton();
         viewApptButton = new javax.swing.JButton();
@@ -272,21 +311,128 @@ public class mainGUI2 extends javax.swing.JFrame {
         patientsContainerPanel.setLayout(new java.awt.CardLayout());
 
         defaultPatientPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        defaultPatientPanel.setMaximumSize(new java.awt.Dimension(995, 577));
-        defaultPatientPanel.setMinimumSize(new java.awt.Dimension(995, 577));
 
-        javax.swing.GroupLayout defaultPatientPanelLayout = new javax.swing.GroupLayout(defaultPatientPanel);
-        defaultPatientPanel.setLayout(defaultPatientPanelLayout);
-        defaultPatientPanelLayout.setHorizontalGroup(
-            defaultPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        subLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        subLabel.setText("<html><div style=\"text-align: center\"><h3>Free Muffin w/Coffee Purchase!</h3></div></html>");
+
+        bloodImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blood.png"))); // NOI18N
+
+        title3Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        title3Label.setText("<html><div style=\"text-align: center\">Employee Of The Month<br>\nApril 2015</div></html>");
+
+        coffeeImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeesm.png"))); // NOI18N
+
+        muffinImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/muffinsm.png"))); // NOI18N
+
+        title2Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        title2Label.setText("<html><div style=\"text-align: center\">Today's Cafeteria<br>Special</div></html>");
+
+        title1Label.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        title1Label.setText("<html><div style=\"text-align: center\">Blood Drive: Friday, May 1, 2015<br>\nFrom 10 AM until 2 PM</div></html>");
+
+        employeeImageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        employeeImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/female.png"))); // NOI18N
+
+        sub2Label.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        sub2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sub2Label.setText("Dr. Sara Cruz");
+
+        javax.swing.GroupLayout bulletinTabPanelLayout = new javax.swing.GroupLayout(bulletinTabPanel);
+        bulletinTabPanel.setLayout(bulletinTabPanelLayout);
+        bulletinTabPanelLayout.setHorizontalGroup(
+            bulletinTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bulletinTabPanelLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(bloodImageLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addGroup(bulletinTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(subLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(bulletinTabPanelLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(bulletinTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(title2Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(bulletinTabPanelLayout.createSequentialGroup()
+                                .addComponent(coffeeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(muffinImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 60, 60)
+                .addGroup(bulletinTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanelLayout.createSequentialGroup()
+                        .addComponent(sub2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(115, 115, 115))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanelLayout.createSequentialGroup()
+                        .addComponent(employeeImageLabel)
+                        .addGap(86, 86, 86))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanelLayout.createSequentialGroup()
+                        .addComponent(title3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73))))
+            .addGroup(bulletinTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bulletinTabPanelLayout.createSequentialGroup()
+                    .addGap(103, 103, 103)
+                    .addComponent(title1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(622, Short.MAX_VALUE)))
         );
-        defaultPatientPanelLayout.setVerticalGroup(
-            defaultPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        bulletinTabPanelLayout.setVerticalGroup(
+            bulletinTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bloodImageLabel)
+                .addGap(59, 59, 59))
+            .addGroup(bulletinTabPanelLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(title3Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(employeeImageLabel)
+                .addGap(18, 18, 18)
+                .addComponent(sub2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(title2Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(bulletinTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bulletinTabPanelLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(muffinImageLabel))
+                    .addGroup(bulletinTabPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(coffeeImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(subLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
+            .addGroup(bulletinTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bulletinTabPanelLayout.createSequentialGroup()
+                    .addGap(54, 54, 54)
+                    .addComponent(title1Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(317, Short.MAX_VALUE)))
         );
 
-        patientsContainerPanel.add(defaultPatientPanel, "card3");
+        defaultPatientPanel.addTab("Bulletin Board", bulletinTabPanel);
+
+        articleTabPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        articleTabPanel.setMaximumSize(new java.awt.Dimension(995, 577));
+        articleTabPanel.setMinimumSize(new java.awt.Dimension(995, 577));
+
+        articleEditorPane.setEditable(false);
+        articleEditorPane.setContentType("text/html"); // NOI18N
+        articleEditorPane.setText("<html>\r\n  <head>\r\n\r\n  </head>\r\n  <body>\r\n\t<h1>Wellness Solutions: A Healthy Solution</h1>\n    <p>\r\r\n Have you ever wondered how many calories are in that full chicken basket? A whopping 1137.5\ncalories with 57 grams of fat. (That does not include the dipping sauces). The average American gets 45 %\nof their calories from fat. No wonder we have problems with weight and cholesterol. Depending on caloric\nintake, one should keep their fat intake between 30-40 grams of fat per day. Do the math…. That full\nchicken basket just exceeded your daily limit. A half a basket will bring you in around 31 grams of fat.</p>\n <p>Crave that donut for breakfast or snack. Here is some information to chew on when making your\nchoice. A chocolate cake donut has 480 cal and 23 fat grams. A glazed donut is 299 calories with 14 fat\ngrams. The delicious cinnamon rolls are 620 calories and 29 fat grams. Yikes!! Sadly, you will be hungry\nbefore noon.</p>\n <p>Even our health conscious superintendent was surprised to find out that he was suffering from\n“portion distortion” when estimating his food intake. To make matters worse, he was shocked to discover\nthat his jumbo movie popcorn without butter (which he thought was a low cal choice) was around 1,650\ncalories. Wash that down with a super-sized soda…. Not a pretty sight.</p>\n <p>On average 61 percent of Americans are overweight. We have a problem… but we also have a\nsolution for all of us to improve our health. What an encouraging sight to participate with patients and staff\nworking together to achieve total body wellness using the Wellness Solutions material provided by Eli Lilly.\nThe Forensic building implemented a wellness group last fall. The group meets weekly for 12-13 weeks with\na success celebration activity at the end. A half hour support group occurs weekly for graduates of the initial\ngroup. We have several patients who repeat the group because it helps them stay on their own health track,\nplus it is fun. We are all about having fun learning together.</p>\n <p>An added bonus of the group is that the participants sign up for Lilly’s Solutions for Wellness\npersonalized program for six months. With participation, members receive free binders to store their\ninformation, pedometers, walking and exercise videos and DVD, walkman, magnets and lots of recipes that\nare nutritional, easy and low cost. As a bonus many community mental health centers are providing the\nsame program so our patients can continue on their wellness journey in the community.</p>\n <p>The group is headed by Leslie Miles, APRN, CNS and Julie Wright, UND. Other staff members\nprovide group and on unit support: Marta Bitten, Environmentalist, Chris Jackson, LPN and Lynne Wright,\nLPN. Kori Richins, Occupational Therapist joined in on the adventure and is using the recipes in cooking\ngroups so our clients are familiar with preparing healthy meals.</p>\n <p>Weekly group topics are educational and fitness related. Group members learn about the new food\npyramid, portion sizes, fats & cholesterol, how to read labels, sugar, general health, exercise, stretching, tai\nchi and walking. Weekly goals are a must and individualized from walking 45 minutes a day to trying just 5\npeas. It is all about making small changes that helps each member reach their individual goals. Mister “I\ndon’t do vegetables” went from 5 peas to eating 2 servings a day and liking it. One group member met their\ngoal of getting to a size 34 pants. Another patient group member presented for Forensic Family Day about\nthe group and commented that his family has now joined in the health quest. His phone calls home revolve\naround new information and checking on individual family member’s progress.</p>\n <p>You might be wondering about how we know the calorie count and nutrition of all the canteen and\nvending machine items. The group members measured, weighed and researched each item to learn hands\non about food choices. Most group members can tell you better choices in the vending machines. Group\nmembers can also tell you how to make choices on their food trays that will help them stay within their\ncalorie limit and meet their nutrition needs. Old forensic rules have been challenged with the death of\nordering a whole pepperoni pizza and having to eat it in one sitting (over 2800 calories and not including the\nsoda).</p>\n <p>Wellness Solutions is about individual choice, accountability, collaboration and commitment to not\nonly our patient’s health but our own. We have had great success. Our last group of 13 participants lost 54.8\npounds and dropped 16.2% body fat from baseline. This program is helping to significantly improve the\noverall wellness of patients, staff and extended others. Come join in our healthy fun. Try it; you’ll like it. ♦</p>\n  </body>\r\n</html>\r\n");
+        articleEditorPane.setCaretPosition(0);
+        articleScrollPane.setViewportView(articleEditorPane);
+
+        javax.swing.GroupLayout articleTabPanelLayout = new javax.swing.GroupLayout(articleTabPanel);
+        articleTabPanel.setLayout(articleTabPanelLayout);
+        articleTabPanelLayout.setHorizontalGroup(
+            articleTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(articleScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 989, Short.MAX_VALUE)
+        );
+        articleTabPanelLayout.setVerticalGroup(
+            articleTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(articleScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+        );
+
+        defaultPatientPanel.addTab("Wellness Article", articleTabPanel);
+
+        patientsContainerPanel.add(defaultPatientPanel, "card5");
 
         patientTablePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         patientTablePanel.setAutoscrolls(true);
@@ -327,8 +473,8 @@ public class mainGUI2 extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fempatsm.png"))); // NOI18N
+        patImageLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        patImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fempatsm.png"))); // NOI18N
 
         javax.swing.GroupLayout patientsPanelLayout = new javax.swing.GroupLayout(patientsPanel);
         patientsPanel.setLayout(patientsPanelLayout);
@@ -340,7 +486,7 @@ public class mainGUI2 extends javax.swing.JFrame {
                     .addComponent(viewPatientButton, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(viewYourPatientButton, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addNewPatientButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(patImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -357,7 +503,7 @@ public class mainGUI2 extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addComponent(viewYourPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(patImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23))
                     .addComponent(patientsContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(133, 133, 133))
@@ -375,21 +521,128 @@ public class mainGUI2 extends javax.swing.JFrame {
         adminContainerPanel.setLayout(new java.awt.CardLayout());
 
         defaultAdminPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        defaultAdminPanel.setMaximumSize(new java.awt.Dimension(995, 577));
-        defaultAdminPanel.setMinimumSize(new java.awt.Dimension(995, 577));
 
-        javax.swing.GroupLayout defaultAdminPanelLayout = new javax.swing.GroupLayout(defaultAdminPanel);
-        defaultAdminPanel.setLayout(defaultAdminPanelLayout);
-        defaultAdminPanelLayout.setHorizontalGroup(
-            defaultAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 999, Short.MAX_VALUE)
+        subLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        subLabel2.setText("<html><div style=\"text-align: center\"><h3>Free Muffin w/Coffee Purchase!</h3></div></html>");
+
+        bloodImageLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blood.png"))); // NOI18N
+
+        title3Label2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        title3Label2.setText("<html><div style=\"text-align: center\">Employee Of The Month<br>\nApril 2015</div></html>");
+
+        coffeeImageLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeesm.png"))); // NOI18N
+
+        muffinImageLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/muffinsm.png"))); // NOI18N
+
+        title2Label2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        title2Label2.setText("<html><div style=\"text-align: center\">Today's Cafeteria<br>Special</div></html>");
+
+        title1Label2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        title1Label2.setText("<html><div style=\"text-align: center\">Blood Drive: Friday, May 1, 2015<br>\nFrom 10 AM until 2 PM</div></html>");
+
+        employeeImageLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        employeeImageLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/female.png"))); // NOI18N
+
+        sub2Label2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        sub2Label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sub2Label2.setText("Dr. Sara Cruz");
+
+        javax.swing.GroupLayout bulletinTabPanel2Layout = new javax.swing.GroupLayout(bulletinTabPanel2);
+        bulletinTabPanel2.setLayout(bulletinTabPanel2Layout);
+        bulletinTabPanel2Layout.setHorizontalGroup(
+            bulletinTabPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bulletinTabPanel2Layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(bloodImageLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addGroup(bulletinTabPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(subLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(bulletinTabPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(bulletinTabPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(title2Label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(bulletinTabPanel2Layout.createSequentialGroup()
+                                .addComponent(coffeeImageLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(muffinImageLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 60, 60)
+                .addGroup(bulletinTabPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanel2Layout.createSequentialGroup()
+                        .addComponent(sub2Label2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(115, 115, 115))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanel2Layout.createSequentialGroup()
+                        .addComponent(employeeImageLabel2)
+                        .addGap(86, 86, 86))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanel2Layout.createSequentialGroup()
+                        .addComponent(title3Label2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73))))
+            .addGroup(bulletinTabPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bulletinTabPanel2Layout.createSequentialGroup()
+                    .addGap(103, 103, 103)
+                    .addComponent(title1Label2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(622, Short.MAX_VALUE)))
         );
-        defaultAdminPanelLayout.setVerticalGroup(
-            defaultAdminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
+        bulletinTabPanel2Layout.setVerticalGroup(
+            bulletinTabPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bloodImageLabel2)
+                .addGap(59, 59, 59))
+            .addGroup(bulletinTabPanel2Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(title3Label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(employeeImageLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(sub2Label2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(title2Label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(bulletinTabPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(bulletinTabPanel2Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(muffinImageLabel2))
+                    .addGroup(bulletinTabPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(coffeeImageLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(subLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
+            .addGroup(bulletinTabPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bulletinTabPanel2Layout.createSequentialGroup()
+                    .addGap(54, 54, 54)
+                    .addComponent(title1Label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(317, Short.MAX_VALUE)))
         );
 
-        adminContainerPanel.add(defaultAdminPanel, "card3");
+        defaultAdminPanel.addTab("Bulletin Board", bulletinTabPanel2);
+
+        articleTabPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        articleTabPanel2.setMaximumSize(new java.awt.Dimension(995, 577));
+        articleTabPanel2.setMinimumSize(new java.awt.Dimension(995, 577));
+
+        articleEditorPane2.setEditable(false);
+        articleEditorPane2.setContentType("text/html"); // NOI18N
+        articleEditorPane2.setText("<html>\r\n  <head>\r\n\r\n  </head>\r\n  <body>\r\n\t<h1>Wellness Solutions: A Healthy Solution</h1>\n    <p>\r\r\n Have you ever wondered how many calories are in that full chicken basket? A whopping 1137.5\ncalories with 57 grams of fat. (That does not include the dipping sauces). The average American gets 45 %\nof their calories from fat. No wonder we have problems with weight and cholesterol. Depending on caloric\nintake, one should keep their fat intake between 30-40 grams of fat per day. Do the math…. That full\nchicken basket just exceeded your daily limit. A half a basket will bring you in around 31 grams of fat.</p>\n <p>Crave that donut for breakfast or snack. Here is some information to chew on when making your\nchoice. A chocolate cake donut has 480 cal and 23 fat grams. A glazed donut is 299 calories with 14 fat\ngrams. The delicious cinnamon rolls are 620 calories and 29 fat grams. Yikes!! Sadly, you will be hungry\nbefore noon.</p>\n <p>Even our health conscious superintendent was surprised to find out that he was suffering from\n“portion distortion” when estimating his food intake. To make matters worse, he was shocked to discover\nthat his jumbo movie popcorn without butter (which he thought was a low cal choice) was around 1,650\ncalories. Wash that down with a super-sized soda…. Not a pretty sight.</p>\n <p>On average 61 percent of Americans are overweight. We have a problem… but we also have a\nsolution for all of us to improve our health. What an encouraging sight to participate with patients and staff\nworking together to achieve total body wellness using the Wellness Solutions material provided by Eli Lilly.\nThe Forensic building implemented a wellness group last fall. The group meets weekly for 12-13 weeks with\na success celebration activity at the end. A half hour support group occurs weekly for graduates of the initial\ngroup. We have several patients who repeat the group because it helps them stay on their own health track,\nplus it is fun. We are all about having fun learning together.</p>\n <p>An added bonus of the group is that the participants sign up for Lilly’s Solutions for Wellness\npersonalized program for six months. With participation, members receive free binders to store their\ninformation, pedometers, walking and exercise videos and DVD, walkman, magnets and lots of recipes that\nare nutritional, easy and low cost. As a bonus many community mental health centers are providing the\nsame program so our patients can continue on their wellness journey in the community.</p>\n <p>The group is headed by Leslie Miles, APRN, CNS and Julie Wright, UND. Other staff members\nprovide group and on unit support: Marta Bitten, Environmentalist, Chris Jackson, LPN and Lynne Wright,\nLPN. Kori Richins, Occupational Therapist joined in on the adventure and is using the recipes in cooking\ngroups so our clients are familiar with preparing healthy meals.</p>\n <p>Weekly group topics are educational and fitness related. Group members learn about the new food\npyramid, portion sizes, fats & cholesterol, how to read labels, sugar, general health, exercise, stretching, tai\nchi and walking. Weekly goals are a must and individualized from walking 45 minutes a day to trying just 5\npeas. It is all about making small changes that helps each member reach their individual goals. Mister “I\ndon’t do vegetables” went from 5 peas to eating 2 servings a day and liking it. One group member met their\ngoal of getting to a size 34 pants. Another patient group member presented for Forensic Family Day about\nthe group and commented that his family has now joined in the health quest. His phone calls home revolve\naround new information and checking on individual family member’s progress.</p>\n <p>You might be wondering about how we know the calorie count and nutrition of all the canteen and\nvending machine items. The group members measured, weighed and researched each item to learn hands\non about food choices. Most group members can tell you better choices in the vending machines. Group\nmembers can also tell you how to make choices on their food trays that will help them stay within their\ncalorie limit and meet their nutrition needs. Old forensic rules have been challenged with the death of\nordering a whole pepperoni pizza and having to eat it in one sitting (over 2800 calories and not including the\nsoda).</p>\n <p>Wellness Solutions is about individual choice, accountability, collaboration and commitment to not\nonly our patient’s health but our own. We have had great success. Our last group of 13 participants lost 54.8\npounds and dropped 16.2% body fat from baseline. This program is helping to significantly improve the\noverall wellness of patients, staff and extended others. Come join in our healthy fun. Try it; you’ll like it. ♦</p>\n  </body>\r\n</html>\r\n");
+        articleEditorPane2.setCaretPosition(0);
+        articleScrollPane2.setViewportView(articleEditorPane2);
+
+        javax.swing.GroupLayout articleTabPanel2Layout = new javax.swing.GroupLayout(articleTabPanel2);
+        articleTabPanel2.setLayout(articleTabPanel2Layout);
+        articleTabPanel2Layout.setHorizontalGroup(
+            articleTabPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(articleScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
+        );
+        articleTabPanel2Layout.setVerticalGroup(
+            articleTabPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(articleScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+        );
+
+        defaultAdminPanel.addTab("Wellness Article", articleTabPanel2);
+
+        adminContainerPanel.add(defaultAdminPanel, "card5");
 
         addUserPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addUserPanel.setMaximumSize(new java.awt.Dimension(991, 573));
@@ -1277,21 +1530,128 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     apptContainerPanel.setLayout(new java.awt.CardLayout());
 
     defaultApptPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-    defaultApptPanel.setMaximumSize(new java.awt.Dimension(995, 577));
-    defaultApptPanel.setMinimumSize(new java.awt.Dimension(995, 577));
 
-    javax.swing.GroupLayout defaultApptPanelLayout = new javax.swing.GroupLayout(defaultApptPanel);
-    defaultApptPanel.setLayout(defaultApptPanelLayout);
-    defaultApptPanelLayout.setHorizontalGroup(
-        defaultApptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 999, Short.MAX_VALUE)
+    subLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+    subLabel1.setText("<html><div style=\"text-align: center\"><h3>Free Muffin w/Coffee Purchase!</h3></div></html>");
+
+    bloodImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blood.png"))); // NOI18N
+
+    title3Label1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+    title3Label1.setText("<html><div style=\"text-align: center\">Employee Of The Month<br>\nApril 2015</div></html>");
+
+    coffeeImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeesm.png"))); // NOI18N
+
+    muffinImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/muffinsm.png"))); // NOI18N
+
+    title2Label1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+    title2Label1.setText("<html><div style=\"text-align: center\">Today's Cafeteria<br>Special</div></html>");
+
+    title1Label1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+    title1Label1.setText("<html><div style=\"text-align: center\">Blood Drive: Friday, May 1, 2015<br>\nFrom 10 AM until 2 PM</div></html>");
+
+    employeeImageLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    employeeImageLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/female.png"))); // NOI18N
+
+    sub2Label1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    sub2Label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    sub2Label1.setText("Dr. Sara Cruz");
+
+    javax.swing.GroupLayout bulletinTabPanel1Layout = new javax.swing.GroupLayout(bulletinTabPanel1);
+    bulletinTabPanel1.setLayout(bulletinTabPanel1Layout);
+    bulletinTabPanel1Layout.setHorizontalGroup(
+        bulletinTabPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(bulletinTabPanel1Layout.createSequentialGroup()
+            .addGap(123, 123, 123)
+            .addComponent(bloodImageLabel1)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+            .addGroup(bulletinTabPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(subLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(bulletinTabPanel1Layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addGroup(bulletinTabPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(title2Label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(bulletinTabPanel1Layout.createSequentialGroup()
+                            .addComponent(coffeeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(muffinImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGap(60, 60, 60)
+            .addGroup(bulletinTabPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanel1Layout.createSequentialGroup()
+                    .addComponent(sub2Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(115, 115, 115))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanel1Layout.createSequentialGroup()
+                    .addComponent(employeeImageLabel1)
+                    .addGap(86, 86, 86))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanel1Layout.createSequentialGroup()
+                    .addComponent(title3Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(73, 73, 73))))
+        .addGroup(bulletinTabPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bulletinTabPanel1Layout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addComponent(title1Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(622, Short.MAX_VALUE)))
     );
-    defaultApptPanelLayout.setVerticalGroup(
-        defaultApptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGap(0, 571, Short.MAX_VALUE)
+    bulletinTabPanel1Layout.setVerticalGroup(
+        bulletinTabPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanel1Layout.createSequentialGroup()
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(bloodImageLabel1)
+            .addGap(59, 59, 59))
+        .addGroup(bulletinTabPanel1Layout.createSequentialGroup()
+            .addGap(60, 60, 60)
+            .addComponent(title3Label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(20, 20, 20)
+            .addComponent(employeeImageLabel1)
+            .addGap(18, 18, 18)
+            .addComponent(sub2Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(53, Short.MAX_VALUE))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bulletinTabPanel1Layout.createSequentialGroup()
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(title2Label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(bulletinTabPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(bulletinTabPanel1Layout.createSequentialGroup()
+                    .addGap(73, 73, 73)
+                    .addComponent(muffinImageLabel1))
+                .addGroup(bulletinTabPanel1Layout.createSequentialGroup()
+                    .addGap(18, 18, 18)
+                    .addComponent(coffeeImageLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(subLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(77, 77, 77))
+        .addGroup(bulletinTabPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bulletinTabPanel1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(title1Label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(317, Short.MAX_VALUE)))
     );
 
-    apptContainerPanel.add(defaultApptPanel, "card3");
+    defaultApptPanel.addTab("Bulletin Board", bulletinTabPanel1);
+
+    articleTabPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+    articleTabPanel1.setMaximumSize(new java.awt.Dimension(995, 577));
+    articleTabPanel1.setMinimumSize(new java.awt.Dimension(995, 577));
+
+    articleEditorPane1.setEditable(false);
+    articleEditorPane1.setContentType("text/html"); // NOI18N
+    articleEditorPane1.setText("<html>\r\n  <head>\r\n\r\n  </head>\r\n  <body>\r\n\t<h1>Wellness Solutions: A Healthy Solution</h1>\n    <p>\r\r\n Have you ever wondered how many calories are in that full chicken basket? A whopping 1137.5\ncalories with 57 grams of fat. (That does not include the dipping sauces). The average American gets 45 %\nof their calories from fat. No wonder we have problems with weight and cholesterol. Depending on caloric\nintake, one should keep their fat intake between 30-40 grams of fat per day. Do the math…. That full\nchicken basket just exceeded your daily limit. A half a basket will bring you in around 31 grams of fat.</p>\n <p>Crave that donut for breakfast or snack. Here is some information to chew on when making your\nchoice. A chocolate cake donut has 480 cal and 23 fat grams. A glazed donut is 299 calories with 14 fat\ngrams. The delicious cinnamon rolls are 620 calories and 29 fat grams. Yikes!! Sadly, you will be hungry\nbefore noon.</p>\n <p>Even our health conscious superintendent was surprised to find out that he was suffering from\n“portion distortion” when estimating his food intake. To make matters worse, he was shocked to discover\nthat his jumbo movie popcorn without butter (which he thought was a low cal choice) was around 1,650\ncalories. Wash that down with a super-sized soda…. Not a pretty sight.</p>\n <p>On average 61 percent of Americans are overweight. We have a problem… but we also have a\nsolution for all of us to improve our health. What an encouraging sight to participate with patients and staff\nworking together to achieve total body wellness using the Wellness Solutions material provided by Eli Lilly.\nThe Forensic building implemented a wellness group last fall. The group meets weekly for 12-13 weeks with\na success celebration activity at the end. A half hour support group occurs weekly for graduates of the initial\ngroup. We have several patients who repeat the group because it helps them stay on their own health track,\nplus it is fun. We are all about having fun learning together.</p>\n <p>An added bonus of the group is that the participants sign up for Lilly’s Solutions for Wellness\npersonalized program for six months. With participation, members receive free binders to store their\ninformation, pedometers, walking and exercise videos and DVD, walkman, magnets and lots of recipes that\nare nutritional, easy and low cost. As a bonus many community mental health centers are providing the\nsame program so our patients can continue on their wellness journey in the community.</p>\n <p>The group is headed by Leslie Miles, APRN, CNS and Julie Wright, UND. Other staff members\nprovide group and on unit support: Marta Bitten, Environmentalist, Chris Jackson, LPN and Lynne Wright,\nLPN. Kori Richins, Occupational Therapist joined in on the adventure and is using the recipes in cooking\ngroups so our clients are familiar with preparing healthy meals.</p>\n <p>Weekly group topics are educational and fitness related. Group members learn about the new food\npyramid, portion sizes, fats & cholesterol, how to read labels, sugar, general health, exercise, stretching, tai\nchi and walking. Weekly goals are a must and individualized from walking 45 minutes a day to trying just 5\npeas. It is all about making small changes that helps each member reach their individual goals. Mister “I\ndon’t do vegetables” went from 5 peas to eating 2 servings a day and liking it. One group member met their\ngoal of getting to a size 34 pants. Another patient group member presented for Forensic Family Day about\nthe group and commented that his family has now joined in the health quest. His phone calls home revolve\naround new information and checking on individual family member’s progress.</p>\n <p>You might be wondering about how we know the calorie count and nutrition of all the canteen and\nvending machine items. The group members measured, weighed and researched each item to learn hands\non about food choices. Most group members can tell you better choices in the vending machines. Group\nmembers can also tell you how to make choices on their food trays that will help them stay within their\ncalorie limit and meet their nutrition needs. Old forensic rules have been challenged with the death of\nordering a whole pepperoni pizza and having to eat it in one sitting (over 2800 calories and not including the\nsoda).</p>\n <p>Wellness Solutions is about individual choice, accountability, collaboration and commitment to not\nonly our patient’s health but our own. We have had great success. Our last group of 13 participants lost 54.8\npounds and dropped 16.2% body fat from baseline. This program is helping to significantly improve the\noverall wellness of patients, staff and extended others. Come join in our healthy fun. Try it; you’ll like it. ♦</p>\n  </body>\r\n</html>\r\n");
+    articleEditorPane1.setCaretPosition(0);
+    articleScrollPane1.setViewportView(articleEditorPane1);
+
+    javax.swing.GroupLayout articleTabPanel1Layout = new javax.swing.GroupLayout(articleTabPanel1);
+    articleTabPanel1.setLayout(articleTabPanel1Layout);
+    articleTabPanel1Layout.setHorizontalGroup(
+        articleTabPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(articleScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
+    );
+    articleTabPanel1Layout.setVerticalGroup(
+        articleTabPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(articleScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+    );
+
+    defaultApptPanel.addTab("Wellness Article", articleTabPanel1);
+
+    apptContainerPanel.add(defaultApptPanel, "card5");
 
     apptTablePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
     apptTablePanel.setMaximumSize(new java.awt.Dimension(995, 577));
@@ -1299,7 +1659,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     apptTablePanel.setLayout(new java.awt.CardLayout());
     apptContainerPanel.add(apptTablePanel, "card3");
 
-    createApptButton.setText("Create");
+    createApptButton.setText("<html><div style=\"text-align: center\">Create<br>Appointments</div></html>");
     createApptButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     createApptButton.setPreferredSize(new java.awt.Dimension(110, 47));
     createApptButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1308,7 +1668,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
 
-    viewApptButton.setText("View Appts");
+    viewApptButton.setText("<html><div style=\"text-align: center\">View<br>Appointments</div></html>");
     viewApptButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     viewApptButton.setPreferredSize(new java.awt.Dimension(110, 47));
     viewApptButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1325,20 +1685,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     apptPanelLayout.setHorizontalGroup(
         apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, apptPanelLayout.createSequentialGroup()
+            .addGap(19, 19, 19)
             .addGroup(apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(apptPanelLayout.createSequentialGroup()
-                    .addGroup(apptPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(apptPanelLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(createApptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(apptPanelLayout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(viewApptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGap(30, 30, 30))
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, apptPanelLayout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(createApptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(viewApptButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4))
+            .addGap(30, 30, 30)
             .addComponent(apptContainerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1009, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(26, 26, 26))
     );
@@ -1473,86 +1825,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
     patientsMenu.add(assignedMenuItem);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
-
-    smsMenuBar.add(patientsMenu);
-
-    apptMenu.setText("Appointments");
-    apptMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            apptMenuMouseClicked(evt);
-        }
-    });
-    apptMenu.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            apptMenuActionPerformed(evt);
-        }
-    });
-
-    createApptMenuItem.setText("Create");
-    createApptMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            createApptMenuItemMouseClicked(evt);
-        }
-    });
-    createApptMenuItem.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            createApptMenuItemActionPerformed(evt);
-        }
-    });
-    apptMenu.add(createApptMenuItem);
-
-    viewApptMenuItem.setText("View");
-    viewApptMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            viewApptMenuItemMouseClicked(evt);
-        }
-    });
-    viewApptMenuItem.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            viewApptMenuItemActionPerformed(evt);
-        }
-    });
-    apptMenu.add(viewApptMenuItem);
-<<<<<<< HEAD
-
-    smsMenuBar.add(apptMenu);
-
-    TimeClockMenu.setText("TimeClock");
-    TimeClockMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            TimeClockMenuMouseClicked(evt);
-        }
-    });
-    smsMenuBar.add(TimeClockMenu);
-
-    employeesMenu.setText("Employees");
-    employeesMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            employeesMenuMouseClicked(evt);
-        }
-    });
-    smsMenuBar.add(employeesMenu);
-
-    adminMenu.setText("Administration");
-    adminMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            adminMenuMouseClicked(evt);
-        }
-    });
-
-    addUserMenuItem.setText("Add User");
-    addUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            addUserMenuItemActionPerformed(evt);
-        }
-    });
-    adminMenu.add(addUserMenuItem);
-
-=======
 
     smsMenuBar.add(patientsMenu);
 
@@ -1627,43 +1899,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     });
     adminMenu.add(addUserMenuItem);
 
->>>>>>> origin/master
-=======
-
-    smsMenuBar.add(apptMenu);
-
-    TimeClockMenu.setText("TimeClock");
-    TimeClockMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            TimeClockMenuMouseClicked(evt);
-        }
-    });
-    smsMenuBar.add(TimeClockMenu);
-
-    employeesMenu.setText("Employees");
-    employeesMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            employeesMenuMouseClicked(evt);
-        }
-    });
-    smsMenuBar.add(employeesMenu);
-
-    adminMenu.setText("Administration");
-    adminMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            adminMenuMouseClicked(evt);
-        }
-    });
-
-    addUserMenuItem.setText("Add User");
-    addUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            addUserMenuItemActionPerformed(evt);
-        }
-    });
-    adminMenu.add(addUserMenuItem);
-
->>>>>>> origin/master
     removeUserMenuItem.setText("Remove User");
     removeUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1724,7 +1959,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addComponent(reportsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(billButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGap(18, 18, 18)
                     .addComponent(timeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
                     .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1735,14 +1970,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGap(57, 57, 57)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                 .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                    .addGap(0, 0, 0)
->>>>>>> origin/master
-=======
-                    .addGap(0, 0, 0)
->>>>>>> origin/master
                     .addComponent(timeLabel)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buildLabel))
@@ -2293,21 +2520,39 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JMenu apptMenu;
     private javax.swing.JPanel apptPanel;
     public static javax.swing.JPanel apptTablePanel;
+    private javax.swing.JEditorPane articleEditorPane;
+    private javax.swing.JEditorPane articleEditorPane1;
+    private javax.swing.JEditorPane articleEditorPane2;
+    private javax.swing.JScrollPane articleScrollPane;
+    private javax.swing.JScrollPane articleScrollPane1;
+    private javax.swing.JScrollPane articleScrollPane2;
+    public static javax.swing.JPanel articleTabPanel;
+    public static javax.swing.JPanel articleTabPanel1;
+    public static javax.swing.JPanel articleTabPanel2;
     private javax.swing.JMenuItem assignedMenuItem;
     private javax.swing.JButton billButton;
+    private javax.swing.JLabel bloodImageLabel;
+    private javax.swing.JLabel bloodImageLabel1;
+    private javax.swing.JLabel bloodImageLabel2;
     private javax.swing.JLabel buildLabel;
+    private javax.swing.JPanel bulletinTabPanel;
+    private javax.swing.JPanel bulletinTabPanel1;
+    private javax.swing.JPanel bulletinTabPanel2;
     private javax.swing.JButton cancelButton;
     public static javax.swing.JPanel chartTablePanel;
     private javax.swing.JLabel cityLabel;
     private javax.swing.JTextField cityText;
+    private javax.swing.JLabel coffeeImageLabel;
+    private javax.swing.JLabel coffeeImageLabel1;
+    private javax.swing.JLabel coffeeImageLabel2;
     public static javax.swing.JPanel containerPanel;
     private javax.swing.JButton createApptButton;
     private javax.swing.JMenuItem createApptMenuItem;
     private javax.swing.JComboBox dayComboBox;
-    public static javax.swing.JPanel defaultAdminPanel;
-    public static javax.swing.JPanel defaultApptPanel;
+    public static javax.swing.JTabbedPane defaultAdminPanel;
+    public static javax.swing.JTabbedPane defaultApptPanel;
     public static javax.swing.JPanel defaultEmpPanel;
-    public static javax.swing.JPanel defaultPatientPanel;
+    public static javax.swing.JTabbedPane defaultPatientPanel;
     public static javax.swing.JPanel defaultTimePanel;
     private javax.swing.JLabel dobLabel;
     private javax.swing.JLabel empAddress1Label;
@@ -2351,22 +2596,18 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel empZipLabel;
     public static javax.swing.JTextField empZipText;
     private java.awt.Label employeeIdent1;
+    private javax.swing.JLabel employeeImageLabel;
+    private javax.swing.JLabel employeeImageLabel1;
+    private javax.swing.JLabel employeeImageLabel2;
     private javax.swing.JMenu employeesMenu;
     private javax.swing.JRadioButton femaleRadioButton;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JTextField firstNameText;
     private javax.swing.ButtonGroup genderButtonGroup;
     private javax.swing.JLabel genderLabel;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameText;
@@ -2376,6 +2617,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel middleIntLabel;
     private javax.swing.JTextField middleIntText;
     private javax.swing.JComboBox monthComboBox;
+    private javax.swing.JLabel muffinImageLabel;
+    private javax.swing.JLabel muffinImageLabel1;
+    private javax.swing.JLabel muffinImageLabel2;
+    private javax.swing.JLabel patImageLabel;
     public static javax.swing.JPanel patientTablePanel;
     private javax.swing.JButton patientsButton;
     public static javax.swing.JPanel patientsContainerPanel;
@@ -2396,12 +2641,27 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextField ssnText;
     private javax.swing.JComboBox stateComboBox;
     private javax.swing.JLabel stateLabel;
+    private javax.swing.JLabel sub2Label;
+    private javax.swing.JLabel sub2Label1;
+    private javax.swing.JLabel sub2Label2;
+    private javax.swing.JLabel subLabel;
+    private javax.swing.JLabel subLabel1;
+    private javax.swing.JLabel subLabel2;
     private javax.swing.JPanel timeCPanel;
     private javax.swing.JButton timeClockButton;
     public static javax.swing.JPanel timeContainerPanel;
     private javax.swing.JLabel timeImageLabel;
     public static javax.swing.JLabel timeLabel;
     public static javax.swing.JPanel timePanel;
+    private javax.swing.JLabel title1Label;
+    private javax.swing.JLabel title1Label1;
+    private javax.swing.JLabel title1Label2;
+    private javax.swing.JLabel title2Label;
+    private javax.swing.JLabel title2Label1;
+    private javax.swing.JLabel title2Label2;
+    private javax.swing.JLabel title3Label;
+    private javax.swing.JLabel title3Label1;
+    private javax.swing.JLabel title3Label2;
     private javax.swing.JButton viewApptButton;
     private javax.swing.JMenuItem viewApptMenuItem;
     private javax.swing.JLabel viewEmpIDLabel;

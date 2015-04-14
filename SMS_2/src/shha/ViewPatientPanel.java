@@ -23,6 +23,7 @@ import static shha.ViewChartPanel.nameLabel;
 import static shha.ViewChartPanel.referredTextArea;
 import static shha.ViewChartPanel.visitTextArea;
 import static shha.mainGUI2.chartTablePanel;
+import static shha.mainGUI2.articleTabPanel;
 import static shha.mainGUI2.defaultPatientPanel;
 import static shha.mainGUI2.patientsContainerPanel;
 

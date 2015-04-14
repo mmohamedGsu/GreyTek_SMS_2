@@ -17,7 +17,7 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static shha.mainGUI2.patientsContainerPanel;
-import static shha.mainGUI2.defaultPatientPanel;
+import static shha.mainGUI2.articleTabPanel;
 
 
 /**
@@ -603,7 +603,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         patientsContainerPanel.removeAll();
         patientsContainerPanel.repaint();
         patientsContainerPanel.revalidate();
-        patientsContainerPanel.add(defaultPatientPanel);
+        patientsContainerPanel.add(articleTabPanel);
         patientsContainerPanel.repaint();
         patientsContainerPanel.revalidate();
         

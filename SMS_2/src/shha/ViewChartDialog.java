@@ -7,7 +7,7 @@ package shha;
 
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
-import static shha.mainGUI2.defaultPatientPanel;
+import static shha.mainGUI2.articleTabPanel;
 import static shha.mainGUI2.chartTablePanel;
 import static shha.mainGUI2.patientsContainerPanel;
 
