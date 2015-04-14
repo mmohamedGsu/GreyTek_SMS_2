@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
-import static shha.mainGUI2.defaultPatientPanel;
+import static shha.mainGUI2.articleTabPanel;
 import static shha.mainGUI2.patientTablePanel;
 import static shha.mainGUI2.patientsContainerPanel;
 

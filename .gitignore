@@ -107,3 +107,7 @@ SMS_2/SMSDB2/.DS_Store
 *.log
 
 *.dat
+
+*.dat
+
+*.properties

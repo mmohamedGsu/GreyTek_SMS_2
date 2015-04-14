@@ -17,6 +17,7 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static shha.mainGUI2.patientsContainerPanel;
+import static shha.mainGUI2.articleTabPanel;
 import static shha.mainGUI2.defaultPatientPanel;
 
 
@@ -473,7 +474,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ssnTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ssnTextFocusGained
-        // TODO add your handling code here:
+        ssnText.setText("");
     }//GEN-LAST:event_ssnTextFocusGained
 
     private void ssnTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ssnTextMouseClicked
@@ -509,6 +510,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
        if(formValidation()) {
            if(!uniqueSSN()) {
                addUserToDB();
+               
+               patientsContainerPanel.removeAll();
+               patientsContainerPanel.repaint();
+               patientsContainerPanel.revalidate();
+               patientsContainerPanel.add(defaultPatientPanel);
+               patientsContainerPanel.repaint();
+               patientsContainerPanel.revalidate();
            } else {
                 JOptionPane.showMessageDialog(null, "SSN currently exists." +
                                                " Please verify SSN");
@@ -603,7 +611,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         patientsContainerPanel.removeAll();
         patientsContainerPanel.repaint();
         patientsContainerPanel.revalidate();
-        patientsContainerPanel.add(defaultPatientPanel);
+        patientsContainerPanel.add(articleTabPanel);
         patientsContainerPanel.repaint();
         patientsContainerPanel.revalidate();
         
