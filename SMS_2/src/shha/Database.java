@@ -288,7 +288,7 @@ public class Database {
         ResultSet employeeResults = null;
         String query = "select firstName, lastName, position, phone, email FROM employees "
                 + " WHERE firstName='" + employee + "' OR"
-                + " lastName='" + employee + "'";
+                + " lastName='" + employee + "' ORDER BY lastName";
 
         try {
             Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -304,7 +304,7 @@ public class Database {
     //Postcondition: The jTable in the view employees tab will show all employees
     public ResultSet queryEmployees() {
         ResultSet employeeResults = null;
-        String query = "select firstName, lastName, position, phone, email FROM employees";
+        String query = "select firstName, lastName, position, phone, email FROM employees ORDER BY lastName ASC";
 
         try {
             Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -334,7 +334,7 @@ public class Database {
 
     public ResultSet queryPatients() {
         ResultSet rs = null;
-        String query = "SELECT firstName, lastName, sex, phone, email,ssn FROM patients";
+        String query = "SELECT firstName, lastName, sex, phone, email,ssn FROM patients ORDER BY lastName ASC";
 
         try {
             Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -348,7 +348,7 @@ public class Database {
 
     public ResultSet searchForPatient(String patient) {
         ResultSet rs = null;
-        String query = "SELECT firstName, lastName, sex, phone, email, ssn FROM patients "
+        String query = "SELECT firstName, lastName, sex, phone, email, ssn FROM patients ORDER BY lastName ASC "
                 + "WHERE firstName='" + patient + "' OR lastName='" + patient
                 + "' OR ssn='" + patient + "'";
         try {
@@ -378,7 +378,7 @@ public class Database {
 
     public ResultSet queryDoctors() {
         ResultSet doctorResults = null;
-        String query = "select firstName, lastName, email from employees WHERE position='Doctor'";
+        String query = "select firstName, lastName, email from employees WHERE position='Doctor' ORDER BY lastName ASC";
 
         try {
             Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -392,7 +392,7 @@ public class Database {
     
     public ResultSet queryPatientsForAppointment() {
         ResultSet doctorResults = null;
-        String query = "select firstName, lastName, ssn from patients";
+        String query = "select firstName, lastName, ssn from patients ORDER BY lastName ASC";
 
         try {
             Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);

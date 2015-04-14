@@ -37,18 +37,12 @@ public class mainGUI2 extends javax.swing.JFrame {
     //Build Main GUI
     public mainGUI2() {
         initComponents();
-
-       // positionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctor_Icon_128.png")));
-
-         //positionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctor_Icon_128.png")));
          
          employeeIdent1.setText("Welcome: " +
                             Authentication.firstName + " " +
-                            Authentication.lastName
-
-                 );
-         int accessLevel = Authentication.accessLevel;
+                            Authentication.lastName);
          
+         int accessLevel = Authentication.accessLevel;
          switch(accessLevel) {
              case 1:    adminButton.setEnabled(false);
                         
@@ -1473,10 +1467,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
     patientsMenu.add(assignedMenuItem);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
+
 
     smsMenuBar.add(patientsMenu);
 
@@ -1517,7 +1508,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
     apptMenu.add(viewApptMenuItem);
-<<<<<<< HEAD
+        
 
     smsMenuBar.add(apptMenu);
 
@@ -1552,7 +1543,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     });
     adminMenu.add(addUserMenuItem);
 
-=======
+
 
     smsMenuBar.add(patientsMenu);
 
@@ -1627,8 +1618,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     });
     adminMenu.add(addUserMenuItem);
 
->>>>>>> origin/master
-=======
+
 
     smsMenuBar.add(apptMenu);
 
@@ -1663,7 +1653,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     });
     adminMenu.add(addUserMenuItem);
 
->>>>>>> origin/master
     removeUserMenuItem.setText("Remove User");
     removeUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1735,14 +1724,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGap(57, 57, 57)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                 .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
+
+
                     .addGap(0, 0, 0)
->>>>>>> origin/master
-=======
+
                     .addGap(0, 0, 0)
->>>>>>> origin/master
+
                     .addComponent(timeLabel)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buildLabel))
@@ -2357,16 +2345,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextField firstNameText;
     private javax.swing.ButtonGroup genderButtonGroup;
     private javax.swing.JLabel genderLabel;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
+
+
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameText;
