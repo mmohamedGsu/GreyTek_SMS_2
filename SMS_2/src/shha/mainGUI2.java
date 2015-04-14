@@ -312,7 +312,6 @@ public class mainGUI2 extends javax.swing.JFrame {
 
         defaultPatientPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-<<<<<<< HEAD
         subLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         subLabel.setText("<html><div style=\"text-align: center\"><h3>Free Muffin w/Coffee Purchase!</h3></div></html>");
 
@@ -429,22 +428,11 @@ public class mainGUI2 extends javax.swing.JFrame {
         articleTabPanelLayout.setVerticalGroup(
             articleTabPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(articleScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
-=======
-        javax.swing.GroupLayout defaultPatientPanelLayout = new javax.swing.GroupLayout(defaultPatientPanel);
-        defaultPatientPanel.setLayout(defaultPatientPanelLayout);
-        defaultPatientPanelLayout.setHorizontalGroup(
-            defaultPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 999, Short.MAX_VALUE)
-        );
-        defaultPatientPanelLayout.setVerticalGroup(
-            defaultPatientPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
->>>>>>> origin/master
         );
 
         defaultPatientPanel.addTab("Wellness Article", articleTabPanel);
 
-        patientsContainerPanel.add(defaultPatientPanel, "card5");
+        patientsContainerPanel.add(defaultPatientPanel, "card1");
 
         patientTablePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         patientTablePanel.setAutoscrolls(true);
