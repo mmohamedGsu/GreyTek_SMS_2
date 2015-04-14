@@ -145,12 +145,12 @@ public class ViewApptDialog extends javax.swing.JDialog {
         model.fireTableDataChanged();
 
         Database db = new Database("SMSDB2");
-        String patient = apptText.getText();
-        ResultSet rs = db.searchForPatient(patient);
+        String appointment = apptText.getText();
+        ResultSet rs = db.searchForAppointments(appointment);
 
         table.setModel(DbUtils.resultSetToTableModel(rs));
         System.out.println(table.getColumnCount());
-        //table.removeColumn(table.getColumnModel().getColumn(6));
+      
 
         table.repaint();
         table.revalidate();
