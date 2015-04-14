@@ -124,13 +124,14 @@ public class EmpTablePanel extends javax.swing.JPanel {
             mainGUI2.empAddress1Text.setText(rs.getString(10));
             mainGUI2.empAddress2Text.setText(rs.getString(11));
             mainGUI2.empCityText.setText(rs.getString(12));
-            mainGUI2.empStateText.setText(rs.getString(13));
             mainGUI2.empZipText.setText(rs.getString(14));
-            //15 is birth month
-            //16 is birth day
-            //17 is birth year
+            mainGUI2.empMonthComboBox.setSelectedItem(rs.getString(15));
+            mainGUI2.empDayComboBox.setSelectedItem(rs.getString(16));
+            mainGUI2.yearComboBox1.setSelectedItem(rs.getString(17));
             mainGUI2.empPhoneText.setText(rs.getString(18));
             mainGUI2.empEmailText.setText(rs.getString(19));
+            
+            System.out.println(rs.getString(15));
                        
         } catch(SQLException e) {
             System.out.println("Error parsing users");

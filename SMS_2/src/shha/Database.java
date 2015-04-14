@@ -360,6 +360,27 @@ public class Database {
 
         return rs;
     }
+    
+    public ResultSet searchForAppointments(String appointment) {
+        ResultSet rs = null;
+        String query = "SELECT * from appointments " 
+               +  "WHERE patient_fname='"  + appointment + "' OR "
+               +  "patient_lname='"  + appointment + "' OR "
+               + "patient_ssn='"  + appointment + "' OR "
+               + "doctor_fname='"  + appointment + "' OR "
+                + "doctor_lname='"  + appointment + "' OR "
+                + "doctor_email='"  + appointment + "'";
+        
+         try {
+            Statement myStatement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = myStatement.executeQuery(query);
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        }
+        return rs;
+                
+               
+    }
 
     public ResultSet queryPatientInfo(String patientSSN) {
         ResultSet rs = null;
@@ -421,6 +442,17 @@ public class Database {
     }
 
     public void executePatientUpdate(String query) {
+        try {
+            System.out.println(query);
+            connection.createStatement().executeUpdate(query);
+            
+        } catch(SQLException e) {
+            System.out.println(e.toString());
+        }
+
+    }
+    
+    public void executeEmpUpdate(String query) {
         try {
             System.out.println(query);
             connection.createStatement().executeUpdate(query);

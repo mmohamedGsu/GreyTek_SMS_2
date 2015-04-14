@@ -13,7 +13,7 @@ public class Authentication {
     public static String firstName;
     public static String lastName;
     public static int accessLevel;
-    public static String username;
+    public static String username, position;
     
     private String SQL_STATEMENT, userName, passWord, connectionString;
     private final String userTable = "employees", usernameColumn = "username", 
@@ -46,6 +46,7 @@ public class Authentication {
                     firstName = results.getString(3);
                     lastName =  results.getString(4);
                     accessLevel = results.getInt(5);
+                    position = results.getString(6);
                     
                     return true;
                 }
@@ -63,7 +64,7 @@ public class Authentication {
     //for a user name and password
     private void createSqlQuery() {
         SQL_STATEMENT = "select " + usernameColumn + ", " + passwordColumn +  
-                        " ,firstName, lastName, accessLevel from  " + 
+                        " ,firstName, lastName, accessLevel, position from  " + 
                         userTable + " where username='" + userName +"'";                    
     }
     

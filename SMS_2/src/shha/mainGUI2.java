@@ -24,7 +24,6 @@ public class mainGUI2 extends javax.swing.JFrame {
     public void populateEmployee(ResultSet rs) {
         initComponents();
         
-        
         try {
            empFirstNameText.setText(rs.getString("firstName"));
            empLastNameText.setText(rs.getString("lastName"));
@@ -45,9 +44,8 @@ public class mainGUI2 extends javax.swing.JFrame {
          int accessLevel = Authentication.accessLevel;
          switch(accessLevel) {
              case 1:    adminButton.setEnabled(false);
-                        
                         break;
-             case 2:
+             case 2:    adminButton.setEnabled(false);
                         break;
              case 3:    
                         break;
@@ -56,6 +54,7 @@ public class mainGUI2 extends javax.swing.JFrame {
              case 5:
                         break;
          }
+        
     }
 
    
@@ -167,7 +166,6 @@ public class mainGUI2 extends javax.swing.JFrame {
         empAddress1Label = new javax.swing.JLabel();
         empCityText = new javax.swing.JTextField();
         empCityLabel = new javax.swing.JLabel();
-        empStateText = new javax.swing.JTextField();
         empStateLabel = new javax.swing.JLabel();
         empZipText = new javax.swing.JTextField();
         empZipLabel = new javax.swing.JLabel();
@@ -175,22 +173,23 @@ public class mainGUI2 extends javax.swing.JFrame {
         empFemaleRadioButton = new javax.swing.JRadioButton();
         empGenderLabel = new javax.swing.JLabel();
         empDOBLabel = new javax.swing.JLabel();
-        empDOBText = new javax.swing.JTextField();
         empEmailLabel = new javax.swing.JLabel();
         empEmailText = new javax.swing.JTextField();
         empAddress2Label = new javax.swing.JLabel();
         empAddress2Text = new javax.swing.JTextField();
-        empCountryText = new javax.swing.JTextField();
-        empCountryLabel = new javax.swing.JLabel();
         empPhoneLabel = new javax.swing.JLabel();
         empPhoneText = new javax.swing.JTextField();
-        viewEmpIDLabel = new javax.swing.JLabel();
-        viewEmpIDText = new javax.swing.JTextField();
         empPositionComboBox = new javax.swing.JComboBox();
         empPositionLabel = new javax.swing.JLabel();
         empSaveButton = new javax.swing.JButton();
         empCancelButton = new javax.swing.JButton();
         empEditButton = new javax.swing.JButton();
+        empMonthComboBox = new javax.swing.JComboBox();
+        empDayComboBox = new javax.swing.JComboBox();
+        yearComboBox1 = new javax.swing.JComboBox();
+        stateComboBox1 = new javax.swing.JComboBox();
+        empPositionComboBox1 = new javax.swing.JComboBox();
+        empPositionLabel1 = new javax.swing.JLabel();
         empTablePanel = new javax.swing.JPanel();
         empImageLabel = new javax.swing.JLabel();
         apptPanel = new javax.swing.JPanel();
@@ -1048,7 +1047,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
             .addGap(31, 31, 31)
             .addGroup(adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(addNewUserButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(addNewUserButton, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                 .addComponent(removeUserButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(viewEmployeesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1169,13 +1168,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     empCityLabel.setLabelFor(cityText);
     empCityLabel.setText(" City");
 
-    empStateText.setEnabled(false);
-    empStateText.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            empStateTextMouseClicked(evt);
-        }
-    });
-
     empStateLabel.setText(" State");
 
     empZipText.setEnabled(false);
@@ -1198,18 +1190,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     empGenderLabel.setText(" Sex");
 
     empDOBLabel.setText(" Date of Birth");
-
-    empDOBText.setEnabled(false);
-    empDOBText.addFocusListener(new java.awt.event.FocusAdapter() {
-        public void focusGained(java.awt.event.FocusEvent evt) {
-            empDOBTextFocusGained(evt);
-        }
-    });
-    empDOBText.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            empDOBTextMouseClicked(evt);
-        }
-    });
 
     empEmailLabel.setText(" Email");
 
@@ -1235,15 +1215,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
 
-    empCountryText.setEnabled(false);
-    empCountryText.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            empCountryTextMouseClicked(evt);
-        }
-    });
-
-    empCountryLabel.setText(" Country");
-
     empPhoneLabel.setText(" Phone");
 
     empPhoneText.setEnabled(false);
@@ -1255,15 +1226,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     empPhoneText.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
             empPhoneTextMouseClicked(evt);
-        }
-    });
-
-    viewEmpIDLabel.setText(" Employee ID");
-
-    viewEmpIDText.setEnabled(false);
-    viewEmpIDText.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            viewEmpIDTextMouseClicked(evt);
         }
     });
 
@@ -1300,6 +1262,78 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
 
+    empMonthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Month:", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+    empMonthComboBox.setEnabled(false);
+    empMonthComboBox.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            empMonthComboBoxActionPerformed(evt);
+        }
+    });
+
+    empDayComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Day:", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+        "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
+        "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+empDayComboBox.setEnabled(false);
+empDayComboBox.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+    empDayComboBoxActionPerformed(evt);
+    }
+    });
+
+    yearComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Year:", "1900","1901","1902","1903","1904",
+        "1905","1906","1907","1908","1909","1910","1911",
+        "1912","1913","1914","1915","1916","1917","1918",
+        "1919","1920","1921","1922","1923","1924","1925",
+        "1926","1927","1928","1929","1930","1931","1932",
+        "1933","1934","1935","1936","1937","1938","1939",
+        "1940","1941","1942","1943","1944","1945","1946",
+        "1947","1948","1949","1950","1951","1952","1953",
+        "1954","1955","1956","1957","1958","1959","1960",
+        "1961","1962","1963","1964","1965","1966","1967",
+        "1968","1969","1970","1971","1972","1973","1974",
+        "1975","1976","1977","1978","1979","1980","1981",
+        "1982","1983","1984","1985","1986","1987","1988",
+        "1989","1990","1991","1992","1993","1994","1995",
+        "1996","1997","1998","1999","2000","2001","2002",
+        "2003","2004","2005","2006","2007","2008","2009",
+        "2010","2011","2012","2013","2014","2015"}));
+yearComboBox1.setEnabled(false);
+yearComboBox1.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+    yearComboBox1ActionPerformed(evt);
+    }
+    });
+
+    stateComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Alabama", "Alaska", "Arizona", "Arkansas",
+        "California", "Colorado", "Connecticut",
+        "Delaware", "Dist. of Columbia","Florida","Georgia",
+        "Hawaii","Idaho","Illinois","Indiana", "Iowa",
+        "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+        "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+        "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+        "New Jersey", "New Mexico", "New York", "North Carolina",
+        "North Dakota", "Ohio", "Oklahoma","Oregon","Pennsylvania",
+        "Rhode Island","South Carolina","South Dakota","Tennessee",
+        "Texas","Utah","Vermont","Virginia","Washington","West Virginia",
+        "Wyoming"}));
+stateComboBox1.setEnabled(false);
+stateComboBox1.addActionListener(new java.awt.event.ActionListener() {
+public void actionPerformed(java.awt.event.ActionEvent evt) {
+    stateComboBox1ActionPerformed(evt);
+    }
+    });
+
+    empPositionComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Administrator", "Doctor", "Nurse", "Receptionist", "IT", "Janitorial", "Maintenance", "Other" }));
+    empPositionComboBox1.setEnabled(false);
+    empPositionComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            empPositionComboBox1ActionPerformed(evt);
+        }
+    });
+
+    empPositionLabel1.setLabelFor(positionComboBox);
+    empPositionLabel1.setText("Access Lvl");
+
     javax.swing.GroupLayout viewEmpPanelLayout = new javax.swing.GroupLayout(viewEmpPanel);
     viewEmpPanel.setLayout(viewEmpPanelLayout);
     viewEmpPanelLayout.setHorizontalGroup(
@@ -1307,20 +1341,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         .addGroup(viewEmpPanelLayout.createSequentialGroup()
             .addGap(98, 98, 98)
             .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                        .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(empDOBLabel)
-                            .addComponent(empDOBText, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(empPhoneText, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                            .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                                .addComponent(empPhoneLabel)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addComponent(empAddress2Label)
+                .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(empAddress1Text)
-                    .addComponent(empAddress1Label)
                     .addComponent(empAddress2Text)
                     .addGroup(viewEmpPanelLayout.createSequentialGroup()
                         .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1331,11 +1353,25 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                             .addComponent(empMiddleIntText)
                             .addGroup(viewEmpPanelLayout.createSequentialGroup()
                                 .addComponent(empMiddleIntLabel)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                        .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                                .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(empDOBLabel)
+                                    .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                                        .addComponent(empMonthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(empDayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(yearComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(empAddress2Label)
+                            .addComponent(empAddress1Label))
+                        .addGap(0, 89, Short.MAX_VALUE)))
                 .addComponent(empSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, viewEmpPanelLayout.createSequentialGroup()
                     .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(empZipText, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
@@ -1343,36 +1379,49 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                             .addComponent(empCityLabel, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(empCityText)
                             .addComponent(empLastNameText, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addComponent(empZipLabel)
-                        .addComponent(empEmailLabel)
-                        .addComponent(empEmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(23, 23, 23)
+                        .addComponent(empZipLabel))
                     .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(empStateLabel)
-                        .addComponent(empSSNLabel)
-                        .addComponent(empCountryLabel)
-                        .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(empSSNText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(empStateText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(empCountryText, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, viewEmpPanelLayout.createSequentialGroup()
-                                .addComponent(viewEmpIDLabel)
-                                .addGap(39, 39, 39))
-                            .addComponent(viewEmpIDText, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addGap(18, 18, 18)
-                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(empGenderLabel)
-                        .addComponent(empFemaleRadioButton)
-                        .addComponent(empMaleRadioButton)
-                        .addComponent(empPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                            .addGap(8, 8, 8)
-                            .addComponent(empPositionLabel))))
-                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, viewEmpPanelLayout.createSequentialGroup()
-                    .addComponent(empEditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(empCancelButton)))
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(18, 18, 18)
+                            .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                                    .addGap(5, 5, 5)
+                                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(empStateLabel)
+                                        .addComponent(empSSNLabel)
+                                        .addComponent(empSSNText, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(13, 13, 13)
+                                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(empGenderLabel)
+                                        .addComponent(empFemaleRadioButton)
+                                        .addComponent(empMaleRadioButton)))
+                                .addComponent(stateComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                            .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(empPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                                    .addGap(20, 20, 20)
+                                    .addComponent(empPositionLabel)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(empPositionLabel1)
+                                .addComponent(empPositionComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, viewEmpPanelLayout.createSequentialGroup()
+                        .addComponent(empEditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(empCancelButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, viewEmpPanelLayout.createSequentialGroup()
+                        .addComponent(empPhoneLabel)
+                        .addGap(143, 143, 143)
+                        .addComponent(empEmailLabel))
+                    .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                        .addComponent(empPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(empEmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addContainerGap(37, Short.MAX_VALUE))
     );
 
     viewEmpPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {empCancelButton, empSaveButton});
@@ -1382,96 +1431,85 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         .addGroup(viewEmpPanelLayout.createSequentialGroup()
             .addGap(30, 30, 30)
             .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                            .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                        .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                                .addComponent(empSSNLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(empSSNText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                                    .addComponent(empSSNLabel)
+                                    .addComponent(empMiddleIntLabel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(empSSNText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(empMiddleIntText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                                        .addComponent(empMiddleIntLabel)
+                                        .addComponent(empLastNameLabel)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(empMiddleIntText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                                            .addComponent(empLastNameLabel)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(empLastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                                            .addComponent(empFirstNameLabel)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(empFirstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                                    .addGap(27, 27, 27)
-                                    .addComponent(empAddress1Label)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(empAddress1Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewEmpPanelLayout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(empStateLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(empStateText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewEmpPanelLayout.createSequentialGroup()
+                                        .addComponent(empLastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                                        .addComponent(empFirstNameLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(empFirstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(27, 27, 27)
+                        .addComponent(empAddress1Label)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(empAddress1Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewEmpPanelLayout.createSequentialGroup()
+                        .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(empCityLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(empCityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(18, 18, 18)
-                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                            .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                                    .addComponent(empAddress2Label)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(empAddress2Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(empZipLabel)
-                                        .addComponent(empCountryLabel))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(empZipText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(empCountryText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                                    .addGap(35, 35, 35)
-                                    .addComponent(empDOBLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(empDOBText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewEmpPanelLayout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewEmpPanelLayout.createSequentialGroup()
-                                            .addComponent(empPhoneLabel)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(empPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewEmpPanelLayout.createSequentialGroup()
-                                            .addComponent(viewEmpIDLabel)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(viewEmpIDText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGroup(viewEmpPanelLayout.createSequentialGroup()
-                            .addComponent(empEmailLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(empEmailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(empStateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(empCityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(stateComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(viewEmpPanelLayout.createSequentialGroup()
                     .addComponent(empGenderLabel)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(empMaleRadioButton)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(empFemaleRadioButton)
-                    .addGap(18, 18, 18)
-                    .addComponent(empPositionLabel)
-                    .addGap(18, 18, 18)
-                    .addComponent(empPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGap(51, 51, 51)
+                    .addComponent(empFemaleRadioButton)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                    .addComponent(empAddress2Label)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(empAddress2Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(empZipLabel)
+                        .addComponent(empPositionLabel)
+                        .addComponent(empPositionLabel1))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(empZipText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(empPositionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(empPositionComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(viewEmpPanelLayout.createSequentialGroup()
+                    .addGap(35, 35, 35)
+                    .addComponent(empDOBLabel)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(empMonthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(empDayComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewEmpPanelLayout.createSequentialGroup()
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(empEmailLabel)
+                        .addComponent(empPhoneLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(yearComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(empEmailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(empPhoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGap(45, 45, 45)
             .addGroup(viewEmpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(empCancelButton)
                 .addComponent(empSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(empEditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap(163, Short.MAX_VALUE))
     );
 
     viewEmpPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {empCancelButton, empSaveButton});
@@ -1819,86 +1857,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
     patientsMenu.add(assignedMenuItem);
-<<<<<<< HEAD
-
-
-    smsMenuBar.add(patientsMenu);
-
-    apptMenu.setText("Appointments");
-    apptMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            apptMenuMouseClicked(evt);
-        }
-    });
-    apptMenu.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            apptMenuActionPerformed(evt);
-        }
-    });
-
-    createApptMenuItem.setText("Create");
-    createApptMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            createApptMenuItemMouseClicked(evt);
-        }
-    });
-    createApptMenuItem.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            createApptMenuItemActionPerformed(evt);
-        }
-    });
-    apptMenu.add(createApptMenuItem);
-
-    viewApptMenuItem.setText("View");
-    viewApptMenuItem.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            viewApptMenuItemMouseClicked(evt);
-        }
-    });
-    viewApptMenuItem.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            viewApptMenuItemActionPerformed(evt);
-        }
-    });
-    apptMenu.add(viewApptMenuItem);
-        
-
-    smsMenuBar.add(apptMenu);
-
-    TimeClockMenu.setText("TimeClock");
-    TimeClockMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            TimeClockMenuMouseClicked(evt);
-        }
-    });
-    smsMenuBar.add(TimeClockMenu);
-
-    employeesMenu.setText("Employees");
-    employeesMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            employeesMenuMouseClicked(evt);
-        }
-    });
-    smsMenuBar.add(employeesMenu);
-
-    adminMenu.setText("Administration");
-    adminMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            adminMenuMouseClicked(evt);
-        }
-    });
-
-    addUserMenuItem.setText("Add User");
-    addUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            addUserMenuItemActionPerformed(evt);
-        }
-    });
-    adminMenu.add(addUserMenuItem);
-
-
-=======
->>>>>>> origin/master
 
     smsMenuBar.add(patientsMenu);
 
@@ -1973,44 +1931,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     });
     adminMenu.add(addUserMenuItem);
 
-<<<<<<< HEAD
-
-
-    smsMenuBar.add(apptMenu);
-
-    TimeClockMenu.setText("TimeClock");
-    TimeClockMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            TimeClockMenuMouseClicked(evt);
-        }
-    });
-    smsMenuBar.add(TimeClockMenu);
-
-    employeesMenu.setText("Employees");
-    employeesMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            employeesMenuMouseClicked(evt);
-        }
-    });
-    smsMenuBar.add(employeesMenu);
-
-    adminMenu.setText("Administration");
-    adminMenu.addMouseListener(new java.awt.event.MouseAdapter() {
-        public void mouseClicked(java.awt.event.MouseEvent evt) {
-            adminMenuMouseClicked(evt);
-        }
-    });
-
-    addUserMenuItem.setText("Add User");
-    addUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            addUserMenuItemActionPerformed(evt);
-        }
-    });
-    adminMenu.add(addUserMenuItem);
-
-=======
->>>>>>> origin/master
     removeUserMenuItem.setText("Remove User");
     removeUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2082,16 +2002,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
             .addGap(57, 57, 57)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                 .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
-
-
-
-                    .addGap(0, 0, 0)
-
-                    .addGap(0, 0, 0)
-
-=======
->>>>>>> origin/master
                     .addComponent(timeLabel)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buildLabel))
@@ -2258,14 +2168,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_yearComboBoxActionPerformed
 
-    private void empStateTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empStateTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empStateTextMouseClicked
-
-    private void empCountryTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empCountryTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empCountryTextMouseClicked
-
     private void empPositionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empPositionComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_empPositionComboBoxActionPerformed
@@ -2294,10 +2196,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_empEmailTextFocusGained
 
-    private void viewEmpIDTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewEmpIDTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewEmpIDTextMouseClicked
-
     private void empCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empCancelButtonActionPerformed
         //Disable Save Button
         empSaveButton.setEnabled(false);
@@ -2313,7 +2211,28 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private void empSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empSaveButtonActionPerformed
         //Method Call to Clear Fields in the Add User Panel
         //Add DB Calls before this method
-        //clearViewEmpPanel();
+        Database db = new Database("SMSDB2");
+        int day = parseInt(empDayComboBox.getSelectedItem().toString());
+        int year = parseInt(yearComboBox1.getSelectedItem().toString());
+        String gender = getSelectedButtonText(genderButtonGroup);
+        String query = "UPDATE employees SET " +
+                       "firstName='" + empFirstNameText.getText() +"', " +
+                       "middleInt='" + empMiddleIntText.getText() + "', " +
+                       "lastName='" + empLastNameText.getText() + "', " +
+                       "address1='" + empAddress1Text.getText() + "', " +
+                       "address2='" + empAddress2Text.getText() + "', " +
+                       "city='" + empCityText.getText() + "', " +
+                       "state='" + stateComboBox1.getSelectedItem() + "', " +
+                       "zip='" + empZipText.getText() +"', " +
+                       "month='" + empMonthComboBox.getSelectedItem () + "', " +
+                       "day=" + day + ", " +
+                       "birthYear=" + year + ", " +
+                       "phone='" + empPhoneText.getText() + "' " +
+                       "WHERE email='" + empEmailText.getText() + "'";
+        db.executeEmpUpdate(query);
+        JOptionPane.showMessageDialog(null, "Employee Updated");
+        editEmpInfo(false);
+        clearViewEmpPanel();
     }//GEN-LAST:event_empSaveButtonActionPerformed
 
     private void empPhoneTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empPhoneTextMouseClicked
@@ -2323,14 +2242,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private void empPhoneTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_empPhoneTextFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_empPhoneTextFocusGained
-
-    private void empDOBTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empDOBTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empDOBTextMouseClicked
-
-    private void empDOBTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_empDOBTextFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empDOBTextFocusGained
 
     private void empAddress2TextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empAddress2TextMouseClicked
         // TODO add your handling code here:
@@ -2590,6 +2501,26 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         viewEmployeesButton.doClick();
     }//GEN-LAST:event_viewUsersMenuItemActionPerformed
 
+    private void empMonthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empMonthComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empMonthComboBoxActionPerformed
+
+    private void empDayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empDayComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empDayComboBoxActionPerformed
+
+    private void yearComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearComboBox1ActionPerformed
+
+    private void stateComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stateComboBox1ActionPerformed
+
+    private void empPositionComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empPositionComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empPositionComboBox1ActionPerformed
+
 
 
     public static void main(String args[]) {
@@ -2686,10 +2617,8 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel empCityLabel;
     public static javax.swing.JTextField empCityText;
     public static javax.swing.JPanel empContainerPanel;
-    private javax.swing.JLabel empCountryLabel;
-    public static javax.swing.JTextField empCountryText;
     private javax.swing.JLabel empDOBLabel;
-    public static javax.swing.JTextField empDOBText;
+    public static javax.swing.JComboBox empDayComboBox;
     private javax.swing.JButton empEditButton;
     private javax.swing.JLabel empEmailLabel;
     public static javax.swing.JTextField empEmailText;
@@ -2704,16 +2633,18 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JRadioButton empMaleRadioButton;
     private javax.swing.JLabel empMiddleIntLabel;
     public static javax.swing.JTextField empMiddleIntText;
+    public static javax.swing.JComboBox empMonthComboBox;
     private javax.swing.JPanel empPanel;
     private javax.swing.JLabel empPhoneLabel;
     public static javax.swing.JTextField empPhoneText;
     public static javax.swing.JComboBox empPositionComboBox;
+    public static javax.swing.JComboBox empPositionComboBox1;
     private javax.swing.JLabel empPositionLabel;
+    private javax.swing.JLabel empPositionLabel1;
     private javax.swing.JLabel empSSNLabel;
     public static javax.swing.JTextField empSSNText;
     private javax.swing.JButton empSaveButton;
     private javax.swing.JLabel empStateLabel;
-    public static javax.swing.JTextField empStateText;
     public static javax.swing.JPanel empTablePanel;
     private javax.swing.JLabel empZipLabel;
     public static javax.swing.JTextField empZipText;
@@ -2727,19 +2658,9 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JTextField firstNameText;
     private javax.swing.ButtonGroup genderButtonGroup;
     private javax.swing.JLabel genderLabel;
-<<<<<<< HEAD
-
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-
-
-=======
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
->>>>>>> origin/master
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameText;
@@ -2772,6 +2693,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel ssnLabel;
     private javax.swing.JTextField ssnText;
     private javax.swing.JComboBox stateComboBox;
+    public static javax.swing.JComboBox stateComboBox1;
     private javax.swing.JLabel stateLabel;
     private javax.swing.JLabel sub2Label;
     private javax.swing.JLabel sub2Label1;
@@ -2796,8 +2718,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel title3Label2;
     private javax.swing.JButton viewApptButton;
     private javax.swing.JMenuItem viewApptMenuItem;
-    private javax.swing.JLabel viewEmpIDLabel;
-    public static javax.swing.JTextField viewEmpIDText;
     public static javax.swing.JPanel viewEmpPanel;
     public static javax.swing.JButton viewEmployeesButton;
     private javax.swing.JButton viewPatientButton;
@@ -2805,6 +2725,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JMenuItem viewUsersMenuItem;
     private javax.swing.JButton viewYourPatientButton;
     private javax.swing.JComboBox yearComboBox;
+    public static javax.swing.JComboBox yearComboBox1;
     private javax.swing.JLabel zipLabel;
     private javax.swing.JTextField zipText;
     // End of variables declaration//GEN-END:variables
@@ -3103,15 +3024,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         empAddress1Text.setEnabled(str);
         empAddress2Text.setEnabled(str);
         empCityText.setEnabled(str);
-        empStateText.setEnabled(str);
         empZipText.setEnabled(str);
-        empCountryText.setEnabled(str);
         empPositionComboBox.setEnabled(str);
-        empDOBText.setEnabled(str);
         empPhoneText.setEnabled(str);
         empEmailText.setEnabled(str);
-        viewEmpIDText.setEnabled(str);
-        
     }
     
     //Method to clear View Employee Panel
@@ -3133,15 +3049,11 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         empFemaleRadioButton.setSelected(false);
         empAddress1Text.setText("");
         empAddress2Text.setText("");
-        empCityText.setText("");
-        empStateText.setText("");
+        empCityText.setText("");        
         empZipText.setText("");
-        empCountryText.setText("");
         empPositionComboBox.setSelectedIndex(0);
-        empDOBText.setText("");
         empPhoneText.setText("");
         empEmailText.setText("");
-        viewEmpIDText.setText("");
         monthComboBox.setSelectedIndex(0);
         dayComboBox.setSelectedIndex(0);
         yearComboBox.setSelectedIndex(0);

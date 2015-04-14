@@ -119,6 +119,7 @@ public class PatientTablePanel extends javax.swing.JPanel {
                     ViewPatientPanel.emailText.setText(rs.getString(15));
                     ViewPatientPanel.doctorComboBox.setSelectedItem(rs.getString(16));
                     ViewPatientPanel.commentsTextArea.setText(rs.getString(17));
+                    
                 
             } catch(SQLException e) {
                 System.out.println(e.toString());

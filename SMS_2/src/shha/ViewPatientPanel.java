@@ -41,6 +41,7 @@ public class ViewPatientPanel extends javax.swing.JPanel {
         String[] doctorsArray = grabDoctors();
         doctorComboBox.setModel(new javax.swing.DefaultComboBoxModel(doctorsArray));
         
+        
     }
 
     /**

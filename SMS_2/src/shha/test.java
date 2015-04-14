@@ -157,7 +157,11 @@ public class test {
         //note that in order to create a patient you will first have
         //to create an employee that's a doctor. The login is still the 
         //same Admin1 Password1
-        fixDatabase();
+       // fixDatabase();
+        
+       String query = "UPDATE employees set firstName='Admin' where email ='admin1@sms.com'";
+       db = new Database("SMSDB2");
+       db.executeEmpUpdate(query);
                  
     }
     
