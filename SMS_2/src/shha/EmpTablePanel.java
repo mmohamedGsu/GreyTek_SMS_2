@@ -95,62 +95,65 @@ public class EmpTablePanel extends javax.swing.JPanel {
    
     //Method to capture the row that was Double Clicked on the table
     private void empTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empTableMouseClicked
-        if (evt.getClickCount() == 2) {
-        JTable target = (JTable)evt.getSource();
-        int row = target.getSelectedRow();
-        int column = target.getSelectedColumn();
+        if (Authentication.accessLevel > 2 ){
+            
         
-        Database db = new Database("SMSDB2");
-        ResultSet rs = db.queryEmployeeInfo(empTable.getValueAt(row, 4).toString());
-       
-        //Determine if Employee Table is in view
-        if (empContainerPanel.isShowing()){
-        
-        empContainerPanel.removeAll();
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
-        
-        try {
-            rs.next();
-            mainGUI2.empFirstNameText.setText(rs.getString(1));
-            mainGUI2.empMiddleIntText.setText(rs.getString(2));
-            mainGUI2.empLastNameText.setText(rs.getString((3)));
-            //skip column 4 which is username
-            //skip column 5 which is password
-            //column 6 is position
-            //column 7 is access level
-            mainGUI2.empSSNText.setText(rs.getString(8));
-            //column 9 is Sex
-            mainGUI2.empAddress1Text.setText(rs.getString(10));
-            mainGUI2.empAddress2Text.setText(rs.getString(11));
-            mainGUI2.empCityText.setText(rs.getString(12));
-            mainGUI2.empStateText.setText(rs.getString(13));
-            mainGUI2.empZipText.setText(rs.getString(14));
-            //15 is birth month
-            //16 is birth day
-            //17 is birth year
-            mainGUI2.empPhoneText.setText(rs.getString(18));
-            mainGUI2.empEmailText.setText(rs.getString(19));
-                       
-        } catch(SQLException e) {
-            System.out.println("Error parsing users");
-            System.out.println(e.toString());
-        }
-        
-        empContainerPanel.add(viewEmpPanel);
-        empContainerPanel.repaint();
-        empContainerPanel.revalidate();
-        }
-        
-        
-        if (adminContainerPanel.isShowing()){
-            RemoveEmpDialog opForm = new RemoveEmpDialog(new JFrame(), true);
-            opForm.setVisible(true);
-        }
-        
-             
-      }
-        
+            if (evt.getClickCount() == 2) {
+            JTable target = (JTable)evt.getSource();
+            int row = target.getSelectedRow();
+            int column = target.getSelectedColumn();
+
+            Database db = new Database("SMSDB2");
+            ResultSet rs = db.queryEmployeeInfo(empTable.getValueAt(row, 4).toString());
+
+            //Determine if Employee Table is in view
+            if (empContainerPanel.isShowing()){
+
+            empContainerPanel.removeAll();
+            empContainerPanel.repaint();
+            empContainerPanel.revalidate();
+
+            try {
+                rs.next();
+                mainGUI2.empFirstNameText.setText(rs.getString(1));
+                mainGUI2.empMiddleIntText.setText(rs.getString(2));
+                mainGUI2.empLastNameText.setText(rs.getString((3)));
+                //skip column 4 which is username
+                //skip column 5 which is password
+                //column 6 is position
+                //column 7 is access level
+                mainGUI2.empSSNText.setText(rs.getString(8));
+                //column 9 is Sex
+                mainGUI2.empAddress1Text.setText(rs.getString(10));
+                mainGUI2.empAddress2Text.setText(rs.getString(11));
+                mainGUI2.empCityText.setText(rs.getString(12));
+                mainGUI2.empStateText.setText(rs.getString(13));
+                mainGUI2.empZipText.setText(rs.getString(14));
+                //15 is birth month
+                //16 is birth day
+                //17 is birth year
+                mainGUI2.empPhoneText.setText(rs.getString(18));
+                mainGUI2.empEmailText.setText(rs.getString(19));
+
+            } catch(SQLException e) {
+                System.out.println("Error parsing users");
+                System.out.println(e.toString());
+            }
+
+            empContainerPanel.add(viewEmpPanel);
+            empContainerPanel.repaint();
+            empContainerPanel.revalidate();
+            }
+
+
+            if (adminContainerPanel.isShowing()){
+                RemoveEmpDialog opForm = new RemoveEmpDialog(new JFrame(), true);
+                opForm.setVisible(true);
+            }
+
+
+          }
+       }
     }//GEN-LAST:event_empTableMouseClicked
 
     

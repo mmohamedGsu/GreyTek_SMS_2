@@ -42,18 +42,20 @@ public class mainGUI2 extends javax.swing.JFrame {
 
          //positionImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Doctor_Icon_128.png")));
          
-         employeeIdent1.setText("Welcome: " +
+         employeeIdent1.setText(
                             Authentication.firstName + " " +
                             Authentication.lastName
 
                  );
          int accessLevel = Authentication.accessLevel;
+         String position = Authentication.position;
+         String lastName = Authentication.lastName;
+         String sex = Authentication.sex;
          
          switch(accessLevel) {
              case 1:    adminButton.setEnabled(false);
-                        
                         break;
-             case 2:
+             case 2:    adminButton.setEnabled(false);
                         break;
              case 3:    
                         break;
@@ -62,6 +64,49 @@ public class mainGUI2 extends javax.swing.JFrame {
              case 5:
                         break;
          }
+         
+         switch(sex){
+             case "Male":   
+                    switch(position){
+                case "Doctor":     empImageTopLabel.setIcon(
+                        new javax.swing.ImageIcon(getClass().getResource("/doctorsm.png")));
+                            break;
+                case "Nurse":      empImageTopLabel.setIcon(
+                        new javax.swing.ImageIcon(getClass().getResource("/nursemalesm.png")));
+                            break;
+                case "Receptionist":   empImageTopLabel.setIcon(
+                        new javax.swing.ImageIcon(getClass().getResource("/repmalesm.png")));
+                            break;
+                case "Administrator":  empImageTopLabel.setIcon(
+                        new javax.swing.ImageIcon(getClass().getResource("/adminsm.png")));
+                            break;
+            }
+             
+                case "Female":
+                    switch(position){
+                case "Doctor":     empImageTopLabel.setIcon(
+                        new javax.swing.ImageIcon(getClass().getResource("/femalesm.png")));
+                            break;
+                case "Nurse":      empImageTopLabel.setIcon(
+                        new javax.swing.ImageIcon(getClass().getResource("/nursesm.png")));
+                            break;
+                case "Receptionist":   empImageTopLabel.setIcon(
+                        new javax.swing.ImageIcon(getClass().getResource("/repsm.png")));
+                            break;
+                case "Administrator":  empImageTopLabel.setIcon(
+                        new javax.swing.ImageIcon(getClass().getResource("/adminfemalesm.png")));
+                            break;
+            }
+                 
+         }
+         
+        
+         switch(lastName){
+             case "Bhola":  empImageTopLabel.setIcon(
+                     new javax.swing.ImageIcon(getClass().getResource("/bholasm.png")));
+                         break;
+         }
+         
     }
 
    
@@ -227,8 +272,8 @@ public class mainGUI2 extends javax.swing.JFrame {
         buildLabel = new javax.swing.JLabel();
         timeClockButton = new javax.swing.JButton();
         employeeIdent1 = new java.awt.Label();
-        positionImage = new javax.swing.JLabel();
         timeLabel = new javax.swing.JLabel();
+        empImageTopLabel = new javax.swing.JLabel();
         smsMenuBar = new javax.swing.JMenuBar();
         patientsMenu = new javax.swing.JMenu();
         addPatientMenuItem = new javax.swing.JMenuItem();
@@ -237,6 +282,8 @@ public class mainGUI2 extends javax.swing.JFrame {
         apptMenu = new javax.swing.JMenu();
         createApptMenuItem = new javax.swing.JMenuItem();
         viewApptMenuItem = new javax.swing.JMenuItem();
+        reportsMenu = new javax.swing.JMenu();
+        billingMenu = new javax.swing.JMenu();
         TimeClockMenu = new javax.swing.JMenu();
         employeesMenu = new javax.swing.JMenu();
         adminMenu = new javax.swing.JMenu();
@@ -244,7 +291,7 @@ public class mainGUI2 extends javax.swing.JFrame {
         removeUserMenuItem = new javax.swing.JMenuItem();
         viewUsersMenuItem = new javax.swing.JMenuItem();
         logOutMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        logOutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1200, 800));
@@ -1790,10 +1837,13 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         }
     });
 
+    employeeIdent1.setAlignment(java.awt.Label.CENTER);
     employeeIdent1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-    employeeIdent1.setText("label1");
+    employeeIdent1.setText("Sheldon Gray");
 
     timeLabel.setText("time");
+
+    empImageTopLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/repsm.png"))); // NOI18N
 
     patientsMenu.setText("Patients");
     patientsMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1868,6 +1918,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     smsMenuBar.add(apptMenu);
 
+    reportsMenu.setText("Reports");
+    smsMenuBar.add(reportsMenu);
+
+    billingMenu.setText("Billing");
+    smsMenuBar.add(billingMenu);
+
     TimeClockMenu.setText("TimeClock");
     TimeClockMenu.addMouseListener(new java.awt.event.MouseAdapter() {
         public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1919,15 +1975,15 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     logOutMenu.setText("Log Out");
 
-    jMenuItem1.setText("Log Out");
-    jMenuItem1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-    jMenuItem1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-    jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+    logOutMenuItem.setText("Log Out");
+    logOutMenuItem.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+    logOutMenuItem.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+    logOutMenuItem.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jMenuItem1ActionPerformed(evt);
+            logOutMenuItemActionPerformed(evt);
         }
     });
-    logOutMenu.add(jMenuItem1);
+    logOutMenu.add(logOutMenuItem);
 
     smsMenuBar.add(logOutMenu);
 
@@ -1937,35 +1993,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addGap(55, 55, 55)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addComponent(logoLabel)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(387, 387, 387)
-                            .addComponent(positionImage, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(300, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(employeeIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(50, 50, 50))))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(reportsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(billButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(timeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(105, 105, 105))))
         .addGroup(layout.createSequentialGroup()
             .addGap(57, 57, 57)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -1974,7 +2001,38 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buildLabel))
                 .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1213, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addContainerGap(58, Short.MAX_VALUE))
+            .addGap(57, 57, 57))
+        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(apptButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(reportsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(billButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(logoLabel)
+                    .addGap(305, 305, 305)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(timeClockButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(empButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(adminButton, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(100, 100, 100))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(76, 76, 76)
+                            .addComponent(empImageTopLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(24, 24, 24))
+                        .addComponent(employeeIdent1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(38, 38, 38))))
     );
 
     layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {billButton, timeClockButton});
@@ -1984,13 +2042,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         .addGroup(layout.createSequentialGroup()
             .addGap(0, 0, 0)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addComponent(positionImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(0, 0, 0)
-                    .addComponent(employeeIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(100, 100, 100)))
+                    .addComponent(empImageTopLabel)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(employeeIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(patientsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2140,10 +2197,6 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_empStateTextMouseClicked
 
-    private void empCountryTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empCountryTextMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_empCountryTextMouseClicked
-
     private void empPositionComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empPositionComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_empPositionComboBoxActionPerformed
@@ -2218,8 +2271,43 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }//GEN-LAST:event_empAddress1TextMouseClicked
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        containerPanel.removeAll();
+    private void logOutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutMenuItemActionPerformed
+        patientsContainerPanel.removeAll();
+        patientsContainerPanel.repaint();
+        patientsContainerPanel.revalidate();
+        patientsContainerPanel.add(defaultPatientPanel);
+        patientsContainerPanel.repaint();
+        patientsContainerPanel.revalidate();
+        
+        apptContainerPanel.removeAll();
+        apptContainerPanel.repaint();
+        apptContainerPanel.revalidate();
+        apptContainerPanel.add(defaultApptPanel);
+        apptContainerPanel.repaint();
+        apptContainerPanel.revalidate();
+        
+        timeContainerPanel.removeAll();
+        timeContainerPanel.repaint();
+        timeContainerPanel.revalidate();
+        timeContainerPanel.add(defaultTimePanel);
+        timeContainerPanel.repaint();
+        timeContainerPanel.revalidate();
+        
+        empContainerPanel.removeAll();
+        empContainerPanel.repaint();
+        empContainerPanel.revalidate();
+        empContainerPanel.add(defaultEmpPanel);
+        empContainerPanel.repaint();
+        empContainerPanel.revalidate();
+        
+        adminContainerPanel.removeAll();
+        adminContainerPanel.repaint();
+        adminContainerPanel.revalidate();
+        adminContainerPanel.add(defaultAdminPanel);
+        adminContainerPanel.repaint();
+        adminContainerPanel.revalidate();
+        
+        
         this.dispose();
         
         //Custom Look and Feel Style 
@@ -2246,7 +2334,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
                 new LoginGUI().setVisible(true);
             }
         }); 
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_logOutMenuItemActionPerformed
 
     private void addNewPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewPatientButtonActionPerformed
         patientsContainerPanel.removeAll();
@@ -2468,6 +2556,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
         viewEmployeesButton.doClick();
     }//GEN-LAST:event_viewUsersMenuItemActionPerformed
 
+    private void empCountryTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empCountryTextMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_empCountryTextMouseClicked
+
 
 
     public static void main(String args[]) {
@@ -2531,6 +2623,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     public static javax.swing.JPanel articleTabPanel2;
     private javax.swing.JMenuItem assignedMenuItem;
     private javax.swing.JButton billButton;
+    private javax.swing.JMenu billingMenu;
     private javax.swing.JLabel bloodImageLabel;
     private javax.swing.JLabel bloodImageLabel1;
     private javax.swing.JLabel bloodImageLabel2;
@@ -2577,6 +2670,7 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.ButtonGroup empGenderButtonGroup;
     private javax.swing.JLabel empGenderLabel;
     private javax.swing.JLabel empImageLabel;
+    private javax.swing.JLabel empImageTopLabel;
     private javax.swing.JLabel empLastNameLabel;
     public static javax.swing.JTextField empLastNameText;
     public static javax.swing.JRadioButton empMaleRadioButton;
@@ -2608,10 +2702,10 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lastNameLabel;
     private javax.swing.JTextField lastNameText;
     private javax.swing.JMenu logOutMenu;
+    private javax.swing.JMenuItem logOutMenuItem;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JRadioButton maleRadioButton;
     private javax.swing.JLabel middleIntLabel;
@@ -2629,12 +2723,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
     private javax.swing.JLabel phoneLabel;
     private javax.swing.JTextField phoneText;
     private javax.swing.JComboBox positionComboBox;
-    private javax.swing.JLabel positionImage;
     private javax.swing.JLabel positionLabel;
     private javax.swing.JLabel positionLabel1;
     public static javax.swing.JButton removeUserButton;
     private javax.swing.JMenuItem removeUserMenuItem;
     private javax.swing.JButton reportsButton;
+    private javax.swing.JMenu reportsMenu;
     private javax.swing.JButton saveButton;
     private javax.swing.JMenuBar smsMenuBar;
     private javax.swing.JLabel ssnLabel;

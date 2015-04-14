@@ -80,6 +80,9 @@ public class PatientTablePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void patientTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientTableMouseClicked
+        
+        if (Authentication.accessLevel > 1){
+       
         if (evt.getClickCount() == 2) {
             JTable target = (JTable)evt.getSource();
             int row = target.getSelectedRow();
@@ -127,6 +130,7 @@ public class PatientTablePanel extends javax.swing.JPanel {
             patientsContainerPanel.repaint();
             patientsContainerPanel.revalidate();
         }
+      }
     }//GEN-LAST:event_patientTableMouseClicked
 
 

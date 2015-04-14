@@ -527,6 +527,12 @@ public void actionPerformed(java.awt.event.ActionEvent evt) {
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         clearAddPatientPanel();
+         patientsContainerPanel.removeAll();
+         patientsContainerPanel.repaint();
+         patientsContainerPanel.revalidate();
+         patientsContainerPanel.add(defaultPatientPanel);
+         patientsContainerPanel.repaint();
+         patientsContainerPanel.revalidate();
         
     }//GEN-LAST:event_cancelButtonActionPerformed
 
